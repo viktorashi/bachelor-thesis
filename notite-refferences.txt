@@ -5,3 +5,9 @@ Tellurium
 Medley et al. (2018). "Tellurium notebooks—An environment for reproducible dynamical modeling in systems biology." PLoS Computational Biology, 14(6), e1006220.
 
 Choi et al. (2018). "Tellurium: An extensible python-based modeling environment for systems and synthetic biology." Biosystems, 171, 74-79.
+
+buna rau poza asta de aici :
+https://bosonphoton.medium.com/mathematical-introduction-to-dynamical-systems-2d581fcb2444
+
+https://www.math.ucdavis.edu/~hunter/m207/m207.pdf
+

@@ -1,5 +1,5 @@
 *.aux
-main.bbl
+*.bbl
 main.blg
 main.dvi
 main.fdb_latexmk
