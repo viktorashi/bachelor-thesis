@@ -11,3 +11,5 @@ https://bosonphoton.medium.com/mathematical-introduction-to-dynamical-systems-2d
 
 https://www.math.ucdavis.edu/~hunter/m207/m207.pdf
 
+https://en.wikipedia.org/wiki/Implicit_function_theorem
+

@@ -4,27 +4,35 @@
 
 \section{Defining ODEs}
 \begin{definition}
-    \textit{An \textbf{ordinary differential equation} is an equation of an unknown function of one variable. This can be expressed as a function \textbf{OF} this unknown function and its various derivatives}.
+    \textit{An \textbf{ordinary differential equation} is an equation of an unknown function of one variable. This can be expressed as a function \textbf{of} this unknown function and its various derivatives}.
 \end{definition}
 Its general form looks something like:
 \begin{equation}\label{eq:3.1.1}
     F(t,y(t),y'(t),....,y^{(n)}(t))=0,
 \end{equation}
-Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega \rightarrow \mathbb{R},\hspace{0.1cm}\Omega \subseteq \mathbb{R}^{n+1}$.
+Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega \rightarrow \mathbb{R},\hspace{0.1cm}\Omega \subseteq \mathbb{R}^{n+1}$. \\
+This would be what's called the implicit form of the differential equation.
 
 \begin{definition}
     \textit{The \textbf{order} of an ODE is the highest order of the derivative present in the equation.}
 \end{definition}
-
 In our case, the order is $n$.
-If, however $F$ satisfies the regularity condition of the implicit theorem then the equation can be written in a much more digestible form.
+If, however $F$ satisfies the regularity condition of the implicit function theorem then the equation can be written in a much more digestible form. \\
+Restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
+$$
+    y^{(n)}(t)=f(t,y(t),y'(t),...,y^{(n-1)}(t))
+$$
+would yield what's called the \textbf{explicit} form of the ODE. \\
+
+The \textbf{implicit function theorem} allows one to convert a relation (implicit form) to functions of some variables. These functions may not be unique, but togather, their graph may locally satisfy the relation. \\
+As an example: The relation for the unit circle cannot be expressed as a sole function, we'd instead need the union of the graph of two sepperate functions for expressing it.
+(si aici gen faci tu niste graphuri cu maple sau alte d-astea vezi cum faci virtual machineu ala sau mergi la faculta la un pc cu maple si iti faci lista cu ce vrei sa graphuiesti)
 
 \begin{theorem}
-    \textit{If $F$ is continuously differentiable in $\Omega$ then the ODE can be written as:}
-    \begin{equation}\label{eq:3.1.2}
-        y^{(n)}=f(t,y,y',...,y^{(n-1)}),
-    \end{equation}
+    Let $F:\mathbb{R}^{n+1}\rightarrow\mathbb{R}$ be a continuously differentiale function. Let us express a point in the set $\mathbb{R}^{n+1} =\mathbb{R}\bigtimes\mathbb{R}^n$ as (t, \textbf{y}) = $(t, y_1, \dots, y_n)$
 \end{theorem}
+
+% zi aici ce inseamna continuously differentiale sau cauta pen et naibii ce inseamna condiia de regulariate ea teoremei aleia
 
 \section{Forming ODE systems}
 
