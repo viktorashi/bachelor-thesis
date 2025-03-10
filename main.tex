@@ -40,6 +40,9 @@
 
 \usepackage{amsthm}
 
+% sa facem teorma gotica lmao
+\usepackage{yfonts}
+
 %Code listing style named "mystyle"
 \lstdefinestyle{mystyle}{
   backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
@@ -64,8 +67,8 @@
 
 \begin{document}
 
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{theorem}{\textswab{Theorem}}
 \newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
@@ -121,6 +124,6 @@ cu prezentarea, pe scurt, a conținutului pe capitole, punând accent pe contrib
 %\addcontentsline{toc}{chapter}{Concluzii}
 %\addcontentsline{toc}{chapter}{Conclusions}
 
-\bibliography{references}
+\bibliography{references.bib}
 
 \end{document}

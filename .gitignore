@@ -11,3 +11,6 @@ main.fls
 *(busy)*
 .DS_Store
 .vscode/
+*bcf
+*xdv
+*run*

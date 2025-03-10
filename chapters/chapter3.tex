@@ -18,15 +18,10 @@ This would be what's called the implicit form of the differential equation.
 \end{definition}
 In our case, the order is $n$.
 If, however $F$ satisfies the regularity condition \textbf{of the implicit function theorem} then the equation can be written in a much more digestible form. \\
-Restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
-\begin{equation}\label{eq:3.1.2}
-    y^{(n)}(t)=f(t,y(t),y'(t),...,y^{(n-1)}(t))
-\end{equation}
-would yield what's called the \textbf{explicit} form of the ODE. \\
 
 The \textbf{implicit function theorem} allows one to convert a relation (implicit form) to functions of some variables. These functions may not be unique, but togather, their graph may locally satisfy the relation. \\
 As an example: The relation for a cardiod cannot be expressed as a sole function, we'd instead need the union of the graph of two separate functions for expressing it.
-(si aici gen faci tu niste graphuri cu maple sau alte d-astea vezi cum faci virtual machineu ala sau mergi la faculta la un pc cu maple si iti faci lista cu ce vrei sa graphuiesti) \\
+(si aici gen faci tu niste graphuri cu maple sau alte d-astea vezi cum faci virtual machineu ala sau mergi la faculta la un pc cu maple si iti faci lista cu ce vrei sa graphuiesti) \\ \\
 \textbf{Reminder}: A function $f(x)$ is continuously differentiable if $\exists f'(x)$ and $f'(x) \in C^n$ where $n>=0$
 
 \begin{theorem}
@@ -34,6 +29,12 @@ As an example: The relation for a cardiod cannot be expressed as a sole function
     So $\exists \square_{(t, \textbf{Y})} \ni U \bigtimes V \subseteq D$ s.t. $F \in C^1(U\bigtimes V)$ and $\frac{\partial F}{\partial y}(t, \textbf{Y}) \neq 0.$ Then this means $ \exists \square_{t} \ni U_0 \subseteq U,
         \square_{\textbf{Y}} \ni V_0 \subseteq V$ and a function $f : U_0 \rightarrow V_0$ s.t. $f(t) = \textbf{Y}$ and $F(t,f(t))=0, \forall t \in U_0; f \in C^1(U_0)$ and $\frac{\partial f}{\partial t_i} = - \frac{\frac{\partial F}{\partial t_i}(t,f(t))}{\frac{\partial F}{\partial y}(t,f(t))}, \forall i = \overline{1,n} , \forall t \in U_0$ and $F \in C^1(U \bigtimes V),K \in N^* \Rightarrow f \in C^K(U_0).$
 \end{theorem}
+
+So restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
+\begin{equation}\label{eq:3.1.2}
+    y^{(n)}(t)=f(t,y(t),y'(t),...,y^{(n-1)}(t))
+\end{equation}
+would yield what's called the \textbf{explicit} form of the ODE. \\
 
 A \textbf{solution} is an expression of the unknown function $y(t)$ which satisfies the relation \\
 $y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$. A \textbf{general solution} includes all of these functions and usually has some constants of integration in the expression, while a \textbf{particular solution} doesn't have them. \\
@@ -43,17 +44,26 @@ Or, more formally:
 \begin{definition}
     A function $y:I \rightarrow \mathbb{R}$ is a solution of the equation \ref{eq:3.1.1} if the following conditions are met:
 
-    1. $I \subseteq \mathbb{R}$is nondegeneate interval. ($|I|>1$)
+    1. $I \subseteq \mathbb{R}$ is nondegeneate interval. ($|I|>1$)
 
     2. $y \in C^n(I)$ and $(t,y(t), y'(t), \dots, y^{(n)}(t)) \in D_f, \forall t \in I$.
 
-    3. $y^{(n)}(t)= f(t,y(t),y'(t),\dots,y^(n-1)(t)), \forall t \in I$. ( \ref{eq:3.1.2} is satisfied)
+    3. $y^{(n)}(t)= f(t,y(t),y'(t),\dots,y^{ (n-1) }(t)), \forall t \in I$. ( \ref{eq:3.1.2} is satisfied)
 
 \end{definition}
 
-% zi aici ce inseamna continuously differentiale sau cauta pen et naibii ce inseamna condiia de regulariate ea teoremei aleia
-
 \section{Forming Ordinary Differential Equation systems}
+We may take a sequence of such oradinary differential equationsin order to form a system:
+
+$$
+    \begin{cases}
+        y'_1(t) = f_1(t,y_1(t),y_2(t),\dots,y_n(t)) \\
+        y'_2(t) = f_2(t,y_1(t),y_2(t),\dots,y_n(t)) \\
+        \vdots                                      \\
+        y'_n(t) = f_n(t,y_1(t),y_2(t),\dots,y_n(t))
+    \end{cases}
+$$
+
 
 
 \section{Applications of dynamical systems and classifications}
