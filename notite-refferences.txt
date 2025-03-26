@@ -12,3 +12,11 @@ https://www.math.ucdavis.edu/~hunter/m207/m207.pdf
 #asta mai putin academica
 buna rau poza asta de aici :
 https://bosonphoton.medium.com/mathematical-introduction-to-dynamical-systems-2d581fcb2444
+
+
+
+#astea de wiki la care ar trebui sa le iei referintele
+https://en.wikipedia.org/wiki/Phase_plane
+https://en.wikipedia.org/wiki/Orbit_(dynamics)
+https://en.wikipedia.org/wiki/Autonomous_system_(mathematics)#:~:text=In%20mathematics%2C%20an%20autonomous%20system,also%20called%20time-invariant%20systems.
+
