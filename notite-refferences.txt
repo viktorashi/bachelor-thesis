@@ -9,11 +9,12 @@ Choi et al. (2018). "Tellurium: An extensible python-based modeling environment 
 #asta mai academica
 https://www.math.ucdavis.edu/~hunter/m207/m207.pdf
 https://math.okstate.edu/people/binegar/4233/4233-l02.pdf
+https://www.math.umd.edu/courses/math246/NODE/2223F/Higher-Homo-CC.pdf
 
 #asta mai putin academica
 buna rau poza asta de aici :
 https://bosonphoton.medium.com/mathematical-introduction-to-dynamical-systems-2d581fcb2444
-https://www.math.umd.edu/courses/math246/NODE/2223F/Higher-Homo-CC.pdf
+
 
 
 #astea de wiki la care ar trebui sa le iei referintele
