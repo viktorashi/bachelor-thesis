@@ -15,6 +15,10 @@
 \usepackage{mathabx}
 \usepackage{amsmath}
 
+% sa scriu text peste egal
+\usepackage{mathtools}
+
+
 
 
 %\geometry{a4paper,top=2.5cm,left=3cm,right=2.5cm,bottom=2.5cm}
@@ -65,6 +69,11 @@
 
 %"mystyle" code listing set
 \lstset{style=mystyle}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
 
 \begin{document}
 
