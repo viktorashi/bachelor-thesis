@@ -4,6 +4,7 @@ main.blg
 main.dvi
 main.fdb_latexmk
 main.fls
+main.pdf
 *.log
 *.out
 *.toc
