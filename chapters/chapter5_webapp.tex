@@ -6,13 +6,15 @@
 
 \subsection{Overview of the technologies}
 The website is a back-end application built in \textbf{Python}, a programming language known for its use in basically every single science, including natural sciences so it's a no-brainer when in comes to plotting.
-The web server is built using \textbf{Flask}, a lightweight web app framework and the webpages served are server-side rendered by Flask's template engine depedency - \textbf{Jinja}.\\
+
+The web server is built using \textbf{Flask}, a lightweight web app framework and the webpages served are server-side rendered by Flask's template engine depedency - \textbf{Jinja}.
 \\
 The crux of the functionality is aided by the Python library \textbf{Tellurium}; which is, as their docs say; "A Python Environment for Reproducible Dynamical Modeling of Biological Networks". It uses a subset of the Systems Biology Markup Language ( \textbf{SBML}) called \textbf{Antimony} which can be used in this app to create a Chemical Reaction Network, as well as the friendlier selects form. So the bits doing the magic are the calls to \verb|road_runner.loada()| which are used to \textbf{\textit{load}}    \textbf{a}ntimony code into the model.
 the \verb|road_runner..simulate()| function is then used for running and obtaining sumulation data, followed by \verb|road_runner.plot()|, which in turn calls a \verb|matplotlib| headless backend for writing the plotted results to a file.
 
 \subsection{Running it}
 As explained in the \verb|README| of \href{https://github.com/viktorashi/Open-CoNtRol}{the project}, running locally is done automatically by the \verb|run_script.sh|, which figures out your machine's local IP, sets the required environment variables and runs \\
+
 \verb|flask --debug run --host="$ip"|. Output regarding traffic to the server as well as internal workings of the app will now be redirected to \verb|stdout| of the terminal. \\\\\\\\\\
 All the user has to do beforehand is:
 
@@ -52,13 +54,13 @@ Among the wall of output will also be the line showing the address your server i
 \verb|* Running on http://192.168.0.94:5000|, address at which you'll be greeted with this screen
 
 \[
-    \includegraphics[width=13cm]{app_photos/control_home_screen.png}\\
+  \includegraphics[width=13cm]{app_photos/control_home_screen.png}\\
 \]
 
 You can either use this as a starting point or the page located at the \verb|/antimony| path:
 
 \[
-    \includegraphics[width=13cm]{app_photos/control_antimony_home.png}\\
+  \includegraphics[width=13cm]{app_photos/control_antimony_home.png}\\
 \]
 Both of these redirect to \verb|/numerical_analysis| analysing the system \ldots well, numerically.
 As an example, this Antimony code:
@@ -74,19 +76,19 @@ F -> S0 + F; k5*F
 and its longer to write alternative:
 
 \[
-    \includegraphics[width=13cm]{app_photos/creca-prima-data-cand-am-scris-asta.png}\\
+  \includegraphics[width=13cm]{app_photos/creca-prima-data-cand-am-scris-asta.png}\\
 \]
 
 both yield the same numerical analysis results:
 
 \[
-    \includegraphics[width=13cm]{app_photos/numerical_analysis.png}\\
+  \includegraphics[width=13cm]{app_photos/numerical_analysis.png}\\
 \]
 
 from here, one can choose from a selection of graphs they can represent given this system, the default one being the time series representation:
 
 \[
-    \includegraphics[width=13cm]{app_photos/tsr-input.png}\\
+  \includegraphics[width=13cm]{app_photos/tsr-input.png}\\
 \]
 
 from which we fill out the initial values of the concentrations for each species as, well as the reaction rates. So given, for example the values:
@@ -108,14 +110,14 @@ from which we fill out the initial values of the concentrations for each species
 outcomes the graph:
 
 \[
-    \includegraphics[width=13cm]{app_photos/a-graph-indeed.png}\\
+  \includegraphics[width=13cm]{app_photos/a-graph-indeed.png}\\
 \].
 
 \subsection{The bottom line}
 
 So this is how the workflow of the app typically goes. \\
 $
-    \begin{WithArrows} & \textit{write out your system} \rightarrow \textit{get numerical analysis} \rightarrow \textit{choose your desired graph} \Arrow{\textit{fill out data values}}  \\
-        & \hfill \textbf{Voilà}
-    \end{WithArrows}
+\begin{WithArrows} & \textit{write out your system} \rightarrow \textit{get numerical analysis} \rightarrow \textit{choose your desired graph} \Arrow{\textit{fill out data values}}  \\
+  & \hfill \textbf{Voilà}
+\end{WithArrows}
 $
