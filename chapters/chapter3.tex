@@ -9,35 +9,41 @@ Its general form looks something like:
 \begin{equation}\label{ODE}
   F(t,y(t),y'(t),....,y^{(n)}(t))=0,
 \end{equation}
-Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega \rightarrow \mathbb{R},\hspace{0.1cm}\Omega \subseteq \mathbb{R}^{n+1}$. \\
+Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega \rightarrow \mathbb{R},\hspace{0.1cm}\Omega \subseteq \mathbb{R}^{n+1}$.
+% Removed line break and added paragraph
 This would be what's called the implicit form of the differential equation.
 
 \begin{definition}
   \textit{The \textbf{order} of an ODE is the highest order of the derivative present in the equation.}
 \end{definition}
 In our case, the order is $n$.
-If, however $F$ satisfies the regularity condition \textbf{of the implicit function theorem} then the equation can be written in a much more digestible form. \\
+If, however $F$ satisfies the regularity condition \textbf{of the implicit function theorem} then the equation can be written in a much more digestible form.
+% Removed line break
 
-The \textbf{implicit function theorem} allows one to convert a relation (implicit form) to functions of some variables. These functions may not be unique, but togather, their graph may locally satisfy the relation. \\
-As an example: The relation for a cardiod cannot be expressed as a sole function, we'd instead need the union of the graph of two separate functions for expressing it.
-(si aici gen faci tu niste graphuri cu maple sau alte d-astea vezi cum faci virtual machineu ala sau mergi la faculta la un pc cu maple si iti faci lista cu ce vrei sa graphuiesti) \\ \\
+The \textbf{implicit function theorem} allows one to convert a relation (implicit form) to functions of some variables. These functions may not be unique, but together, their graph may locally satisfy the relation.
+% Removed line break
+As an example: The relation for a cardioid cannot be expressed as a sole function, we'd instead need the union of the graph of two separate functions for expressing it.
+(si aici gen faci tu niste graphuri cu maple sau alte d-astea vezi cum faci virtual machineu ala sau mergi la faculta la un pc cu maple si iti faci lista cu ce vrei sa graphuiesti)
+
 \textbf{Reminder}: A function $f(x)$ is continuously differentiable if $\exists f'(x)$ and $f'(x) \in C^n$ where $n>=0$
 
 \begin{theorem}
-  Let $F:D \subseteq \mathbb{R}^{n+1}\rightarrow\mathbb{R}$ be a continuously differentiale function with the relation that $F(t,y(t),y'(t),....,y^{(n)}(t))=0$. Let us express a point in the set $\mathbb{R}^{n+1} =\mathbb{R}\bigtimes\mathbb{R}^n$ as (t, \textbf{Y}) = $(t, y,y', \dots, y^{ (n) })$ and fix one such point s.t. $F(t, \textbf{Y})=0$.
-  So $\exists \square_{(t, \textbf{Y})} \ni U \bigtimes V \subseteq D$ s.t. $F \in C^1(U\bigtimes V)$ and $\frac{\partial F}{\partial y}(t, \textbf{Y}) \neq 0.$ Then this means $ \exists \square_{t} \ni U_0 \subseteq U,
-  \square_{\textbf{Y}} \ni V_0 \subseteq V$ and a function $f : U_0 \rightarrow V_0$ s.t. $f(t) = \textbf{Y}$ and $F(t,f(t))=0, \forall t \in U_0; f \in C^1(U_0)$ and $\frac{\partial f}{\partial t_i} = - \frac{\frac{\partial F}{\partial t_i}(t,f(t))}{\frac{\partial F}{\partial y}(t,f(t))}, \forall i = \overline{1,n} , \forall t \in U_0$ and $F \in C^1(U \bigtimes V),K \in N^* \Rightarrow f \in C^K(U_0).$
+  Let $F:D \subseteq \mathbb{R}^{n+1}\rightarrow\mathbb{R}$ be a continuously differentiable function with the relation that $F(t,y(t),y'(t),....,y^{(n)}(t))=0$. Let us express a point in the set $\mathbb{R}^{n+1} =\mathbb{R}\bigtimes\mathbb{R}^n$ as (t, \textbf{Y}) = $(t, y,y', \dots, y^{ (n) })$ and fix one such point s.t. $F(t, \textbf{Y})=0$.
+  So $\exists \square_{(t, \textbf{Y})} \ni U \bigtimes V \subseteq D$ s.t. $F \in C^1(U\bigtimes V)$ and $\frac{\partial F}{\partial y}(t, \textbf{Y}) \neq 0.$ Then this means $ \exists \square_{t} \ni U_0 \subseteq U$,
+  $\square_{\textbf{Y}} \ni V_0 \subseteq V$ and a function $f : U_0 \rightarrow V_0$ s.t. $f(t) = \textbf{Y}$ and $F(t,f(t))=0, \forall t \in U_0; f \in C^1(U_0)$ and $\frac{\partial f}{\partial t_i} = - \frac{\frac{\partial F}{\partial t_i}(t,f(t))}{\frac{\partial F}{\partial y}(t,f(t))}, \forall i = \overline{1,n} , \forall t \in U_0$ and $F \in C^1(U \bigtimes V),K \in N^* \Rightarrow f \in C^K(U_0).$
 \end{theorem}
 
 So restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
 \begin{equation}\label{implicit_func_theorem}
   y^{(n)}(t)=f(t,y(t),y'(t),...,y^{(n-1)}(t))
 \end{equation}
-would yield what's called the \textbf{explicit} form of the ODE. \\
+would yield what's called the \textbf{explicit} form of the ODE.
+% Removed line break
 
-A \textbf{solution} is an expression of the unknown function $y(t)$ which satisfies the relation \\
-$y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$. A \textbf{general solution} includes all of these functions and usually has some constants of integration in the expression, while a \textbf{particular solution} doesn't have them. \\
-A particular solution is usually found if we also have some initial conditions given for the unknown function, like $y(a)=b, y'(a)=c$ for some $a,b,c  \in \mathbb{R}$.
+A \textbf{solution} is an expression of the unknown function $y(t)$ which satisfies the relation
+$y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$. A \textbf{general solution} includes all of these functions and usually has some constants of integration in the expression, while a \textbf{particular solution} doesn't have them.
+% Removed line break
+A particular solution is usually found if we also have some initial conditions given for the unknown function, like $y(a)=b, y'(a)=c$ for some $a,b,c \in \mathbb{R}$.
 Or, more formally:
 
 \begin{definition}
@@ -63,16 +69,16 @@ We may take a sequence of such first order ordinary differential equations to fo
   \end{cases}
 \end{equation}
 
-Constructing $y: D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n, f : D_f    \subseteq \mathbb{R}^{n+1} \rightarrow \mathbb{R}^n$ and denoting \\
-$y(t)= (y_1(t), \dots, y_n(t))$ and $f(t,y_1(t),\dots,y_n(t)) = (f_1,\dots,f_n) $ we get what is called the \textbf{ vector form} of the system \ref{3.2.1}.
+Constructing $y: D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n, f : D_f \subseteq \mathbb{R}^{n+1} \rightarrow \mathbb{R}^n$ and denoting
+$y(t)= (y_1(t), \dots, y_n(t))$ and $f(t,y_1(t),\dots,y_n(t)) = (f_1,\dots,f_n)$ we get what is called the \textbf{vector form} of the system \ref{3.2.1}.
 
 \begin{equation}\label{3.2.2}
   y'(t) = f (t, y(t))
 \end{equation}
 
 \begin{definition}
+  For a function $y:D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n$ , $|D| > 1$, if $y \in C^1(D,\mathbb{R}^n)$, and $y'(t) = f(t,y(t)), \forall t \in D \Rightarrow$ $y$ is a \textbf{solution of the system} \ref{3.2.2}.
 \end{definition}
-For a function $y:D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n$ , $|D| > 1$, if $y \in C^1(D,\mathbb{R}^n)$, and $y'(t) = f(t,y(t)), \forall t \in D \Rightarrow$ $y$ is a \textbf{solution of the system} \ref{3.2.2}.
 
 \begin{definition}
   An \textbf{autonomous equation} is a differential equation that does not explicitly depend on time, but is instead only defined by the relation between the function itself and its derivatives, so an equation of the form
@@ -85,18 +91,18 @@ For a function $y:D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n$ , $|D| > 1$, 
 One more famous such example is the equation for the damped oscillator
 \begin{equation}\label{eq:3.2.4}
   \ddot{x} + 2\gamma\dot{x} + \omega^2x = 0.
-\end{equation} \\
-Where \\
-\begin{itemize}
-  \item $\gamma$ is the damping factor, meaning how quickly the oscillations of the system decay due to loss of momentum (caused by air resistance or friction) \\
+\end{equation}
 
-  \item  $\omega$ represents the angular (natural) frequency the oscillator would have, were it not to be affected by damping, defined by
-    $\omega = \sqrt{\frac{k}{m}}$; where $k$ is the \textbf{elastic stiffness coefficient} of the spring and $m$ the mass. \\
+Where:
+\begin{itemize}
+  \item $\gamma$ is the damping factor, meaning how quickly the oscillations of the system decay due to loss of momentum (caused by air resistance or friction)
+
+  \item $\omega$ represents the angular (natural) frequency the oscillator would have, were it not to be affected by damping, defined by
+    $\omega = \sqrt{\frac{k}{m}}$; where $k$ is the \textbf{elastic stiffness coefficient} of the spring and $m$ the mass.
 \end{itemize}
 
 In addition, a frequently used notation in physics is
 $\dot{x} = \frac{d}{dt}x$ , $\ddot{x}=\frac{d^2}{dt^2}x$
-\\
 
 That equation is a \textbf{linear} homogenous equation with constant coefficients (hence autonomous), which is pretty nice to work with. Their general form would be:
 
@@ -129,24 +135,27 @@ The left-hand-side is the \textbf{characteristic polynomial} of the linear equat
 \[
   p(r) = 1 + a_1r + \dots + a_nr^n
 \]
-Notice that $L = p(D)$. \\
+Notice that $L = p(D)$.
+% Removed line break
 So now it all comes down to finding its roots $r$.
 
 Case \rom{1}: A \textbf{unique, real} root found:
 
-now $e^{rt}$ is a \textbf{fundamental solution} for $Le^{rt}=0$ \par
-\newpage
+now $e^{rt}$ is a \textbf{fundamental solution} for $Le^{rt}=0$
+
 Case \rom{2}: A \textbf{unique, complex} root found:
 
-say it has the form $r = \lambda \pm i\mu, \mu \neq 0$. \\
+say it has the form $r = \lambda \pm i\mu, \mu \neq 0$.
+% Removed line break
 By Euler's formula:
 \begin{equation}\label{euler}
   e^{rt} = e^{(\lambda + i\mu)t} = e^{\lambda t} \cdot e^{i \mu t}  =  e^{\lambda t} \cdot [\text{cos}(\mu t) + i \text{sin}(\mu t)]
 \end{equation}
 
-So $e^{\lambda t}\text{cos}(\mu t)$ and $e^{\lambda t}\text{sin}(\mu t)$ are both fundamental solutions for $Lx=0$.\\
+So $e^{\lambda t}\text{cos}(\mu t)$ and $e^{\lambda t}\text{sin}(\mu t)$ are both fundamental solutions for $Lx=0$.
 
-\textbf{Proof}: \par
+\textbf{Proof}:
+% Removed paragraph break here
 Since $a_i \in \mathbb{R}, \forall i=\overline{1,n}$ in $p \implies p(\overline{r})=\overline{p(r)}, \forall r \in \mathbb{C}$, hence, just like 2AM coffee and the exam session, complex roots of $p$ always come in pairs. They both satisfy:
 \begin{equation}\label{lin_op_solution}
   Le^{(\lambda \pm i \mu)} = 0
@@ -183,23 +192,28 @@ Using these three conclusions we get:
   \frac{1}{2i} \left( Le^{rt} - Le^{\overline{r}t} \right) \operatorSatisfy 0 ,
 \end{align*}
 
-In conclusion,if $Le^c=0$ for some $c \in \mathbb{C} \implies L\text{Re}(e^c)= L\text{Im}(e^c)=0, \text{for } \text{Re}(e^c), \text{Im}(e^c) \in \mathbb{R}$.
-Moreover, the same can be said for $e^{\overline{c}}$. \qed \\
+In conclusion, if $Le^c=0$ for some $c \in \mathbb{C} \implies L\text{Re}(e^c)= L\text{Im}(e^c)=0, \text{for } \text{Re}(e^c), \text{Im}(e^c) \in \mathbb{R}$.
+Moreover, the same can be said for $e^{\overline{c}}$. \qed
 
-Now something let's say ... \textbf{fundamental} (hehe) about these solutions, is they have to be linearly independent to eachother. Meaning the only solution for
+Now something let's say... \textbf{fundamental} (hehe) about these solutions, is they have to be linearly independent to each other. Meaning the only solution for
 \begin{equation}\label{liniar_independece}
   c_1 x_1+c_2 x_2 + \dots + c^n x^n = 0
 \end{equation}
 is the trivial solution $c_1=c_2=\dots=c_n=0$ where $x_i$ are the fundamental solutions of the system.
 
-So the reson I've emphasized "\textbf{unique}" in the first 2 cases was because If we're to apply those methods for \textbf{repeating} roots, meaning the ones with multiplicity $k>1$, the resulting solutions wouldn't hold \ref{liniar_independece} because they would in fact be the same! \\
+So the reason I've emphasized "\textbf{unique}" in the first 2 cases was because if we're to apply those methods for \textbf{repeating} roots, meaning the ones with multiplicity $k>1$, the resulting solutions wouldn't hold \ref{liniar_independece} because they would in fact be the same!
 
-To counteract this issue, the clever people over at the 1748 Berlin Academy (just Euler) came up with yet another (easily provable) Ansatz: just multiplying by powers of $x$. \\
+To counteract this issue, the clever people over at the 1748 Berlin Academy (just Euler) came up with yet another (easily provable) Ansatz: just multiplying by powers of $x$.
 
-A root with multiplicity $k$ would introduce yet another $k$ -for real- or $2k$ - for complex - fundamental solutions to this equation, so to finish what we've started:\\
+A root with multiplicity $k$ would introduce yet another $k$ -for real- or $2k$ - for complex - fundamental solutions to this equation, so to finish what we've started:
 
-Case \rom{3}: \textbf{Repeated, real} roots $r$ with multiplicity $k>1$ yield the fundamental solutions \\ $e^{rt}, xe^{rt}, \dots,x^{k-1}e^{rt}$. \\
-These can be verified that they do, in fact satisfy \ref{liniar_independece}. So can: \\
+Case \rom{3}: \textbf{Repeated, real} roots $r$ with multiplicity $k>1$ yield the fundamental solutions
+
+\[
+  e^{rt}, xe^{rt}, \dots,x^{k-1}e^{rt}.
+\]
+
+These can be verified that they do, in fact satisfy \ref{liniar_independece}. So can:
 
 Case \rom{4}: \textbf{Repeated, complex} roots $r$ with multiplicity $k>1$. These introduce the pairs:
 \begin{align*}
@@ -211,19 +225,19 @@ Case \rom{4}: \textbf{Repeated, complex} roots $r$ with multiplicity $k>1$. Thes
 
 So $2k$ new solutions.
 
-\textbf{The superposition principle} \\
-Bernoulli (to the disbelief of Euler and Langrange) told us that the complex behaviour of vibrating strings can be modeled by sepparating their motion into well-defined and easy to compute simple waves with known frequences and amplitudes, which can later be \textbf{superposed} with one-another to form the complete system.
-\\
+\textbf{The superposition principle}
 
-This principle can be applied to \textit{our} easier to compute \textbf{fundamental solutions} ($x_1,\dots,x_n$) in relation to the system formed by our linear operator $Lx =0 $.
-\\
+Bernoulli (to the disbelief of Euler and Langrange) told us that the complex behaviour of vibrating strings can be modeled by separating their motion into well-defined and easy to compute simple waves with known frequencies and amplitudes, which can later be \textbf{superposed} with one-another to form the complete system.
+
+This principle can be applied to \textit{our} easier to compute \textbf{fundamental solutions} ($x_1,\dots,x_n$) in relation to the system formed by our linear operator $Lx =0$.
 
 Since it's a linear operator, additivity and homogeneity apply:
 \begin{gather*}
   L(x_1+x_2) = Lx_1 + Lx_2\\
   aLx = L(ax) , \forall a \in \mathbb{C}
 \end{gather*}
-where $x,x_1,x_2$ are fundamental solutions of the system.\\
+where $x,x_1,x_2$ are fundamental solutions of the system.
+
 Hence the complete, final, \textbf{general} solution for \ref{lin_hom_eq_const} are linear combinations of all our previously found fundamental solutions:
 \[
   x(t) = c_1 x_1 + \dots + c_nx_n
@@ -231,11 +245,10 @@ Hence the complete, final, \textbf{general} solution for \ref{lin_hom_eq_const} 
 for some constants $c_i$.
 
 \section{Formally defining and characterizing dynamical systems}
-The reason why autonomous equations are so useful to us is because of the ease with which we can visualize the \textbf{ evolution} of a system of such equations.
+The reason why autonomous equations are so useful to us is because of the ease with which we can visualize the \textbf{evolution} of a system of such equations.
 Take, for example:
 \begin{definition}
-
-  A \textbf{ system of first-order autonomous equations} is a system of equations of the form
+  A \textbf{system of first-order autonomous equations} is a system of equations of the form
 
   \begin{equation}\label{fo_system_auton_eq}
     \begin{cases}
@@ -245,7 +258,6 @@ Take, for example:
       \dot{y}_n = f_n(y_1,\dots, y_n) \\
     \end{cases}
   \end{equation}
-
 \end{definition}
 
 \begin{definition}
@@ -255,24 +267,23 @@ Take, for example:
     \item Representing all possible values of $y_i$, $ i = \overline{1,n}$ as points in Euclidean space $S \subseteq \mathbb{R}^n$
 
     \item Constructing a function $f : S \rightarrow S, f(y_1,y_2,\dots,y_n) = (\dot{y}_1,\dot{y}_2,\dots,\dot{y}_n)$ that attaches to each point in $S$ a vector representing the direction in which to go such that the relation \ref{fo_system_auton_eq} is satisfied.
-
   \end{enumerate}
 \end{definition}
 
-Thus, the \textbf{phase space} of the system is a vector field where $f$ is a continuous vector valued function.\\
+Thus, the \textbf{phase space} of the system is a vector field where $f$ is a continuous vector valued function.
 
-So keeping this in mind, we may form a formal definition:\\
+So keeping this in mind, we may form a formal definition:
 
 \begin{definition}
-  A \textbf{dynamical system} is a tuple $(T,S,\Phi)$ where: \\
+  A \textbf{dynamical system} is a tuple $(T,S,\Phi)$ where:
 
   \begin{itemize}
     \item $T$: part of the $(T,+)$ monoid of all possible $time$ moments of our system
-    \item $S$: is the set of all possible states,and
+    \item $S$: is the set of all possible states, and
     \item the function: $\Phi : U \subseteq (T \times S ) \rightarrow S$ where values of the second component span all of $S$, meaning $proj_2(U) = S$.
   \end{itemize}
-  In order to give the necessary properties of $\Phi$ we will need to also define: \\
-  $I(s):= \{ t \in T | (t,s) \in U \}, \forall s \in S $\\
+  In order to give the necessary properties of $\Phi$ we will need to also define:
+  $I(s):= \{ t \in T | (t,s) \in U \}, \forall s \in S$
 
   so $\Phi$ has the properties that:
 
@@ -284,40 +295,33 @@ So keeping this in mind, we may form a formal definition:\\
 \end{definition}
 
 If we take a specific state $s$ as an initial constant, we can form the function
-
-$\Phi_s : I(s) \rightarrow S$ \\
+$\Phi_s : I(s) \rightarrow S$
 called the \textbf{flow} through $s$, whose image:
-
 $\gamma_s:=\{\Phi_s(t) | t\in I(s) \}$
 
 is the \textbf{orbit} through $s$,
 which is a curve of parameter $t \in I(s)$ representing the values the dynamical system will take throughout the experiment's timespan, given the initial condition (state) $s$.
 
-\hspace{20 mm}
-
-Since a point only belongs to one orbit, if we form the set \par
-
-$\Gamma_{U,\Phi}:=\{ \gamma_s | s \in S \}$  \\
-of all orbits of the dynamical system $(U,\Phi)$, with $U\subseteq (T \times S)$ and $\Phi$ the evolution function, it follows that: \\
+Since a point only belongs to one orbit, if we form the set
+$\Gamma_{U,\Phi}:=\{ \gamma_s | s \in S \}$
+of all orbits of the dynamical system $(U,\Phi)$, with $U\subseteq (T \times S)$ and $\Phi$ the evolution function, it follows that:
 $\forall \gamma_1,\gamma_2 \in \Gamma_{U, \Phi}, \gamma_1 \bigcap \gamma_2 = \emptyset$, meaning the set of orbits forms a partition of the phase space $S$
-\hspace{20 mm}
-\\
+
 \textbf{Proof:}
 Conditions for partitions:
-\par  \textbf{Reminder:} A partition $\Gamma_U$ of a set $U$ is a set of non-empty disjoint subsets of $U$ s.t.
+\par \textbf{Reminder:} A partition $\Gamma_U$ of a set $U$ is a set of non-empty disjoint subsets of $U$ s.t.
 
 \[
   \bigcup_{\gamma\in \Gamma_U} \gamma = U
 \]
 
-So we need to prove:\\
+So we need to prove:
 
 TODO: te apuci de asta mai incolo \par
 \rom{1}. $\gamma \subseteq U, \forall \gamma \in \Gamma_{U,\Phi}$ \par
 \rom{2}. $ \gamma \neq \emptyset, \forall \gamma \in \Gamma_{U,\Phi}$ \par
 \rom{3}. $\gamma_1 \bigcap \gamma_2 = \emptyset, \forall \gamma_1, \gamma_2 \in \Gamma_{U,\Phi}$ \par
 \rom{4}. $\bigcup_{\gamma\in \Gamma_U} \gamma = U$ \par
-\vspace{5mm}
 
 TODO: oki, deci aici zici cum se rezolva o ecuatie autonoma liniara in mod normal si despre solutiile fundamentale si independenta si dependa lor and stuff si dupa dai un mod echivalnt de a le rezolva cu metoda de mai jos care face un sistem din ele
 
@@ -339,7 +343,7 @@ Starting from any autonomous differential equation
 \]
 
 via a technique which associates to each respective derivative a state unknown (variable).
-This system's form depends on the solvability with respect to the highest derivative $y^{(n)}$. \\
+This system's form depends on the solvability with respect to the highest derivative $y^{(n)}$.
 The first form may be obtained if the above equation \textbf{can} be solved in terms of $y^{(n)}$, meaning it can be re-written as
 \begin{gather*}
   f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0 \\
@@ -360,7 +364,7 @@ Then we take the derivatives with respect to time of each of these equations, so
   \dot{y}_1 = y_2 \\
   \dot{y}_2 = y_3 \\
   \vdots \\
-  \dot{y}_{n-1} = y_n \\
+  \dot{y}_{n-1} = y_n
 \end{gather*}
 and this is where that beginning "solvability" part comes into play. The very last one will be exactly its solution defined earlier:
 \[
@@ -399,8 +403,6 @@ So the system would be:
 \]
 
 This is a differential-algebraic system of equations (DAE), which is beyond the scope of this thesis but figured I'd cover all cases (this one's usually solved via numerical methods).
-
-\vspace{10pt}
 
 Okay, but now since we know how to form systems from any autonomous equation \dots how does that make our lives easier in any way?
 
@@ -471,6 +473,8 @@ care poate fi gen rezolvat sa-i gasest eigen valusurile pe care le folosesti cu 
 
 Taking, in particular, a more complex autonomous differential equation; the one for the damped pendulum:
 
+IUBESC PITICU ME MITITEL SI MIC SI BEBE
+
 \begin{equation}\label{damped_pendulum}
   \ddot{\theta} +\mu\dot{\theta} + \frac{g}{L}\sin(\theta) = 0
 \end{equation}
@@ -526,7 +530,7 @@ si dupa mai gasesti un exemplu mistio in 3d
 
 arat dupa ce faci toate demonstratiile pentru n dimensiuni, niste poze si cazuri particulare in 2,3 dimensiuni, cv ce se paote vedea cu poze
 
-4. arata in state spaceu ala cum iti dai seama stabilitatea sistemului dand graficul oribtelor in vector spaceu ala ( sa mai pui si snite poze)\\
+4. arata in state spaceu ala cum iti dai seama stabilitatea sistemului dand graficul oribtelor in vector spaceu ala ( sa mai pui si snite poze)
 
 We can observe that the pendulum will not move an inch if it is just left in its "equilibrium" point hanging down ($\omega \equiv \theta \equiv 0$), but that like a coin left on its side, it will also stay still if started at the \textbf{polar} opposite angle in relation to the stability angle ($\omega =0 , \theta = 180 \degree)$, standing up.
 Althought, like a coin left standing on its side, even the slightest deviation will get it tumbling down. This can be observed in the system's phase portrait. The study of how much such changes in initial conditions influence later behaviour is what we call the \textbf{stability} of certain points inside the system.
