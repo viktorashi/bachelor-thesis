@@ -155,8 +155,7 @@ Since $a_i \in \mathbb{R}, \forall i=\overline{1,n}$ in $p \implies p(\overline{
 \end{equation}
 
 But since our $x : \mathbb{R} \rightarrow \mathbb{R}$ we're looking for \textbf{real} valued solutions.
-Because $\mu \in \mathbb{R}$ the following properties hold equivalently for $\lambda + i\mu$ and for $\overline{\lambda + i\mu}=\lambda - i\mu$ so I'll only write $\lambda \textbf{+} i \mu$ for simplicity.
-By \ref{euler}:
+Because $\mu \in \mathbb{R}$ the following properties hold equivalently for $\lambda + i\mu$ and for $\overline{\lambda + i\mu}=\lambda - i\mu$ so I'll only write $\lambda \textbf{+} i \mu$ for simplicity. By \ref{euler}:
 \begin{equation}\label{eulers_real_and_imaginary}
   \text{Re}(e^{rt})=e^{\lambda t} \cdot \text{cos}(\mu t), \hspace{2cm}    \text{Im}(e^{rt}) = e^{\lambda t} \cdot \text{sin}(\mu t).
 \end{equation}
@@ -202,7 +201,6 @@ To counteract this issue, the clever people over at the 1748 Berlin Academy (jus
 A root with multiplicity $k$ would introduce yet another $k$ -for real- or $2k$ - for complex - fundamental solutions to this equation, so to finish what we've started:
 
 Case \rom{3}: \textbf{Repeated, real} roots $r$ with multiplicity $k>1$ yield the fundamental solutions
-
 \[
   e^{rt}, xe^{rt}, \dots,x^{k-1}e^{rt}.
 \]
@@ -237,6 +235,7 @@ Hence the complete, final, \textbf{general} solution for \ref{lin_hom_eq_const} 
   x(t) = c_1 x_1 + \dots + c_nx_n
 \]
 for some constants $c_i$.
+\newpage
 \section{Formally defining and characterizing dynamical systems}
 The reason why autonomous equations are so useful to us is because of the ease with which we can visualize the \textbf{evolution} of a system of such equations.
 Take, for example:
@@ -288,10 +287,11 @@ So keeping this in mind, we may form a formal definition:
 \end{definition}
 
 If we take a specific state $s$ as an initial constant, we can form the function
+
 $\Phi_s : I(s) \rightarrow S$
 called the \textbf{flow} through $s$, whose image:
-$\gamma_s:=\{\Phi_s(t) | t\in I(s) \}$
 
+$\gamma_s:=\{\Phi_s(t) | t\in I(s) \}$
 is the \textbf{orbit} through $s$,
 which is a curve of parameter $t \in I(s)$ representing the values the dynamical system will take throughout the experiment's timespan, given the initial condition (state) $s$.
 
@@ -319,7 +319,6 @@ TODO: te apuci de asta mai incolo \par
 TODO: oki, deci aici zici cum se rezolva o ecuatie autonoma liniara in mod normal si despre solutiile fundamentale si independenta si dependa lor and stuff si dupa dai un mod echivalnt de a le rezolva cu metoda de mai jos care face un sistem din ele
 
 We may, in fact construct an equivalent system
-
 \[
   \begin{cases}
     \dot{y}_1 = f_1(y_1,\dots, y_n) \\
@@ -330,11 +329,9 @@ We may, in fact construct an equivalent system
 \]
 
 Starting from any autonomous differential equation
-
 \[
   f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0
 \]
-
 via a technique which associates to each respective derivative a state unknown (variable).
 This system's form depends on the solvability with respect to the highest derivative $y^{(n)}$.
 The first form may be obtained if the above equation \textbf{can} be solved in terms of $y^{(n)}$, meaning it can be re-written as
@@ -352,7 +349,7 @@ We first take each state unknown to be equal to their respective derivatives, so
   y_n = y^{(n-1)}
 \end{gather*}
 
-Then we take the derivatives with respect to time of each of these equations, so starting with $\dot{y}_1 = \dot{y}$, but $\dot{y} = y_2$, so $\dot{y_1}=y_2$. Continuing on like that, in a sort of diagonal fashion, we get:
+Then we take the derivatives with respect to time of each of these equations, so starting with $\dot{y}_1 = \dot{y}$, but $\dot{y} = y_2$, so $\dot{y_1}=y_2$. Continuing on like that, in a sort of diagonal fashion for all but the last state variable, we get:
 \begin{gather*}
   \dot{y}_1 = y_2 \\
   \dot{y}_2 = y_3 \\
@@ -376,7 +373,6 @@ So, putting this all together we can get the equivalent system of the autonomous
 \]
 
 Now, if instead of an actual function $G$ we only get an implicit form for a solution (\ref{implicit_func_theorem} isn't satisfied), we could write the original equation in terms of these new state variables:
-
 \begin{gather*}
   f(y(t), \dot{y}(t),\dots,y^{(n-1)},y^{(n)})= 0 \\
   \Updownarrow \\
@@ -384,7 +380,6 @@ Now, if instead of an actual function $G$ we only get an implicit form for a sol
 \end{gather*}
 
 So the system would be:
-
 \[
   \begin{cases}
     \dot{y}_1 = y_2     \\
@@ -401,8 +396,7 @@ Okay, but now since we know how to form systems from any autonomous equation \do
 
 Let's consider \ref{lin_hom_eq_const}, the equation we worked with previously. Now we can express it differently:
 
-we could first divide everything by $a_{n}$ so everything looks a bit better.
-
+We could first divide everything by $a_{n}$ so everything looks a bit better.
 \begin{gather*}
   \left. a_0 x + a_1\dot{x}+ \dots +a_{n} x^{(n)} = 0 \middle| \frac{1}{a_{n}} \right. \\
   \Updownarrow \\
@@ -410,7 +404,6 @@ we could first divide everything by $a_{n}$ so everything looks a bit better.
 \end{gather*}
 
 And now apply the aforementioned technique:
-
 \begin{gather*}
   x_1 = x     \\
   x_2 = \dot{x} \\
@@ -419,7 +412,6 @@ And now apply the aforementioned technique:
 \end{gather*}
 
 then:
-
 \[
   \begin{cases}
     \dot{x}_1 = x_2     \\
@@ -458,6 +450,12 @@ That is the same as:
     x_n
   \end{bmatrix}
 \end{align*}
+
+Writing it in compact form:
+\[
+  \dot{v}(x) = A v(x)
+\]
+With $v,$
 
 care poate fi gen rezolvat sa-i gasest eigen valusurile pe care le folosesti cu solutiile fundamentale sa gasesti eigenvectorsii respectivi pt eigenvalurieile alea si poti astfelll gen sa-ti dai seama stabilitatea sistemului => stabilitatea ecuatiei de la care ai plecat din prima gen.
 
