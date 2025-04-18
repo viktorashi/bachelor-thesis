@@ -9,8 +9,8 @@ Its general form looks something like:
 \begin{equation}\label{ODE}
   F(t,y(t),y'(t),....,y^{(n)}(t))=0,
 \end{equation}
-Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega \rightarrow \mathbb{R},\hspace{0.1cm}\Omega \subseteq \mathbb{R}^{n+1}$.
-% Removed line break and added paragraph
+Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega \rightarrow \mathbb{R},  \\ \Omega \subseteq \mathbb{R}^{n+1}$.
+
 This would be what's called the implicit form of the differential equation.
 
 \begin{definition}
@@ -18,31 +18,31 @@ This would be what's called the implicit form of the differential equation.
 \end{definition}
 In our case, the order is $n$.
 If, however $F$ satisfies the regularity condition \textbf{of the implicit function theorem} then the equation can be written in a much more digestible form.
-% Removed line break
 
 The \textbf{implicit function theorem} allows one to convert a relation (implicit form) to functions of some variables. These functions may not be unique, but together, their graph may locally satisfy the relation.
-% Removed line break
+
 As an example: The relation for a cardioid cannot be expressed as a sole function, we'd instead need the union of the graph of two separate functions for expressing it.
 (si aici gen faci tu niste graphuri cu maple sau alte d-astea vezi cum faci virtual machineu ala sau mergi la faculta la un pc cu maple si iti faci lista cu ce vrei sa graphuiesti)
 
 \textbf{Reminder}: A function $f(x)$ is continuously differentiable if $\exists f'(x)$ and $f'(x) \in C^n$ where $n>=0$
+
 
 \begin{theorem}
   Let $F:D \subseteq \mathbb{R}^{n+1}\rightarrow\mathbb{R}$ be a continuously differentiable function with the relation that $F(t,y(t),y'(t),....,y^{(n)}(t))=0$. Let us express a point in the set $\mathbb{R}^{n+1} =\mathbb{R}\bigtimes\mathbb{R}^n$ as (t, \textbf{Y}) = $(t, y,y', \dots, y^{ (n) })$ and fix one such point s.t. $F(t, \textbf{Y})=0$.
   So $\exists \square_{(t, \textbf{Y})} \ni U \bigtimes V \subseteq D$ s.t. $F \in C^1(U\bigtimes V)$ and $\frac{\partial F}{\partial y}(t, \textbf{Y}) \neq 0.$ Then this means $ \exists \square_{t} \ni U_0 \subseteq U$,
   $\square_{\textbf{Y}} \ni V_0 \subseteq V$ and a function $f : U_0 \rightarrow V_0$ s.t. $f(t) = \textbf{Y}$ and $F(t,f(t))=0, \forall t \in U_0; f \in C^1(U_0)$ and $\frac{\partial f}{\partial t_i} = - \frac{\frac{\partial F}{\partial t_i}(t,f(t))}{\frac{\partial F}{\partial y}(t,f(t))}, \forall i = \overline{1,n} , \forall t \in U_0$ and $F \in C^1(U \bigtimes V),K \in N^* \Rightarrow f \in C^K(U_0).$
 \end{theorem}
+//TODO : proof: trust me bro
 
 So restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
 \begin{equation}\label{implicit_func_theorem}
   y^{(n)}(t)=f(t,y(t),y'(t),...,y^{(n-1)}(t))
 \end{equation}
 would yield what's called the \textbf{explicit} form of the ODE.
-% Removed line break
 
 A \textbf{solution} is an expression of the unknown function $y(t)$ which satisfies the relation
 $y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$. A \textbf{general solution} includes all of these functions and usually has some constants of integration in the expression, while a \textbf{particular solution} doesn't have them.
-% Removed line break
+
 A particular solution is usually found if we also have some initial conditions given for the unknown function, like $y(a)=b, y'(a)=c$ for some $a,b,c \in \mathbb{R}$.
 Or, more formally:
 
@@ -59,7 +59,6 @@ Or, more formally:
 
 \section{Forming Ordinary Differential Equation systems}
 We may take a sequence of such first order ordinary differential equations to form a system:
-
 \begin{equation}\label{3.2.1}
   \begin{cases}
     y'_1(t) = f_1(t,y_1(t),y_2(t),\dots,y_n(t)) \\
@@ -69,7 +68,7 @@ We may take a sequence of such first order ordinary differential equations to fo
   \end{cases}
 \end{equation}
 
-Constructing $y: D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n, f : D_f \subseteq \mathbb{R}^{n+1} \rightarrow \mathbb{R}^n$ and denoting
+Constructing $y: D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n, f : D_f \subseteq \mathbb{R}^{n+1} \rightarrow \mathbb{R}^n$ and denoting \\
 $y(t)= (y_1(t), \dots, y_n(t))$ and $f(t,y_1(t),\dots,y_n(t)) = (f_1,\dots,f_n)$ we get what is called the \textbf{vector form} of the system \ref{3.2.1}.
 
 \begin{equation}\label{3.2.2}
@@ -105,7 +104,6 @@ In addition, a frequently used notation in physics is
 $\dot{x} = \frac{d}{dt}x$ , $\ddot{x}=\frac{d^2}{dt^2}x$
 
 That equation is a \textbf{linear} homogenous equation with constant coefficients (hence autonomous), which is pretty nice to work with. Their general form would be:
-
 \begin{equation}\label{lin_hom_eq_const}
   x + a_1\dot{x}+ \dots +a_{n} x^{(n)} = 0
 \end{equation}
@@ -116,9 +114,7 @@ Introducing the notion of \textbf{operators} would help in writing this next sec
 
 \begin{definition}
   $D = \frac{d}{dt}$ is the \textbf{derivation operator}:
-  $D^n = \frac{d^n}{dt^n}$, so $D^nu = D^n(u) =\frac{d^nu}{dt^n}$ where $u=u(t)$
-  \par
-  \hspace{20pt} and (related to \ref{lin_hom_eq_const}): \par
+  $D^n = \frac{d^n}{dt^n}$, so $D^nu = D^n(u) =\frac{d^nu}{dt^n}$ where $u=u(t)$ and (related to \ref{lin_hom_eq_const}): \par
   \hspace{20pt} $L = 1 + a_1D + \dots + a_nD^n$ \par
   \hspace{20pt} is the \textbf{linear differential operator of order n}. Meaning \ref{lin_hom_eq_const} $\iff Lx=0$.
 \end{definition}
@@ -135,8 +131,7 @@ The left-hand-side is the \textbf{characteristic polynomial} of the linear equat
 \[
   p(r) = 1 + a_1r + \dots + a_nr^n
 \]
-Notice that $L = p(D)$.
-% Removed line break
+Notice that $L = p(D)$. \\
 So now it all comes down to finding its roots $r$.
 
 Case \rom{1}: A \textbf{unique, real} root found:
@@ -145,8 +140,7 @@ now $e^{rt}$ is a \textbf{fundamental solution} for $Le^{rt}=0$
 
 Case \rom{2}: A \textbf{unique, complex} root found:
 
-say it has the form $r = \lambda \pm i\mu, \mu \neq 0$.
-% Removed line break
+say it has the form $r = \lambda \pm i\mu, \mu \neq 0$. \\
 By Euler's formula:
 \begin{equation}\label{euler}
   e^{rt} = e^{(\lambda + i\mu)t} = e^{\lambda t} \cdot e^{i \mu t}  =  e^{\lambda t} \cdot [\text{cos}(\mu t) + i \text{sin}(\mu t)]
@@ -154,8 +148,7 @@ By Euler's formula:
 
 So $e^{\lambda t}\text{cos}(\mu t)$ and $e^{\lambda t}\text{sin}(\mu t)$ are both fundamental solutions for $Lx=0$.
 
-\textbf{Proof}:
-% Removed paragraph break here
+\textbf{Proof}: \par
 Since $a_i \in \mathbb{R}, \forall i=\overline{1,n}$ in $p \implies p(\overline{r})=\overline{p(r)}, \forall r \in \mathbb{C}$, hence, just like 2AM coffee and the exam session, complex roots of $p$ always come in pairs. They both satisfy:
 \begin{equation}\label{lin_op_solution}
   Le^{(\lambda \pm i \mu)} = 0
@@ -192,7 +185,8 @@ Using these three conclusions we get:
   \frac{1}{2i} \left( Le^{rt} - Le^{\overline{r}t} \right) \operatorSatisfy 0 ,
 \end{align*}
 
-In conclusion, if $Le^c=0$ for some $c \in \mathbb{C} \implies L\text{Re}(e^c)= L\text{Im}(e^c)=0, \text{for } \text{Re}(e^c), \text{Im}(e^c) \in \mathbb{R}$.
+In conclusion, if $Le^c=0$ for some $c \in \mathbb{C} \implies L\text{Re}(e^c)= L\text{Im}(e^c)=0, \\
+\text{for } \text{Re}(e^c), \text{Im}(e^c) \in \mathbb{R}$.
 Moreover, the same can be said for $e^{\overline{c}}$. \qed
 
 Now something let's say... \textbf{fundamental} (hehe) about these solutions, is they have to be linearly independent to each other. Meaning the only solution for
@@ -243,7 +237,6 @@ Hence the complete, final, \textbf{general} solution for \ref{lin_hom_eq_const} 
   x(t) = c_1 x_1 + \dots + c_nx_n
 \]
 for some constants $c_i$.
-
 \section{Formally defining and characterizing dynamical systems}
 The reason why autonomous equations are so useful to us is because of the ease with which we can visualize the \textbf{evolution} of a system of such equations.
 Take, for example:
