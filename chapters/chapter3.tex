@@ -548,7 +548,7 @@ Derivating \ref{diag_trans_rel} and substituting into \ref{diag_matrix_init_sys}
 
 Everything comes down to solving the above eigenvalue problem.
 
-As stated in the above sections: $diag(D) = \{ \lambda | det(A - \lambda I_n) = 0 \}$ and it can also be found that the columns of $T$ are $A$'s corresponding eigenvectors.
+As stated in the above sections: $diag(D) = \{ \lambda | det(A - \lambda I_n) = 0 \}$ and it can also be found that the columns of $T$ are $A$'s corresponding eigenvectors $\xi_i$.
 
 After computing $A$'s eigenvalues, we've essentially also found $T$, now
 \[
@@ -572,9 +572,18 @@ Now we know the equations have the form
 \[
   x_i = T z_i(t), i = \overline{1,n}.
 \]
+Where $T$ is the $n \bigtimes n$ matrix whose columns are $A$ (not necesarily linearly independent) eigenvectors.
+\begin{equation*}
+  \begin{bmatrix*}
+    \vdots & \vdots & \dots & \vdots \\
+    \xi_1 & \xi_2 & \dots & \xi_n \\
+    \vdots & \vdots & \dots & \vdots \\
+  \end{bmatrix*}
+\end{equation*}
 Boom! You're golden.
 
 Now your coordinates are independent of eachother and can seemlessly be used to find the solutions in our system.
+\\
 
 care poate fi gen rezolvat sa-i gasest eigen valusurile pe care le folosesti cu solutiile fundamentale sa gasesti eigenvectorsii respectivi pt eigenvalurieile alea si poti astfelll gen sa-ti dai seama stabilitatea sistemului => stabilitatea ecuatiei de la care ai plecat din prima gen.
 
