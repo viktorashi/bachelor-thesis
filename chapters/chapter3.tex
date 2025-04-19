@@ -26,7 +26,6 @@ As an example: The relation for a cardioid cannot be expressed as a sole functio
 
 \textbf{Reminder}: A function $f(x)$ is continuously differentiable if $\exists f'(x)$ and $f'(x) \in C^n$ where $n>=0$
 
-
 \begin{theorem}
   Let $F:D \subseteq \mathbb{R}^{n+1}\rightarrow\mathbb{R}$ be a continuously differentiable function with the relation that $F(t,y(t),y'(t),....,y^{(n)}(t))=0$. Let us express a point in the set $\mathbb{R}^{n+1} =\mathbb{R}\bigtimes\mathbb{R}^n$ as (t, \textbf{Y}) = $(t, y,y', \dots, y^{ (n) })$ and fix one such point s.t. $F(t, \textbf{Y})=0$.
   So $\exists \square_{(t, \textbf{Y})} \ni U \bigtimes V \subseteq D$ s.t. $F \in C^1(U\bigtimes V)$ and $\frac{\partial F}{\partial y}(t, \textbf{Y}) \neq 0.$ Then this means $ \exists \square_{t} \ni U_0 \subseteq U$,
@@ -115,7 +114,7 @@ Introducing the notion of \textbf{operators} would help in writing this next sec
 \begin{definition}
   $D = \frac{d}{dt}$ is the \textbf{derivation operator}:
   $D^n = \frac{d^n}{dt^n}$, so $D^nu = D^n(u) =\frac{d^nu}{dt^n}$ where $u=u(t)$ and (related to \ref{lin_hom_eq_const}): \par
-  \hspace{20pt} $L = 1 + a_1D + \dots + a_nD^n$ \par
+  \hspace{20pt} $L = a_1D + \dots + a_nD^n$ \par
   \hspace{20pt} is the \textbf{linear differential operator of order n}. Meaning \ref{lin_hom_eq_const} $\iff Lx=0$.
 \end{definition}
 
@@ -128,9 +127,9 @@ We now can; just by pure Ansatz; assume the solutions take the form $e^{rt}$ for
   1 + a_1r + \dots + a_nr^n =0
 \end{gather*}
 The left-hand-side is the \textbf{characteristic polynomial} of the linear equation.
-\[
-  p(r) = 1 + a_1r + \dots + a_nr^n
-\]
+\begin{equation}\label{lin_eq_char_poly}
+  p(r) = a_1r + \dots + a_nr^n
+\end{equation}
 Notice that $L = p(D)$. \\
 So now it all comes down to finding its roots $r$.
 
@@ -184,9 +183,9 @@ Using these three conclusions we get:
   \frac{1}{2i} \left( Le^{rt} - Le^{\overline{r}t} \right) \operatorSatisfy 0 ,
 \end{align*}
 
-In conclusion, if $Le^c=0$ for some $c \in \mathbb{C} \implies L\text{Re}(e^c)= L\text{Im}(e^c)=0, \\
-\text{for } \text{Re}(e^c), \text{Im}(e^c) \in \mathbb{R}$.
-Moreover, the same can be said for $e^{\overline{c}}$. \qed
+In conclusion, if $Le^{ct}=0$ for some $c \in \mathbb{C} \implies L\text{Re}(e^{ ct })= L\text{Im}(e^{ct})=0, \\
+\text{for } \text{Re}(e^{ct}), \text{Im}(e^{ct}) \in \mathbb{R}$.
+Moreover, the same can be said for $e^{\overline{c}t}$. \qed
 
 Now something let's say... \textbf{fundamental} (hehe) about these solutions, is they have to be linearly independent to each other. Meaning the only solution for
 \begin{equation}\label{liniar_independece}
@@ -453,9 +452,129 @@ That is the same as:
 
 Writing it in compact form:
 \[
-  \dot{v}(x) = A v(x)
+  \dot{x} = A x
 \]
-With $v,$
+With $x, \dot{x}$ 2 $n$ sized column vectors and $A$ an $n \bigtimes n$ matrix.
+
+Now notice that
+\[
+  \text{det}(A- r I_n)
+\]
+
+Is precisely the char. poly. \ref{lin_eq_char_poly}. So the $r$ solutions for
+\[
+  \text{det}(A - r I_n) =0
+\]
+(a.k.a the eigenvalues of the A matrix) are also the roots of \ref{lin_eq_char_poly}. So solving for them would obtain the solutions
+\[
+  x_i = e^{rt}x_i(0)
+\]
+for $i = \overline{1,n}$.
+
+A much simpler example of a system that can be solved by not even having to make such computations is that of a \textbf{decoupled} dyamical system. Alas one where each state variable only depends on itself. Common examples that come to mind would be the concentration of a homogenous substance in an isolated tank while under the influence of heat transfer. This wouldn't really be a "system" so we could take multiple such tanks in a lab, where they are indeed sepparated from one-another but still form the system.
+\begin{equation*}
+  \begin{cases}
+    \dot{x}_1 = \lambda_1 x_1 \\
+    \dot{x}_2 = \lambda_2 x_2 \\
+    \vdots \\
+    \dot{x}_n = \lambda_n x_n
+  \end{cases}
+\end{equation*}
+
+The system's matrix $D$ is now:
+\begin{equation*}
+  D =
+  \begin{bmatrix}
+    \lambda_1 & 0 & 0 &\dots & 0 \\
+    0 & \lambda_2 & 0 & \dots & 0 \\
+    0 & 0 & \lambda_3 & \dots & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \dots & \lambda_n
+  \end{bmatrix}
+\end{equation*}
+
+We notice that our solutions will now take the form
+\[
+  x = e^{Dt}x(0)
+\]
+
+where $\cdot^A : \mathbb{R} \rightarrow M_n(\mathbb{R})$ for an $A = (a)_{ij} \in M_n(\mathbb{R})$ is defined as:
+\[
+  \alpha^A = (\alpha^a)_{ij}
+\]
+
+so
+\begin{align*}
+  \underline{x} =
+  \begin{bmatrix}
+    e^{\lambda_1} & 0 & 0 &\dots & 0 \\
+    0 & e^{\lambda_2} & 0 & \dots & 0 \\
+    0 & 0 & e^{\lambda_3} & \dots & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \dots & e^{\lambda_n}
+  \end{bmatrix}
+  \underline{x}(0)
+\end{align*}
+Where I use $\underline{x}$ to denote the \textbf{vector form} of a the state-space vars.
+In conclusion, it'd be ideal for us to work with such \textbf{diagonal} matrices.
+
+There are, however situations when we don't have that luxury, so we could instead \textbf{transofrm} the way we write our $x$'s (and hence, our transformation as well) in order for us \textbf{diagonalize} our system. This would decouple the system and simplify the computations.
+
+This is pretty straight-forward:
+
+Starting from the system
+\begin{equation}\label{diag_matrix_init_sys}
+  \dot{x} = A x
+\end{equation}
+we need to find a transformation $T$ from our coordinate system
+\begin{equation}\label{diag_trans_rel}
+  x = Tz
+\end{equation}
+s.t. our dynamics are decoupled (the new transformation matrix $D$ is diagonal)
+\[
+  \dot{z} = Dz
+\]
+Derivating \ref{diag_trans_rel} and substituting into \ref{diag_matrix_init_sys}:
+\begin{gather*}
+  \left. x = Tz \middle| \frac{d}{dt} \right. \iff
+  \dot{x} = T\dot{z} = Ax = ATz \Rightarrow \dot{z} = T^{-1} A T z = Dz \\
+  \text{Which allows us to find an invertible } T \text{ s.t.} \\
+  \text{the diagonal matrix } D \text{ is the conjugate of (similar to) } A \text{ w.r.t. } T \\
+  \left. T^{-1} A T z = Dz \middle| \frac{T}{z}
+  \right. \\
+  \Updownarrow \\
+  A T = T D.
+\end{gather*}
+
+Everything comes down to solving the above eigenvalue problem.
+
+As stated in the above sections: $diag(D) = \{ \lambda | det(A - \lambda I_n) = 0 \}$ and it can also be found that the columns of $T$ are $A$'s corresponding eigenvectors.
+
+After computing $A$'s eigenvalues, we've essentially also found $T$, now
+\[
+  D = T^{-1} A T
+\]
+is used to find the diagonal matrix which will decouple our dynamics in the new coordinate system $z = T^{-1} x$; $\dot{z} = D z$.
+
+Transforming back into our world, the solutions (in vector form) are:
+\begin{gather*}
+  \underline{z}(t) = e^{Dt}\underline{z}(0) \\
+  \Updownarrow \\
+  T^{-1} \underline{x}(t) = e^{Dt} T^{-1} \underline{x}(0) \\
+  \Updownarrow \\
+  \underline{x}(t) = T e^{Dt} T^{-1} \underline{x}(0). \\
+  \Updownarrow \\
+  \underline{x}(t) = T e^{Dt} \underline{z}(0). \\
+  \Updownarrow \\
+  \underline{x}(t) = T \underline{z}(t).
+\end{gather*}
+Now we know the equations have the form
+\[
+  x_i = T z_i(t), i = \overline{1,n}.
+\]
+Boom! You're golden.
+
+Now your coordinates are independent of eachother and can seemlessly be used to find the solutions in our system.
 
 care poate fi gen rezolvat sa-i gasest eigen valusurile pe care le folosesti cu solutiile fundamentale sa gasesti eigenvectorsii respectivi pt eigenvalurieile alea si poti astfelll gen sa-ti dai seama stabilitatea sistemului => stabilitatea ecuatiei de la care ai plecat din prima gen.
 
