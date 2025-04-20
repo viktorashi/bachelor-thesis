@@ -655,16 +655,16 @@ Althought, like a coin left standing on its side, even the slightest deviation w
 
 The study of how much such changes in initial conditions (or just the passing of time itself) influence later behaviour is what we call the \textbf{stability}.
 
-In general, of a system: \ref{fo_system_auton_eq}, written in the compact form
+In general, for a system: \ref{fo_system_auton_eq}, written in the compact form
 \[
-\underline{\dot{y}}(t) = \underline{f}(\underline{y}(t)).
+\dot{y}(t) = \underline{f}(y(t)).
 \]
 
 we have:
 \begin{definition}
 \textbf{Equilibrium (fixed) points} $y_0$ those satisfying:
 
-$ \underline{f}(y_0) = 0 = \underline{\dot{y}}(t) $
+$ \underline{f}(y_0) = 0 = \dot{y}(t) $
 
 Which are classified into:
 
@@ -676,7 +676,7 @@ $\qquad \qquad \forall \epsilon > 0, \exists \delta > 0 \text{ s.t. } $:
   \text{\rom{1}: } \forall y(0) \in S \text{ for which } \norm{y(0) - y_0} < \delta \implies \exists y(t), \forall t >= 0.  \tag{\rom{1}}
 \end{equation}
 \begin{equation} \label{cond:stable2}
-  \text{\rom{2}: } \norm{y_0 - y(t)} < \epsilon \quad \forall t >= 0. \tag{\rom{2}}
+  \text{\rom{2}: } \norm{ y(t) - y_0 } < \epsilon \quad \forall t >= 0. \tag{\rom{2}}
 \end{equation}
 
 \textbf{Unstable equilibriums}:
@@ -685,11 +685,17 @@ If either \eqref{cond:stable1} or \eqref{cond:stable2} don't hold
 \textbf{Asymptotically stable equilibriums}:
 Subset of \textbf{stable equilibria} for which:
 \begin{equation}\label{cond:asympt_stable}
-  \text{\rom{3}: } \lim_{t \rightarrow \infty}
+  \text{\rom{3}: } \lim_{t \rightarrow \infty} \norm{y(t) - y_0}  = 0 \text{ for those whose } \norm{ y(0) - y_0} < \delta \tag{\rom{3}}
 \end{equation}
-\[\infty\]
 
-\textbf{Isolated equilibriums}:
+And as opposed to, say  a continuum of fixed points we have:
+
+\textbf{Isolated equilibrium}:
+
+A fixed point $y_0$ is said to be \textbf{isolated} if
+\[
+  \exists \delta > 0 \text{ s.t. } \forall y \text{ satifying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
+\]
 
 \end{definition}
 
