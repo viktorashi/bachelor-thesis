@@ -651,7 +651,9 @@ arata in state spaceu ala cum iti dai seama stabilitatea sistemului dand graficu
 \vskip\bigskipamount
 
 We can observe that the pendulum will not move an inch if it is just left in its "equilibrium" point hanging down ($\omega \equiv \theta \equiv 0$), but that like a coin left on its side, it will also stay still if started at the \textbf{polar} opposite angle in relation to the stability angle ($\omega =0 , \theta = 180 \degree)$, standing up.
-Althought, like a coin left standing on its side, even the slightest deviation will get it tumbling down. This can be observed in the system's phase portrait.
+Although, like a coin left standing on its side, even the slightest deviation will get it tumbling down. This can be observed in the system's phase portrait.
+
+\newpage
 
 The study of how much such changes in initial conditions (or just the passing of time itself) influence later behaviour is what we call the \textbf{stability}.
 
@@ -671,7 +673,7 @@ Which are classified into:
 \textbf{Stable equilibriums}:
 A point $y_0 \in S$ that:
 
-$\qquad \qquad \forall \epsilon > 0, \exists \delta > 0 \text{ s.t. } $:
+$\qquad \qquad \forall \epsilon > 0, \exists \delta > 0 : $:
 \begin{equation} \label{cond:stable1}
   \text{\rom{1}: } \forall y(0) \in S \text{ for which } \norm{y(0) - y_0} < \delta \implies \exists y(t), \forall t >= 0.  \tag{\rom{1}}
 \end{equation}
@@ -679,10 +681,10 @@ $\qquad \qquad \forall \epsilon > 0, \exists \delta > 0 \text{ s.t. } $:
   \text{\rom{2}: } \norm{ y(t) - y_0 } < \epsilon \quad \forall t >= 0. \tag{\rom{2}}
 \end{equation}
 
-\textbf{Unstable equilibriums}:
+\textbf{Unstable equilibriums (or repeller)}:
 If either \eqref{cond:stable1} or \eqref{cond:stable2} don't hold
 
-\textbf{Asymptotically stable equilibriums}:
+\textbf{Asymptotically stable equilibriums (or attractors)}:
 Subset of \textbf{stable equilibria} for which:
 \begin{equation}\label{cond:asympt_stable}
   \text{\rom{3}: } \lim_{t \rightarrow \infty} \norm{y(t) - y_0}  = 0 \text{ for those whose } \norm{ y(0) - y_0} < \delta \tag{\rom{3}}
@@ -694,10 +696,22 @@ And as opposed to, say  a continuum of fixed points we have:
 
 A fixed point $y_0$ is said to be \textbf{isolated} if
 \[
-  \exists \delta > 0 \text{ s.t. } \forall y \text{ satifying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
+  \exists \delta > 0 : \forall y \text{ satifying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
 \]
-
 \end{definition}
+
+Classifying the stabilty for a system comes down to looking at the way each state variable evolves with time.
+
+For a linear system, looking at the eigenvalues of the transformation is enough to classify the stabilty of the entire system; taking into consideration how the solutions look; like so:
+
+Taking the eigenvalues
+\begin{gather*}
+\lambda_1 \dots \lambda_n; \\
+\text{ \rom{1} if: } Re(\lambda_i) < 0, \forall i = \overline{1,n} \implies \text{the system is stable }. \\
+\text{ \rom{2} if: } \exists I \subset \mathbb{N} \text{ a set of indices } : \forall i \in I, Re(\lambda_i) = 0 \text{ and } \\
+\forall k \in \{ 1 , \dots n \} \setminus I, Re(\lambda_k) < 0 \implies  \text{ the system is only \textbf{marginally stable.}} \\
+\text{ \rom{3} if: } \exists i = \overline{1,n} : Re(\lambda_i) > 0 \implies \text{system is \textbf{unstable}.}
+\end{gather*}
 
 TODO:
 5. arata poza de clasificarea sistemelor, dat
