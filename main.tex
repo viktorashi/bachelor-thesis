@@ -13,15 +13,31 @@
 
 % pt nr reale
 \usepackage{amssymb, amsmath, amsthm}
+% sa pot sa pun ce label vreau pe ecuatii
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 % sa desenez cerculetele alea
 \usepackage{tikz}
 
 % pt produsu cartezian
 \usepackage{mathabx}
+% sa pot sa fac modulul cu 2 bari gen normu
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
 
 % sa scriu text peste egal
 \usepackage{mathtools}
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
 
 %\geometry{a4paper,top=2.5cm,left=3cm,right=2.5cm,bottom=2.5cm}
 %in style

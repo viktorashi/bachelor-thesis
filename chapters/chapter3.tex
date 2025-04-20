@@ -240,7 +240,6 @@ The reason why autonomous equations are so useful to us is because of the ease w
 Take, for example:
 \begin{definition}
   A \textbf{system of first-order autonomous equations} is a system of equations of the form
-
   \begin{equation}\label{fo_system_auton_eq}
     \begin{cases}
       \dot{y}_1 = f_1(y_1,\dots, y_n) \\
@@ -505,7 +504,7 @@ where $\cdot^A : \mathbb{R} \rightarrow M_n(\mathbb{R})$ for an $A = (a)_{ij} \i
 
 so
 \begin{align*}
-  \underline{x} =
+  \underline{x}(t) =
   \begin{bmatrix}
     e^{\lambda_1} & 0 & 0 &\dots & 0 \\
     0 & e^{\lambda_2} & 0 & \dots & 0 \\
@@ -582,17 +581,16 @@ Where $T$ is the $n \bigtimes n$ matrix whose columns are $A$ (not necesarily li
 \end{equation*}
 Boom! You're golden.
 
-Now your coordinates are independent of eachother and can seemlessly be used to find the solutions in our system.
-\\
+Now the transformation only scales the basis vectors in our new coordinate system and we can use this to our advantage to find solutions in that system, then turn them back into our original system to see which values they correspond to.
+\vskip\bigskipamount
 
-care poate fi gen rezolvat sa-i gasest eigen valusurile pe care le folosesti cu solutiile fundamentale sa gasesti eigenvectorsii respectivi pt eigenvalurieile alea si poti astfelll gen sa-ti dai seama stabilitatea sistemului => stabilitatea ecuatiei de la care ai plecat din prima gen.
+Okay but what if my system is not linear? \textbf{Then} how will forming its corresponding system help me?
 
-//TODO:1. prima data dai exemple de sisteme liniare si cum fac ecuatiile diferentiale sa se pupe cu algebra liniara si de toate felurile in care poti sa rezolvi algebreic sisteme de ecuatii diferentiale ,eigenvalues eigenvectors din astea \par
-2. SI dupaa zici okay but what if my system is not linear? \textbf{Then} how will forming its corresponding system help me? Si dai exemplul cu pendumulul, reintroducand idea de phase space si cum poti sa-l formezi tu acum folosind metoda de mai sus (o sa-i dau un nume mai incolo s-o referentiezi)
+\vskip\bigskipamount
+Si dai exemplul cu pendumulul, reintroducand idea de phase space si cum poti sa-l formezi tu acum folosind metoda de mai sus (o sa-i dau un nume mai incolo s-o referentiezi)
+\vskip\bigskipamount
 
 Taking, in particular, a more complex autonomous differential equation; the one for the damped pendulum:
-
-IUBESC PITICU ME MITITEL SI MIC SI BEBE
 
 \begin{equation}\label{damped_pendulum}
   \ddot{\theta} +\mu\dot{\theta} + \frac{g}{L}\sin(\theta) = 0
@@ -643,16 +641,58 @@ This would in turn form the phase portrait of the dynamical system, described by
 \end{cases}
 \]
 
-\par
+\vskip\bigskipamount
 TODO: faci tu dupa aici un plot in matlab frumusel
 si dupa mai gasesti un exemplu mistio in 3d
 
 arat dupa ce faci toate demonstratiile pentru n dimensiuni, niste poze si cazuri particulare in 2,3 dimensiuni, cv ce se paote vedea cu poze
 
-4. arata in state spaceu ala cum iti dai seama stabilitatea sistemului dand graficul oribtelor in vector spaceu ala ( sa mai pui si snite poze)
+arata in state spaceu ala cum iti dai seama stabilitatea sistemului dand graficul oribtelor in vector spaceu ala ( sa mai pui si snite poze)
+\vskip\bigskipamount
 
 We can observe that the pendulum will not move an inch if it is just left in its "equilibrium" point hanging down ($\omega \equiv \theta \equiv 0$), but that like a coin left on its side, it will also stay still if started at the \textbf{polar} opposite angle in relation to the stability angle ($\omega =0 , \theta = 180 \degree)$, standing up.
-Althought, like a coin left standing on its side, even the slightest deviation will get it tumbling down. This can be observed in the system's phase portrait. The study of how much such changes in initial conditions influence later behaviour is what we call the \textbf{stability} of certain points inside the system.
+Althought, like a coin left standing on its side, even the slightest deviation will get it tumbling down. This can be observed in the system's phase portrait.
+
+The study of how much such changes in initial conditions (or just the passing of time itself) influence later behaviour is what we call the \textbf{stability}.
+
+In general, of a system: \ref{fo_system_auton_eq}, written in the compact form
+\[
+\underline{\dot{y}}(t) = \underline{f}(\underline{y}(t)).
+\]
+
+we have:
+\begin{definition}
+\textbf{Equilibrium (fixed) points} $y_0$ those satisfying:
+
+$ \underline{f}(y_0) = 0 = \underline{\dot{y}}(t) $
+
+Which are classified into:
+
+\textbf{Stable equilibriums}:
+A point $y_0 \in S$ that:
+
+$\qquad \qquad \forall \epsilon > 0, \exists \delta > 0 \text{ s.t. } $:
+\begin{equation} \label{cond:stable1}
+  \text{\rom{1}: } \forall y(0) \in S \text{ for which } \norm{y(0) - y_0} < \delta \implies \exists y(t), \forall t >= 0.  \tag{\rom{1}}
+\end{equation}
+\begin{equation} \label{cond:stable2}
+  \text{\rom{2}: } \norm{y_0 - y(t)} < \epsilon \quad \forall t >= 0. \tag{\rom{2}}
+\end{equation}
+
+\textbf{Unstable equilibriums}:
+If either \eqref{cond:stable1} or \eqref{cond:stable2} don't hold
+
+\textbf{Asymptotically stable equilibriums}:
+Subset of \textbf{stable equilibria} for which:
+\begin{equation}\label{cond:asympt_stable}
+  \text{\rom{3}: } \lim_{t \rightarrow \infty}
+\end{equation}
+\[\infty\]
+
+\textbf{Isolated equilibriums}:
+
+\end{definition}
 
 TODO:
-5. arata poza de clasificarea sistemelor, dat \\
+5. arata poza de clasificarea sistemelor, dat
+\vskip\bigskipamount

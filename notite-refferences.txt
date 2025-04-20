@@ -10,6 +10,7 @@ Choi et al. (2018). "Tellurium: An extensible python-based modeling environment 
 https://www.math.ucdavis.edu/~hunter/m207/m207.pdf
 https://math.okstate.edu/people/binegar/4233/4233-l02.pdf
 https://www.math.umd.edu/courses/math246/NODE/2223F/Higher-Homo-CC.pdf
+https://www.math.utah.edu/~gustafso/s2013/2250/lectureslides2250/references/lectureslides2250/systems/DynSysStability.pdf
 
 #asta mai putin academica
 buna rau poza asta de aici :
@@ -22,3 +23,5 @@ https://en.wikipedia.org/wiki/Phase_plane
 https://en.wikipedia.org/wiki/Orbit_(dynamics)
 https://en.wikipedia.org/wiki/Autonomous_system_(mathematics)#:~:text=In%20mathematics%2C%20an%20autonomous%20system,also%20called%20time-invariant%20systems.
 https://en.wikipedia.org/wiki/Stability_theory
+https://en.wikipedia.org/wiki/Steady_state
+https://en.wikipedia.org/wiki/Equilibrium_point_(mathematics)
