@@ -104,7 +104,7 @@ $\dot{x} = \frac{d}{dt}x$ , $\ddot{x}=\frac{d^2}{dt^2}x$
 
 That equation is a \textbf{linear} homogenous equation with constant coefficients (hence autonomous), which is pretty nice to work with. Their general form would be:
 \begin{equation}\label{lin_hom_eq_const}
-  x + a_1\dot{x}+ \dots +a_{n} x^{(n)} = 0
+  a_0 x + a_1\dot{x}+ \dots +a_{n} x^{(n)} = 0
 \end{equation}
 
 Finding exact solutions, though, can be done by using some nice properties of Euler's exponential function $e^{rt}$.
@@ -114,17 +114,17 @@ Introducing the notion of \textbf{operators} would help in writing this next sec
 \begin{definition}
   $D = \frac{d}{dt}$ is the \textbf{derivation operator}:
   $D^n = \frac{d^n}{dt^n}$, so $D^nu = D^n(u) =\frac{d^nu}{dt^n}$ where $u=u(t)$ and (related to \ref{lin_hom_eq_const}): \par
-  \hspace{20pt} $L = a_1D + \dots + a_nD^n$ \par
+  \hspace{20pt} $L = a_0 + a_1D + \dots + a_nD^n$ \par
   \hspace{20pt} is the \textbf{linear differential operator of order n}. Meaning \ref{lin_hom_eq_const} $\iff Lx=0$.
 \end{definition}
 
 We now can; just by pure Ansatz; assume the solutions take the form $e^{rt}$ for some (yet unknown) $r$'s. Because the exponential is so easy to work with when it comes to taking derivatives - a.k.a. : $D^n(e^{rt})=r^ne^{rt}$, so its derivatives are proportional to itself, meaning no new $t$'s are introduced - substituting back into \ref{lin_hom_eq_const} yields
 \begin{gather*}
-  Le^{rt} = e^{rt} + a_1 De^{rt} + \dots +a_{n} D^ne^{rt} = 0      \\
+  Le^{rt} = a_0 e^{rt} + a_1 De^{rt} + \dots +a_{n} D^ne^{rt} = 0      \\
   \Updownarrow \\
-  e^{rt}+a_1re^{rt} + \dots + a_nr^ne^{rt} =0 \\
+  a_0 e^{rt}+a_1re^{rt} + \dots + a_nr^ne^{rt} =0 \\
   \Updownarrow \\
-  1 + a_1r + \dots + a_nr^n =0
+  a_0 + a_1r + \dots + a_nr^n =0
 \end{gather*}
 The left-hand-side is the \textbf{characteristic polynomial} of the linear equation.
 \begin{equation}\label{lin_eq_char_poly}
@@ -497,9 +497,9 @@ We notice that our solutions will now take the form
   x = e^{Dt}x(0)
 \]
 
-where $\cdot^A : \mathbb{R} \rightarrow M_n(\mathbb{R})$ for an $A = (a)_{ij} \in M_n(\mathbb{R})$ is defined as:
+where $\cdot^A : \mathbb{C} \rightarrow \mathbb{C}^{n \bigtimes m}$ for an $A = (a_{ij}) \in \mathbb{C}^{n \bigtimes m}$ is defined as:
 \[
-  \alpha^A = (\alpha^a)_{ij}
+  \alpha^A = (\alpha^{a_{ij}}_{ij})
 \]
 
 so
@@ -717,8 +717,6 @@ The behaviour can also be classified looking at Im:
 \begin{gather*}
 Im(\lambda_i) = 0 : \text{The system has no oscillations in the direction of } \lambda_i \text{'s eigenvectors.} \\
 Im(\lambda_i) \neq 0 : \text{The system has oscillations in the direction of } \lambda_i \text{'s eigenvectors:} \\
-\text{if: } Im(\lambda_i) < 0 : \text{ the oscillations start downwards.} \\
-\text{if: } Im(\lambda_i) > 0 : \text{ the oscillations start upwards.} \\
 \end{gather*}
 
 This can be seen by \ref{euler} (Euler) because of how complex values are related to rotations.
@@ -733,34 +731,81 @@ For a 2x2 Linear system with transform matrix $A$, plotting different systems by
 
 Taking the same concept and applying it to non-linear systems we would have:
 
-For a non-linear autonomous system we can look at a zoomed-in portion of whichever equilibrium points we have and locally approximate their stabilty by means of the Taylor series at that particular point, which would infer the stabilty of that point in the greater context of the non-linear system.
+For a non-linear autonomous system we can look at a zoomed-in portion of whichever equilibrium points we have and we may be able to locally approximate their stabilty by means of the Taylor series at that particular point, which would infer the stabilty of that point in the greater context of the non-linear system.
 
 So for a system \ref{auton_sys_compact}
 \[
 \dot{y}(t) = \underline{f}(y(t)).
 \] that has a fixed point $y_f \implies \underline{f}(y_f) = 0$:
 
-If $f \in \mathbb{C}^\infty$, the Taylor around $y_f$:
-\[
-\underline{f}(x) = \underline{f}(y_f) + \left. \frac{d \underline{f}}{dy} \right|_{y_f}(y - y_f) + \mathfrak{H}(y - y_f) = J_{\underline{f}}(y_f)(y - y_f) + \mathfrak{H}(y - y_f)
-\]
+If $f \in C^\infty(\mathbb{R}^n) $, the Taylor about $y_f$:
+\begin{equation}\label{eq:t_taylor_expansion}
+\underline{f}(y) = \underline{f}(y_f) + \left. \frac{d \underline{f}}{dy} \right|_{y_f}(y - y_f) + \mathfrak{H}(y - y_f) = J_{\underline{f}}(y_f)(y - y_f) + \mathfrak{H}(y - y_f) \tag{Taylor}
+\end{equation}
 
-$\mathfrak{H}$ is the rest of Taylor's terms, a sort of error.
+$\mathfrak{H}$ is the rest of Taylor's terms which, for values near the one we're analysing can be neglected since everything looks like a line when you're that zoomed-in eitherway.
 
 $J_{\underline{f}}(y_f)$ is the Jacobian matrix of $\underline{f}$ evaluated at point $y_f$.
 
 \textbf{Reminder:}
 \begin{definition}
-The Jacobian matrix of a vector-valued vector function $f : D \subseteq \mathbb{R}^n \rightarrow S \subseteq \mathbb{R}^m$, $f(x_1, \dots, x_n) = (y_1, \dots , y_m), f \in D(\mathbb{R}^n)$ is $J_f \in \mathbb{R}^{m \bigtimes n}$ defined as:
+The Jacobian matrix of a vector-valued vector function $f : D \subseteq \mathbb{R}^n \rightarrow S \subseteq \mathbb{R}^m$, $f(x_1, \dots, x_n) = (y_1, \dots , y_m) \quad [f(x) = (y_1, \dots , y_m)], f \in D(\mathbb{R}^n)$ is $J_f \in \mathbb{R}^{m \bigtimes n}$ an alogue for its first-order derivative, defined as:
 \begin{align*}
   J_f = \left[ \frac{\partial f}{\partial x_1}, \dots , \frac{\partial f}{\partial x_n}  \right] =
   \begin{bmatrix*}
     \frac{\partial y_1}{\partial x_1} & \dots & \frac{\partial y_1}{\partial x_n} \\
     \vdots & \ddots & \vdots \\
     \frac{\partial y_m}{\partial x_1} & \dots &  \frac{\partial y_m}{\partial x_n}
-  \end{bmatrix*}
+  \end{bmatrix*} =
+  \frac{df}{dx} =
+  \left(   \frac{\partial y_i}{\partial x_j} \right)_{ij | 1 \leqslant i \leqslant n, 1 \leqslant j \leqslant m}
 \end{align*}
 \end{definition}
+
+\newcommand\eqCuzOfSys{\stackrel{\mathclap{\normalfont\mbox{\ref{auton_sys_compact}}}}{=\joinrel=\joinrel=}}
+
+Using the change of variables $\zeta = y - y_f$ and (\ref{eq:t_taylor_expansion}):
+\begin{gather} \label{eq:lin_approx}
+\dot{\zeta} = \dot{y} \eqCuzOfSys \underline{f}(y) \approx J_{\underline{f}}(y_f)(\zeta)  \notag \\
+\Updownarrow \notag \\
+\dot{\zeta} \approx J_{\underline{f}}(y_f)(\zeta). \tag{Lin. Approx.}
+\end{gather}
+To obtain the system's linear estimate at the fixed point $y_f$, which approximates $\underline{f}(y)$ better as $y \rightarrow y_f$.
+
+\begin{theorem}
+If $\exists J_{\underline{f}}^{-1}(y_f) \implies y_f$ is an \textbf{isolated eq. point}.
+\end{theorem}
+
+\newpage
+
+\textbf{Proof:}
+Let's try proving the flip-side of this;
+
+Assume  $\exists J_{\underline{f}}^{-1}(y_f)$ and $y_f$ is not isolated $\implies$
+
+$ \implies \exists y'_f \neq y_f : \underline{f}(y'_f) = 0, \norm{y_f - y'_f} < \epsilon , \forall \epsilon > 0$.
+
+Then, taking (\ref{eq:t_taylor_expansion}) about $y'_f$ and the var. change $\zeta = y - y'_f \implies \dot{\zeta} \approx J_{\underline{f}}(y'_f)(\zeta). $
+
+But because $f(y'_f) =0 \implies J_{\underline{f}}(y'_f)(\zeta) = 0$ and since the substitution has to hold $\forall y : \norm{y - y'_f} < \epsilon$, including $\norm{y - y'_f}|_{y \equiv y_f} > 0 \implies J_{\underline{f}(y'_f)} = 0
+\quad \lightning \quad \exists J_{\underline{f}}^{-1}(y'_f)$" \qed
+
+\vspace{20pt}
+However, $\exists J_{\underline{f}}^{-1}(y_f) \nLeftarrow y_f$, in general.
+
+Unfortunately, though, using this method we can only find the stabilty of a subclass of equilibrium points and non-linear systems.
+
+So for a nonlinear system $\dot{y} = \underline{f}(y)$ and its lin. approx. \ref{eq:lin_approx} $\dot{\zeta} = J(y_f)\zeta$ about fixed state $y_f$ we can only show if (in the context of the non-linear system) that fixed point is either:
+
+1.\textbf{Asymptotically stable} if $Re(\lambda) < 0, \forall \lambda \in Eig(J(y_f))$ (where $Eig(A)$ is the set of all eigenvalues of the matrix A).
+
+2.\textbf{Unstable} if $\exists \lambda \in Eig(J(y_f)) : Re(\lambda)> 0$.
+
+i.e. One can only show Asymptotic (or in-) stabilty, although in the case:
+
+$Re(\lambda) \leqslant  0 \forall \lambda \in Eig(J(y_f)) \text{ and } \exists \lambda : Re(\lambda) = 0 $ the results are inconclusive and can't be implied for the non-linear system. Further analysis, which, like (DAE)'s is beyond the scope of this thesis (and my current knowledge), but maybe one day..
+
+// TODO: HAI MA CA NU ESTI PROST invata si despre lyapuov mai bine sa poti sa vorbesti despre dansul dupa ce zici din astea mai de specifice de chimie ca sigur o sa ajute cu ceva na pana mea
 
 TODO:
 5. arata poza de clasificarea sistemelor, dat
