@@ -25,6 +25,41 @@ NU MI VINA SA CREDD ERA DEL A AMSMATH PENTRU CA CICA TREBUIE SA DAI LOAD LA TOAT
 AMS* urile INAINTE  de oricare alt package care manipuleaza mate and shittt WHATT BRUBRURB
 
 
-aparent daca vrei sa faci spatii nu mai da intr-una newline gen \\ dupa sau inainte de un space gol, poti sai- devinesti tu un veritical space gen cu ::
+aparent daca vrei sa faci spatii nu mai da intr-una newline gen
+dupa sau inainte de un space gol, poti sai- devinesti tu un veritical space gen cu ::
 \vskip\bigskipamount
 n-am intels 1000% cum functioneaza dar da
+
+############## astea care erau in rtf inainte ##########################################
+ TOATE  teoremele pe care le dai tre sa le bagi si demonstratie
+
+in general daca vrei sa desenzi astea cu phosphrylation dephosphrylation folosesti tikzpictures (oare paote el sa-mi dea codu ala care genereaza?)
+nu copia chiar tot din conradi ca a facut el rezumat intr-un fel la ce e mai important in prezentare ca conradi are multe blablauri   
+  
+din papaerul lui conradi capitlul 2.2 Teh existence of hobf bifurcation  
+  
+si te uiti si in prezentarea lui  
+  
+I. prima definesti ce-i un hobf  
+	sa modifici acolo la ce a dat el copypate sa o refolmuezi sa cv vezi tu  
+  
+II. proving exiistence  
+de la Conradi:  
+probabil poti sa iei din conradi introducerea  
+	definitia 1 de la hurwitz detemrinant si polinomiali caracteristici  
+propozitia 1.1 din prezetare avem nevoie sa vedem existenta  
+demonstratia propozitiei  
+Youngs criterion (prosopsition) ca se folose  uc0  u537 te (ori gasesti la conradi ori iei direct din prezentare)  
+  
+III. dupa un capitol de ruling out simple hobf bifuccation ( adica despre absence)  
+Doar Theorma 1.1  e si la conradi ( Theorem1) cu proof-ul teoremei inrt-adevar  
+  
+  
+IV. Convex parameters pentru ca toate calculele sunt facute in parametiri convexi  
+Tot la conradi prezinta ce sunt aia parametrii convexi  
+  
+fa cand ne da informatiile teoreticile sa ne dea si rankul  
+in dreapta sus langa stoichiometric matrix sa scrie acl la numerical analysis  
+  
+  
+sa zic la comisie ca targetu e sa facem ce avm in maple in aplicatie in python}
