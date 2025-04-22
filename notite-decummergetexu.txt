@@ -1,0 +1,30 @@
+daca merge cv prost cu ghostscriptu provided de mactex, poti sa-ti downloadezi tu al tau de pe homebrew si doar dai custom installation in tex live utility
+
+ok bn defapt sa dai disable de tot ca nu-ti trebuie deloc ala, poti sal faci sa ti-l foloseeasca direct doar pe ala de-l ai din brew deja
+
+
+daca vrei sa adaugi mai multe style files and such tre sa faci texmf in library gen in texmf/tex/latex si acolo o sa uite latex sa le gaseasca
+
+~/Library/texmf/tex/latex
+
+sau sub directories de acl
+
+da ma deci efectiv daca dau -f force flag pe latexmk m-i rse rndeaza ok table of contentsu
+
+si defapt TOOTOT chiar si formaturile ciudate SI SAGETIILE ALEA DEJ OS OMGOMGOMG, 
+
+doar nu-mi da refresh pdf vieweru tre sa vad care-i faaza cu ala
+
+sauu poate nu-i trebuie -f dar doar sa fie latexmk din ala normal, nu luatex nu nmk
+
+sii poate nu-si da refresh fiindca n-a dat succesful build or sumth si merge doar daca e succesul buildu?? 
+
+ok creca celelate nu megeau doar fiindca aefectiv nu aveau -f flagul deci dwa, ala e cam essential, aia o avea oare si overleaf sauu =))
+
+NU MI VINA SA CREDD ERA DEL A AMSMATH PENTRU CA CICA TREBUIE SA DAI LOAD LA TOATE 
+AMS* urile INAINTE  de oricare alt package care manipuleaza mate and shittt WHATT BRUBRURB
+
+
+aparent daca vrei sa faci spatii nu mai da intr-una newline gen \\ dupa sau inainte de un space gol, poti sai- devinesti tu un veritical space gen cu ::
+\vskip\bigskipamount
+n-am intels 1000% cum functioneaza dar da
