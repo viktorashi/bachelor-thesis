@@ -73,6 +73,11 @@ pl sunt prost zice ca "typically causes a limit cycle" kkt ca nu cauzeaza nimic 
 
 aa creca fix la punctu critical cand partea reala e fix zero no atunci are limit cycles da daca se mai schimba un pic dupa bft
 
+nu prea inteleg ce e aia distributiv in contextu ciclurilor de (de)phsoshprelatie? 
+gen dist. in mate e gen=)) o opera tie e distrutive in relatie cu alta daca
+a*(b + c) = a*b + a*c
+inseamna la fel ca si cum ca * e fosforelatie si + e de-psphorelatie?? maybe mayhapss sincer
+
 #################### done cat de cat cred ####################
 implicit function theoremm?? help
 
