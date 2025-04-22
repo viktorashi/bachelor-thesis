@@ -1,3 +1,19 @@
+#IMPORTANT
+pana acm am folosit latexmk cu optiunea de -f forced gen ca sa-mi mearga asta , deci da, sa se stie, comanda pe care o face extensie de latex-workshop e 
+
+            "command": "latexmk",
+            "args": [
+                "-f",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+
+			
 daca merge cv prost cu ghostscriptu provided de mactex, poti sa-ti downloadezi tu al tau de pe homebrew si doar dai custom installation in tex live utility
 
 ok bn defapt sa dai disable de tot ca nu-ti trebuie deloc ala, poti sal faci sa ti-l foloseeasca direct doar pe ala de-l ai din brew deja

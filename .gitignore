@@ -1,21 +1,7 @@
-*.aux
-*.bbl
-main.blg
-main.dvi
-main.fdb_latexmk
-main.fls
-main.pdf
-*.bbl-SAVE-ERROR
-*.log
-*.out
-*.toc
-*.synctex*
 *(busy)*
 .DS_Store
 .vscode/
-*bcf
-*xdv
-*run*
+build/
 
 # pt astea de codare ce mai fac
 *__pycache__*
