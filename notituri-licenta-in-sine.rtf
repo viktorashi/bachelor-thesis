@@ -46,15 +46,32 @@ ce sunt alea conservation laws si de ce zice numai pentr un anumit sistem ca a s
 
 ar fi prea misto daca as face in manim accompaniying animations pt chestia asta sa le explice asta chiar ar fi de 11, da mai intai sa le fucking inteleg si sa scriu despre ele
 
-COAIE AM INTEES ACUM
-BIFURCATION E LA UN PUNCT IN CARE DACA TE DUCI INTR-O PARTE MERGI CATRE UN STEADY STATE CARE CONVERGE si daca mergi invers in celealtla parte face divergence la mama drq
+BIFURACTII:::
+nu, prostule, o bifurcatie are legatura cu cv parametru de care depind ecuatiile tale, si daca eigenvalsuerile transformatii pt anumite valori ale parametrului tau sunt 0 toate, mai putin unele singure care sa fie negative, atunci gen cand mai schimbi in directia aia in care merge parametrul o sa isi schimbe stabilitatea punctu ala de echilibru si se produce o bifurcatie
 
-sauu ba chiar inverss omgg gen 
-afara poate sa fie staateul stabil care il aduce inauntru
-dupa cand ajunge inauntru intra un state instabil care iese pe dinafara
-si se face loop infinit, DE AIA IES CERCURILE ALEA HOLY MOTHERCUKGIN 
+a si pt "domninant eigenvalue" da, e doar aia care are magnitutdinea cea mai mare, gen chiar si daca e complexa, si daca e negativa, doar daca o are pe cea mai mare, practic singuru eigenvalueu care o sa ajunga sa influenteze sistemul cu cat iei limita numarului de ori cu cat aplici transofrmarea, ca in animatia aia cu vulpile si iepurii pe care am vazut-o cu bubu meu
 
+cand iei gen
+lim[k-> inf ] A^k v = lambda_i^k * v_i (daca ai normalizat v initial), unde lambda_i e dominant eigenvalue si v_i e eigenvectoru lui corespondent
 
+BIFURACTII HOBF:::
+si deci practic dominantu asta daca e complex, inseamna ca vine in complex-conjugate pairs care sunt amandoua dominante
+deci daca exista un punct din asta stabil care are eigenvalue dominant complex-conjugate adica arata rotatii, si isi schimba asa brusc stabilitatea de la stabil la instabil, se cheama bifurcatie hobf, pentru tipul asta de punct specific
+
+cand se intampla o din asta apar (sau dispar) limit cycles care e doar traiectoria circulara inchisa la care tind asimptotic toate traiectorile oscilatoare de jur-imprejur
+
+deci daca te uiti la un punct de echilibru la care se intampla o bifurcatie, daca punctu ala are eigenvalues dominante complexe in jacobiana, si partea reala la eigenvalueu ala e zero 0 adica e la punctul critic si pe cale sa-si schimbe stabilitatea
+
+ma gandesc ca poate doar efectiv sa-si schimbe sensul de rotatie si sa-si pastreze aceeasi stabilitate, si are sens ca daca se intampla bifurcatie apare sau dispare spirala inchisa, pentru ca 
+1. daca din stabil (spirala) devine instabil sau asimpotitc stabil doar iese pe dinafara aia se duce spre inifinit, sau intra inauntru spre originea punctului stabil (gen originea lineazirarii date de punctul ala stabil, adica punctul in sine in contextul sistemului mai mare) deci nu mai e spirala inchisa, 
+2. daca din instabil sau asimpotic stabil se face stabil atunci apra iara 
+darrr m-am gandit lacv
+daca: 3,4: merge din asimpotitc stabil in instabil total sau invers, practic se schimba stabilitatea, doar ca nu rezulta nicio aparitie de limit cycles.??? nu sunt sjmekr?
+gen ca si cum zice ca limit cycleurile sunt o consecinta a bifurcatiile hobf, doar ca definita e doar daca un dominant eigenvalue complex isi schimba stabilitatea rezulta => apar / dispar limit cycles. Dar am gasit un exemplu in care nu apar limit cycleurile asa, sau apar like am i cooked?
+
+pl sunt prost zice ca "typically causes a limit cycle" kkt ca nu cauzeaza nimic sa-mi trag picoiarele i thought i cooked
+
+aa creca fix la punctu critical cand partea reala e fix zero no atunci are limit cycles da daca se mai schimba un pic dupa bft
 
 #################### done cat de cat cred ####################
 implicit function theoremm?? help
