@@ -23,14 +23,16 @@ def observe():
 
 def update():
     global x,y, xres, yres
+    dx_dt = y
+    dy_dt = -r * (x**2 -1) * y -x 
 
-    nextx = x + y * dt
-    nexty = y + (-r * (x**2 -1) * y -x ) * dt
+    nextx = x + dx_dt * dt
+    nexty = y + dy_dt * dt
     x,y = nextx, nexty
 
 def plot_phase_space():
     init_vars()
-    for t in range(10000):
+    for _ in range(10000):
         update()
         observe()
 
@@ -39,10 +41,13 @@ def plot_phase_space():
     axis([-3,3,-3,3])
     title('r = ' + str(r))
 
-rs = [-1, -0.1, 0, .1, 1] 
-for i in range(len(rs)):
-    subplot(1,len(rs), i+1)
-    r = rs[i]
-    plot_phase_space()
-show()
+def plot_everything():
+    global r ,rs
+    rs = [-1, -0.1, 0, .1, 1] 
+    for i in range(len(rs)):
+        subplot(1,len(rs), i+1)
+        r = rs[i]
+        plot_phase_space()
+    show()
 
+plot_everything()
