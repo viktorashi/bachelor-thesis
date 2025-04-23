@@ -78,6 +78,11 @@ gen dist. in mate e gen=)) o opera tie e distrutive in relatie cu alta daca
 a*(b + c) = a*b + a*c
 inseamna la fel ca si cum ca * e fosforelatie si + e de-psphorelatie?? maybe mayhapss sincer
 
+bistability?? multistationarity?? 
+ok cred ca gen Distributive = sequential in cazu asta ??? igig
+
+sau bnu creca inseamna ca gen unu merge sa phorphoryleze si cellat iese sa le dephorphoryleze
+
 #################### done cat de cat cred ####################
 implicit function theoremm?? help
 
