@@ -632,7 +632,6 @@ And attach to each point the vector formed from the derivatives of each componen
 \end{align}
 
 This would in turn form the phase portrait of the dynamical system, described by a system of first-order autonomous differential equations:
-
 \[
 \begin{cases}
   \dot{\theta}  = \omega \\
@@ -764,11 +763,15 @@ The Jacobian matrix of a vector-valued vector function $f : D \subseteq \mathbb{
 \newcommand\eqCuzOfSys{\stackrel{\mathclap{\normalfont\mbox{\ref{auton_sys_compact}}}}{=\joinrel=\joinrel=}}
 
 Using the change of variables $\zeta = y - y_f$ and (\ref{eq:t_taylor_expansion}):
-\begin{gather} \label{eq:lin_approx}
-\dot{\zeta} = \dot{y} \eqCuzOfSys \underline{f}(y) \approx J_{\underline{f}}(y_f)(\zeta)  \notag \\
-\Updownarrow \notag \\
+\begin{gather*}
+\dot{\zeta} = \dot{y} \eqCuzOfSys \underline{f}(y) \approx J_{\underline{f}}(y_f)(\zeta) \\
+\Updownarrow
+\end{gather*}
+\vspace*{-16mm}
+\begin{gather}\label{eq:lin_approx}
 \dot{\zeta} \approx J_{\underline{f}}(y_f)(\zeta). \tag{Lin. Approx.}
 \end{gather}
+
 To obtain the system's linear estimate at the fixed point $y_f$, which approximates $\underline{f}(y)$ better as $y \rightarrow y_f$.
 
 \begin{theorem}
@@ -794,7 +797,7 @@ However, $\exists J_{\underline{f}}^{-1}(y_f) \nLeftarrow y_f$, in general.
 
 Unfortunately, though, using this method we can only find the stabilty of a subclass of equilibrium points and non-linear systems.
 
-So for a nonlinear system $\dot{y} = \underline{f}(y)$ and its lin. approx. \ref{eq:lin_approx} $\dot{\zeta} = J(y_f)\zeta$ about fixed state $y_f$ we can only show if (in the context of the non-linear system) that fixed point is either:
+So for a nonlinear system $\dot{y} = \underline{f}(y)$ and its (\ref{eq:lin_approx}) $\dot{\zeta} = J(y_f)\zeta$ about fixed state $y_f$ we can only show if (in the context of the non-linear system) that fixed point is either:
 
 1.\textbf{Asymptotically stable} if $Re(\lambda) < 0, \forall \lambda \in Eig(J(y_f))$ (where $Eig(A)$ is the set of all eigenvalues of the matrix A).
 
@@ -802,7 +805,7 @@ So for a nonlinear system $\dot{y} = \underline{f}(y)$ and its lin. approx. \ref
 
 i.e. One can only show Asymptotic (or in-) stabilty, although in the case:
 
-$Re(\lambda) \leqslant  0 \forall \lambda \in Eig(J(y_f)) \text{ and, at least } \exists \lambda : Re(\lambda) = 0$ then the results are inconclusive and can't be implied for the non-linear system. This criticial condition, if we're talking about the system's dependece in relation to some constant parameter, corresponds to a \textbf{local bifurcation} which shall be discussed in more detail later.
+$Re(\lambda) \leqslant  0 \forall \lambda \in Eig(J(y_f)) \text{ and, at least } \exists \lambda : Re(\lambda) = 0$ then the results are inconclusive and can't be implied for the non-linear system.
 
 // TODO: HAI MA CA NU ESTI PROST invata si despre lyapuov mai bine sa poti sa vorbesti despre dansul dupa ce zici din astea mai de specifice de chimie ca sigur o sa ajute cu ceva na pana mea
 

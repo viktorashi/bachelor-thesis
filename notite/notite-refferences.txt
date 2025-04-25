@@ -19,7 +19,13 @@ http://www.diag.uniroma1.it/oriolo/amr/material/stability.pdf
 
 https://math.libretexts.org/Bookshelves/Scientific_Computing_Simulations_and_Modeling/Introduction_to_the_Modeling_and_Analysis_of_Complex_Systems_(Sayama)/07%3A_ContinuousTime_Models_II__Analysis/7.05%3A_Linear_Stability_Analysis_of_Nonlinear_Dynamical_Systems
 
-#asta mai putin academica
+http://www-control.eng.cam.ac.uk/jmm/4f3/handout2.pdf
+
+#cand vb de bifurcatii
+https://www.math.univ-toulouse.fr/~gfaye/ENS11/chap_bif.pdf
+
+
+#########3#asta mai putin academica#######33
 buna rau poza asta de aici :
 https://bosonphoton.medium.com/mathematical-introduction-to-dynamical-systems-2d581fcb2444
 

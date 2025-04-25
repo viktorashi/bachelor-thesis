@@ -1,8 +1,83 @@
 \chapter{Existence and Absence of Hopf Bifurcation in Phosphorylation–Dephosphorylation CRN}
 
 \section{What even \textbf{is} a bifurcation?}
+Consider we have an ODE as above, except it now depends on an extra parameter $\mu$, which remains constant \textbf{during} our "experiment".
+\begin{equation}\label{auton_parameter_sys_compact}
+  \dot{y}(t) = f_\mu(y(t)).
+\end{equation}
+
+This could be, for example, the length of the pendulum $L$, in \ref{damped_pendulum}, or its damping coefficient $c$. Honestly generalising it even more, it could even be the gravitational constant $g$. Hence, this parameter can, of course be a \textbf{vector} of such parameters.
+
+The way the parameter $\mu$ varies also induces variations in the topology and dynamics of the system. That's obvious since this is kind of the point of parameters in systems.
+
+What can vary though can be trivial or more intereseting.
+
+The positions of \textbf{equlibria}, for example can vary continuously during changes in $\mu$; that's usually normal. But what's more interesting is when these equilibria change their \textbf{stabilty} altogather, or even dissapear completely / appear out of thin-air.
+
+That's called a \textbf{bifurcation}, and $\mu$, in this case is a \textbf{bifurcation parameter}.
+\newpage
+To better define and illustrate this for the one-dimmensional case, we could instead write our vector field function $f$ as depending on $\mu$ as well as the unknown function $y$.
+\begin{equation}\label{eq:1-d_bif_sys}
+  \dot{y} = f(y, \mu).
+\end{equation}
+And assume $f \in C^k(\mathbb{R} \bigtimes \mathbb{R}), k \geq 2 $ around $(0,0)$, and
+\begin{equation}\label{bifurcation_priming}
+  f(0,0) = 0, \quad \frac{\partial f}{\partial y}(0,0) = 0.
+\end{equation}
+By these assumptions we are basically "priming" the system for bifurcations, and here come the specific definitions for each particular type of bifurcation in 1-D.
+
+\begin{definition}
+  A \textbf{Saddle-node bifurcation}:
+  for $f$ in \ref{bifurcation_priming}, add as well:
+  \begin{equation*}
+    \frac{\partial f}{\partial \mu}(0,0) =: a \neq 0, \quad \frac{\partial^2 f}{\partial y^2}(0,0) =:b \neq 0.
+  \end{equation*}
+\end{definition}
+Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, characterised by the following equivalances:
+
+\rom{1} For $ab < 0$ (resp. $ab> 0$), $\nexists y : f(y,\mu) = 0$ for $\mu < 0$ ( resp. $\mu > 0$)
+
+\rom{2} For $ab < 0$ (resp. $ab > 0$), $\exists y_+(\epsilon) \neq y_-(\epsilon) \implies y_\pm(\epsilon) : f(y_\pm(\epsilon), \mu) = 0, \epsilon = \sqrt{\abs{\mu}}$, for $ \mu > 0 $ (resp. $\mu < 0$ ), having opposing stabilities.
+
+\begin{definition}
+  \textbf{Pitchfork bifurcation}.
+
+  For $f$ from \ref{bifurcation_priming}, assume as well that:
+  $f \in C^k, k \geq 3$,
+  \[
+    f(-y, \mu) = -f(y,\mu)
+  \]
+  and,
+  \[
+    \frac{\partial^2 f}{\partial \mu \partial y}(0,0) =: a \neq 0, \quad \frac{\partial^3 f }{\partial y^3}(0,0)=: b \neq 0
+  \]
+
+  Now, a \textbf{pitchfork bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu  =0$, char. by:
+
+  \rom{1}. for $ab < 0$ (resp. $ab > 0$) $\exists! y = 0 :f(y,\mu) = 0 $ for $\mu < 0$ (resp. $\mu > 0$). $b < 0 \implies$ stable, $b > 0 \implies$ unstable.
+
+  \rom{2}. for $ab < 0$ (resp. $ab > 0$) $\exists y = 0 : f(y , \mu) = 0$, as well as: $y_+(\epsilon) \neq y_-(\epsilon) \implies y_\pm(\epsilon) : f(y_\pm(\epsilon), \mu) = 0, \epsilon = \sqrt{\abs{\mu}}$  for $\mu > 0$ (resp. $\mu < 0$), for which $y_+(\epsilon) = -y_-(\epsilon)$, Both $y_-(\epsilon)$ and $y_+(\epsilon)$ have matching stabilities, whereas $y = 0$ has the opposite stability of them, given by $b < 0 \implies$ stable, $b > 0 \implies$ unstable.
+\end{definition}
+\newpage
+\begin{definition}
+  \textbf{Transcritical bifurcation}.
+
+  For $f$ in \ref{bifurcation_priming}:
+  \[
+    \frac{\partial^2 f}{\partial \mu \partial y}(0, 0) =:a \neq 0, \quad \frac{\partial^2 f}{\partial y^2}(0,0) =: b \neq 0
+  \]
+  Then a \textbf{transcritical bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu = 0$, char. by:
+
+  \rom{1}  $\exists y = 0 : f(y, \mu) = 0$  and  $ \exists y_0(\mu) : f(y_0(\mu), \mu) = 0 $ where $\mu \rightarrow u_0(\mu) \in C^m, m = k - 2$
+
+  \rom{2}  for $a\mu  < 0$ (resp. $a\mu > 0$) the trivial equilibrium $y = 0 \implies$ stable (resp. unstable)
+  and $u_0(\mu)$ has opposing stability.
+\end{definition}
+
+Finding bifurcations in linear systems, or near Linearizations evaulated at equilibria is done by looking at eigenvalues.
 
 \section{What is a simple Hopf Bifurcation?}
+
 A \textit{simple Hopf bifurcation} is a bifurcation in which a single complex-conjugate pair of eigenvalues of the Jacobian matrix crosses the imaginary axis, while all other eigenvalues remain with negative real parts. Such a bifurcation generates nearby oscillations or periodic orbits.
 
 \subsection{Proving the existence of simple Hopf bifurcations}
