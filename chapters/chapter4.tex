@@ -1,9 +1,22 @@
 \chapter{Existence and Absence of Hopf Bifurcation in Phosphorylation–Dephosphorylation CRN}
 
 \section{What even \textbf{is} a bifurcation?}
-Consider we have an ODE as above, except it now depends on an extra parameter $\mu$, which remains constant \textbf{during} our "experiment".
+To better generalise them, it'd be best to also define the notion of:
+
+\begin{definition}
+  \textbf{Invariant sets}.
+
+  Taking the Auton. sys.
+  \begin{equation}\label{invar_set_auton_sys}
+    \dot{y} = f(y) , y(0) = y_0, y \in \mathbb{R}^n
+  \end{equation}
+
+  A stateset $S \subseteq \mathbb{R}^n$ of \ref{invar_set_auton_sys} is \textbf{invariant} if $\forall y_0 \in S, \forall t \geq 0: y(t) \in S$
+\end{definition}
+
+Now consider we have an system as above, except it now depends on an extra parameter $\mu$, which remains constant \textbf{during} our "experiment".
 \begin{equation}\label{auton_parameter_sys_compact}
-  \dot{y}(t) = f_\mu(y(t)).
+  \dot{y} = f_\mu(y).
 \end{equation}
 
 This could be, for example, the length of the pendulum $L$, in \ref{damped_pendulum}, or its damping coefficient $c$. Honestly generalising it even more, it could even be the gravitational constant $g$. Hence, this parameter can, of course be a \textbf{vector} of such parameters.
@@ -16,7 +29,7 @@ The positions of \textbf{equlibria}, for example can vary continuously during ch
 
 That's called a \textbf{bifurcation}, and $\mu$, in this case is a \textbf{bifurcation parameter}.
 \newpage
-To better define and illustrate this for the one-dimmensional case, we could instead write our vector field function $f$ as depending on $\mu$ as well as the unknown function $y$.
+To better define and illustrate this for the 1-D case and give example of bifurcations for such dimension, we could instead write our vector field $f$ as depending on $\mu$ as well as the unknown function $y$.
 \begin{equation}\label{eq:1-d_bif_sys}
   \dot{y} = f(y, \mu).
 \end{equation}
@@ -35,9 +48,9 @@ By these assumptions we are basically "priming" the system for bifurcations, and
 \end{definition}
 Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, characterised by the following equivalances:
 
-\rom{1} For $ab < 0$ (resp. $ab> 0$), $\nexists y : f(y,\mu) = 0$ for $\mu < 0$ ( resp. $\mu > 0$)
+\rom{1}. For $ab < 0$ (resp. $ab> 0$), $\nexists y : f(y,\mu) = 0$ for $\mu < 0$ ( resp. $\mu > 0$)
 
-\rom{2} For $ab < 0$ (resp. $ab > 0$), $\exists y_+(\epsilon) \neq y_-(\epsilon) \implies y_\pm(\epsilon) : f(y_\pm(\epsilon), \mu) = 0, \epsilon = \sqrt{\abs{\mu}}$, for $ \mu > 0 $ (resp. $\mu < 0$ ), having opposing stabilities.
+\rom{2}. For $ab < 0$ (resp. $ab > 0$), $\exists y_+(\epsilon) \neq y_-(\epsilon) \implies y_\pm(\epsilon) : f(y_\pm(\epsilon), \mu) = 0, \epsilon = \sqrt{\abs{\mu}}$, for $ \mu > 0 $ (resp. $\mu < 0$ ), having opposing stabilities.
 
 \begin{definition}
   \textbf{Pitchfork bifurcation}.
@@ -68,13 +81,13 @@ Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, c
   \]
   Then a \textbf{transcritical bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu = 0$, char. by:
 
-  \rom{1}  $\exists y = 0 : f(y, \mu) = 0$  and  $ \exists y_0(\mu) : f(y_0(\mu), \mu) = 0 $ where $\mu \rightarrow u_0(\mu) \in C^m, m = k - 2$
+  \rom{1}.  $\exists y = 0 : f(y, \mu) = 0$  and  $ \exists y_0(\mu) : f(y_0(\mu), \mu) = 0 $ where $\mu \rightarrow u_0(\mu) \in C^m, m = k - 2$
 
-  \rom{2}  for $a\mu  < 0$ (resp. $a\mu > 0$) the trivial equilibrium $y = 0 \implies$ stable (resp. unstable)
+  \rom{2}.  for $a\mu  < 0$ (resp. $a\mu > 0$) the trivial fixed point $y = 0 \implies$ stable (resp. unstable)
   and $u_0(\mu)$ has opposing stability.
 \end{definition}
 
-Finding bifurcations in linear systems, or near Linearizations evaulated at equilibria is done by looking at eigenvalues.
+Finding bifurcations can also be done by looking at eigenvalues.
 
 \section{What is a simple Hopf Bifurcation?}
 
