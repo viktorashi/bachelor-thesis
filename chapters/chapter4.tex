@@ -16,7 +16,17 @@ To better generalise them, it'd be best to also define the notion of:
 
 As you can see by this above definition, equilibria are also particular cases of invariant sets, themselves.
 
-Now consider we have an system as above, except it now depends on an extra parameter $\mu$, which remains constant \textbf{during} our "experiment".
+They also fall into stability classes that can be defined as in Def. \ref{equilibrium_stability}, but replacing
+\[
+  "y_0" \text{ with } "S \subseteq \mathbb{R}^n \text{ }"
+\]
+and
+\[
+  " \dotso \norm{y(t) - y_0} \dotso" \text{ with } "\dotso \text{ inf}\{ \norm{y(t) - s} : s \in S  \} \dotso \text{ }"
+\]
+The Jacobian would also not be as useful in this context anymore.
+\newpage
+Now consider we have a system as above, except it now depends on an extra parameter $\mu$, which remains constant \textbf{during} our "experiment".
 \begin{equation}\label{auton_parameter_sys_compact}
   \dot{y} = f_\mu(y).
 \end{equation}
@@ -39,7 +49,7 @@ The former types of bifurcations I talked about previously are called \textbf{lo
 
 The latter are \textbf{global}, which are more complex and require greater understanding of the system beyond a local linearization, but that falls into the special-case category described in the last paragraphs of the previous chapter, and so far all I know about Mr. Prof. Lyapunov is his brother was pianist. But thankfully our interest for this work lies with local bifurcations, so we'll be ignoring this for now, maybe I'll come back to it during my Master's (not).
 
-To better define and illustrate them for the 1-D case and give example of bifurcations for such dimension, we could instead write our vector field $f$ as depending on $\mu$ as well as the unknown function $y$.
+To better define and illustrate them for the 1-D case and give example of bifurcations for such dimension, we could instead write our vector field $f$ as depending on $\mu$ in addition to the unknown function $y$.
 \begin{equation}\label{eq:1-d_bif_sys}
   \dot{y} = f(y, \mu).
 \end{equation}
@@ -81,7 +91,7 @@ Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, i
 
   \rom{2}. for $ab < 0$ (resp. $ab > 0$) $\exists y = 0 : f(y , \mu) = 0$, as well as: $y_+(\epsilon) \neq y_-(\epsilon) \implies y_\pm(\epsilon) : f(y_\pm(\epsilon), \mu) = 0, \epsilon = \sqrt{\abs{\mu}}$  for $\mu > 0$ (resp. $\mu < 0$), for which $y_+(\epsilon) = -y_-(\epsilon)$, Both $y_-(\epsilon)$ and $y_+(\epsilon)$ have matching stabilities, whereas $y = 0$ has the opposite stability of them, given by $b < 0 \implies$ stable, $b > 0 \implies$ unstable.
 \end{definition}
-\newpage
+
 \begin{definition}
   \textbf{Transcritical bifurcation}.
 
@@ -98,7 +108,7 @@ Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, i
 \end{definition}
 
 Finding local bifurcations can be done by looking at eigenvalues.
-
+\newpage
 {\large The local bifurcation condition
 
 }For system:
@@ -106,11 +116,105 @@ Finding local bifurcations can be done by looking at eigenvalues.
   \dot{y} = f(y, \mu) \quad f : \mathbb{R}^n \times \mathbb{R} \rightarrow \mathbb{R}^n
 \end{equation}
 
-if $\forall \lambda \in Eig(J_{f}(y_0,\lambda_0)) : Re(\lambda) <= 0$, and $\exists \lambda_0 : Re(\lambda_0) = 0 \implies$
+\begin{definition}\label{local_bif_def}
+  $(y_0,\mu_0)$ admits a \textbf{local bifurcation} if:
+\end{definition}
+
+If $\forall \lambda \in Eig(J_{f}(y_0,\mu_0)) : Re(\lambda) \leq 0$, but $\exists! \lambda_0 : Re(\lambda_0) = 0$
+
+\begin{equation}\label{stable_state_bif}
+  \text{If } \lambda_0 = 0 \text{ the bifurcation is stable-state defined. }
+\end{equation}
+
+We also have a second kind of local bifurcation and this is where we begin the crux of the thesis, and answear the first question I had getting into this:
 
 \section{What is a simple Hopf Bifurcation?}
 
 A \textit{simple Hopf bifurcation} is a bifurcation in which a single complex-conjugate pair of eigenvalues of the Jacobian matrix crosses the imaginary axis, while all other eigenvalues remain with negative real parts. Such a bifurcation generates nearby oscillations or periodic orbits.
+
+Or, more formally, defined in a simmilar fashion to Def. \ref{local_bif_def}:
+
+\begin{definition}
+  $(y_0, \mu_0)$ admits a \textbf{Hobf bifurcation} if, we have Def. \ref{local_bif_def}, and additionally:
+  \begin{equation}\label{hobf_bif_def}
+    Im(\lambda_0) \neq 0.
+  \end{equation}
+\end{definition}
+\newpage
+Visually, just to hammer it in:
+
+\includegraphics[width=13cm]{math_pics/hobf-bif-eigenvalue-graph.png}
+
+In $\mathbb{R}^2$, such Bifurcations cause special kinds of invariant sets, namely \textbf{limit cycles} to appear. These are periodic solutions, for which we'll need a few more concepts in order to be able to define them:
+\begin{definition} \textbf{Closed trajectory and Closed orbit (cycle)}
+
+  A trajectory (or flow): $y(t) \in \mathbb{R}^2$ as in Def. \ref{dyn_sys_orbit_flow_etc_def} is a solution for \ref{eq:1-d_bif_sys}
+
+  A closed trajectory is one which returns to its starting point no matter which $ s_0 := \Phi(0,s) $ it has, namely:
+  \begin{gather*}
+    \exists t_0 \in T : \Phi(t,s) = \Phi(t+t_0,s), \forall s \in \Phi_{s_0}     \\
+    \Updownarrow \\
+    \exists t_0 \in T : y(t) = y(t+t_0), \forall t \in T
+  \end{gather*}
+  A \textbf{closed orbit} or \textbf{cycle} is just the image of such a closed trajectory.
+\end{definition}
+
+\begin{definition}\textbf{Limit point}
+  These can be grouped into $\omega$ (attracting) and $\alpha$ (repelling) limit points:
+
+  $y_\omega$ is an $\omega$-limit point  for $y$ if:
+
+  $\exists (t_n)_{n \in \mathbb{N}} \subseteq I(y) : $
+  \begin{gather*}
+    \lim_{n \rightarrow \infty} t_n = \infty  \\
+    \lim_{n \rightarrow \infty} \Phi(t_n,y) = y_\omega
+  \end{gather*}
+  And similarly, but in reverse:
+
+  $y_\alpha$ is an $\alpha$-limit point  for $y$ if:
+
+  $\exists (t_n)_{n \in \mathbb{N}} \subseteq I(y) : $
+  \begin{gather*}
+    \lim_{n \rightarrow \infty} t_n = \textbf{--} \infty  \\
+    \lim_{n \rightarrow \infty} \Phi(t_n,y) = y_\alpha
+  \end{gather*}
+\end{definition}
+
+\begin{definition}\textbf{Limit set}
+  The set of all $\omega$ (or $\alpha$)-limit points for a particular orbit $\gamma$ is called the \textbf{limit set} of $\gamma$, denoted and defined as:
+  \[
+    \lim_{\omega}\gamma_s := \bigcap_{t \in T} \overline{ \{ \Phi(t', s) : t' > t \} }
+  \]
+  \[
+    \lim_{\alpha}\gamma_s := \bigcap_{t \in T} \overline{ \{ \Phi(t', s) : t' < t \} }
+  \]
+\end{definition}
+
+\begin{definition} \textbf{Limit cycle}
+
+  A Limit Cycle is a cycle which is the limit set of at least another trajectory.
+  Also, interestingly:
+  \[
+    \lim_{\omega}\gamma \bigcap \gamma  = \emptyset \implies \text{ it's an } \omega \text{-limit cycle}.
+  \]
+  \[
+    \lim_{\alpha}\gamma \bigcap \gamma  = \emptyset \implies \text{ it's an } \alpha \text{-limit cycle}.
+  \]
+\end{definition}
+
+//TODO: Proof: trust me bro;
+\begin{theorem}  \textbf{Poincare-Bendixson}
+
+  //TODO afla cu msa-i scrii numele real fara sa dea latexu eroare gen poincare cu o ghilimea din aia deaspura la r
+
+  For a dynamical system $(T,X,\Phi)$ with $X \subseteq \mathbb{R}^2$, take a compact invariant set $S$.
+  \begin{gather*}
+    \text{if } \nexists x_0 \in S : \Phi(t_1, x_0) = \Phi(t_2,x_0), \forall t_1,t_2 \in T \\
+    \Downarrow \\
+    \forall s \in S: \gamma_s \text{ are either limit cycles, or } \lim_{\omega / \alpha}\gamma_s \text{ is a $\omega$ (or $\alpha$)-limit cycle }.
+  \end{gather*}
+
+\end{theorem}
 
 \subsection{Proving the existence of simple Hopf bifurcations}
 

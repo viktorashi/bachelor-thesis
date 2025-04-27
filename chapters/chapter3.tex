@@ -273,25 +273,29 @@ So keeping this in mind, we may form a formal definition:
     \item the function: $\Phi : U \subseteq (T \times S ) \rightarrow S$ where values of the second component span all of $S$, meaning $proj_2(U) = S$.
   \end{itemize}
   In order to give the necessary properties of $\Phi$ we will need to also define:
-  $I(s):= \{ t \in T | (t,s) \in U \}, \forall s \in S$
+  \begin{definition}\label{dyn_sys_orbit_flow_etc_def}
+    \textbf{A lot of notions about dynamical systems.}
 
-  so $\Phi$ has the properties that:
+    $I(s):= \{ t \in T | (t,s) \in U \}, \forall s \in S$
 
-  $\Phi(0,s) = s$
+    so $\Phi$ has the properties that:
 
-  $\Phi(t_2,\Phi(t_1,s)) = \Phi(t_1+t_2,s); \forall t_1, t_1+t_2 \in I(s), t_2 \in I(\Phi(t_1,s)), s \in S$.
+    $\Phi(0,s) = s$
 
-  We call such a function $\Phi$ the \textbf{evolution function} of the dynamical system, mapping every state and $time$ after which that specific state is found, to another unique state.
+    $\Phi(t_2,\Phi(t_1,s)) = \Phi(t_1+t_2,s); \forall t_1, t_1+t_2 \in I(s), t_2 \in I(\Phi(t_1,s)), s \in S$.
+
+    We call such a function $\Phi$ the \textbf{evolution function} of the dynamical system, mapping every state and $time$ after which that specific state is found, to another unique state.
+  \end{definition}
+
+  If we take a specific state $s$ as an initial constant, we can form the function
+
+  $\Phi_s : I(s) \rightarrow S$
+  called the \textbf{flow} through $s$, whose image:
+
+  $\gamma_s:=\{\Phi_s(t) | t\in I(s) \}$
+  is the \textbf{orbit} through $s$,
+  which is a curve of parameter $t \in I(s)$ representing the values the dynamical system will take throughout the experiment's timespan, given the initial condition (state) $s$.
 \end{definition}
-
-If we take a specific state $s$ as an initial constant, we can form the function
-
-$\Phi_s : I(s) \rightarrow S$
-called the \textbf{flow} through $s$, whose image:
-
-$\gamma_s:=\{\Phi_s(t) | t\in I(s) \}$
-is the \textbf{orbit} through $s$,
-which is a curve of parameter $t \in I(s)$ representing the values the dynamical system will take throughout the experiment's timespan, given the initial condition (state) $s$.
 
 Since a point only belongs to one orbit, if we form the set
 $\Gamma_{U,\Phi}:=\{ \gamma_s | s \in S \}$
@@ -661,7 +665,7 @@ In general, for a system: \ref{fo_system_auton_eq}, written in the compact form
 \end{equation}
 
 we have:
-\begin{definition}
+\begin{definition}\label{equilibrium_stability}
 \textbf{Equilibrium (fixed) points} $y_0$ those satisfying:
 
 $ \underline{f}(y_0) = 0 = \dot{y}(t) |_{y = y_0} $
@@ -679,14 +683,14 @@ $\qquad \qquad \forall \epsilon > 0, \exists \delta > 0 : $
   \text{\rom{2}: } \norm{ y(t) - y_0 } < \epsilon \quad \forall t >= 0. \tag{\rom{2}}
 \end{equation}
 
-\textbf{Unstable equilibriums (or repeller)}:
-If either \eqref{cond:stable1} or \eqref{cond:stable2} don't hold
-
 \textbf{Asymptotically stable equilibriums (or attractors)}:
 Subset of \textbf{stable equilibria} for which:
 \begin{equation}\label{cond:asympt_stable}
   \text{\rom{3}: } \lim_{t \rightarrow \infty} \norm{y(t) - y_0}  = 0 \text{ for those whose } \norm{ y(0) - y_0} < \delta \tag{\rom{3}}
 \end{equation}
+
+\textbf{Unstable equilibriums (or repeller)}:
+If either \eqref{cond:stable1} or \eqref{cond:stable2} don't hold
 
 And as opposed to, say  a continuum of fixed points we have:
 
