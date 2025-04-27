@@ -14,6 +14,8 @@ To better generalise them, it'd be best to also define the notion of:
   A stateset $S \subseteq \mathbb{R}^n$ of \ref{invar_set_auton_sys} is \textbf{invariant} if $\forall y_0 \in S, \forall t \geq 0: y(t) \in S$
 \end{definition}
 
+As you can see by this above definition, equilibria are also particular cases of invariant sets, themselves.
+
 Now consider we have an system as above, except it now depends on an extra parameter $\mu$, which remains constant \textbf{during} our "experiment".
 \begin{equation}\label{auton_parameter_sys_compact}
   \dot{y} = f_\mu(y).
@@ -25,11 +27,19 @@ The way the parameter $\mu$ varies also induces variations in the topology and d
 
 What can vary though can be trivial or more intereseting.
 
-The positions of \textbf{equlibria}, for example can vary continuously during changes in $\mu$; that's usually normal. But what's more interesting is when these equilibria change their \textbf{stabilty} altogather, or even dissapear completely / appear out of thin-air.
+The positions of invariant sets, for example can vary continuously
 
-That's called a \textbf{bifurcation}, and $\mu$, in this case is a \textbf{bifurcation parameter}.
-\newpage
-To better define and illustrate this for the 1-D case and give example of bifurcations for such dimension, we could instead write our vector field $f$ as depending on $\mu$ as well as the unknown function $y$.
+during changes in $\mu$; that's usually normal.
+
+But what's more interesting is when these change their \textbf{stabilty} altogather, equilibria dissapear completely / appear out of thin-air - or, even - collide with other invariant sets.
+
+This odd behaviour is called a \textbf{bifurcation}, and $\mu$, in this case is a \textbf{bifurcation parameter}.
+
+The former types of bifurcations I talked about previously are called \textbf{local}, those in which changes in stabilty can only be considered mostly for \textbf{isolated equilibria}, individually, or other invariant sets whose stabilty can be analysed \textbf{locally}, via the system's linearization at a point.
+
+The latter are \textbf{global}, which are more complex and require greater understanding of the system beyond a local linearization, but that falls into the special-case category described in the last paragraphs of the previous chapter, and so far all I know about Mr. Prof. Lyapunov is his brother was pianist. But thankfully our interest for this work lies with local bifurcations, so we'll be ignoring this for now, maybe I'll come back to it during my Master's (not).
+
+To better define and illustrate them for the 1-D case and give example of bifurcations for such dimension, we could instead write our vector field $f$ as depending on $\mu$ as well as the unknown function $y$.
 \begin{equation}\label{eq:1-d_bif_sys}
   \dot{y} = f(y, \mu).
 \end{equation}
@@ -37,7 +47,7 @@ And assume $f \in C^k(\mathbb{R} \bigtimes \mathbb{R}), k \geq 2 $ around $(0,0)
 \begin{equation}\label{bifurcation_priming}
   f(0,0) = 0, \quad \frac{\partial f}{\partial y}(0,0) = 0.
 \end{equation}
-By these assumptions we are basically "priming" the system for bifurcations, and here come the specific definitions for each particular type of bifurcation in 1-D.
+By these conditions we are basically "priming" the system for bifurcations, but none are enough for them to actually acuur. Here come the specific definitions for each particular type of bifurcation in 1-D.
 
 \begin{definition}
   A \textbf{Saddle-node bifurcation}:
@@ -46,7 +56,7 @@ By these assumptions we are basically "priming" the system for bifurcations, and
     \frac{\partial f}{\partial \mu}(0,0) =: a \neq 0, \quad \frac{\partial^2 f}{\partial y^2}(0,0) =:b \neq 0.
   \end{equation*}
 \end{definition}
-Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, characterised by the following equivalances:
+Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, if the following equivalances are true:
 
 \rom{1}. For $ab < 0$ (resp. $ab> 0$), $\nexists y : f(y,\mu) = 0$ for $\mu < 0$ ( resp. $\mu > 0$)
 
@@ -65,7 +75,7 @@ Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, c
     \frac{\partial^2 f}{\partial \mu \partial y}(0,0) =: a \neq 0, \quad \frac{\partial^3 f }{\partial y^3}(0,0)=: b \neq 0
   \]
 
-  Now, a \textbf{pitchfork bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu  =0$, char. by:
+  Now, a \textbf{pitchfork bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu  =0$ if:
 
   \rom{1}. for $ab < 0$ (resp. $ab > 0$) $\exists! y = 0 :f(y,\mu) = 0 $ for $\mu < 0$ (resp. $\mu > 0$). $b < 0 \implies$ stable, $b > 0 \implies$ unstable.
 
@@ -79,7 +89,7 @@ Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, c
   \[
     \frac{\partial^2 f}{\partial \mu \partial y}(0, 0) =:a \neq 0, \quad \frac{\partial^2 f}{\partial y^2}(0,0) =: b \neq 0
   \]
-  Then a \textbf{transcritical bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu = 0$, char. by:
+  Then a \textbf{transcritical bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu = 0$, char. by (if they hold):
 
   \rom{1}.  $\exists y = 0 : f(y, \mu) = 0$  and  $ \exists y_0(\mu) : f(y_0(\mu), \mu) = 0 $ where $\mu \rightarrow u_0(\mu) \in C^m, m = k - 2$
 
@@ -87,7 +97,16 @@ Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, c
   and $u_0(\mu)$ has opposing stability.
 \end{definition}
 
-Finding bifurcations can also be done by looking at eigenvalues.
+Finding local bifurcations can be done by looking at eigenvalues.
+
+{\large The local bifurcation condition
+
+}For system:
+\begin{equation}
+  \dot{y} = f(y, \mu) \quad f : \mathbb{R}^n \times \mathbb{R} \rightarrow \mathbb{R}^n
+\end{equation}
+
+if $\forall \lambda \in Eig(J_{f}(y_0,\lambda_0)) : Re(\lambda) <= 0$, and $\exists \lambda_0 : Re(\lambda_0) = 0 \implies$
 
 \section{What is a simple Hopf Bifurcation?}
 
