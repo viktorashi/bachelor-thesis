@@ -83,6 +83,12 @@ ok cred ca gen Distributive = sequential in cazu asta ??? igig
 
 sau bnu creca inseamna ca gen unu merge sa phorphoryleze si cellat iese sa le dephorphoryleze
 
+ok cred caa (nu stiu sigur ca nu-mi merge netu sa intru pe articolu ala de wiki) toate bifurcatiile au o forma normala la care se aproximeaza sistemul dinamic, inderent care eel defapt, gen inprejurul punctului de bifurcatie? igig
+
+okii daca vreau sa vad de ce teorema lu hurwitz e adevarata tre sa ma uit la  section 11.2 of [10] dep e wikiu lu hobf bifurcationn da-i okayy nu-i baii se rezolvaa boss
+
+sauu sincer parca as lua direct referintele de care zicea Conradi atunci tbh
+
 #################### done cat de cat cred ####################
 implicit function theoremm?? help
 
