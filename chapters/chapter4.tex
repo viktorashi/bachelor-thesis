@@ -24,7 +24,7 @@ and
 \[
   " \dotso \norm{y(t) - y_0} \dotso" \text{ with } "\dotso \text{ inf}\{ \norm{y(t) - s} : s \in S  \} \dotso \text{ }"
 \]
-The Jacobian would also not be as useful in this context anymore.
+The Jacobian, generally, would also not be as useful in this context anymore.
 \newpage
 Now consider we have a system as above, except it now depends on an extra parameter $\mu$, which remains constant \textbf{during} our "experiment".
 \begin{equation}\label{auton_parameter_sys_compact}
@@ -47,7 +47,7 @@ This odd behaviour is called a \textbf{bifurcation}, and $\mu$, in this case is 
 
 The former types of bifurcations I talked about previously are called \textbf{local}, those in which changes in stabilty can only be considered mostly for \textbf{isolated equilibria}, individually, or other invariant sets whose stabilty can be analysed \textbf{locally}, via the system's linearization at a point.
 
-The latter are \textbf{global}, which are more complex and require greater understanding of the system beyond a local linearization, but that falls into the special-case category described in the last paragraphs of the previous chapter, and so far all I know about Mr. Prof. Lyapunov is his brother was pianist. But thankfully our interest for this work lies with local bifurcations, so we'll be ignoring this for now, maybe I'll come back to it during my Master's (not).
+The latter are \textbf{global}, which are more complex and require greater understanding of the system beyond a local linearization, but that falls into the special-case category described in the last paragraphs of the previous chapter, and so far all I know about Mr. Prof. Lyapunov as of now is his brother was pianist. But thankfully our interest for this work lies with local bifurcations, so we'll be ignoring this for now, maybe I'll come back to it during my Master's (not).
 
 To better define and illustrate them for the 1-D case and give example of bifurcations for such dimension, we could instead write our vector field $f$ as depending on $\mu$ in addition to the unknown function $y$.
 \begin{equation}\label{eq:1-d_bif_sys}
@@ -120,7 +120,7 @@ Finding local bifurcations can be done by looking at eigenvalues.
   $(y_0,\mu_0)$ admits a \textbf{local bifurcation} if:
 \end{definition}
 
-If $\forall \lambda \in Eig(J_{f}(y_0,\mu_0)) : Re(\lambda) \leq 0$, but $\exists! \lambda_0 : Re(\lambda_0) = 0$
+If $\forall \lambda \in Eig(J_{f}(y_0,\mu_0)) : Re(\lambda) \leq 0$, while $\exists \lambda_0 : Re(\lambda_0) = 0$
 
 \begin{equation}\label{stable_state_bif}
   \text{If } \lambda_0 = 0 \text{ the bifurcation is stable-state defined. }
@@ -135,8 +135,9 @@ A \textit{simple Hopf bifurcation} is a bifurcation in which a single complex-co
 Or, more formally, defined in a simmilar fashion to Def. \ref{local_bif_def}:
 
 \begin{definition}
-  $(y_0, \mu_0)$ admits a \textbf{Hopf bifurcation} if, we have Def. \ref{local_bif_def}, and additionally:
+  $(y_0, \mu_0)$ admits a \textbf{Hopf bifurcation} if we have Def. \ref{local_bif_def}, and additionally:
   \begin{equation}\label{hopf_bif_def}
+    \exists! \lambda_0 : Re(\lambda_0) = 0, \quad
     Im(\lambda_0) \neq 0.
   \end{equation}
 \end{definition}
@@ -150,7 +151,7 @@ In $\mathbb{R}^2$, such Bifurcations cause special kinds of invariant sets, name
 
   A trajectory (or flow): $y(t) \in \mathbb{R}^2$ as in Def. \ref{dyn_sys_orbit_flow_etc_def} is a solution for \ref{eq:1-d_bif_sys}
 
-  A closed trajectory is one which returns to its starting point no matter which $ s_0 := \Phi(0,s) $ it has, namely:
+  A closed trajectory is one which returns to its starting point $\forall s_0 := \Phi(0,s) $ it has, namely:
   \begin{gather*}
     \exists t_0 \in T : \Phi(t,s) = \Phi(t+t_0,s), \forall s \in \Phi_{s_0}     \\
     \Updownarrow \\
@@ -203,11 +204,13 @@ In $\mathbb{R}^2$, such Bifurcations cause special kinds of invariant sets, name
 \end{definition}
 
 //TODO: Proof: trust me bro;
+
+What's interesting though, and makes calculations easier for the 2-D case is:
 \begin{theorem}  \textbf{Poincare-Bendixson}
 
   //TODO afla cu msa-i scrii numele real fara sa dea latexu eroare gen poincare cu o ghilimea din aia deaspura la r
 
-  For a dynamical system $(T,X,\Phi)$ with $X \subseteq \mathbb{R}^2$, take a compact invariant set $S$.
+  For a dynamical system $(T,X,\Phi)$ with $X \subseteq \mathbb{R}^2$, $\forall$ compact invariant set $S$.
   \begin{gather*}
     \text{if } \nexists x_0 \in S : \Phi(t_1, x_0) = \Phi(t_2,x_0), \forall t_1,t_2 \in T \\
     \Downarrow \\
