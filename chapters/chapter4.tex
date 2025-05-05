@@ -227,6 +227,34 @@ So having these in mind, Hopf is kind of like a $\mathbb{R}^n$ version of Pitchf
 
 \subsection{Proving the existence of simple Hopf bifurcations}
 
+For this sub-chapter we would first need to define (and show how to obtain) one of the most important tools in this study: the Hurwitz matrix and its determinants.
+
+The english mathematician Edward John Routh was looking at the (\ref{eq:lin_approx}) of
+\[
+  x_i' = f_i(x_1,\dots , x_n), \quad i = \overline{1,n}
+\]
+Namely:
+\[
+  x_i' =\sum_{j=1}^{n}a_{ij} x_j, \quad a_{ij} = \frac{\partial f_i}{\partial x_j}(0)
+\]
+But he figured out he doesn't have to find the roots of
+\begin{equation}\label{lin_apporx_char_equation}
+  det(J - \lambda I_n) = a_0 \lambda^n + a_1 \lambda^{n-1} + \dots + a_{n-1}\lambda + a_n = 0
+\end{equation}
+To infer the system's stability, as in check:
+\[
+  Re(\lambda_0) \leq 0
+\]
+but can instead instead just simply look at its coefficients: $a_{i}$ to verify it.
+
+To do this he used:
+
+\rom{1}: Cauchy's argument principle
+
+and
+
+\rom{2}: Sturm's theorem
+
 \subsection{Ruling out simple Hopf bifurcations}
 
 \subsection{Convex parameters}
