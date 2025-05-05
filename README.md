@@ -21,4 +21,4 @@ pana acm am folosit latexmk cu optiunea de -f forced gen ca sa-mi mearga asta , 
 ```
 
 
-asta in caz ca incercati sa dati compile singur ,ca sa stau sa tin track la fiecare versiune din .pdf in sine koinda defeats the purpose, asa nici macar nu poa sa faca vreun diff sau compresie din aia desteapa gitul ca el nu vede decat linii si ala e binar
+asta in caz ca incercati sa dati compile singur ,ca sa stau sa tin track la fiecare versiune din .pdf in sine kinda defeats the purpose, asa nici macar nu poa sa faca vreun diff sau compresie din aia desteapa gitul ca el nu vede decat linii si ala e binar lol
