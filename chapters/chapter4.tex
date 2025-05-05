@@ -245,7 +245,7 @@ To infer the system's stability, as in check:
 \[
   Re(\lambda_0) \leq 0
 \]
-but can instead instead just simply look at its coefficients: $a_{i}$ to verify it.
+but can instead instead just simply look at the coefficients of \ref{lin_apporx_char_equation}: $a_{i}$ to verify it.
 
 To do this he used:
 
@@ -254,6 +254,27 @@ To do this he used:
 and
 
 \rom{2}: Sturm's theorem
+
+\rom{1} Cauchy's argument principle states that for the poly. $p \in \mathbb{C}[Z]$:
+\[
+  p(z) = u(z) + i v(z), \quad u, v \in \mathbb{R}[Z]; u,v : \mathbb{C} \rightarrow \mathbb{R}
+\]
+Its number of roots inside a closed contour $\gamma$  is $=$ to the number of positive rotations (counter-clockwise)[c.c.] $(u(z), v(z))$ (or $arg(p(z))$) makes as $z$ moves across $\partial \gamma$ in a positive sense [c.c.].
+
+//TODO: ai putea sa pui si tu o poza cu un vector space format de un anumit polinom complex cu valori complexe
+
+Now all we need to do is make this "closed contour" the entire left-half of the complex axis!
+
+We could write it as a {\large HUGE} half-circle
+\[
+  z = Re^{i \theta}, \quad \frac{\pi}{2} \leq \theta \leq \frac{3 \pi}{2}, R \text{ sufficiently large }
+\]
+
+The thing is even if it's the case that all $n$ roots lie inside it, $arg(p(z))$ will only make $\frac{n}{2}$ rotations since this is a half circle, so we could combine this fact with a more elegant way of writing "the half-plane, left of the imaginary axis" into:
+
+\begin{lemma}
+  For $p(z) \in \mathbb{C}_n[Z]$ and $p(ix) \neq 0. \forall x \in \mathbb{R}$. Then $\forall z_0 : p(z_0) = 0, Re(z_0) < 0 \iff$ $arg(p(ix))$ makes $\frac{n}{2}$ positive rotations for $x \in [-\infty , \infty]$.
+\end{lemma}
 
 \subsection{Ruling out simple Hopf bifurcations}
 
