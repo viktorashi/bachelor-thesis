@@ -276,6 +276,21 @@ The thing is even if it's the case that all $n$ roots lie inside it, $arg(p(z))$
   For $p(z) \in \mathbb{C}_n[Z]$ and $p(ix) \neq 0. \forall x \in \mathbb{R}$. Then $\forall z_0 : p(z_0) = 0, Re(z_0) < 0 \iff$ $arg(p(ix))$ makes $\frac{n}{2}$ positive rotations for $x \in [-\infty , \infty]$.
 \end{lemma}
 
+\rom{2}.
+
+The second tool he's used was Sturm's theorem, which was the result of his discovery that for the division $\frac{p_{i-1}(x)}{p_i(x)}$, for $p_k \in \mathbb{C}[X]$ it's better to take the remainder $p_{i+1}(x)$ with a negative sign:
+\begin{equation}\label{sturms_theorem}
+  p_{i-1}(x) = p_i(x) q_i(x) - p_{i+1}(x)
+\end{equation}
+Because, if we do that, then:
+\begin{equation}\label{sturm_seq_property}
+  sign ( p_{i+1}(x) )  \neq sign ( p_{i-1}(x) ), \quad \text{for} \quad p_i(x)=0
+\end{equation}
+
+And if we construct the function
+\begin{equation}\label{no_sign_changes_func}
+  w : \mathbb{C} \rightarrow
+\end{equation}
 \subsection{Ruling out simple Hopf bifurcations}
 
 \subsection{Convex parameters}
