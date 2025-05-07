@@ -255,11 +255,13 @@ and
 
 \rom{2}: Sturm's theorem
 
-\rom{1} Cauchy's argument principle states that for the poly. $p \in \mathbb{C}[Z]$:
+\rom{1}
+
+Cauchy's argument principle states that for the poly. $p \in \mathbb{C}[Z]$:
 \[
   p(z) = u(z) + i v(z), \quad u, v \in \mathbb{R}[Z]; u,v : \mathbb{C} \rightarrow \mathbb{R}
 \]
-Its number of roots inside a closed contour $\gamma$  is $=$ to the number of positive rotations (counter-clockwise)[c.c.] $(u(z), v(z))$ (or $arg(p(z))$) makes as $z$ moves across $\partial \gamma$ in a positive sense [c.c.].
+Its number of roots inside a closed contour $\gamma$  is $=$ to the number of positive rotations (counter-clockwise)[c.c.] that $(u(z), v(z))$ (or $arg(p(z))$) makes as $z$ moves across $\partial \gamma$ in a positive sense [c.c.].
 
 //TODO: ai putea sa pui si tu o poza cu un vector space format de un anumit polinom complex cu valori complexe
 
@@ -278,19 +280,78 @@ The thing is even if it's the case that all $n$ roots lie inside it, $arg(p(z))$
 
 \rom{2}.
 
-The second tool he's used was Sturm's theorem, which was the result of his discovery that for the division $\frac{p_{i-1}(x)}{p_i(x)}$, for $p_k \in \mathbb{C}[X]$ it's better to take the remainder $p_{i+1}(x)$ with a negative sign:
+The second tool he's used was Sturm's theorem, which was the result of his discovery that for the division $\frac{p_{i-1}(x)}{p_i(x)}$, for $p_k \in \mathbb{R}[X]$ it's better to take the remainder $p_{i+1}(x)$ with a negative sign:
 \begin{equation}\label{sturms_theorem}
   p_{i-1}(x) = p_i(x) q_i(x) - p_{i+1}(x)
 \end{equation}
 Because, if we do that, then:
 \begin{equation}\label{sturm_seq_property}
-  sign ( p_{i+1}(x) )  \neq sign ( p_{i-1}(x) ), \quad \text{for} \quad p_i(x)=0
+  sign ( p_{i+1}(x) )  \neq sign ( p_{i-1}(x) ), \quad \text{for} \quad p_i(x)=0 \tag{Sturm. Seq. Property}
 \end{equation}
+This is called the "Sturm sequence property"
 
-And if we construct the function
-\begin{equation}\label{no_sign_changes_func}
-  w : \mathbb{C} \rightarrow
-\end{equation}
+And if we construct a sequence
+\[
+  (p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]
+\]
+and the function
+\begin{gather}\label{no_sign_changes_func}
+  w : \mathbb{R} \rightarrow \mathbb{R} \notag  \\
+  w(x) = \text{No. of sign changes of  } (p_k)(x) \notag
+\end{gather}
+Then we find that for:
+\begin{gather*}
+  R := \left\{ x | p_1(x) = \dots = p_{m-1}(x) = 0  \right\} \\
+  \forall x_1, x_2 \in R, w(x_1) = w(x_2)
+\end{gather*}
+Hence we have:
+\begin{lemma}
+  For a seq. of $  (p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]$ that satifies:
+
+\rom{1})
+$ deg(p_0) > deg(p_1), $
+
+\rom{2})
+$\nexists x \in \mathbb{R} : p_0(x) = p_1(x) = 0, $
+
+\rom{3})
+$p_m(x) \neq 0, \forall x \in \mathbb{R}$
+
+\rom{4})
+And (\ref{sturm_seq_property})
+\par
+We have (for the above defined $w$ \ref{no_sign_changes_func}) :
+\begin{gather}
+\frac{w(\infty) - w(-\infty)}{2} =  \notag \\
+\text{No. of positive rotations of the vector } \notag \\
+(p_0(x), p_1(x)), \text{as $x$ tends from  } x \in [-\infty, +\infty] \notag
+\end{gather}
+\end{lemma}
+
+Proof:
+
+As stated in \ref{sturm_seq_property}: $w(x)$ doesn't change at roots of
+
+$p_k(x), k = \overline{1,m-1}$. Asumption \rom{3}) shows $p_m(x)$ doesn't influence it either. So there can only be one suspect: $p_0(x)$. If there's a spike by $1$ at $\overline{x}$, zero of $p_0$ (   $p_0(\overline{x}) =0 $) either:
+\[
+p_0(x) \text{changes from + to - and   } p_1(\overline{x}) > 0
+\]
+or:
+\[
+p_0(x) \text{changes from - to + and  } p_1(\overline{x}) < 0
+\]
+[   $\nexists \overline{x}: p_1(\overline{x}) = 0$ by assumption \rom{2})  ]
+
+Both of which cause the vector $(p_0(x), p_1(x))$ to cross the imaginary axis in a positive sense.
+
+If there's a dip of $w$ at $\overline{x}$, however, the crossing is done clock-wise, this time.
+
+Now taking \rom{1}) into account and the fact that $(p_0(y), p_1(y))$ is horizontal for $y \rightarrow  - \infty$ and $y \rightarrow + \infty  $ outcomes the result of our lemma
+\qed
+
+//TODO Maybe try to draw this yourself cu arrows nstuff
+
+\includegraphics[width=13cm]{math_pics/sageti-cumse-invart.png}
 \subsection{Ruling out simple Hopf bifurcations}
 
 \subsection{Convex parameters}
