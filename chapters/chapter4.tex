@@ -240,6 +240,7 @@ Namely:
 But he figured out he doesn't have to find the roots of
 \begin{equation}\label{lin_apporx_char_equation}
   det(J - \lambda I_n) = a_0 \lambda^n + a_1 \lambda^{n-1} + \dots + a_{n-1}\lambda + a_n = 0
+  3k
 \end{equation}
 To infer the system's stability, as in check:
 \[
@@ -274,7 +275,7 @@ We could write it as a {\large HUGE} half-circle
 
 The thing is even if it's the case that all $n$ roots lie inside it, $arg(p(z))$ will only make $\frac{n}{2}$ rotations since this is a half circle, so we could combine this fact with a more elegant way of writing "the half-plane, left of the imaginary axis" into:
 
-\begin{lemma}
+\begin{lemma}\label{cauchy_arg_lemma}
   For $p(z) \in \mathbb{C}_n[Z]$ and $p(ix) \neq 0. \forall x \in \mathbb{R}$. Then $\forall z_0 : p(z_0) = 0, Re(z_0) < 0 \iff$ $arg(p(ix))$ makes $\frac{n}{2}$ positive rotations for $x \in [-\infty , \infty]$.
 \end{lemma}
 
@@ -286,7 +287,7 @@ The second tool he's used was Sturm's theorem, which was the result of his disco
 \end{equation}
 Because, if we do that, then:
 \begin{equation}\label{sturm_seq_property}
-  sign ( p_{i+1}(x) )  \neq sign ( p_{i-1}(x) ), \quad \text{for} \quad p_i(x)=0 \tag{Sturm. Seq. Property}
+  \text{sign} ( p_{i+1}(x) )  \neq \text{sign} ( p_{i-1}(x) ), \quad \text{for} \quad p_i(x)=0 \tag{Sturm. Seq. Property}
 \end{equation}
 This is called the "Sturm sequence property"
 
@@ -301,11 +302,12 @@ and the function
 \end{gather}
 Then we find that for:
 \begin{gather*}
-  R := \left\{ x | p_1(x) = \dots = p_{m-1}(x) = 0  \right\} \\
+  p_i^{-1}(0) \text{ ( set of roots for $p_i$) } \\
+  R := \bigcup_{i \in \left\{ 1, \dots, m-1 \right\} } p_i^{-1}(0) \\
   \forall x_1, x_2 \in R, w(x_1) = w(x_2)
 \end{gather*}
 Hence we have:
-\begin{lemma}
+\begin{lemma}\label{sturm_lemma}
   For a seq. of $  (p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]$ that satifies:
 
 \rom{1})
@@ -374,14 +376,36 @@ p_i(x) = c_{i0} x^{n-i} + c_{i1} x^{n-i-2} + c_{ i2 } x^{ n-i-4  } + \dots, \tag
 And $q_i(x) = (  \frac{c_{ i-1 ,0}}{c_{ i0 }} )x$ from \ref{euclid_algorithm} given that $c_{i0} \neq 0$.
 Putting \ref{polys_general_form} into \ref{euclid_algorithm} to get the general form of all the coefficients as well we get:
 \begin{align}\label{coeff_gen_form}
-c_{i+1,j} = c_{i,j+1} \cdot \frac{c_{i-1,0}}{c_{i0}} - c_{i-1,j+1 } = \frac{1}{c_{i0}} \text{det}
+c_{i+1,j} = c_{i,j+1} \cdot \frac{c_{i-1,0}}{c_{i,0}} - c_{i-1,j+1 } = \frac{1}{c_{i,0}} \text{det}
 \begin{pmatrix}
 c_{i-1,0} & c_{i-1, j+1} \\
 c_{i,0} & c_{i, j+1} \tag{Coeff.}
 \end{pmatrix}
 \end{align}
 
-The algo. stops at $ p_m(x) $ with $ m < n$ if $c_{i0} = 0$ at a particular $i \implies q_i(x)$ is of higher degree.
+The algo. stops for $ p_m(x) $ with $ m < n$ if $c_{i,0} = 0$ at a particular $i \implies q_i(x)$ is of higher degree.
+
+And so: $(p_i(x))_{i = \overline{1,m \text{ or } n}}$ verifies \rom{1}), \rom{4}) from \ref{sturm_lemma}
+
+\rom{2}) $\iff p(ix) \neq 0, \forall x \in \mathbb{R}$
+
+$p_m(x) = \text{gcd}(p_0(x), p_1(x)) \iff \text{ \rom{2}) } \implies \text{ \rom{3}) }$
+
+\par
+
+So here's the big guy:
+
+\begin{theorem}\label{routh_theorem}
+(Routh 1877).
+\begin{gather*}
+Re(\lambda) < 0, \quad \forall \lambda \in \text{det}(J - \lambda I_n)^{-1}(0) \text{ from \ref{lin_apporx_char_equation} with } a_0 > 0 \\
+\Updownarrow  \\
+c_{i,0} > 0 \forall,  i = \overline{1,n}
+\end{gather*}
+\end{theorem}
+
+\textbf{Proof: } $arg(p_0,p_1) = 360^\degree - arg(\text{Re}(p), \text{Im}(p)) \implies \frac{n}{2}$ positive rotations of $p(ix)$ are bascially $\frac{n}{2}$ neg. rot. of $(p_0(x), p_1(x))$. If $Re(\lambda) < 0, \forall \lambda \in p(\lambda)^{-1}(0) \implies$ ( from  \ref{cauchy_arg_lemma}, \ref{sturm_lemma} ) $w(\infty) - w( - \infty) = -n$. Could only be for $w(\infty) = 0, w(- \infty) = n$, though. $ \implies p_i(x) \geq 0$ for all leading $i$. Having \ref{routh_theorem} $\implies p_n(x) \equiv c_{n0}$. Because $\nexists \text{gcd}(p_0(x),p_1(x)), p(\lambda) \neq 0$ for Re$(\lambda) = 0$. Now we just do \ref{cauchy_arg_lemma} + \ref{sturm_lemma} once more. \qed
+
 \subsection{Ruling out simple Hopf bifurcations}
 
 \subsection{Convex parameters}
