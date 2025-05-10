@@ -809,11 +809,249 @@ So for a nonlinear system $\dot{y} = \underline{f}(y)$ and its (\ref{eq:lin_appr
 
 i.e. One can only show Asymptotic (or in-) stabilty, although in the case:
 
-$Re(\lambda) \leqslant  0 \forall \lambda \in Eig(J(y_f)) \text{ and, at least } \exists \lambda : Re(\lambda) = 0$ then the results are inconclusive and can't be implied for the non-linear system.
+$Re(\lambda) \leqslant  0 \forall \lambda \in Eig(J(y_f)) \text{ and,
+at least } \exists \lambda : Re(\lambda) = 0$ then the results are
+inconclusive and can't be implied for the non-linear system.
 
-// TODO: HAI MA CA NU ESTI PROST invata si despre lyapuov mai bine sa poti sa vorbesti despre dansul dupa ce zici din astea mai de specifice de chimie ca sigur o sa ajute cu ceva na pana mea
+// TODO: HAI MA CA NU ESTI PROST invata si despre lyapuov mai bine sa
+poti sa vorbesti despre dansul dupa ce zici din astea mai de
+specifice de chimie ca sigur o sa ajute cu ceva na pana mea
 
 5. arata poza de clasificarea sistemelor, dat
 
-But another way for analysing
+\hfill\break
+But another way of analysing the stabilty would be by using one of
+the most fundamental tools during our study, so we'll define and show
+how to obtain:
+
+\textbf{The Routh-Hurwitz matrix and its determinants.}
+
+The english mathematician Edward John Routh was looking at the
+(\ref{eq:lin_approx}) of
+\[
+x_i' = f_i(x_1,\dots , x_n), \quad i = \overline{1,n}
+\]
+Namely:
+\[
+x_i' =\sum_{j=1}^{n}a_{ij} x_j, \quad a_{ij} = \frac{\partial
+f_i}{\partial x_j}(0)
+\]
+He figured out he doesn't have to find the roots of
+\begin{equation}\label{lin_apporx_char_equation}
+det(J - \lambda I_n) = a_0 \lambda^n + a_1 \lambda^{n-1} + \dots +
+a_{n-1}\lambda + a_n = 0
+\end{equation}
+To infer the system's stability, as in check
+$ Re(\lambda_0) < 0$,
+
+but can instead instead just simply look at the coefficients of
+\ref{lin_apporx_char_equation}: $a_{i}$ to verify it.
+
+To do this he used:
+
+\rom{1}: Cauchy's argument principle
+
+and
+
+\rom{2}: Sturm's theorem
+
+\rom{1}
+
+Cauchy's argument principle states that for the poly. $p \in \mathbb{C}[Z]$:
+\[
+p(z) = u(z) + i v(z), \quad u, v \in \mathbb{R}[Z]; u,v : \mathbb{C}
+\rightarrow \mathbb{R}
+\]
+Its number of roots inside a closed contour $\gamma$  is $=$ to the
+number of positive rotations (counter-clockwise)[c.c.] that $(u(z),
+v(z))$ (or $arg(p(z))$) makes as $z$ moves across $\partial \gamma$
+in a positive sense [c.c.].
+
+//TODO: ai putea sa pui si tu o poza cu un vector space format de un
+anumit polinom complex cu valori complexe
+
+Now all we need to do is make this "closed contour" the entire
+left-half of the complex axis!
+
+We could write it as a {\large HUGE} half-circle
+\[
+z = Re^{i \theta}, \quad \frac{\pi}{2} \leq \theta \leq \frac{3
+\pi}{2}, R \text{ sufficiently large }
+\]
+
+The thing is even if it's the case that all $n$ roots lie inside it,
+$arg(p(z))$ will only make $\frac{n}{2}$ rotations since this is a
+half circle, so we could combine this fact with a more elegant way of
+writing "the half-plane, left of the imaginary axis" into:
+
+\begin{lemma}\label{cauchy_arg_lemma}
+For $p(z) \in \mathbb{C}_n[Z]$ and $p(ix) \neq 0. \forall x \in
+\mathbb{R}$. Then $\forall z_0 : p(z_0) = 0, Re(z_0) < 0 \iff$
+$arg(p(ix))$ makes $\frac{n}{2}$ positive rotations for $x \in
+[-\infty , \infty]$.
+\end{lemma}
+
+\rom{2}.
+
+The second tool he's used was Sturm's theorem, which was the result
+of his discovery that for the division $\frac{p_{i-1}(x)}{p_i(x)}$,
+for $p_k \in \mathbb{R}[X]$ it's better to take the remainder
+$p_{i+1}(x)$ with a negative sign:
+\begin{equation}\label{euclid_algorithm}
+p_{i-1}(x) = p_i(x) q_i(x) - p_{i+1}(x) \tag{Euclid's Algorithm}
+\end{equation}
+Because, if we do that, then:
+\begin{equation}\label{sturm_seq_property}
+\text{sign} ( p_{i+1}(x) )  \neq \text{sign} ( p_{i-1}(x) ), \quad
+\text{for} \quad p_i(x)=0 \tag{Sturm. Seq. Property}
+\end{equation}
+This is called the "Sturm sequence property"
+
+And if we construct a sequence
+\[
+(p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]
+\]
+and the function
+\begin{gather}\label{no_sign_changes_func}
+w : \mathbb{R} \rightarrow \mathbb{R} \notag  \\
+w(x) = \text{No. of sign changes of  } (p_k)(x) \notag
+\end{gather}
+Then we find that for:
+\begin{gather*}
+p_i^{-1}(0) \text{ ( set of roots for $p_i$) } \\
+R := \bigcup_{i \in \left\{ 1, \dots, m-1 \right\} } p_i^{-1}(0) \\
+\forall x_1, x_2 \in R, w(x_1) = w(x_2)
+\end{gather*}
+Hence we have:
+\begin{lemma}\label{sturm_lemma}
+For a seq. of $  (p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]$
+that satifies:
+
+\rom{1})
+$ deg(p_0) > deg(p_1), $
+
+\rom{2})
+$\nexists x \in \mathbb{R} : p_0(x) = p_1(x) = 0, $
+
+\rom{3})
+$p_m(x) \neq 0, \forall x \in \mathbb{R}$
+
+\rom{4})
+And (\ref{sturm_seq_property})
+\par
+We have (for the above defined $w$ \ref{no_sign_changes_func}) :
+\begin{gather}
+\frac{w(\infty) - w(-\infty)}{2} =  \notag \\
+\text{No. of positive rotations of the vector } \notag \\
+(p_0(x), p_1(x)), \text{as $x$ tends from  } x \in [-\infty, +\infty] \notag
+\end{gather}
+\end{lemma}
+
+Proof: As stated in \ref{sturm_seq_property}: $w(x)$ doesn't change at roots of
+
+$p_k(x), k = \overline{1,m-1}$. Asumption \rom{3}) shows $p_m(x)$
+doesn't influence it either. So there can only be one suspect:
+$p_0(x)$. If there's a spike by $1$ at $\overline{x}$ in $w(\overline{x})$,
+
+zero of $p_0$
+(   $p_0(\overline{x}) =0 $) either:
+\[
+p_0(x) \text{ changes from + to - and   } p_1(\overline{x}) > 0
+\]
+or:
+\[
+p_0(x) \text{ changes from - to + and  } p_1(\overline{x}) < 0
+\]
+[   $\nexists \overline{x}: p_1(\overline{x}) = 0$ by assumption \rom{2})  ]
+
+Both of which cause the vector $(p_0(x), p_1(x))$ to cross the
+imaginary axis in a positive sense.
+
+If there's a dip in $w$ at $\overline{x}$, however, the crossing is
+done clock-wise, this time.
+
+Now taking \rom{1}) into account and the fact that $(p_0(y), p_1(y))$
+is horizontal for $y \rightarrow  - \infty$ and $y \rightarrow +
+\infty  $ outcomes the result of our lemma
+\qed
+
+//TODO Maybe try to draw this yourself cu arrows nstuff
+
+\begin{figure}
+\includegraphics[width=13cm]{math_pics/sageti-cumse-invart.png}
+\centering
+\end{figure}
+
+So using these 2 Lemmas we have the criteria for stabilty:
+For the characteristic polynomial \ref{lin_apporx_char_equation},
+written instead like this:
+\[
+p(z)=a_0 z^n + a_1z^{n-1} + \dots + a_n = 0, \quad a_0 > 0
+\]
+
+Dividing $\frac{p(i x)}{i^n}$ and using \ref{real_imag_another_way_to_write}
+
+\begin{gather}
+p_0(x)= \text{Re}(\frac{p(i x)}{i^n}) = a_0 x^{n} -a_2 x^{n-2} + a_4
+x^{n-4} \pm \dots \\
+p_1(x)= -\text{Im} (\frac{p(i x)}{i^n}) = a_1 x^{n-1} -a_3 x^{n-3} +
+a_5 x^{n-5} \pm \dots
+\end{gather}
+
+More generally:
+\begin{equation}\label{polys_general_form}
+p_i(x) = c_{i0} x^{n-i} + c_{i1} x^{n-i-2} + c_{ i2 } x^{ n-i-4  } +
+\dots, \tag{Gen. Form}
+\end{equation}
+
+And $q_i(x) = (  \frac{c_{ i-1 ,0}}{c_{ i0 }} )x$ from
+\ref{euclid_algorithm} given that $c_{i0} \neq 0$.
+Putting \ref{polys_general_form} into \ref{euclid_algorithm} to get
+the general form of all the coefficients as well we get:
+\begin{align}\label{coeff_gen_form}
+c_{i+1,j} = c_{i,j+1} \cdot \frac{c_{i-1,0}}{c_{i,0}} - c_{i-1,j+1 }
+= \frac{1}{c_{i,0}} \text{det}
+\begin{pmatrix}
+c_{i-1,0} & c_{i-1, j+1} \\
+c_{i,0} & c_{i, j+1} \tag{Coeff.}
+\end{pmatrix}
+\end{align}
+
+The algo. stops for $ p_m(x) $ with $ m < n$ if $c_{i,0} = 0$ at a
+particular $i \implies q_i(x)$ is of higher degree.
+
+And so: $(p_i(x))_{i = \overline{1,m \text{ or } n}}$ verifies
+\rom{1}), \rom{4}) from \ref{sturm_lemma}
+
+\rom{2}) $\iff p(ix) \neq 0, \forall x \in \mathbb{R}$
+
+$p_m(x) = \text{gcd}(p_0(x), p_1(x)) \iff \text{ \rom{2}) } \implies
+\text{ \rom{3}) }$
+
+\par
+
+So here's the big guy:
+
+\begin{theorem}\label{routh_theorem}
+(Routh 1877).
+\begin{gather*}
+Re(\lambda) < 0, \quad \forall \lambda \in \text{det}(J - \lambda
+I_n)^{-1}(0) \text{ from \ref{lin_apporx_char_equation} with } a_0 > 0 \\
+\Updownarrow  \\
+c_{i,0} > 0 \forall,  i = \overline{1,n}
+\end{gather*}
+\end{theorem}
+
+\textbf{Proof: } $arg(p_0,p_1) = 360^\degree - arg(\text{Re}(p),
+\text{Im}(p)) \implies \frac{n}{2}$ positive rotations of $p(ix)$ are
+bascially $\frac{n}{2}$ neg. rot. of $(p_0(x), p_1(x))$. If
+$Re(\lambda) < 0, \forall \lambda \in p(\lambda)^{-1}(0) \implies$ (
+from  \ref{cauchy_arg_lemma}, \ref{sturm_lemma} ) $w(\infty) - w( -
+\infty) = -n$. Could only be for $w(\infty) = 0, w(- \infty) = n$,
+though. $ \implies p_i(x) \geq 0$ for all leading $i$. Having
+\ref{routh_theorem} $\implies p_n(x) \equiv c_{n0}$. Because
+$\nexists \text{gcd}(p_0(x),p_1(x)), p(\lambda) \neq 0$ for
+Re$(\lambda) = 0$. Now we just do \ref{cauchy_arg_lemma} +
+\ref{sturm_lemma} once more. \qed
+
 \vskip\bigskipamount
