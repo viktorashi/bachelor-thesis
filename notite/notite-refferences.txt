@@ -1,3 +1,5 @@
+## TODO incearca sa te pui sa faci tu poze in maple cu cod original sa inlocuiesti toate pozele care sunt acolo de pe la ce surse sunt 
+
 SBMLDIAgram
 (https://doi.org/10.1093/bioinformatics/btac730) and the PYPI web page (https://pypi.org/project/SBMLDiagrams/). Thanks.
 
@@ -24,8 +26,15 @@ http://www-control.eng.cam.ac.uk/jmm/4f3/handout2.pdf
 #cand vb de bifurcatii
 https://www.math.univ-toulouse.fr/~gfaye/ENS11/chap_bif.pdf
 
+## Poza aia de pitchfork (incearca sa ti-o faci tu)
+https://www.researchgate.net/publication/341236551_Finding_Method_and_Analysis_of_Hidden_Chaotic_Attractors_for_Plasma_Chaotic_System_From_Physical_and_Mechanistic_Perspectives/figures?lo=1
 
-#########3#asta mai putin academica#######33
+#poza de hopf, ast creca mai greu de grafuit tu lmao
+https://www.mdpi.com/2076-3425/10/8/536
+
+
+
+###########asta mai putin academica#######33
 buna rau poza asta de aici :
 https://bosonphoton.medium.com/mathematical-introduction-to-dynamical-systems-2d581fcb2444
 
