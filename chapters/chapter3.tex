@@ -31,7 +31,10 @@ As an example: The relation for a cardioid cannot be expressed as a sole functio
   So $\exists \square_{(t, \textbf{Y})} \ni U \bigtimes V \subseteq D$ s.t. $F \in C^1(U\bigtimes V)$ and $\frac{\partial F}{\partial y}(t, \textbf{Y}) \neq 0.$ Then this means $ \exists \square_{t} \ni U_0 \subseteq U$,
   $\square_{\textbf{Y}} \ni V_0 \subseteq V$ and a function $f : U_0 \rightarrow V_0$ s.t. $f(t) = \textbf{Y}$ and $F(t,f(t))=0, \forall t \in U_0; f \in C^1(U_0)$ and $\frac{\partial f}{\partial t_i} = - \frac{\frac{\partial F}{\partial t_i}(t,f(t))}{\frac{\partial F}{\partial y}(t,f(t))}, \forall i = \overline{1,n} , \forall t \in U_0$ and $F \in C^1(U \bigtimes V),K \in N^* \Rightarrow f \in C^K(U_0).$
 \end{theorem}
+
+\hfill\break
 //TODO : proof: trust me bro
+\hfill\break
 
 So restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
 \begin{equation}\label{implicit_func_theorem}
@@ -311,13 +314,18 @@ Conditions for partitions:
 
 So we need to prove:
 
-TODO: te apuci de asta mai incolo \par
+\hfill\break
+//TODO: te apuci de asta mai incolo \par
+\hfill\break
+
 \rom{1}. $\gamma \subseteq U, \forall \gamma \in \Gamma_{U,\Phi}$ \par
 \rom{2}. $ \gamma \neq \emptyset, \forall \gamma \in \Gamma_{U,\Phi}$ \par
 \rom{3}. $\gamma_1 \bigcap \gamma_2 = \emptyset, \forall \gamma_1, \gamma_2 \in \Gamma_{U,\Phi}$ \par
 \rom{4}. $\bigcup_{\gamma\in \Gamma_U} \gamma = U$ \par
 
-TODO: oki, deci aici zici cum se rezolva o ecuatie autonoma liniara in mod normal si despre solutiile fundamentale si independenta si dependa lor and stuff si dupa dai un mod echivalnt de a le rezolva cu metoda de mai jos care face un sistem din ele
+\hfill\break
+//TODO: oki, deci aici zici cum se rezolva o ecuatie autonoma liniara in mod normal si despre solutiile fundamentale si independenta si dependa lor and stuff si dupa dai un mod echivalnt de a le rezolva cu metoda de mai jos care face un sistem din ele
+\hfill\break
 
 We may, in fact construct an equivalent system
 \[
@@ -644,7 +652,8 @@ This would in turn form the phase portrait of the dynamical system, described by
 \]
 
 \vskip\bigskipamount
-TODO: faci tu dupa aici un plot in matlab frumusel
+
+//TODO: faci tu dupa aici un plot in matlab frumusel
 si dupa mai gasesti un exemplu mistio in 3d
 
 arat dupa ce faci toate demonstratiile pentru n dimensiuni, niste poze si cazuri particulare in 2,3 dimensiuni, cv ce se paote vedea cu poze
@@ -727,10 +736,13 @@ We can actually plot stabilty diagram for having a visual representation of thes
 
 For a 2x2 Linear system with transform matrix $A$, plotting different systems by their $(Tr(A), det(A))$ plane, where $Tr(A) = \sum_{i}^{n}a_{ii}$ we get:
 
+\begin{figure}[H]
 \includegraphics[width=13cm]{math_pics/Stability_Diagram.png}
+\centering
+\caption{Poincaré Diagram}
+\end{figure}
 
 \newpage
-
 Taking the same concept and applying it to non-linear systems we would have:
 
 For a non-linear autonomous system we can look at a zoomed-in portion of whichever equilibrium points we have and we may be able to locally approximate their stabilty by means of the Taylor series at that particular point, which would infer the stabilty of that point in the greater context of the non-linear system.
@@ -813,7 +825,9 @@ $Re(\lambda) \leqslant  0 \forall \lambda \in Eig(J(y_f)) \text{ and,
 at least } \exists \lambda : Re(\lambda) = 0$ then the results are
 inconclusive and can't be implied for the non-linear system.
 
-// TODO: HAI MA CA NU ESTI PROST invata si despre lyapuov mai bine sa
+\hfill\break
+//TODO: HAI MA CA NU ESTI PROST invata si despre lyapuov mai bine sa
+
 poti sa vorbesti despre dansul dupa ce zici din astea mai de
 specifice de chimie ca sigur o sa ajute cu ceva na pana mea
 
@@ -867,7 +881,10 @@ number of positive rotations (counter-clockwise)[c.c.] that $(u(z),
 v(z))$ (or $arg(p(z))$) makes as $z$ moves across $\partial \gamma$
 in a positive sense [c.c.].
 
+\hfill\break
 //TODO: ai putea sa pui si tu o poza cu un vector space format de un
+\hfill\break
+
 anumit polinom complex cu valori complexe
 
 Now all we need to do is make this "closed contour" the entire
@@ -975,7 +992,9 @@ is horizontal for $y \rightarrow  - \infty$ and $y \rightarrow +
 \infty  $ outcomes the result of our lemma
 \qed
 
+\hfill\break
 //TODO Maybe try to draw this yourself cu arrows nstuff
+\hfill\break
 
 \begin{figure}
 \includegraphics[width=13cm]{math_pics/sageti-cumse-invart.png}
@@ -990,7 +1009,6 @@ p(z)=a_0 z^n + a_1z^{n-1} + \dots + a_n = 0, \quad a_0 > 0
 \]
 
 Dividing $\frac{p(i x)}{i^n}$ and using \ref{real_imag_another_way_to_write}
-
 \begin{gather}
 p_0(x)= \text{Re}(\frac{p(i x)}{i^n}) = a_0 x^{n} -a_2 x^{n-2} + a_4
 x^{n-4} \pm \dots \\
@@ -1038,9 +1056,10 @@ So here's the big guy:
 Re(\lambda) < 0, \quad \forall \lambda \in \text{det}(J - \lambda
 I_n)^{-1}(0) \text{ from \ref{lin_apporx_char_equation} with } a_0 > 0 \\
 \Updownarrow  \\
-c_{i,0} > 0 \forall,  i = \overline{1,n}
+c_{i,0} > 0, \forall  i = \overline{1,n} \text{ from \ref{coeff_gen_form} }
 \end{gather*}
 \end{theorem}
+Meaning the system is stable.
 
 \textbf{Proof: } $arg(p_0,p_1) = 360^\degree - arg(\text{Re}(p),
 \text{Im}(p)) \implies \frac{n}{2}$ positive rotations of $p(ix)$ are
@@ -1053,5 +1072,8 @@ though. $ \implies p_i(x) \geq 0$ for all leading $i$. Having
 $\nexists \text{gcd}(p_0(x),p_1(x)), p(\lambda) \neq 0$ for
 Re$(\lambda) = 0$. Now we just do \ref{cauchy_arg_lemma} +
 \ref{sturm_lemma} once more. \qed
+
+//TODO vezi ba sa rezolbi asta cumva ca nu esti chiar asa prost te pui cu pixu cu astea sa vezi de unde vine si faci
+\includegraphics[width=13cm]{math_pics/TODO SA FACI KKTU ASTA BA.png}
 
 \vskip\bigskipamount

@@ -6,6 +6,14 @@ The app related to the project can be viewed [here](https://github.com/viktorash
 
 pana acm am folosit latexmk cu optiunea de -f forced gen ca sa-mi mearga asta , deci da, sa se stie, comanda pe care o face extensie de latex-workshop e
 
+```bash
+    #in unde e main.tex
+    cd .../..../bachelor-thesis
+
+    #preferabil
+    ls | grep main
+    main.tex
+```
 ```
 "command": "latexmk",
 "args": [

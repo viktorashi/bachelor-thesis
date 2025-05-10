@@ -89,6 +89,8 @@ okii daca vreau sa vad de ce teorema lu hurwitz e adevarata tre sa ma uit la  se
 
 sauu sincer parca as lua direct referintele de care zicea Conradi atunci tbh
 
+ai putea sa-l intrebi de ce inca se foloseste huwritz routh inca, cand cam toate chestiile pe care le citesc arata ca pentru determinanti frt mari apar erori naspa rau care dau stabilitati care doar nu sunt adevarate matematic din cauza erorilor (sau poate asta se intampla in anii '90 si acm sunt mult mai accurate ca autnci deci n-avem treaba?? idk, need to conduct some tests myself and stuffs )
+
 #################### done cat de cat cred ####################
 implicit function theoremm?? help
 
