@@ -1,2 +1,7 @@
 logFilePreferences:
   showEveryYamlRead: 1
+
+onlyOneBackUp: 1
+
+maxNumberOfBackUps: 1
+

@@ -45,4 +45,12 @@ din root de unde e
     Makefile
 ```
 
+sau daca vrei specific fix un anumit fisier:
+
+```bash
+make -b file.tex
+```
+
+
+
 asta in caz ca incercati sa dati compile singur ,ca sa stau sa tin track la fiecare versiune din .pdf in sine kinda defeats the purpose, asa nici macar nu poa sa faca vreun diff sau compresie din aia desteapa gitul ca el nu vede decat linii si ala e binar lol
