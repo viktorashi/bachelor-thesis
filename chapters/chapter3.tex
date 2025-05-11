@@ -3,18 +3,18 @@
 
 \section{Defining Ordinary Differential Equations}
 \begin{definition}
-  \textit{An \textbf{ordinary differential equation} is an equation of an unknown function of \textbf{one} variable. This can be expressed as a function \textbf{of} this unknown function, its corresponding variable and its various derivatives}.
+				\textit{An \textbf{ordinary differential equation} is an equation of an unknown function of \textbf{one} variable. This can be expressed as a function \textbf{of} this unknown function, its corresponding variable and its various derivatives}.
 \end{definition}
 Its general form looks something like:
 \begin{equation}\label{ODE}
-  F(t,y(t),y'(t),....,y^{(n)}(t))=0,
+				F(t,y(t),y'(t),....,y^{(n)}(t))=0,
 \end{equation}
 Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega \rightarrow \mathbb{R},  \\ \Omega \subseteq \mathbb{R}^{n+1}$.
 
 This would be what's called the implicit form of the differential equation.
 
 \begin{definition}
-  \textit{The \textbf{order} of an ODE is the highest order of the derivative present in the equation.}
+				\textit{The \textbf{order} of an ODE is the highest order of the derivative present in the equation.}
 \end{definition}
 In our case, the order is $n$.
 If, however $F$ satisfies the regularity condition \textbf{of the implicit function theorem} then the equation can be written in a much more digestible form.
@@ -27,9 +27,9 @@ As an example: The relation for a cardioid cannot be expressed as a sole functio
 \textbf{Reminder}: A function $f(x)$ is continuously differentiable if $\exists f'(x)$ and $f'(x) \in C^n$ where $n>=0$
 
 \begin{theorem}
-  Let $F:D \subseteq \mathbb{R}^{n+1}\rightarrow\mathbb{R}$ be a continuously differentiable function with the relation that $F(t,y(t),y'(t),....,y^{(n)}(t))=0$. Let us express a point in the set $\mathbb{R}^{n+1} =\mathbb{R}\bigtimes\mathbb{R}^n$ as (t, \textbf{Y}) = $(t, y,y', \dots, y^{ (n) })$ and fix one such point s.t. $F(t, \textbf{Y})=0$.
-  So $\exists \square_{(t, \textbf{Y})} \ni U \bigtimes V \subseteq D$ s.t. $F \in C^1(U\bigtimes V)$ and $\frac{\partial F}{\partial y}(t, \textbf{Y}) \neq 0.$ Then this means $ \exists \square_{t} \ni U_0 \subseteq U$,
-  $\square_{\textbf{Y}} \ni V_0 \subseteq V$ and a function $f : U_0 \rightarrow V_0$ s.t. $f(t) = \textbf{Y}$ and $F(t,f(t))=0, \forall t \in U_0; f \in C^1(U_0)$ and $\frac{\partial f}{\partial t_i} = - \frac{\frac{\partial F}{\partial t_i}(t,f(t))}{\frac{\partial F}{\partial y}(t,f(t))}, \forall i = \overline{1,n} , \forall t \in U_0$ and $F \in C^1(U \bigtimes V),K \in N^* \Rightarrow f \in C^K(U_0).$
+				Let $F:D \subseteq \mathbb{R}^{n+1}\rightarrow\mathbb{R}$ be a continuously differentiable function with the relation that $F(t,y(t),y'(t),....,y^{(n)}(t))=0$. Let us express a point in the set $\mathbb{R}^{n+1} =\mathbb{R}\bigtimes\mathbb{R}^n$ as (t, \textbf{Y}) = $(t, y,y', \dots, y^{ (n) })$ and fix one such point s.t. $F(t, \textbf{Y})=0$.
+				So $\exists \square_{(t, \textbf{Y})} \ni U \bigtimes V \subseteq D$ s.t. $F \in C^1(U\bigtimes V)$ and $\frac{\partial F}{\partial y}(t, \textbf{Y}) \neq 0.$ Then this means $ \exists \square_{t} \ni U_0 \subseteq U$,
+				$\square_{\textbf{Y}} \ni V_0 \subseteq V$ and a function $f : U_0 \rightarrow V_0$ s.t. $f(t) = \textbf{Y}$ and $F(t,f(t))=0, \forall t \in U_0; f \in C^1(U_0)$ and $\frac{\partial f}{\partial t_i} = - \frac{\frac{\partial F}{\partial t_i}(t,f(t))}{\frac{\partial F}{\partial y}(t,f(t))}, \forall i = \overline{1,n} , \forall t \in U_0$ and $F \in C^1(U \bigtimes V),K \in N^* \Rightarrow f \in C^K(U_0).$
 \end{theorem}
 
 \hfill\break
@@ -38,7 +38,7 @@ As an example: The relation for a cardioid cannot be expressed as a sole functio
 
 So restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
 \begin{equation}\label{implicit_func_theorem}
-  y^{(n)}(t)=f(t,y(t),y'(t),...,y^{(n-1)}(t))
+				y^{(n)}(t)=f(t,y(t),y'(t),...,y^{(n-1)}(t))
 \end{equation}
 would yield what's called the \textbf{explicit} form of the ODE.
 
@@ -49,57 +49,57 @@ A particular solution is usually found if we also have some initial conditions g
 Or, more formally:
 
 \begin{definition}
-  A function $y:I \rightarrow \mathbb{R}$ is a solution of the equation \ref{ODE} if the following conditions are met:
+				A function $y:I \rightarrow \mathbb{R}$ is a solution of the equation \ref{ODE} if the following conditions are met:
 
-  1. $I \subseteq \mathbb{R}$ is nondegeneate interval. ($|I|>1$)
+				1. $I \subseteq \mathbb{R}$ is nondegeneate interval. ($|I|>1$)
 
-  2. $y \in C^n(I)$ and $(t,y(t), y'(t), \dots, y^{(n)}(t)) \in D_f, \forall t \in I$.
+				2. $y \in C^n(I)$ and $(t,y(t), y'(t), \dots, y^{(n)}(t)) \in D_f, \forall t \in I$.
 
-  3. $y^{(n)}(t)= f(t,y(t),y'(t),\dots,y^{ (n-1) }(t)), \forall t \in I$. ( \ref{implicit_func_theorem} is satisfied)
+				3. $y^{(n)}(t)= f(t,y(t),y'(t),\dots,y^{ (n-1) }(t)), \forall t \in I$. ( \ref{implicit_func_theorem} is satisfied)
 
 \end{definition}
 
 \section{Forming Ordinary Differential Equation systems}
 We may take a sequence of such first order ordinary differential equations to form a system:
 \begin{equation}\label{3.2.1}
-  \begin{cases}
-    y'_1(t) = f_1(t,y_1(t),y_2(t),\dots,y_n(t)) \\
-    y'_2(t) = f_2(t,y_1(t),y_2(t),\dots,y_n(t)) \\
-    \vdots                                      \\
-    y'_n(t) = f_n(t,y_1(t),y_2(t),\dots,y_n(t))
-  \end{cases}
+				\begin{cases}
+								y'_1(t) = f_1(t,y_1(t),y_2(t),\dots,y_n(t)) \\
+								y'_2(t) = f_2(t,y_1(t),y_2(t),\dots,y_n(t)) \\
+								\vdots                                      \\
+								y'_n(t) = f_n(t,y_1(t),y_2(t),\dots,y_n(t))
+				\end{cases}
 \end{equation}
 
 Constructing $y: D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n, f : D_f \subseteq \mathbb{R}^{n+1} \rightarrow \mathbb{R}^n$ and denoting \\
 $y(t)= (y_1(t), \dots, y_n(t))$ and $f(t,y_1(t),\dots,y_n(t)) = (f_1,\dots,f_n)$ we get what is called the \textbf{vector form} of the system \ref{3.2.1}.
 
 \begin{equation}\label{3.2.2}
-  y'(t) = f (t, y(t))
+				y'(t) = f (t, y(t))
 \end{equation}
 
 \begin{definition}
-  For a function $y:D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n$ , $|D| > 1$, if $y \in C^1(D,\mathbb{R}^n)$, and $y'(t) = f(t,y(t)), \forall t \in D \Rightarrow$ $y$ is a \textbf{solution of the system} \ref{3.2.2}.
+				For a function $y:D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n$ , $|D| > 1$, if $y \in C^1(D,\mathbb{R}^n)$, and $y'(t) = f(t,y(t)), \forall t \in D \Rightarrow$ $y$ is a \textbf{solution of the system} \ref{3.2.2}.
 \end{definition}
 
 \begin{definition}
-  An \textbf{autonomous equation} is a differential equation that does not explicitly depend on time, but is instead only defined by the relation between the function itself and its derivatives, so an equation of the form
-  \begin{equation}\label{eq:3.2.3}
-    f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0
-  \end{equation}
-  That is not to say, the function itself does not depend on time, but rather the independent variable $t$ does not explicitly appear in the equation.
+				An \textbf{autonomous equation} is a differential equation that does not explicitly depend on time, but is instead only defined by the relation between the function itself and its derivatives, so an equation of the form
+				\begin{equation}\label{eq:3.2.3}
+								f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0
+				\end{equation}
+				That is not to say, the function itself does not depend on time, but rather the independent variable $t$ does not explicitly appear in the equation.
 \end{definition}
 
 One more famous such example is the equation for the damped oscillator
 \begin{equation}\label{eq:3.2.4}
-  \ddot{x} + 2\gamma\dot{x} + \omega^2x = 0.
+				\ddot{x} + 2\gamma\dot{x} + \omega^2x = 0.
 \end{equation}
 
 Where:
 \begin{itemize}
-  \item $\gamma$ is the damping factor, meaning how quickly the oscillations of the system decay due to loss of momentum (caused by air resistance or friction)
+				\item $\gamma$ is the damping factor, meaning how quickly the oscillations of the system decay due to loss of momentum (caused by air resistance or friction)
 
-  \item $\omega$ represents the angular (natural) frequency the oscillator would have, were it not to be affected by damping, defined by
-    $\omega = \sqrt{\frac{k}{m}}$; where $k$ is the \textbf{elastic stiffness coefficient} of the spring and $m$ the mass.
+				\item $\omega$ represents the angular (natural) frequency the oscillator would have, were it not to be affected by damping, defined by
+								$\omega = \sqrt{\frac{k}{m}}$; where $k$ is the \textbf{elastic stiffness coefficient} of the spring and $m$ the mass.
 \end{itemize}
 
 In addition, a frequently used notation in physics is
@@ -107,7 +107,7 @@ $\dot{x} = \frac{d}{dt}x$ , $\ddot{x}=\frac{d^2}{dt^2}x$
 
 That equation is a \textbf{linear} homogenous equation with constant coefficients (hence autonomous), which is pretty nice to work with. Their general form would be:
 \begin{equation}\label{lin_hom_eq_const}
-  a_0 x + a_1\dot{x}+ \dots +a_{n} x^{(n)} = 0
+				a_0 x + a_1\dot{x}+ \dots +a_{n} x^{(n)} = 0
 \end{equation}
 
 Finding exact solutions, though, can be done by using some nice properties of Euler's exponential function $e^{rt}$.
@@ -115,23 +115,23 @@ Finding exact solutions, though, can be done by using some nice properties of Eu
 Introducing the notion of \textbf{operators} would help in writing this next section.
 
 \begin{definition}
-  $D = \frac{d}{dt}$ is the \textbf{derivation operator}:
-  $D^n = \frac{d^n}{dt^n}$, so $D^nu = D^n(u) =\frac{d^nu}{dt^n}$ where $u=u(t)$ and (related to \ref{lin_hom_eq_const}): \par
-  \hspace{20pt} $L = a_0 + a_1D + \dots + a_nD^n$ \par
-  \hspace{20pt} is the \textbf{linear differential operator of order n}. Meaning \ref{lin_hom_eq_const} $\iff Lx=0$.
+				$D = \frac{d}{dt}$ is the \textbf{derivation operator}:
+				$D^n = \frac{d^n}{dt^n}$, so $D^nu = D^n(u) =\frac{d^nu}{dt^n}$ where $u=u(t)$ and (related to \ref{lin_hom_eq_const}): \par
+				\hspace{20pt} $L = a_0 + a_1D + \dots + a_nD^n$ \par
+				\hspace{20pt} is the \textbf{linear differential operator of order n}. Meaning \ref{lin_hom_eq_const} $\iff Lx=0$.
 \end{definition}
 
 We now can; just by pure Ansatz; assume the solutions take the form $e^{rt}$ for some (yet unknown) $r$'s. Because the exponential is so easy to work with when it comes to taking derivatives - a.k.a. : $D^n(e^{rt})=r^ne^{rt}$, so its derivatives are proportional to itself, meaning no new $t$'s are introduced - substituting back into \ref{lin_hom_eq_const} yields
 \begin{gather*}
-  Le^{rt} = a_0 e^{rt} + a_1 De^{rt} + \dots +a_{n} D^ne^{rt} = 0      \\
-  \Updownarrow \\
-  a_0 e^{rt}+a_1re^{rt} + \dots + a_nr^ne^{rt} =0 \\
-  \Updownarrow \\
-  a_0 + a_1r + \dots + a_nr^n =0
+				Le^{rt} = a_0 e^{rt} + a_1 De^{rt} + \dots +a_{n} D^ne^{rt} = 0      \\
+				\Updownarrow \\
+				a_0 e^{rt}+a_1re^{rt} + \dots + a_nr^ne^{rt} =0 \\
+				\Updownarrow \\
+				a_0 + a_1r + \dots + a_nr^n =0
 \end{gather*}
 The left-hand-side is the \textbf{characteristic polynomial} of the linear equation.
 \begin{equation}\label{lin_eq_char_poly}
-  p(r) = a_1r + \dots + a_nr^n
+				p(r) = a_1r + \dots + a_nr^n
 \end{equation}
 Notice that $L = p(D)$. \\
 So now it all comes down to finding its roots $r$.
@@ -145,7 +145,7 @@ Case \rom{2}: A \textbf{unique, complex} root found:
 say it has the form $r = \lambda \pm i\mu, \mu \neq 0$. \\
 By Euler's formula:
 \begin{equation}\label{euler}
-  e^{rt} = e^{(\lambda + i\mu)t} = e^{\lambda t} \cdot e^{i \mu t}  =  e^{\lambda t} \cdot [\text{cos}(\mu t) + i \text{sin}(\mu t)]
+				e^{rt} = e^{(\lambda + i\mu)t} = e^{\lambda t} \cdot e^{i \mu t}  =  e^{\lambda t} \cdot [\text{cos}(\mu t) + i \text{sin}(\mu t)]
 \end{equation}
 
 So $e^{\lambda t}\text{cos}(\mu t)$ and $e^{\lambda t}\text{sin}(\mu t)$ are both fundamental solutions for $Lx=0$.
@@ -153,21 +153,21 @@ So $e^{\lambda t}\text{cos}(\mu t)$ and $e^{\lambda t}\text{sin}(\mu t)$ are bot
 \textbf{Proof}: \par
 Since $a_i \in \mathbb{R}, \forall i=\overline{1,n}$ in $p \implies p(\overline{r})=\overline{p(r)}, \forall r \in \mathbb{C}$, hence, just like 2AM coffee and the exam session, complex roots of $p$ always come in pairs. They both satisfy:
 \begin{equation}\label{lin_op_solution}
-  Le^{(\lambda \pm i \mu)} = 0
+				Le^{(\lambda \pm i \mu)} = 0
 \end{equation}
 
 But since our $x : \mathbb{R} \rightarrow \mathbb{R}$ we're looking for \textbf{real} valued solutions.
 Because $\mu \in \mathbb{R}$ the following properties hold equivalently for $\lambda + i\mu$ and for $\overline{\lambda + i\mu}=\lambda - i\mu$ so I'll only write $\lambda \textbf{+} i \mu$ for simplicity. By \ref{euler}:
 \begin{equation}\label{eulers_real_and_imaginary}
-  \text{Re}(e^{rt})=e^{\lambda t} \cdot \text{cos}(\mu t), \hspace{2cm}    \text{Im}(e^{rt}) = e^{\lambda t} \cdot \text{sin}(\mu t).
+				\text{Re}(e^{rt})=e^{\lambda t} \cdot \text{cos}(\mu t), \hspace{2cm}    \text{Im}(e^{rt}) = e^{\lambda t} \cdot \text{sin}(\mu t).
 \end{equation}
 But (\textbf{reminder})
 \begin{gather}\label{real_imag_another_way_to_write}
-  \text{Re}(c)= \frac{c+\overline{c}}{2}, \hspace{2cm}
-  \text{Im}(c) = \frac{c-\overline{c}}{2i}
+				\text{Re}(c)= \frac{c+\overline{c}}{2}, \hspace{2cm}
+				\text{Im}(c) = \frac{c-\overline{c}}{2i}
 \end{gather}
 \begin{gather*}
-  \forall c \in \mathbb{C}
+				\forall c \in \mathbb{C}
 \end{gather*}
 
 \newcommand\firstConclusion{\stackrel{\mathclap{\normalfont\mbox{\ref{eulers_real_and_imaginary}, \ref{real_imag_another_way_to_write}}}}{=\joinrel=\joinrel=\joinrel=\joinrel=\joinrel=}}
@@ -178,12 +178,12 @@ But (\textbf{reminder})
 
 Using these three conclusions we get:
 \begin{align*}
-  L(e^{\lambda t} \cdot \text{cos}(\mu t)) \firstConclusion
-  L\left(\frac{e^{rt}+e^{\overline{r}t}}{2} \right) \byDistributivity
-  \frac{1}{2} \left( Le^{rt} + Le^{\overline{r}t} \right) \operatorSatisfy 0 , \\
-  L(e^{\lambda t} \cdot \text{sin}(\mu t)) \firstConclusion
-  L\left(\frac{e^{rt}-e^{\overline{r}t}}{2i} \right) \byDistributivity
-  \frac{1}{2i} \left( Le^{rt} - Le^{\overline{r}t} \right) \operatorSatisfy 0 ,
+				L(e^{\lambda t} \cdot \text{cos}(\mu t)) \firstConclusion
+				L\left(\frac{e^{rt}+e^{\overline{r}t}}{2} \right) \byDistributivity
+				\frac{1}{2} \left( Le^{rt} + Le^{\overline{r}t} \right) \operatorSatisfy 0 , \\
+				L(e^{\lambda t} \cdot \text{sin}(\mu t)) \firstConclusion
+				L\left(\frac{e^{rt}-e^{\overline{r}t}}{2i} \right) \byDistributivity
+				\frac{1}{2i} \left( Le^{rt} - Le^{\overline{r}t} \right) \operatorSatisfy 0 ,
 \end{align*}
 
 In conclusion, if $Le^{ct}=0$ for some $c \in \mathbb{C} \implies L\text{Re}(e^{ ct })= L\text{Im}(e^{ct})=0, \\
@@ -192,7 +192,7 @@ Moreover, the same can be said for $e^{\overline{c}t}$. \qed
 
 Now something let's say... \textbf{fundamental} (hehe) about these solutions, is they have to be linearly independent to each other. Meaning the only solution for
 \begin{equation}\label{liniar_independece}
-  c_1 x_1+c_2 x_2 + \dots + c^n x^n = 0
+				c_1 x_1+c_2 x_2 + \dots + c^n x^n = 0
 \end{equation}
 is the trivial solution $c_1=c_2=\dots=c_n=0$ where $x_i$ are the fundamental solutions of the system.
 
@@ -204,17 +204,17 @@ A root with multiplicity $k$ would introduce yet another $k$ -for real- or $2k$ 
 
 Case \rom{3}: \textbf{Repeated, real} roots $r$ with multiplicity $k>1$ yield the fundamental solutions
 \[
-  e^{rt}, xe^{rt}, \dots,x^{k-1}e^{rt}.
+				e^{rt}, xe^{rt}, \dots,x^{k-1}e^{rt}.
 \]
 
 These can be verified that they do, in fact satisfy \ref{liniar_independece}. So can:
 
 Case \rom{4}: \textbf{Repeated, complex} roots $r$ with multiplicity $k>1$. These introduce the pairs:
 \begin{align*}
-  e^{at}\text{cos}(bt), \ \  e^{at}\text{sin}(bt)  \\
-  xe^{at}\text{cos}(bt), \ \ xe^{at}\text{sin}(bt) \\
-  \vdots                                           \\
-  x^{k-1}e^{at}\text{cos}(bt), \ \ x^{k-1}e^{at}\text{sin}(bt)
+				e^{at}\text{cos}(bt), \ \  e^{at}\text{sin}(bt)  \\
+				xe^{at}\text{cos}(bt), \ \ xe^{at}\text{sin}(bt) \\
+				\vdots                                           \\
+				x^{k-1}e^{at}\text{cos}(bt), \ \ x^{k-1}e^{at}\text{sin}(bt)
 \end{align*}
 
 So $2k$ new solutions.
@@ -227,14 +227,14 @@ This principle can be applied to \textit{our} easier to compute \textbf{fundamen
 
 Since it's a linear operator, additivity and homogeneity apply:
 \begin{gather*}
-  L(x_1+x_2) = Lx_1 + Lx_2\\
-  aLx = L(ax) , \forall a \in \mathbb{C}
+				L(x_1+x_2) = Lx_1 + Lx_2\\
+				aLx = L(ax) , \forall a \in \mathbb{C}
 \end{gather*}
 where $x,x_1,x_2$ are fundamental solutions of the system.
 
 Hence the complete, final, \textbf{general} solution for \ref{lin_hom_eq_const} are linear combinations of all our previously found fundamental solutions:
 \[
-  x(t) = c_1 x_1 + \dots + c_nx_n
+				x(t) = c_1 x_1 + \dots + c_nx_n
 \]
 for some constants $c_i$.
 \newpage
@@ -242,25 +242,25 @@ for some constants $c_i$.
 The reason why autonomous equations are so useful to us is because of the ease with which we can visualize the \textbf{evolution} of a system of such equations.
 Take, for example:
 \begin{definition}
-  A \textbf{system of first-order autonomous equations} is a system of equations of the form
-  \begin{equation}\label{fo_system_auton_eq}
-    \begin{cases}
-      \dot{y}_1 = f_1(y_1,\dots, y_n) \\
-      \dot{y}_2 = f_2(y_1,\dots, y_n) \\
-      \vdots                          \\
-      \dot{y}_n = f_n(y_1,\dots, y_n) \\
-    \end{cases}
-  \end{equation}
+				A \textbf{system of first-order autonomous equations} is a system of equations of the form
+				\begin{equation}\label{fo_system_auton_eq}
+								\begin{cases}
+												\dot{y}_1 = f_1(y_1,\dots, y_n) \\
+												\dot{y}_2 = f_2(y_1,\dots, y_n) \\
+												\vdots                          \\
+												\dot{y}_n = f_n(y_1,\dots, y_n) \\
+								\end{cases}
+				\end{equation}
 \end{definition}
 
 \begin{definition}
-  We can construct the \textbf{phase space} of the \ref{fo_system_auton_eq} dynamical system by:
+				We can construct the \textbf{phase space} of the \ref{fo_system_auton_eq} dynamical system by:
 
-  \begin{enumerate}
-    \item Representing all possible values of $y_i$, $ i = \overline{1,n}$ as points in Euclidean space $S \subseteq \mathbb{R}^n$
+				\begin{enumerate}
+								\item Representing all possible values of $y_i$, $ i = \overline{1,n}$ as points in Euclidean space $S \subseteq \mathbb{R}^n$
 
-    \item Constructing a function $f : S \rightarrow S, f(y_1,y_2,\dots,y_n) = (\dot{y}_1,\dot{y}_2,\dots,\dot{y}_n)$ that attaches to each point in $S$ a vector representing the direction in which to go such that the relation \ref{fo_system_auton_eq} is satisfied.
-  \end{enumerate}
+								\item Constructing a function $f : S \rightarrow S, f(y_1,y_2,\dots,y_n) = (\dot{y}_1,\dot{y}_2,\dots,\dot{y}_n)$ that attaches to each point in $S$ a vector representing the direction in which to go such that the relation \ref{fo_system_auton_eq} is satisfied.
+				\end{enumerate}
 \end{definition}
 
 Thus, the \textbf{phase space} of the system is a vector field where $f$ is a continuous vector valued function.
@@ -268,36 +268,36 @@ Thus, the \textbf{phase space} of the system is a vector field where $f$ is a co
 So keeping this in mind, we may form a formal definition:
 
 \begin{definition}
-  A \textbf{dynamical system} is a tuple $(T,S,\Phi)$ where:
+				A \textbf{dynamical system} is a tuple $(T,S,\Phi)$ where:
 
-  \begin{itemize}
-    \item $T$: part of the $(T,+)$ monoid of all possible $time$ moments of our system
-    \item $S$: is the set of all possible states, and
-    \item the function: $\Phi : U \subseteq (T \times S ) \rightarrow S$ where values of the second component span all of $S$, meaning $proj_2(U) = S$.
-  \end{itemize}
-  In order to give the necessary properties of $\Phi$ we will need to also define:
-  \begin{definition}\label{dyn_sys_orbit_flow_etc_def}
-    \textbf{A lot of notions about dynamical systems.}
+				\begin{itemize}
+								\item $T$: part of the $(T,+)$ monoid of all possible $time$ moments of our system
+								\item $S$: is the set of all possible states, and
+								\item the function: $\Phi : U \subseteq (T \times S ) \rightarrow S$ where values of the second component span all of $S$, meaning $proj_2(U) = S$.
+				\end{itemize}
+				In order to give the necessary properties of $\Phi$ we will need to also define:
+				\begin{definition}\label{dyn_sys_orbit_flow_etc_def}
+								\textbf{A lot of notions about dynamical systems.}
 
-    $I(s):= \{ t \in T | (t,s) \in U \}, \forall s \in S$
+								$I(s):= \{ t \in T | (t,s) \in U \}, \forall s \in S$
 
-    so $\Phi$ has the properties that:
+								so $\Phi$ has the properties that:
 
-    $\Phi(0,s) = s$
+								$\Phi(0,s) = s$
 
-    $\Phi(t_2,\Phi(t_1,s)) = \Phi(t_1+t_2,s); \forall t_1, t_1+t_2 \in I(s), t_2 \in I(\Phi(t_1,s)), s \in S$.
+								$\Phi(t_2,\Phi(t_1,s)) = \Phi(t_1+t_2,s); \forall t_1, t_1+t_2 \in I(s), t_2 \in I(\Phi(t_1,s)), s \in S$.
 
-    We call such a function $\Phi$ the \textbf{evolution function} of the dynamical system, mapping every state and $time$ after which that specific state is found, to another unique state.
-  \end{definition}
+								We call such a function $\Phi$ the \textbf{evolution function} of the dynamical system, mapping every state and $time$ after which that specific state is found, to another unique state.
+				\end{definition}
 
-  If we take a specific state $s$ as an initial constant, we can form the function
+				If we take a specific state $s$ as an initial constant, we can form the function
 
-  $\Phi_s : I(s) \rightarrow S$
-  called the \textbf{flow} through $s$, whose image:
+				$\Phi_s : I(s) \rightarrow S$
+				called the \textbf{flow} through $s$, whose image:
 
-  $\gamma_s:=\{\Phi_s(t) | t\in I(s) \}$
-  is the \textbf{orbit} through $s$,
-  which is a curve of parameter $t \in I(s)$ representing the values the dynamical system will take throughout the experiment's timespan, given the initial condition (state) $s$.
+				$\gamma_s:=\{\Phi_s(t) | t\in I(s) \}$
+				is the \textbf{orbit} through $s$,
+				which is a curve of parameter $t \in I(s)$ representing the values the dynamical system will take throughout the experiment's timespan, given the initial condition (state) $s$.
 \end{definition}
 
 Since a point only belongs to one orbit, if we form the set
@@ -309,7 +309,7 @@ $\forall \gamma_1,\gamma_2 \in \Gamma_{U, \Phi}, \gamma_1 \bigcap \gamma_2 = \em
 Conditions for partitions:
 \par \textbf{Reminder:} A partition $\Gamma_U$ of a set $U$ is a set of non-empty disjoint subsets of $U$:
 \[
-  \bigcup_{\gamma\in \Gamma_U} \gamma = U
+				\bigcup_{\gamma\in \Gamma_U} \gamma = U
 \]
 
 So we need to prove:
@@ -329,74 +329,74 @@ So we need to prove:
 
 We may, in fact construct an equivalent system
 \[
-  \begin{cases}
-    \dot{y}_1 = f_1(y_1,\dots, y_n) \\
-    \dot{y}_2 = f_2(y_1,\dots, y_n) \\
-    \vdots                          \\
-    \dot{y}_n = f_n(y_1,\dots, y_n) \\
-  \end{cases}
+				\begin{cases}
+								\dot{y}_1 = f_1(y_1,\dots, y_n) \\
+								\dot{y}_2 = f_2(y_1,\dots, y_n) \\
+								\vdots                          \\
+								\dot{y}_n = f_n(y_1,\dots, y_n) \\
+				\end{cases}
 \]
 
 Starting from any autonomous differential equation
 \[
-  f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0
+				f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0
 \]
 via a technique which associates to each respective derivative a state unknown (variable).
 This system's form depends on the solvability with respect to the highest derivative $y^{(n)}$.
 The first form may be obtained if the above equation \textbf{can} be solved in terms of $y^{(n)}$, meaning it can be re-written as
 \begin{gather*}
-  f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0 \\
-  \Updownarrow \\
-  y^{(n)}  = G(y^{(n-1)}(t), \dots, y(t))
+				f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0 \\
+				\Updownarrow \\
+				y^{(n)}  = G(y^{(n-1)}(t), \dots, y(t))
 \end{gather*}
 
 We first take each state unknown to be equal to their respective derivatives, so:
 \begin{gather*}
-  y_1 = y     \\
-  y_2 = \dot{y} \\
-  \vdots \\
-  y_n = y^{(n-1)}
+				y_1 = y     \\
+				y_2 = \dot{y} \\
+				\vdots \\
+				y_n = y^{(n-1)}
 \end{gather*}
 
 Then we take the derivatives with respect to time of each of these equations, so starting with $\dot{y}_1 = \dot{y}$, but $\dot{y} = y_2$, so $\dot{y_1}=y_2$. Continuing on like that, in a sort of diagonal fashion for all but the last state variable, we get:
 \begin{gather*}
-  \dot{y}_1 = y_2 \\
-  \dot{y}_2 = y_3 \\
-  \vdots \\
-  \dot{y}_{n-1} = y_n
+				\dot{y}_1 = y_2 \\
+				\dot{y}_2 = y_3 \\
+				\vdots \\
+				\dot{y}_{n-1} = y_n
 \end{gather*}
 and this is where that beginning "solvability" part comes into play. The very last one will be exactly its solution defined earlier:
 \[
-  \dot{y}_n = \frac{d}{dt}y^{(n-1)} = y^{(n)}  = G(y^{(n-1)}(t), \dots, y(t))
+				\dot{y}_n = \frac{d}{dt}y^{(n-1)} = y^{(n)}  = G(y^{(n-1)}(t), \dots, y(t))
 \]
 
 So, putting this all together we can get the equivalent system of the autonomous differential equation
 \[
-  \begin{cases}
-    \dot{y}_1 = y_2     \\
-    \dot{y}_2 = y_3     \\
-    \vdots              \\
-    \dot{y}_{n-1} = y_n \\
-    \dot{y}_n  = G(y^{(n-1)}(t), \dots, y(t))
-  \end{cases}
+				\begin{cases}
+								\dot{y}_1 = y_2     \\
+								\dot{y}_2 = y_3     \\
+								\vdots              \\
+								\dot{y}_{n-1} = y_n \\
+								\dot{y}_n  = G(y^{(n-1)}(t), \dots, y(t))
+				\end{cases}
 \]
 
 Now, if instead of an actual function $G$ we only get an implicit form for a solution (\ref{implicit_func_theorem} isn't satisfied), we could write the original equation in terms of these new state variables:
 \begin{gather*}
-  f(y(t), \dot{y}(t),\dots,y^{(n-1)},y^{(n)})= 0 \\
-  \Updownarrow \\
-  f(y_1,\dots,y_n,\dot{y}_n) = 0
+				f(y(t), \dot{y}(t),\dots,y^{(n-1)},y^{(n)})= 0 \\
+				\Updownarrow \\
+				f(y_1,\dots,y_n,\dot{y}_n) = 0
 \end{gather*}
 
 So the system would be:
 \[
-  \begin{cases}
-    \dot{y}_1 = y_2     \\
-    \dot{y}_2 = y_3     \\
-    \vdots              \\
-    \dot{y}_{n-1} = y_n \\
-    f(y_1,\dots,y_n,\dot{y}_n) = 0
-  \end{cases}
+				\begin{cases}
+								\dot{y}_1 = y_2     \\
+								\dot{y}_2 = y_3     \\
+								\vdots              \\
+								\dot{y}_{n-1} = y_n \\
+								f(y_1,\dots,y_n,\dot{y}_n) = 0
+				\end{cases}
 \]
 
 This is a differential-algebraic system of equations (DAE), which is beyond the scope of this thesis but figured I'd cover all cases (this one's usually solved via numerical methods).
@@ -407,123 +407,123 @@ Let's consider \ref{lin_hom_eq_const}, the equation we worked with previously. N
 
 We could first divide everything by $a_{n}$ so everything looks a bit better.
 \begin{gather*}
-  \left. a_0 x + a_1\dot{x}+ \dots +a_{n} x^{(n)} = 0 \middle| \frac{1}{a_{n}} \right. \\
-  \Updownarrow \\
-  b_0 x + b_1\dot{x} + \dots + b_{n-1} x^{(n-1)} + x^{(n)} = 0
+				\left. a_0 x + a_1\dot{x}+ \dots +a_{n} x^{(n)} = 0 \middle| \frac{1}{a_{n}} \right. \\
+				\Updownarrow \\
+				b_0 x + b_1\dot{x} + \dots + b_{n-1} x^{(n-1)} + x^{(n)} = 0
 \end{gather*}
 
 And now apply the aforementioned technique:
 \begin{gather*}
-  x_1 = x     \\
-  x_2 = \dot{x} \\
-  \vdots \\
-  x_n = x^{(n-1)}
+				x_1 = x     \\
+				x_2 = \dot{x} \\
+				\vdots \\
+				x_n = x^{(n-1)}
 \end{gather*}
 
 then:
 \[
-  \begin{cases}
-    \dot{x}_1 = x_2     \\
-    \dot{x}_2 = x_3     \\
-    \vdots              \\
-    \dot{x}_{n-1} = x_n \\
-    \dot{x}_n  = x^{(n)} = -b_0x - b_1\dot{x} - \dots - b_{n-1} x^{(n-1)} = -b_0 x_1 - b_1 x_2 - \dots - b_n x_{n-1}
-  \end{cases}
+				\begin{cases}
+								\dot{x}_1 = x_2     \\
+								\dot{x}_2 = x_3     \\
+								\vdots              \\
+								\dot{x}_{n-1} = x_n \\
+								\dot{x}_n  = x^{(n)} = -b_0x - b_1\dot{x} - \dots - b_{n-1} x^{(n-1)} = -b_0 x_1 - b_1 x_2 - \dots - b_n x_{n-1}
+				\end{cases}
 \]
 
 Waitt, I saw this somewhere in year 1, semester 1 during Linear Algebra (which I definitely didn't have to re-take twice)
 
 That is the same as:
 \begin{align*}
-  \begin{bmatrix}
-    \dot{x}_1     \\
-    \dot{x}_2     \\
-    \dot{x}_3     \\
-    \vdots        \\
-    \dot{x}_{n-1} \\
-    \dot{x}_n
-  \end{bmatrix} =
-  \bordermatrix{ & x_1    & x_2    & x_3    & \ldots & x_n \cr
-    & 0      & 1      & 0      & \ldots & 0 \cr
-    & 0      & 0      & 1      & \ldots & 0 \cr
-    & 0      & 0      & 0      & \ldots & 0 \cr
-    & \vdots & \vdots & \vdots & \ddots & \vdots \cr
-    & 0      & 0      & 0      & \ldots & 1 \cr
-  & -b_0   & -b_1   & -b_2   & \ldots & b_n }
-  \begin{bmatrix}
-    x_1     \\
-    x_2     \\
-    x_3     \\
-    \vdots  \\
-    x_{n-1} \\
-    x_n
-  \end{bmatrix}
+				\begin{bmatrix}
+								\dot{x}_1     \\
+								\dot{x}_2     \\
+								\dot{x}_3     \\
+								\vdots        \\
+								\dot{x}_{n-1} \\
+								\dot{x}_n
+				\end{bmatrix} =
+				\bordermatrix{ & x_1    & x_2    & x_3    & \ldots & x_n \cr
+								& 0      & 1      & 0      & \ldots & 0 \cr
+								& 0      & 0      & 1      & \ldots & 0 \cr
+								& 0      & 0      & 0      & \ldots & 0 \cr
+								& \vdots & \vdots & \vdots & \ddots & \vdots \cr
+								& 0      & 0      & 0      & \ldots & 1 \cr
+				& -b_0   & -b_1   & -b_2   & \ldots & b_n }
+				\begin{bmatrix}
+								x_1     \\
+								x_2     \\
+								x_3     \\
+								\vdots  \\
+								x_{n-1} \\
+								x_n
+				\end{bmatrix}
 \end{align*}
 
 Writing it in compact form:
 \[
-  \dot{x} = A x
+				\dot{x} = A x
 \]
 With $x, \dot{x}$ 2 $n$ sized column vectors and $A$ an $n \bigtimes n$ matrix.
 
 Now notice that
 \[
-  \text{det}(A- r I_n)
+				\text{det}(A- r I_n)
 \]
 
 Is precisely the char. poly. \ref{lin_eq_char_poly}. So the $r$ solutions for
 \[
-  \text{det}(A - r I_n) =0
+				\text{det}(A - r I_n) =0
 \]
 (a.k.a the eigenvalues of the A matrix) are also the roots of \ref{lin_eq_char_poly}. So solving for them would obtain the solutions
 \[
-  x_i = e^{rt}x_i(0)
+				x_i = e^{rt}x_i(0)
 \]
 for $i = \overline{1,n}$.
 
 A much simpler example of a system that can be solved by not even having to make such computations is that of a \textbf{decoupled} dyamical system. Alas one where each state variable only depends on itself. Common examples that come to mind would be the concentration of a homogenous substance in an isolated tank while under the influence of heat transfer. This wouldn't really be a "system" so we could take multiple such tanks in a lab, where they are indeed sepparated from one-another but still form the system.
 \begin{equation*}
-  \begin{cases}
-    \dot{x}_1 = \lambda_1 x_1 \\
-    \dot{x}_2 = \lambda_2 x_2 \\
-    \vdots \\
-    \dot{x}_n = \lambda_n x_n
-  \end{cases}
+				\begin{cases}
+								\dot{x}_1 = \lambda_1 x_1 \\
+								\dot{x}_2 = \lambda_2 x_2 \\
+								\vdots \\
+								\dot{x}_n = \lambda_n x_n
+				\end{cases}
 \end{equation*}
 
 The system's matrix $D$ is now:
 \begin{equation*}
-  D =
-  \begin{bmatrix}
-    \lambda_1 & 0 & 0 &\dots & 0 \\
-    0 & \lambda_2 & 0 & \dots & 0 \\
-    0 & 0 & \lambda_3 & \dots & 0 \\
-    \vdots & \vdots & \vdots & \ddots & \vdots \\
-    0 & 0 & 0 & \dots & \lambda_n
-  \end{bmatrix}
+				D =
+				\begin{bmatrix}
+								\lambda_1 & 0 & 0 &\dots & 0 \\
+								0 & \lambda_2 & 0 & \dots & 0 \\
+								0 & 0 & \lambda_3 & \dots & 0 \\
+								\vdots & \vdots & \vdots & \ddots & \vdots \\
+								0 & 0 & 0 & \dots & \lambda_n
+				\end{bmatrix}
 \end{equation*}
 
 We notice that our solutions will now take the form
 \[
-  x = e^{Dt}x(0)
+				x = e^{Dt}x(0)
 \]
 
 where $\cdot^A : \mathbb{C} \rightarrow \mathbb{C}^{n \bigtimes m}$ for an $A = (a_{ij}) \in \mathbb{C}^{n \bigtimes m}$ is defined as:
 \[
-  \alpha^A = (\alpha^{a_{ij}}_{ij})
+				\alpha^A = (\alpha^{a_{ij}}_{ij})
 \]
 
 so
 \begin{align*}
-  \underline{x}(t) =
-  \begin{bmatrix}
-    e^{\lambda_1} & 0 & 0 &\dots & 0 \\
-    0 & e^{\lambda_2} & 0 & \dots & 0 \\
-    0 & 0 & e^{\lambda_3} & \dots & 0 \\
-    \vdots & \vdots & \vdots & \ddots & \vdots \\
-    0 & 0 & 0 & \dots & e^{\lambda_n}
-  \end{bmatrix}
-  \underline{x}(0)
+				\underline{x}(t) =
+				\begin{bmatrix}
+								e^{\lambda_1} & 0 & 0 &\dots & 0 \\
+								0 & e^{\lambda_2} & 0 & \dots & 0 \\
+								0 & 0 & e^{\lambda_3} & \dots & 0 \\
+								\vdots & \vdots & \vdots & \ddots & \vdots \\
+								0 & 0 & 0 & \dots & e^{\lambda_n}
+				\end{bmatrix}
+				\underline{x}(0)
 \end{align*}
 Where I use $\underline{x}$ to denote the \textbf{vector form} of a the state-space vars.
 In conclusion, it'd be ideal for us to work with such \textbf{diagonal} matrices.
@@ -534,26 +534,26 @@ This is pretty straight-forward:
 
 Starting from the system
 \begin{equation}\label{diag_matrix_init_sys}
-  \dot{x} = A x
+				\dot{x} = A x
 \end{equation}
 we need to find a transformation $T$ from our coordinate system
 \begin{equation}\label{diag_trans_rel}
-  x = Tz
+				x = Tz
 \end{equation}
 s.t. our dynamics are decoupled (the new transformation matrix $D$ is diagonal)
 \[
-  \dot{z} = Dz
+				\dot{z} = Dz
 \]
 Derivating \ref{diag_trans_rel} and substituting into \ref{diag_matrix_init_sys}:
 \begin{gather*}
-  \left. x = Tz \middle| \frac{d}{dt} \right. \iff
-  \dot{x} = T\dot{z} = Ax = ATz \Rightarrow \dot{z} = T^{-1} A T z = Dz \\
-  \text{Which allows us to find an invertible } T \text{ s.t.} \\
-  \text{the diagonal matrix } D \text{ is the conjugate of (similar to) } A \text{ w.r.t. } T \\
-  \left. T^{-1} A T z = Dz \middle| \frac{T}{z}
-  \right. \\
-  \Updownarrow \\
-  A T = T D.
+				\left. x = Tz \middle| \frac{d}{dt} \right. \iff
+				\dot{x} = T\dot{z} = Ax = ATz \Rightarrow \dot{z} = T^{-1} A T z = Dz \\
+				\text{Which allows us to find an invertible } T \text{ s.t.} \\
+				\text{the diagonal matrix } D \text{ is the conjugate of (similar to) } A \text{ w.r.t. } T \\
+				\left. T^{-1} A T z = Dz \middle| \frac{T}{z}
+				\right. \\
+				\Updownarrow \\
+				A T = T D.
 \end{gather*}
 
 Everything comes down to solving the above eigenvalue problem.
@@ -562,33 +562,33 @@ As stated in the above sections: $diag(D) = \{ \lambda | det(A - \lambda I_n) = 
 
 After computing $A$'s eigenvalues, we've essentially also found $T$, now
 \[
-  D = T^{-1} A T
+				D = T^{-1} A T
 \]
 is used to find the diagonal matrix which will decouple our dynamics in the new coordinate system $z = T^{-1} x$; $\dot{z} = D z$.
 
 Transforming back into our world, the solutions (in vector form) are:
 \begin{gather*}
-  \underline{z}(t) = e^{Dt}\underline{z}(0) \\
-  \Updownarrow \\
-  T^{-1} \underline{x}(t) = e^{Dt} T^{-1} \underline{x}(0) \\
-  \Updownarrow \\
-  \underline{x}(t) = T e^{Dt} T^{-1} \underline{x}(0). \\
-  \Updownarrow \\
-  \underline{x}(t) = T e^{Dt} \underline{z}(0). \\
-  \Updownarrow \\
-  \underline{x}(t) = T \underline{z}(t).
+				\underline{z}(t) = e^{Dt}\underline{z}(0) \\
+				\Updownarrow \\
+				T^{-1} \underline{x}(t) = e^{Dt} T^{-1} \underline{x}(0) \\
+				\Updownarrow \\
+				\underline{x}(t) = T e^{Dt} T^{-1} \underline{x}(0). \\
+				\Updownarrow \\
+				\underline{x}(t) = T e^{Dt} \underline{z}(0). \\
+				\Updownarrow \\
+				\underline{x}(t) = T \underline{z}(t).
 \end{gather*}
 Now we know the equations have the form
 \[
-  x_i = T z_i(t), i = \overline{1,n}.
+				x_i = T z_i(t), i = \overline{1,n}.
 \]
 Where $T$ is the $n \bigtimes n$ matrix whose columns are $A$ (not necesarily linearly independent) eigenvectors.
 \begin{equation*}
-  \begin{bmatrix*}
-    \vdots & \vdots & \dots & \vdots \\
-    \xi_1 & \xi_2 & \dots & \xi_n \\
-    \vdots & \vdots & \dots & \vdots \\
-  \end{bmatrix*}
+				\begin{bmatrix*}
+								\vdots & \vdots & \dots & \vdots \\
+								\xi_1 & \xi_2 & \dots & \xi_n \\
+								\vdots & \vdots & \dots & \vdots \\
+				\end{bmatrix*}
 \end{equation*}
 Boom! You're golden.
 
@@ -604,15 +604,15 @@ Si dai exemplul cu pendumulul, reintroducand idea de phase space si cum poti sa-
 Taking, in particular, a more complex autonomous differential equation; the one for the damped pendulum:
 
 \begin{equation}\label{damped_pendulum}
-  \ddot{\theta} +\mu\dot{\theta} + \frac{g}{L}\sin(\theta) = 0
+				\ddot{\theta} +\mu\dot{\theta} + \frac{g}{L}\sin(\theta) = 0
 \end{equation}
 where:  \par
 $
 \left.
 \begin{array}{l}
-  \theta : \text{angular position}       \\
-  \dot{\theta} : \text{angular velocity} \\
-  \ddot{\theta} : \text{angular acceleration}
+				\theta : \text{angular position}       \\
+				\dot{\theta} : \text{angular velocity} \\
+				\ddot{\theta} : \text{angular acceleration}
 \end{array}
 \right\}
 \text{all functions of } t \text{ (time)}
@@ -630,24 +630,24 @@ And attach to each point the vector formed from the derivatives of each componen
 \begin{align}
 \frac{d}{dt}
 \begin{bmatrix}
-  \theta \\
-  \dot{\theta}
+				\theta \\
+				\dot{\theta}
 \end{bmatrix} =
 \begin{bmatrix}
-  \dot{\theta} \\
-  \ddot{\theta}
+				\dot{\theta} \\
+				\ddot{\theta}
 \end{bmatrix} =
 \begin{bmatrix}
-  \omega \\
-  -\mu \cdot \omega - \frac{g}{L}\sin(\theta)
+				\omega \\
+				-\mu \cdot \omega - \frac{g}{L}\sin(\theta)
 \end{bmatrix}
 \end{align}
 
 This would in turn form the phase portrait of the dynamical system, described by a system of first-order autonomous differential equations:
 \[
 \begin{cases}
-  \dot{\theta}  = \omega \\
-  \dot{\omega} = -\mu \cdot \omega - \frac{g}{L}\sin(\theta)
+				\dot{\theta}  = \omega \\
+				\dot{\omega} = -\mu \cdot \omega - \frac{g}{L}\sin(\theta)
 \end{cases}
 \]
 
@@ -686,16 +686,16 @@ A point $y_0 \in S$ that:
 
 $\qquad \qquad \forall \epsilon > 0, \exists \delta > 0 : $
 \begin{equation} \label{cond:stable1}
-  \text{\rom{1}: } \forall y(0) \in S \text{ for which } \norm{y(0) - y_0} < \delta \implies \exists y(t), \forall t >= 0.  \tag{\rom{1}}
+				\text{\rom{1}: } \forall y(0) \in S \text{ for which } \norm{y(0) - y_0} < \delta \implies \exists y(t), \forall t >= 0.  \tag{\rom{1}}
 \end{equation}
 \begin{equation} \label{cond:stable2}
-  \text{\rom{2}: } \norm{ y(t) - y_0 } < \epsilon \quad \forall t >= 0. \tag{\rom{2}}
+				\text{\rom{2}: } \norm{ y(t) - y_0 } < \epsilon \quad \forall t >= 0. \tag{\rom{2}}
 \end{equation}
 
 \textbf{Asymptotically stable equilibriums (or attractors)}:
 Subset of \textbf{stable equilibria} for which:
 \begin{equation}\label{cond:asympt_stable}
-  \text{\rom{3}: } \lim_{t \rightarrow \infty} \norm{y(t) - y_0}  = 0 \text{ for those whose } \norm{ y(0) - y_0} < \delta \tag{\rom{3}}
+				\text{\rom{3}: } \lim_{t \rightarrow \infty} \norm{y(t) - y_0}  = 0 \text{ for those whose } \norm{ y(0) - y_0} < \delta \tag{\rom{3}}
 \end{equation}
 
 \textbf{Unstable equilibriums (or repeller)}:
@@ -707,7 +707,7 @@ And as opposed to, say  a continuum of fixed points we have:
 
 A fixed point $y_0$ is said to be \textbf{isolated} if
 \[
-  \exists \delta > 0 : \forall y \text{ satifying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
+				\exists \delta > 0 : \forall y \text{ satifying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
 \]
 \end{definition}
 
@@ -765,14 +765,14 @@ $J_{\underline{f}}(y_f)$ is the Jacobian matrix of $\underline{f}$ evaluated at 
 \begin{definition}
 The Jacobian matrix of a vector-valued vector function $f : D \subseteq \mathbb{R}^n \rightarrow S \subseteq \mathbb{R}^m$, $f(x_1, \dots, x_n) = (y_1, \dots , y_m) \quad [f(x) = (y_1, \dots , y_m)], f \in D(\mathbb{R}^n)$ is $J_f \in \mathbb{R}^{m \bigtimes n}$ an alogue for its first-order derivative, defined as:
 \begin{align*}
-  J_f = \left[ \frac{\partial f}{\partial x_1}, \dots , \frac{\partial f}{\partial x_n}  \right] =
-  \begin{bmatrix*}
-    \frac{\partial y_1}{\partial x_1} & \dots & \frac{\partial y_1}{\partial x_n} \\
-    \vdots & \ddots & \vdots \\
-    \frac{\partial y_m}{\partial x_1} & \dots &  \frac{\partial y_m}{\partial x_n}
-  \end{bmatrix*} =
-  \frac{df}{dx} =
-  \left(   \frac{\partial y_i}{\partial x_j} \right)_{ij | 1 \leqslant i \leqslant n, 1 \leqslant j \leqslant m}
+				J_f = \left[ \frac{\partial f}{\partial x_1}, \dots , \frac{\partial f}{\partial x_n}  \right] =
+				\begin{bmatrix*}
+								\frac{\partial y_1}{\partial x_1} & \dots & \frac{\partial y_1}{\partial x_n} \\
+								\vdots & \ddots & \vdots \\
+								\frac{\partial y_m}{\partial x_1} & \dots &  \frac{\partial y_m}{\partial x_n}
+				\end{bmatrix*} =
+				\frac{df}{dx} =
+				\left(   \frac{\partial y_i}{\partial x_j} \right)_{ij | 1 \leqslant i \leqslant n, 1 \leqslant j \leqslant m}
 \end{align*}
 \end{definition}
 
@@ -1051,7 +1051,7 @@ $p_m(x) = \text{gcd}(p_0(x), p_1(x)) \iff \text{ \rom{2}) } \implies
 So here's the big guy:
 
 \begin{theorem}\label{routh_theorem}
-(Routh 1877).
+Routh:
 \begin{gather*}
 Re(\lambda) < 0, \quad \forall \lambda \in \text{det}(J - \lambda
 I_n)^{-1}(0) \text{ from \ref{lin_apporx_char_equation} with } a_0 > 0 \\
@@ -1073,7 +1073,27 @@ $\nexists \text{gcd}(p_0(x),p_1(x)), p(\lambda) \neq 0$ for
 Re$(\lambda) = 0$. Now we just do \ref{cauchy_arg_lemma} +
 \ref{sturm_lemma} once more. \qed
 
-//TODO vezi ba sa rezolbi asta cumva ca nu esti chiar asa prost te pui cu pixu cu astea sa vezi de unde vine si faci
+\hfill\break
+//TODO vezi ba sa rezolbi asta cumva ca nu esti chiar asa prost te pui cu pixu cu astea sa vezi de unde vine si faci pasii de rezolvare de le-a facut hurwitz intr-un fel
+\hfill\break
+
 \includegraphics[width=13cm]{math_pics/TODO SA FACI KKTU ASTA BA.png}
+
+Adolf Hurwitz later wrote the positivity criterion ($2^{nd}$ condition in \ref{routh_theorem}) making use of this matrix we now basically call "his".
+\begin{theorem}
+Hurwitz:
+\begin{align*}
+H =
+\begin{pmatrix*}
+a_{2j-i}
+\end{pmatrix*}^n_{i,j=1} =
+\begin{pmatrix*}
+a_1 & a_0 & 0 & 0 & 0 & \dots & 0 \\
+a_3 & a_2 &  a_1 & a_0 & 0 & \dots &  0 \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{ 2n-1 } &  a_{ 2n-2 } & a_{ 2n-3 }  & a_{ 2n-4 }  & a_{ 2n-5 }  & \dots & a_n
+\end{pmatrix*}
+\end{align*}
+\end{theorem}
 
 \vskip\bigskipamount
