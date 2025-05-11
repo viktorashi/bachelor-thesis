@@ -28,5 +28,21 @@ pana acm am folosit latexmk cu optiunea de -f forced gen ca sa-mi mearga asta , 
 "env": {}
 ```
 
+Cand vrei sa formatezi, recomand sa iei [tex-fmt](https://github.com/WGUNDERWOOD/tex-fmt) si sa te folosesti de `tex-fmt.toml` care e acl in root (foloseste automat doar cand dai)
+
+```bash
+    tex-fmt file.tex
+```
+
+Dar daca nu-ti formateaza bine, dai un ca se foloseste de latexindent care e defaultu
+```bash
+    make
+```
+
+din root de unde e 
+```bash
+    ls | grep Makefile
+    Makefile
+```
 
 asta in caz ca incercati sa dati compile singur ,ca sa stau sa tin track la fiecare versiune din .pdf in sine kinda defeats the purpose, asa nici macar nu poa sa faca vreun diff sau compresie din aia desteapa gitul ca el nu vede decat linii si ala e binar lol
