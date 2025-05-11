@@ -852,8 +852,8 @@ f_i}{\partial x_j}(0)
 \]
 He figured out he doesn't have to find the roots of
 \begin{equation}\label{lin_apporx_char_equation}
-det(J - \lambda I_n) = a_0 \lambda^n + a_1 \lambda^{n-1} + \dots +
-a_{n-1}\lambda + a_n = 0
+det(J - \lambda I_n) =
+a_0 \lambda^n + a_1 \lambda^{n-1} + \dots + a_{n-1}\lambda + a_n = 0
 \end{equation}
 To infer the system's stability, as in check
 $ Re(\lambda_0) < 0$,
@@ -1080,12 +1080,20 @@ Re$(\lambda) = 0$. Now we just do \ref{cauchy_arg_lemma} +
 \includegraphics[width=13cm]{math_pics/TODO SA FACI KKTU ASTA BA.png}
 
 Adolf Hurwitz later wrote the positivity criterion ($2^{nd}$ condition in \ref{routh_theorem}) making use of this matrix we now basically call "his".
+\newpage
 \begin{theorem}
 Hurwitz:
+
+We have \ref{lin_apporx_char_equation}
+\[
+	p(\lambda) = a_0 \lambda^n + a_1 \lambda^{n-1} + \dots + a_{n-1}\lambda + a_n = 0
+\]
+
+and constructing its \textbf{Hurwitz matrix}:
 \begin{align*}
-	H =
+	H_n =
 	\begin{pmatrix*}
-		a_{2j-i}
+		a_{2i-j}
 	\end{pmatrix*}^n_{i,j=1} =
 	\begin{pmatrix*}
 		a_1 & a_0 & 0 & 0 & 0 & \dots & 0 \\
@@ -1095,6 +1103,11 @@ Hurwitz:
 	\end{pmatrix*}
 \end{align*}
 
+with the exception that $a_k = 0$ if $k \notin \left\{0, \dots , n\right\}$
+
+He's shown that condition \rom{2} of \ref{routh_theorem} (hence $\text{ Re }(\lambda)< 0, \forall \lambda \in p^{-1}(0)$ with $a_0 > 0$ as well) $\iff \text{det}(H_i) \forall i = \overline{1,n}$
+
+So this is what's used to show the stabilty of the linear system (or linearization of a non-linear one), computing matrices of coefficients of the charracteristic polynomial, instead of having to compute Eig($J$) directly.
 \end{theorem}
 
 \vskip\bigskipamount
