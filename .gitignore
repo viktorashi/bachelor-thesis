@@ -2,6 +2,9 @@
 .DS_Store
 .vscode/
 build/
+indent.log
+*.bak*
+*.swp
 
 # pt astea de codare ce mai fac
 *__pycache__*

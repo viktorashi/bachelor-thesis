@@ -4,31 +4,31 @@
 To better generalise them, it'd be best to also define the notion of:
 
 \begin{definition}
-  \textbf{Invariant sets}.
+	\textbf{Invariant sets}.
 
-  Taking the Auton. sys.
-  \begin{equation}\label{invar_set_auton_sys}
-    \dot{y} = f(y) , y(0) = y_0, y \in \mathbb{R}^n
-  \end{equation}
+	Taking the Auton. sys.
+	\begin{equation}\label{invar_set_auton_sys}
+		\dot{y} = f(y) , y(0) = y_0, y \in \mathbb{R}^n
+	\end{equation}
 
-  A stateset $S \subseteq \mathbb{R}^n$ of \ref{invar_set_auton_sys} is \textbf{invariant} if $\forall y_0 \in S, \forall t \geq 0: y(t) \in S$
+	A stateset $S \subseteq \mathbb{R}^n$ of \ref{invar_set_auton_sys} is \textbf{invariant} if $\forall y_0 \in S, \forall t \geq 0: y(t) \in S$
 \end{definition}
 
 As you can see by this above definition, equilibria are also particular cases of invariant sets, themselves.
 
 They also fall into stability classes that can be defined as in Def. \ref{equilibrium_stability}, but replacing
 \[
-  "y_0" \text{ with } "S \subseteq \mathbb{R}^n \text{ }"
+	"y_0" \text{ with } "S \subseteq \mathbb{R}^n \text{ }"
 \]
 and
 \[
-  " \dotso \norm{y(t) - y_0} \dotso" \text{ with } "\dotso \text{ inf}\{ \norm{y(t) - s} : s \in S  \} \dotso \text{ }"
+	" \dotso \norm{y(t) - y_0} \dotso" \text{ with } "\dotso \text{ inf}\{ \norm{y(t) - s} : s \in S  \} \dotso \text{ }"
 \]
 The Jacobian (linearization), generally, would also not be as useful in this context anymore.
 \newpage
 Now consider we have a system as above, except it now depends on an extra parameter $\mu$, which remains constant \textbf{during} our "experiment".
 \begin{equation}\label{auton_parameter_sys_compact}
-  \dot{y} = f_\mu(y).
+	\dot{y} = f_\mu(y).
 \end{equation}
 
 This could be, for example, the length of the pendulum $L$, in \ref{damped_pendulum}, or its damping coefficient $c$. Honestly generalising it even more, it could even be the gravitational constant $g$. Hence, this parameter can, of course be a \textbf{vector} of such parameters.
@@ -51,20 +51,20 @@ The latter are \textbf{global}, which are more complex and require greater under
 
 To better define and illustrate them for the 1-D case and give example of bifurcations for such dimension, we could instead write our vector field $f$ as depending on $\mu$ in addition to the unknown function $y$.
 \begin{equation}\label{eq:1-d_bif_sys}
-  \dot{y} = f(y, \mu).
+	\dot{y} = f(y, \mu).
 \end{equation}
 And assume $f \in C^k(\mathbb{R} \bigtimes \mathbb{R}), k \geq 2 $ around $(0,0)$, and
 \begin{equation}\label{bifurcation_priming}
-  f(0,0) = 0, \quad \frac{\partial f}{\partial y}(0,0) = 0.
+	f(0,0) = 0, \quad \frac{\partial f}{\partial y}(0,0) = 0.
 \end{equation}
 By these conditions we are basically "priming" the system for bifurcations, but none are enough for them to actually acuur. Here come the specific definitions for each particular type of bifurcation in 1-D.
 
 \begin{definition}
-  A \textbf{Saddle-node bifurcation}:
-  for $f$ in \ref{bifurcation_priming}, add as well:
-  \begin{equation*}
-    \frac{\partial f}{\partial \mu}(0,0) =: a \neq 0, \quad \frac{\partial^2 f}{\partial y^2}(0,0) =:b \neq 0.
-  \end{equation*}
+	A \textbf{Saddle-node bifurcation}:
+	for $f$ in \ref{bifurcation_priming}, add as well:
+	\begin{equation*}
+		\frac{\partial f}{\partial \mu}(0,0) =: a \neq 0, \quad \frac{\partial^2 f}{\partial y^2}(0,0) =:b \neq 0.
+	\end{equation*}
 \end{definition}
 Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, if the following equivalances are true:
 
@@ -73,38 +73,38 @@ Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation accurs at $\mu = 0$, i
 \rom{2}. For $ab < 0$ (resp. $ab > 0$), $\exists y_+(\epsilon) \neq y_-(\epsilon) \implies y_\pm(\epsilon) : f(y_\pm(\epsilon), \mu) = 0, \epsilon = \sqrt{\abs{\mu}}$, for $ \mu > 0 $ (resp. $\mu < 0$ ), having opposing stabilities.
 
 \begin{definition} \label{pitchfork_bif}
-  \textbf{Pitchfork bifurcation}.
+	\textbf{Pitchfork bifurcation}.
 
-  For $f$ from \ref{bifurcation_priming}, assume as well that:
-  $f \in C^k, k \geq 3$,
-  \[
-    f(-y, \mu) = -f(y,\mu)
-  \]
-  and,
-  \[
-    \frac{\partial^2 f}{\partial \mu \partial y}(0,0) =: a \neq 0, \quad \frac{\partial^3 f }{\partial y^3}(0,0)=: b \neq 0
-  \]
+	For $f$ from \ref{bifurcation_priming}, assume as well that:
+	$f \in C^k, k \geq 3$,
+	\[
+		f(-y, \mu) = -f(y,\mu)
+	\]
+	and,
+	\[
+		\frac{\partial^2 f}{\partial \mu \partial y}(0,0) =: a \neq 0, \quad \frac{\partial^3 f }{\partial y^3}(0,0)=: b \neq 0
+	\]
 
-  Now, a \textbf{pitchfork bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu  =0$ if:
+	Now, a \textbf{pitchfork bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu  =0$ if:
 
-  \rom{1}. for $ab < 0$ (resp. $ab > 0$) $\exists! y = 0 :f(y,\mu) = 0 $ for $\mu < 0$ (resp. $\mu > 0$). $b < 0 \implies$ stable, $b > 0 \implies$ unstable.
+	\rom{1}. for $ab < 0$ (resp. $ab > 0$) $\exists! y = 0 :f(y,\mu) = 0 $ for $\mu < 0$ (resp. $\mu > 0$). $b < 0 \implies$ stable, $b > 0 \implies$ unstable.
 
-  \rom{2}. for $ab < 0$ (resp. $ab > 0$) $\exists y = 0 : f(y , \mu) = 0$, as well as: $y_+(\epsilon) \neq y_-(\epsilon) \implies y_\pm(\epsilon) : f(y_\pm(\epsilon), \mu) = 0, \epsilon = \sqrt{\abs{\mu}}$  for $\mu > 0$ (resp. $\mu < 0$), for which $y_+(\epsilon) = -y_-(\epsilon)$, Both $y_-(\epsilon)$ and $y_+(\epsilon)$ have matching stabilities, whereas $y = 0$ has the opposite stability of them, given by $b < 0 \implies$ stable, $b > 0 \implies$ unstable.
+	\rom{2}. for $ab < 0$ (resp. $ab > 0$) $\exists y = 0 : f(y , \mu) = 0$, as well as: $y_+(\epsilon) \neq y_-(\epsilon) \implies y_\pm(\epsilon) : f(y_\pm(\epsilon), \mu) = 0, \epsilon = \sqrt{\abs{\mu}}$  for $\mu > 0$ (resp. $\mu < 0$), for which $y_+(\epsilon) = -y_-(\epsilon)$, Both $y_-(\epsilon)$ and $y_+(\epsilon)$ have matching stabilities, whereas $y = 0$ has the opposite stability of them, given by $b < 0 \implies$ stable, $b > 0 \implies$ unstable.
 \end{definition}
 
 \begin{definition}
-  \textbf{Transcritical bifurcation}.
+	\textbf{Transcritical bifurcation}.
 
-  For $f$ in \ref{bifurcation_priming}:
-  \[
-    \frac{\partial^2 f}{\partial \mu \partial y}(0, 0) =:a \neq 0, \quad \frac{\partial^2 f}{\partial y^2}(0,0) =: b \neq 0
-  \]
-  Then a \textbf{transcritical bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu = 0$, char. by (if they hold):
+	For $f$ in \ref{bifurcation_priming}:
+	\[
+		\frac{\partial^2 f}{\partial \mu \partial y}(0, 0) =:a \neq 0, \quad \frac{\partial^2 f}{\partial y^2}(0,0) =: b \neq 0
+	\]
+	Then a \textbf{transcritical bifurcation} accurs for \ref{eq:1-d_bif_sys} at $\mu = 0$, char. by (if they hold):
 
-  \rom{1}.  $\exists y = 0 : f(y, \mu) = 0$  and  $ \exists y_0(\mu) : f(y_0(\mu), \mu) = 0 $ where $\mu \rightarrow u_0(\mu) \in C^m, m = k - 2$
+	\rom{1}.  $\exists y = 0 : f(y, \mu) = 0$  and  $ \exists y_0(\mu) : f(y_0(\mu), \mu) = 0 $ where $\mu \rightarrow u_0(\mu) \in C^m, m = k - 2$
 
-  \rom{2}.  for $a\mu  < 0$ (resp. $a\mu > 0$) the trivial fixed point $y = 0 \implies$ stable (resp. unstable)
-  and $u_0(\mu)$ has opposing stability.
+	\rom{2}.  for $a\mu  < 0$ (resp. $a\mu > 0$) the trivial fixed point $y = 0 \implies$ stable (resp. unstable)
+	and $u_0(\mu)$ has opposing stability.
 \end{definition}
 
 Finding local bifurcations can be done by looking at eigenvalues.
@@ -113,17 +113,17 @@ Finding local bifurcations can be done by looking at eigenvalues.
 
 }For system:
 \begin{equation}
-  \dot{y} = f(y, \mu) \quad f : \mathbb{R}^n \times \mathbb{R} \rightarrow \mathbb{R}^n
+	\dot{y} = f(y, \mu) \quad f : \mathbb{R}^n \times \mathbb{R} \rightarrow \mathbb{R}^n
 \end{equation}
 
 \begin{definition}\label{local_bif_def}
-  $(y_0,\mu_0)$ admits a \textbf{local bifurcation} if:
+	$(y_0,\mu_0)$ admits a \textbf{local bifurcation} if:
 \end{definition}
 
 If $\forall \lambda \in Eig(J_{f}(y_0,\mu_0)) : Re(\lambda) \leq 0$, while $\exists \lambda_0 : Re(\lambda_0) = 0$
 
 \begin{equation}\label{stable_state_bif}
-  \text{If } \lambda_0 = 0 \text{ the bifurcation is stable-state defined. }
+	\text{If } \lambda_0 = 0 \text{ the bifurcation is stable-state defined. }
 \end{equation}
 
 We also have a second kind of local bifurcation and this is where we begin the crux of the thesis, and answear the first question I had getting into this:
@@ -134,75 +134,75 @@ A \textit{simple Hopf bifurcation} is a bifurcation in which a single complex-co
 
 Or, more formally, defined in a simmilar fashion to Def. \ref{local_bif_def}:
 \begin{definition}
-  $(y_0, \mu_0)$ admits a \textbf{Hopf bifurcation} if we have Def. \ref{local_bif_def}, and additionally:
-  \begin{equation}\label{hopf_bif_def}
-    \exists! \lambda_0 : Re(\lambda_0) = 0, \quad
-    Im(\lambda_0) \neq 0.
-  \end{equation}
+	$(y_0, \mu_0)$ admits a \textbf{Hopf bifurcation} if we have Def. \ref{local_bif_def}, and additionally:
+	\begin{equation}\label{hopf_bif_def}
+		\exists! \lambda_0 : Re(\lambda_0) = 0, \quad
+		Im(\lambda_0) \neq 0.
+	\end{equation}
 \end{definition}
 Visually, just to hammer it in:
 
 \begin{figure}[H]
-  \includegraphics[width=13cm]{math_pics/hopf-bif-eigenvalue-graph.png}
-  \centering
-  \caption{Visualising the zeroes}
+	\includegraphics[width=13cm]{math_pics/hopf-bif-eigenvalue-graph.png}
+	\centering
+	\caption{Visualising the zeroes}
 \end{figure}
 
 In $\mathbb{R}^2$, such Bifurcations cause special kinds of invariant sets, namely \textbf{limit cycles} to appear. These are periodic solutions, for which we'll need a few more concepts in order to be able to define them:
 \begin{definition} \textbf{Closed trajectory and Closed orbit (cycle)}
 
-  A trajectory (or flow): $y(t) \in \mathbb{R}^2$ as in Def. \ref{dyn_sys_orbit_flow_etc_def} is a solution for \ref{eq:1-d_bif_sys}
+	A trajectory (or flow): $y(t) \in \mathbb{R}^2$ as in Def. \ref{dyn_sys_orbit_flow_etc_def} is a solution for \ref{eq:1-d_bif_sys}
 
-  A closed trajectory is one which returns to its starting point $\forall s_0 := \Phi(0,s) $ it has, namely:
-  \begin{gather*}
-    \exists t_0 \in T : \Phi(t,s) = \Phi(t+t_0,s), \forall s \in \Phi_{s_0}     \\
-    \Updownarrow \\
-    \exists t_0 \in T : y(t) = y(t+t_0), \forall t \in T
-  \end{gather*}
-  A \textbf{closed orbit} or \textbf{cycle} is just the image of such a closed trajectory.
+	A closed trajectory is one which returns to its starting point $\forall s_0 := \Phi(0,s) $ it has, namely:
+	\begin{gather*}
+		\exists t_0 \in T : \Phi(t,s) = \Phi(t+t_0,s), \forall s \in \Phi_{s_0}     \\
+		\Updownarrow \\
+		\exists t_0 \in T : y(t) = y(t+t_0), \forall t \in T
+	\end{gather*}
+	A \textbf{closed orbit} or \textbf{cycle} is just the image of such a closed trajectory.
 \end{definition}
 
 \begin{definition}\textbf{Limit point}
-  These can be grouped into $\omega$ (attracting) and $\alpha$ (repelling) limit points:
+	These can be grouped into $\omega$ (attracting) and $\alpha$ (repelling) limit points:
 
-  $y_\omega$ is an $\omega$-limit point  for $y$ if:
+	$y_\omega$ is an $\omega$-limit point  for $y$ if:
 
-  $\exists (t_n)_{n \in \mathbb{N}} \subseteq I(y) : $
-  \begin{gather*}
-    \lim_{n \rightarrow \infty} t_n = \infty  \\
-    \lim_{n \rightarrow \infty} \Phi(t_n,y) = y_\omega
-  \end{gather*}
-  And similarly, but in reverse:
+	$\exists (t_n)_{n \in \mathbb{N}} \subseteq I(y) : $
+	\begin{gather*}
+		\lim_{n \rightarrow \infty} t_n = \infty  \\
+		\lim_{n \rightarrow \infty} \Phi(t_n,y) = y_\omega
+	\end{gather*}
+	And similarly, but in reverse:
 
-  $y_\alpha$ is an $\alpha$-limit point  for $y$ if:
+	$y_\alpha$ is an $\alpha$-limit point  for $y$ if:
 
-  $\exists (t_n)_{n \in \mathbb{N}} \subseteq I(y) : $
-  \begin{gather*}
-    \lim_{n \rightarrow \infty} t_n = \textbf{--} \infty  \\
-    \lim_{n \rightarrow \infty} \Phi(t_n,y) = y_\alpha
-  \end{gather*}
+	$\exists (t_n)_{n \in \mathbb{N}} \subseteq I(y) : $
+	\begin{gather*}
+		\lim_{n \rightarrow \infty} t_n = \textbf{--} \infty  \\
+		\lim_{n \rightarrow \infty} \Phi(t_n,y) = y_\alpha
+	\end{gather*}
 \end{definition}
 
 \begin{definition}\textbf{Limit set}
-  The set of all $\omega$ (or $\alpha$)-limit points for a particular orbit $\gamma$ is called the \textbf{limit set} of $\gamma$, denoted and defined as:
-  \[
-    \lim_{\omega}\gamma_s := \bigcap_{t \in T} \overline{ \{ \Phi(t', s) : t' > t \} }
-  \]
-  \[
-    \lim_{\alpha}\gamma_s := \bigcap_{t \in T} \overline{ \{ \Phi(t', s) : t' < t \} }
-  \]
+	The set of all $\omega$ (or $\alpha$)-limit points for a particular orbit $\gamma$ is called the \textbf{limit set} of $\gamma$, denoted and defined as:
+	\[
+		\lim_{\omega}\gamma_s := \bigcap_{t \in T} \overline{ \{ \Phi(t', s) : t' > t \} }
+	\]
+	\[
+		\lim_{\alpha}\gamma_s := \bigcap_{t \in T} \overline{ \{ \Phi(t', s) : t' < t \} }
+	\]
 \end{definition}
 
 \begin{definition} \textbf{Limit cycle}
 
-  A Limit Cycle is a cycle which is the limit set of at least another trajectory.
-  Also, interestingly:
-  \[
-    \lim_{\omega}\gamma \bigcap \gamma  = \emptyset \implies \text{ it's an } \omega \text{-limit cycle}.
-  \]
-  \[
-    \lim_{\alpha}\gamma \bigcap \gamma  = \emptyset \implies \text{ it's an } \alpha \text{-limit cycle}.
-  \]
+	A Limit Cycle is a cycle which is the limit set of at least another trajectory.
+	Also, interestingly:
+	\[
+		\lim_{\omega}\gamma \bigcap \gamma  = \emptyset \implies \text{ it's an } \omega \text{-limit cycle}.
+	\]
+	\[
+		\lim_{\alpha}\gamma \bigcap \gamma  = \emptyset \implies \text{ it's an } \alpha \text{-limit cycle}.
+	\]
 \end{definition}
 
 //TODO: Proof: trust me bro;
@@ -210,12 +210,12 @@ In $\mathbb{R}^2$, such Bifurcations cause special kinds of invariant sets, name
 What's interesting though, and makes calculations easier for the 2-D case is:
 \begin{theorem}  \textbf{Poincaré-Bendixson}
 
-  For a dynamical system $(T,X,\Phi)$ with $X \subseteq \mathbb{R}^2$, $\forall$ compact invariant set $S$:
-  \begin{gather*}
-    \text{if } \nexists x_0 \in S : \Phi(t_1, x_0) = \Phi(t_2,x_0), \forall t_1,t_2 \in T \\
-    \Downarrow \\
-    \forall s \in S: \gamma_s \text{ are either limit cycles, or } \lim_{\omega / \alpha}\gamma_s \text{ is a $\omega$ (or $\alpha$)-limit cycle }.
-  \end{gather*}
+	For a dynamical system $(T,X,\Phi)$ with $X \subseteq \mathbb{R}^2$, $\forall$ compact invariant set $S$:
+	\begin{gather*}
+		\text{if } \nexists x_0 \in S : \Phi(t_1, x_0) = \Phi(t_2,x_0), \forall t_1,t_2 \in T \\
+		\Downarrow \\
+		\forall s \in S: \gamma_s \text{ are either limit cycles, or } \lim_{\omega / \alpha}\gamma_s \text{ is a $\omega$ (or $\alpha$)-limit cycle }.
+	\end{gather*}
 \end{theorem}
 
 But the problem is this theorem only holds for $\mathbb{R}^2$. For higher dimensions we don't have this property necessarily, instead we have to look for periodic solutions (limit cycles) ourselves - which, as stated previously - accur naturally during a Hopf bifurcation.
@@ -225,17 +225,17 @@ So having these in mind, Hopf is kind of like a $\mathbb{R}^n$ version of Pitchf
 You can even see the resemblance in the way they look
 
 \begin{figure}[H]
-  \includegraphics[width=13cm]{math_pics/hopf-bif-pic.png}
-  \centering
-  \caption{$\mathbb{R}^3$ Hopf Bifurcation}
+	\includegraphics[width=13cm]{math_pics/hopf-bif-pic.png}
+	\centering
+	\caption{$\mathbb{R}^3$ Hopf Bifurcation}
 \end{figure}
 
 \includegraphics[width=11cm]{math_pics/leo.jpg}
 
 \begin{figure}[H]
-  \includegraphics[width=13cm]{math_pics/pitchfork-photo.png}
-  \centering
-  \caption{Pitchfork bifurcation}
+	\includegraphics[width=13cm]{math_pics/pitchfork-photo.png}
+	\centering
+	\caption{Pitchfork bifurcation}
 \end{figure}
 
 //TODO: scrie (si fa mai mult research) despre  \textbf{normal form} si despre cum aproximeaza el sistemul dinamic in jurul punctelor de bifurcatie, ca o sa-ti fie de folos la cam toate punctele de birufcatie sincer pare important si chiarn u stiu de el am vzt in mai multe parti
