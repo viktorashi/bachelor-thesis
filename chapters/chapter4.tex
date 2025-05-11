@@ -227,7 +227,6 @@ You can even see the resemblance in the way they look
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/hopf-bif-pic.png}
 	\centering
-	\caption{$\mathbb{R}^3$ Hopf Bifurcation}
 \end{figure}
 
 \includegraphics[width=11cm]{math_pics/leo.jpg}
@@ -238,10 +237,31 @@ You can even see the resemblance in the way they look
 	\caption{Pitchfork bifurcation}
 \end{figure}
 
+\hfill\break
 //TODO: scrie (si fa mai mult research) despre  \textbf{normal form} si despre cum aproximeaza el sistemul dinamic in jurul punctelor de bifurcatie, ca o sa-ti fie de folos la cam toate punctele de birufcatie sincer pare important si chiarn u stiu de el am vzt in mai multe parti
+
 //TODO: sincer mai bine lasa tbh noone cares as of now
+\hfill\break
 
 \subsection{Proving the existence of simple Hopf bifurcations}
+
+Finding necessary conditions for their existance makes use of a tool defined in the previous chapter (\ref{hurwitz_theorem}) the \textbf{Hurwitz matrix}.
+
+Instead, now the characteristic polynomial depends on this new bifurcation parameter $\mu$.
+
+\begin{proposition}
+	Take $p_{\mu_0} \in \mathbb{C}^n[Z]$ with $n \geq 2$ and consider $\mu_0$ fixed:
+	\[
+		p_{\mu_0}(z) = a_0(\mu_0)z^n + a_1(\mu_0)z^{ n-1 } + \dots + a^n (\mu_0)
+	\]
+
+	Take $H_i(\mu_0)$ to be $p$'s $i$-th Hurwitz Matrix (\ref{hurwitz_theorem})
+
+	If we have:
+	\[
+		\text{det}H_1(\mu_0) > 0 , \dots, \text{det}H_{n-2} (\mu_0) > 0.
+	\]
+\end{proposition}
 
 \subsection{Ruling out simple Hopf bifurcations}
 
