@@ -99,7 +99,7 @@ Where:
 	\item $\gamma$ is the damping factor, meaning how quickly the oscillations of the system decay due to loss of momentum (caused by air resistance or friction)
 
 	\item $\omega$ represents the angular (natural) frequency the oscillator would have, were it not to be affected by damping, defined by
-	      $\omega = \sqrt{\frac{k}{m}}$; where $k$ is the \textbf{elastic stiffness coefficient} of the spring and $m$ the mass.
+		$\omega = \sqrt{\frac{k}{m}}$; where $k$ is the \textbf{elastic stiffness coefficient} of the spring and $m$ the mass.
 \end{itemize}
 
 In addition, a frequently used notation in physics is
@@ -187,7 +187,7 @@ Using these three conclusions we get:
 \end{align*}
 
 In conclusion, if $Le^{ct}=0$ for some $c \in \mathbb{C} \implies L\text{Re}(e^{ ct })= L\text{Im}(e^{ct})=0, \\
-	\text{for } \text{Re}(e^{ct}), \text{Im}(e^{ct}) \in \mathbb{R}$.
+\text{for } \text{Re}(e^{ct}), \text{Im}(e^{ct}) \in \mathbb{R}$.
 Moreover, the same can be said for $e^{\overline{c}t}$. \qed
 
 Now something let's say... \textbf{fundamental} (hehe) about these solutions, is they have to be linearly independent to each other. Meaning the only solution for
@@ -444,12 +444,12 @@ That is the same as:
 		\dot{x}_n
 	\end{bmatrix} =
 	\bordermatrix{ & x_1    & x_2    & x_3    & \ldots & x_n \cr
-	               & 0      & 1      & 0      & \ldots & 0 \cr
-	               & 0      & 0      & 1      & \ldots & 0 \cr
-	               & 0      & 0      & 0      & \ldots & 0 \cr
-	               & \vdots & \vdots & \vdots & \ddots & \vdots \cr
-	               & 0      & 0      & 0      & \ldots & 1 \cr
-	               & -b_0   & -b_1   & -b_2   & \ldots & b_n }
+		& 0      & 1      & 0      & \ldots & 0 \cr
+		& 0      & 0      & 1      & \ldots & 0 \cr
+		& 0      & 0      & 0      & \ldots & 0 \cr
+		& \vdots & \vdots & \vdots & \ddots & \vdots \cr
+		& 0      & 0      & 0      & \ldots & 1 \cr
+	& -b_0   & -b_1   & -b_2   & \ldots & b_n }
 	\begin{bmatrix}
 		x_1     \\
 		x_2     \\
@@ -608,14 +608,14 @@ Taking, in particular, a more complex autonomous differential equation; the one 
 \end{equation}
 where:  \par
 $
-	\left.
-	\begin{array}{l}
-		\theta : \text{angular position}       \\
-		\dot{\theta} : \text{angular velocity} \\
-		\ddot{\theta} : \text{angular acceleration}
-	\end{array}
-	\right\}
-	\text{all functions of } t \text{ (time)}
+\left.
+\begin{array}{l}
+	\theta : \text{angular position}       \\
+	\dot{\theta} : \text{angular velocity} \\
+	\ddot{\theta} : \text{angular acceleration}
+\end{array}
+\right\}
+\text{all functions of } t \text{ (time)}
 $
 
 \ \ $\mu = \frac{c}{mL}$ : dampening factor \par
@@ -628,27 +628,27 @@ We can express $\theta$ and $\dot{\theta}$ as two separate and independent varia
 And attach to each point the vector formed from the derivatives of each component, which would be (according to \ref{damped_pendulum}):
 
 \begin{align}
-	\frac{d}{dt}
-	\begin{bmatrix}
-		\theta \\
-		\dot{\theta}
-	\end{bmatrix} =
-	\begin{bmatrix}
-		\dot{\theta} \\
-		\ddot{\theta}
-	\end{bmatrix} =
-	\begin{bmatrix}
-		\omega \\
-		-\mu \cdot \omega - \frac{g}{L}\sin(\theta)
-	\end{bmatrix}
+\frac{d}{dt}
+\begin{bmatrix}
+	\theta \\
+	\dot{\theta}
+\end{bmatrix} =
+\begin{bmatrix}
+	\dot{\theta} \\
+	\ddot{\theta}
+\end{bmatrix} =
+\begin{bmatrix}
+	\omega \\
+	-\mu \cdot \omega - \frac{g}{L}\sin(\theta)
+\end{bmatrix}
 \end{align}
 
 This would in turn form the phase portrait of the dynamical system, described by a system of first-order autonomous differential equations:
 \[
-	\begin{cases}
-		\dot{\theta}  = \omega \\
-		\dot{\omega} = -\mu \cdot \omega - \frac{g}{L}\sin(\theta)
-	\end{cases}
+\begin{cases}
+	\dot{\theta}  = \omega \\
+	\dot{\omega} = -\mu \cdot \omega - \frac{g}{L}\sin(\theta)
+\end{cases}
 \]
 
 \vskip\bigskipamount
@@ -670,45 +670,45 @@ The study of how much such changes in initial conditions (or just the passing of
 
 In general, for a system: \ref{fo_system_auton_eq}, written in the compact form
 \begin{equation}\label{auton_sys_compact}
-	\dot{y}(t) = \underline{f}(y(t)).
+\dot{y}(t) = \underline{f}(y(t)).
 \end{equation}
 
 we have:
 \begin{definition}\label{equilibrium_stability}
-	\textbf{Equilibrium (fixed) points} $y_0$ those satisfying:
+\textbf{Equilibrium (fixed) points} $y_0$ those satisfying:
 
-	$ \underline{f}(y_0) = 0 = \dot{y}(t) |_{y = y_0} $
+$ \underline{f}(y_0) = 0 = \dot{y}(t) |_{y = y_0} $
 
-	Which are classified into:
+Which are classified into:
 
-	\textbf{(Lyapunov) Stable equilibriums}:
-	A point $y_0 \in S$ that:
+\textbf{(Lyapunov) Stable equilibriums}:
+A point $y_0 \in S$ that:
 
-	$\qquad \qquad \forall \epsilon > 0, \exists \delta > 0 : $
-	\begin{equation} \label{cond:stable1}
-		\text{\rom{1}: } \forall y(0) \in S \text{ for which } \norm{y(0) - y_0} < \delta \implies \exists y(t), \forall t >= 0.  \tag{\rom{1}}
-	\end{equation}
-	\begin{equation} \label{cond:stable2}
-		\text{\rom{2}: } \norm{ y(t) - y_0 } < \epsilon \quad \forall t >= 0. \tag{\rom{2}}
-	\end{equation}
+$\qquad \qquad \forall \epsilon > 0, \exists \delta > 0 : $
+\begin{equation} \label{cond:stable1}
+	\text{\rom{1}: } \forall y(0) \in S \text{ for which } \norm{y(0) - y_0} < \delta \implies \exists y(t), \forall t >= 0.  \tag{\rom{1}}
+\end{equation}
+\begin{equation} \label{cond:stable2}
+	\text{\rom{2}: } \norm{ y(t) - y_0 } < \epsilon \quad \forall t >= 0. \tag{\rom{2}}
+\end{equation}
 
-	\textbf{Asymptotically stable equilibriums (or attractors)}:
-	Subset of \textbf{stable equilibria} for which:
-	\begin{equation}\label{cond:asympt_stable}
-		\text{\rom{3}: } \lim_{t \rightarrow \infty} \norm{y(t) - y_0}  = 0 \text{ for those whose } \norm{ y(0) - y_0} < \delta \tag{\rom{3}}
-	\end{equation}
+\textbf{Asymptotically stable equilibriums (or attractors)}:
+Subset of \textbf{stable equilibria} for which:
+\begin{equation}\label{cond:asympt_stable}
+	\text{\rom{3}: } \lim_{t \rightarrow \infty} \norm{y(t) - y_0}  = 0 \text{ for those whose } \norm{ y(0) - y_0} < \delta \tag{\rom{3}}
+\end{equation}
 
-	\textbf{Unstable equilibriums (or repeller)}:
-	If either \eqref{cond:stable1} or \eqref{cond:stable2} don't hold
+\textbf{Unstable equilibriums (or repeller)}:
+If either \eqref{cond:stable1} or \eqref{cond:stable2} don't hold
 
-	And as opposed to, say  a continuum of fixed points we have:
+And as opposed to, say  a continuum of fixed points we have:
 
-	\textbf{Isolated equilibrium}:
+\textbf{Isolated equilibrium}:
 
-	A fixed point $y_0$ is said to be \textbf{isolated} if
-	\[
-		\exists \delta > 0 : \forall y \text{ satifying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
-	\]
+A fixed point $y_0$ is said to be \textbf{isolated} if
+\[
+	\exists \delta > 0 : \forall y \text{ satifying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
+\]
 \end{definition}
 
 Classifying the stabilty for a system comes down to looking at the way each state variable evolves with time.
@@ -717,17 +717,17 @@ For a linear system, looking at the eigenvalues of the transformation is enough 
 
 Taking the eigenvalues
 \begin{gather*}
-	\lambda_1 \dots \lambda_n; \\
-	\text{ \rom{1} if: } Re(\lambda_i) < 0, \forall i = \overline{1,n} \implies \text{the system is stable }. \\
-	\text{ \rom{2} if: } \exists I \subset \mathbb{N} \text{ a set of indices } : \forall i \in I, Re(\lambda_i) = 0 \text{ and } \\
-	\forall k \in \{ 1 , \dots n \} \setminus I, Re(\lambda_k) < 0 \implies  \text{ the system is only \textbf{marginally stable.}} \\
-	\text{ \rom{3} if: } \exists i = \overline{1,n} : Re(\lambda_i) > 0 \implies \text{system is \textbf{unstable}.}
+\lambda_1 \dots \lambda_n; \\
+\text{ \rom{1} if: } Re(\lambda_i) < 0, \forall i = \overline{1,n} \implies \text{the system is stable }. \\
+\text{ \rom{2} if: } \exists I \subset \mathbb{N} \text{ a set of indices } : \forall i \in I, Re(\lambda_i) = 0 \text{ and } \\
+\forall k \in \{ 1 , \dots n \} \setminus I, Re(\lambda_k) < 0 \implies  \text{ the system is only \textbf{marginally stable.}} \\
+\text{ \rom{3} if: } \exists i = \overline{1,n} : Re(\lambda_i) > 0 \implies \text{system is \textbf{unstable}.}
 \end{gather*}
 
 The behaviour can also be classified looking at Im:
 \begin{gather*}
-	Im(\lambda_i) = 0 : \text{The system has no oscillations in the direction of } \lambda_i \text{'s eigenvectors.} \\
-	Im(\lambda_i) \neq 0 : \text{The system has oscillations in the direction of } \lambda_i \text{'s eigenvectors:} \\
+Im(\lambda_i) = 0 : \text{The system has no oscillations in the direction of } \lambda_i \text{'s eigenvectors.} \\
+Im(\lambda_i) \neq 0 : \text{The system has oscillations in the direction of } \lambda_i \text{'s eigenvectors:} \\
 \end{gather*}
 
 This can be seen by \ref{euler} (Euler) because of how complex values are related to rotations.
@@ -737,9 +737,9 @@ We can actually plot stabilty diagram for having a visual representation of thes
 For a 2x2 Linear system with transform matrix $A$, plotting different systems by their $(Tr(A), det(A))$ plane, where $Tr(A) = \sum_{i}^{n}a_{ii}$ we get:
 
 \begin{figure}[H]
-	\includegraphics[width=13cm]{math_pics/Stability_Diagram.png}
-	\centering
-	\caption{Poincaré Diagram}
+\includegraphics[width=13cm]{math_pics/Stability_Diagram.png}
+\centering
+\caption{Poincaré Diagram}
 \end{figure}
 
 \newpage
@@ -749,12 +749,12 @@ For a non-linear autonomous system we can look at a zoomed-in portion of whichev
 
 So for a system \ref{auton_sys_compact}
 \[
-	\dot{y}(t) = \underline{f}(y(t)).
+\dot{y}(t) = \underline{f}(y(t)).
 \] that has a fixed point $y_f \implies \underline{f}(y_f) = 0$:
 
 If $f \in C^\infty(\mathbb{R}^n) $, the Taylor about $y_f$:
 \begin{equation}\label{eq:t_taylor_expansion}
-	\underline{f}(y) = \underline{f}(y_f) + \left. \frac{d \underline{f}}{dy} \right|_{y_f}(y - y_f) + \mathfrak{H}(y - y_f) = J_{\underline{f}}(y_f)(y - y_f) + \mathfrak{H}(y - y_f) \tag{Taylor}
+\underline{f}(y) = \underline{f}(y_f) + \left. \frac{d \underline{f}}{dy} \right|_{y_f}(y - y_f) + \mathfrak{H}(y - y_f) = J_{\underline{f}}(y_f)(y - y_f) + \mathfrak{H}(y - y_f) \tag{Taylor}
 \end{equation}
 
 $\mathfrak{H}$ is the rest of Taylor's terms which, for values near the one we're analysing can be neglected since everything looks like a line when you're that zoomed-in eitherway.
@@ -763,35 +763,35 @@ $J_{\underline{f}}(y_f)$ is the Jacobian matrix of $\underline{f}$ evaluated at 
 
 \textbf{Reminder:}
 \begin{definition}
-	The Jacobian matrix of a vector-valued vector function $f : D \subseteq \mathbb{R}^n \rightarrow S \subseteq \mathbb{R}^m$, $f(x_1, \dots, x_n) = (y_1, \dots , y_m) \quad [f(x) = (y_1, \dots , y_m)], f \in D(\mathbb{R}^n)$ is $J_f \in \mathbb{R}^{m \bigtimes n}$ an alogue for its first-order derivative, defined as:
-	\begin{align*}
-		J_f = \left[ \frac{\partial f}{\partial x_1}, \dots , \frac{\partial f}{\partial x_n}  \right] =
-		\begin{bmatrix*}
-			\frac{\partial y_1}{\partial x_1} & \dots & \frac{\partial y_1}{\partial x_n} \\
-			\vdots & \ddots & \vdots \\
-			\frac{\partial y_m}{\partial x_1} & \dots &  \frac{\partial y_m}{\partial x_n}
-		\end{bmatrix*} =
-		\frac{df}{dx} =
-		\left(   \frac{\partial y_i}{\partial x_j} \right)_{ij | 1 \leqslant i \leqslant n, 1 \leqslant j \leqslant m}
-	\end{align*}
+The Jacobian matrix of a vector-valued vector function $f : D \subseteq \mathbb{R}^n \rightarrow S \subseteq \mathbb{R}^m$, $f(x_1, \dots, x_n) = (y_1, \dots , y_m) \quad [f(x) = (y_1, \dots , y_m)], f \in D(\mathbb{R}^n)$ is $J_f \in \mathbb{R}^{m \bigtimes n}$ an alogue for its first-order derivative, defined as:
+\begin{align*}
+	J_f = \left[ \frac{\partial f}{\partial x_1}, \dots , \frac{\partial f}{\partial x_n}  \right] =
+	\begin{bmatrix*}
+		\frac{\partial y_1}{\partial x_1} & \dots & \frac{\partial y_1}{\partial x_n} \\
+		\vdots & \ddots & \vdots \\
+		\frac{\partial y_m}{\partial x_1} & \dots &  \frac{\partial y_m}{\partial x_n}
+	\end{bmatrix*} =
+	\frac{df}{dx} =
+	\left(   \frac{\partial y_i}{\partial x_j} \right)_{ij | 1 \leqslant i \leqslant n, 1 \leqslant j \leqslant m}
+\end{align*}
 \end{definition}
 
 \newcommand\eqCuzOfSys{\stackrel{\mathclap{\normalfont\mbox{\ref{auton_sys_compact}}}}{=\joinrel=\joinrel=}}
 
 Using the change of variables $\zeta = y - y_f$ and (\ref{eq:t_taylor_expansion}):
 \begin{gather*}
-	\dot{\zeta} = \dot{y} \eqCuzOfSys \underline{f}(y) \approx J_{\underline{f}}(y_f)(\zeta) \\
-	\Updownarrow
+\dot{\zeta} = \dot{y} \eqCuzOfSys \underline{f}(y) \approx J_{\underline{f}}(y_f)(\zeta) \\
+\Updownarrow
 \end{gather*}
 \vspace*{-16mm}
 \begin{gather}\label{eq:lin_approx}
-	\dot{\zeta} \approx J_{\underline{f}}(y_f)(\zeta). \tag{Lin. Approx.}
+\dot{\zeta} \approx J_{\underline{f}}(y_f)(\zeta). \tag{Lin. Approx.}
 \end{gather}
 
 To obtain the system's linear estimate at the fixed point $y_f$, which approximates $\underline{f}(y)$ better as $y \rightarrow y_f$.
 
 \begin{theorem}
-	If $\exists J_{\underline{f}}^{-1}(y_f) \implies y_f$ is an \textbf{isolated eq. point}.
+If $\exists J_{\underline{f}}^{-1}(y_f) \implies y_f$ is an \textbf{isolated eq. point}.
 \end{theorem}
 
 \newpage
@@ -806,7 +806,7 @@ $ \implies \exists y'_f \neq y_f : \underline{f}(y'_f) = 0, \norm{y_f - y'_f} < 
 Then, taking (\ref{eq:t_taylor_expansion}) about $y'_f$ and the var. change $\zeta = y - y'_f \implies \dot{\zeta} \approx J_{\underline{f}}(y'_f)(\zeta). $
 
 But because $f(y'_f) =0 \implies J_{\underline{f}}(y'_f)(\zeta) = 0$ and since the substitution has to hold $\forall y : \norm{y - y'_f} < \epsilon$, including $\norm{y - y'_f}|_{y \equiv y_f} > 0 \implies J_{\underline{f}(y'_f)} = 0
-	\quad \lightning \quad \exists J_{\underline{f}}^{-1}(y'_f)$" \qed
+\quad \lightning \quad \exists J_{\underline{f}}^{-1}(y'_f)$" \qed
 
 \vspace{20pt}
 However, $\exists J_{\underline{f}}^{-1}(y_f) \nLeftarrow y_f$, in general.
@@ -822,7 +822,7 @@ So for a nonlinear system $\dot{y} = \underline{f}(y)$ and its (\ref{eq:lin_appr
 i.e. One can only show Asymptotic (or in-) stabilty, although in the case:
 
 $Re(\lambda) \leqslant  0 \forall \lambda \in Eig(J(y_f)) \text{ and,
-		at least } \exists \lambda : Re(\lambda) = 0$ then the results are
+at least } \exists \lambda : Re(\lambda) = 0$ then the results are
 inconclusive and can't be implied for the non-linear system.
 
 \hfill\break
@@ -843,17 +843,17 @@ how to obtain:
 The english mathematician Edward John Routh was looking at the
 (\ref{eq:lin_approx}) of
 \[
-	x_i' = f_i(x_1,\dots , x_n), \quad i = \overline{1,n}
+x_i' = f_i(x_1,\dots , x_n), \quad i = \overline{1,n}
 \]
 Namely:
 \[
-	x_i' =\sum_{j=1}^{n}a_{ij} x_j, \quad a_{ij} = \frac{\partial
-		f_i}{\partial x_j}(0)
+x_i' =\sum_{j=1}^{n}a_{ij} x_j, \quad a_{ij} = \frac{\partial
+f_i}{\partial x_j}(0)
 \]
 He figured out he doesn't have to find the roots of
 \begin{equation}\label{lin_apporx_char_equation}
-	det(J - \lambda I_n) = a_0 \lambda^n + a_1 \lambda^{n-1} + \dots +
-	a_{n-1}\lambda + a_n = 0
+det(J - \lambda I_n) = a_0 \lambda^n + a_1 \lambda^{n-1} + \dots +
+a_{n-1}\lambda + a_n = 0
 \end{equation}
 To infer the system's stability, as in check
 $ Re(\lambda_0) < 0$,
@@ -873,12 +873,12 @@ and
 
 Cauchy's argument principle states that for the poly. $p \in \mathbb{C}[Z]$:
 \[
-	p(z) = u(z) + i v(z), \quad u, v \in \mathbb{R}[Z]; u,v : \mathbb{C}
-	\rightarrow \mathbb{R}
+p(z) = u(z) + i v(z), \quad u, v \in \mathbb{R}[Z]; u,v : \mathbb{C}
+\rightarrow \mathbb{R}
 \]
 Its number of roots inside a closed contour $\gamma$  is $=$ to the
 number of positive rotations (counter-clockwise)[c.c.] that $(u(z),
-	v(z))$ (or $arg(p(z))$) makes as $z$ moves across $\partial \gamma$
+v(z))$ (or $arg(p(z))$) makes as $z$ moves across $\partial \gamma$
 in a positive sense [c.c.].
 
 \hfill\break
@@ -892,8 +892,8 @@ left-half of the complex axis!
 
 We could write it as a {\large HUGE} half-circle
 \[
-	z = Re^{i \theta}, \quad \frac{\pi}{2} \leq \theta \leq \frac{3
-		\pi}{2}, R \text{ sufficiently large }
+z = Re^{i \theta}, \quad \frac{\pi}{2} \leq \theta \leq \frac{3
+\pi}{2}, R \text{ sufficiently large }
 \]
 
 The thing is even if it's the case that all $n$ roots lie inside it,
@@ -902,10 +902,10 @@ half circle, so we could combine this fact with a more elegant way of
 writing "the half-plane, left of the imaginary axis" into:
 
 \begin{lemma}\label{cauchy_arg_lemma}
-	For $p(z) \in \mathbb{C}_n[Z]$ and $p(ix) \neq 0. \forall x \in
-		\mathbb{R}$. Then $\forall z_0 : p(z_0) = 0, Re(z_0) < 0 \iff$
-	$arg(p(ix))$ makes $\frac{n}{2}$ positive rotations for $x \in
-		[-\infty , \infty]$.
+For $p(z) \in \mathbb{C}_n[Z]$ and $p(ix) \neq 0. \forall x \in
+\mathbb{R}$. Then $\forall z_0 : p(z_0) = 0, Re(z_0) < 0 \iff$
+$arg(p(ix))$ makes $\frac{n}{2}$ positive rotations for $x \in
+[-\infty , \infty]$.
 \end{lemma}
 
 \rom{2}.
@@ -915,71 +915,71 @@ of his discovery that for the division $\frac{p_{i-1}(x)}{p_i(x)}$,
 for $p_k \in \mathbb{R}[X]$ it's better to take the remainder
 $p_{i+1}(x)$ with a negative sign:
 \begin{equation}\label{euclid_algorithm}
-	p_{i-1}(x) = p_i(x) q_i(x) - p_{i+1}(x) \tag{Euclid's Algorithm}
+p_{i-1}(x) = p_i(x) q_i(x) - p_{i+1}(x) \tag{Euclid's Algorithm}
 \end{equation}
 Because, if we do that, then:
 \begin{equation}\label{sturm_seq_property}
-	\text{sign} ( p_{i+1}(x) )  \neq \text{sign} ( p_{i-1}(x) ), \quad
-	\text{for} \quad p_i(x)=0 \tag{Sturm. Seq. Property}
+\text{sign} ( p_{i+1}(x) )  \neq \text{sign} ( p_{i-1}(x) ), \quad
+\text{for} \quad p_i(x)=0 \tag{Sturm. Seq. Property}
 \end{equation}
 This is called the "Sturm sequence property"
 
 And if we construct a sequence
 \[
-	(p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]
+(p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]
 \]
 and the function
 \begin{gather}\label{no_sign_changes_func}
-	w : \mathbb{R} \rightarrow \mathbb{R} \notag  \\
-	w(x) = \text{No. of sign changes of  } (p_k)(x) \notag
+w : \mathbb{R} \rightarrow \mathbb{R} \notag  \\
+w(x) = \text{No. of sign changes of  } (p_k)(x) \notag
 \end{gather}
 Then we find that for:
 \begin{gather*}
-	p_i^{-1}(0) \text{ ( set of roots for $p_i$) } \\
-	R := \bigcup_{i \in \left\{ 1, \dots, m-1 \right\} } p_i^{-1}(0) \\
-	\forall x_1, x_2 \in R, w(x_1) = w(x_2)
+p_i^{-1}(0) \text{ ( set of roots for $p_i$) } \\
+R := \bigcup_{i \in \left\{ 1, \dots, m-1 \right\} } p_i^{-1}(0) \\
+\forall x_1, x_2 \in R, w(x_1) = w(x_2)
 \end{gather*}
 Hence we have:
 \begin{lemma}\label{sturm_lemma}
-	For a seq. of $  (p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]$
-	that satifies:
+For a seq. of $  (p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]$
+that satifies:
 
-	\rom{1})
-	$ deg(p_0) > deg(p_1), $
+\rom{1}
+$ deg(p_0) > deg(p_1), $
 
-	\rom{2})
-	$\nexists x \in \mathbb{R} : p_0(x) = p_1(x) = 0, $
+\rom{2}
+$\nexists x \in \mathbb{R} : p_0(x) = p_1(x) = 0, $
 
-	\rom{3})
-	$p_m(x) \neq 0, \forall x \in \mathbb{R}$
+\rom{3}
+$p_m(x) \neq 0, \forall x \in \mathbb{R}$
 
-	\rom{4})
-	And (\ref{sturm_seq_property})
-	\par
-	We have (for the above defined $w$ \ref{no_sign_changes_func}) :
-	\begin{gather}
-		\frac{w(\infty) - w(-\infty)}{2} =  \notag \\
-		\text{No. of positive rotations of the vector } \notag \\
-		(p_0(x), p_1(x)), \text{as $x$ tends from  } x \in [-\infty, +\infty] \notag
-	\end{gather}
+\rom{4}
+And (\ref{sturm_seq_property})
+\par
+We have (for the above defined $w$ \ref{no_sign_changes_func}) :
+\begin{gather}
+	\frac{w(\infty) - w(-\infty)}{2} =  \notag \\
+	\text{No. of positive rotations of the vector } \notag \\
+	(p_0(x), p_1(x)), \text{as $x$ tends from  } x \in [-\infty, +\infty] \notag
+\end{gather}
 \end{lemma}
 
 Proof: As stated in \ref{sturm_seq_property}: $w(x)$ doesn't change at roots of
 
-$p_k(x), k = \overline{1,m-1}$. Asumption \rom{3}) shows $p_m(x)$
+$p_k(x), k = \overline{1,m-1}$. Asumption \rom{3} shows $p_m(x)$
 doesn't influence it either. So there can only be one suspect:
 $p_0(x)$. If there's a spike by $1$ at $\overline{x}$ in $w(\overline{x})$,
 
 zero of $p_0$
 (   $p_0(\overline{x}) =0 $) either:
 \[
-	p_0(x) \text{ changes from + to - and   } p_1(\overline{x}) > 0
+p_0(x) \text{ changes from + to - and   } p_1(\overline{x}) > 0
 \]
 or:
 \[
-	p_0(x) \text{ changes from - to + and  } p_1(\overline{x}) < 0
+p_0(x) \text{ changes from - to + and  } p_1(\overline{x}) < 0
 \]
-[   $\nexists \overline{x}: p_1(\overline{x}) = 0$ by assumption \rom{2})  ]
+[   $\nexists \overline{x}: p_1(\overline{x}) = 0$ by assumption \rom{2}  ]
 
 Both of which cause the vector $(p_0(x), p_1(x))$ to cross the
 imaginary axis in a positive sense.
@@ -987,9 +987,9 @@ imaginary axis in a positive sense.
 If there's a dip in $w$ at $\overline{x}$, however, the crossing is
 done clock-wise, this time.
 
-Now taking \rom{1}) into account and the fact that $(p_0(y), p_1(y))$
+Now taking \rom{1} into account and the fact that $(p_0(y), p_1(y))$
 is horizontal for $y \rightarrow  - \infty$ and $y \rightarrow +
-	\infty  $ outcomes the result of our lemma
+\infty  $ outcomes the result of our lemma
 \qed
 
 \hfill\break
@@ -997,29 +997,29 @@ is horizontal for $y \rightarrow  - \infty$ and $y \rightarrow +
 \hfill\break
 
 \begin{figure}
-	\includegraphics[width=13cm]{math_pics/sageti-cumse-invart.png}
-	\centering
+\includegraphics[width=13cm]{math_pics/sageti-cumse-invart.png}
+\centering
 \end{figure}
 
 So using these 2 Lemmas we have the criteria for stabilty:
 For the characteristic polynomial \ref{lin_apporx_char_equation},
 written instead like this:
 \[
-	p(z)=a_0 z^n + a_1z^{n-1} + \dots + a_n = 0, \quad a_0 > 0
+p(z)=a_0 z^n + a_1z^{n-1} + \dots + a_n = 0, \quad a_0 > 0
 \]
 
 Dividing $\frac{p(i x)}{i^n}$ and using \ref{real_imag_another_way_to_write}
 \begin{gather}
-	p_0(x)= \text{Re}(\frac{p(i x)}{i^n}) = a_0 x^{n} -a_2 x^{n-2} + a_4
-	x^{n-4} \pm \dots \\
-	p_1(x)= -\text{Im} (\frac{p(i x)}{i^n}) = a_1 x^{n-1} -a_3 x^{n-3} +
-	a_5 x^{n-5} \pm \dots
+p_0(x)= \text{Re}(\frac{p(i x)}{i^n}) = a_0 x^{n} -a_2 x^{n-2} + a_4
+x^{n-4} \pm \dots \\
+p_1(x)= -\text{Im} (\frac{p(i x)}{i^n}) = a_1 x^{n-1} -a_3 x^{n-3} +
+a_5 x^{n-5} \pm \dots
 \end{gather}
 
 More generally:
 \begin{equation}\label{polys_general_form}
-	p_i(x) = c_{i0} x^{n-i} + c_{i1} x^{n-i-2} + c_{ i2 } x^{ n-i-4  } +
-	\dots, \tag{Gen. Form}
+p_i(x) = c_{i0} x^{n-i} + c_{i1} x^{n-i-2} + c_{ i2 } x^{ n-i-4  } +
+\dots, \tag{Gen. Form}
 \end{equation}
 
 And $q_i(x) = (  \frac{c_{ i-1 ,0}}{c_{ i0 }} )x$ from
@@ -1027,46 +1027,46 @@ And $q_i(x) = (  \frac{c_{ i-1 ,0}}{c_{ i0 }} )x$ from
 Putting \ref{polys_general_form} into \ref{euclid_algorithm} to get
 the general form of all the coefficients as well we get:
 \begin{align}\label{coeff_gen_form}
-	c_{i+1,j} = c_{i,j+1} \cdot \frac{c_{i-1,0}}{c_{i,0}} - c_{i-1,j+1 }
-	= \frac{1}{c_{i,0}} \text{det}
-	\begin{pmatrix}
-		c_{i-1,0} & c_{i-1, j+1}            \\
-		c_{i,0}   & c_{i, j+1} \tag{Coeff.}
-	\end{pmatrix}
+c_{i+1,j} = c_{i,j+1} \cdot \frac{c_{i-1,0}}{c_{i,0}} - c_{i-1,j+1 }
+= \frac{1}{c_{i,0}} \text{det}
+\begin{pmatrix}
+	c_{i-1,0} & c_{i-1, j+1}            \\
+	c_{i,0}   & c_{i, j+1} \tag{Coeff.}
+\end{pmatrix}
 \end{align}
 
 The algo. stops for $ p_m(x) $ with $ m < n$ if $c_{i,0} = 0$ at a
 particular $i \implies q_i(x)$ is of higher degree.
 
 And so: $(p_i(x))_{i = \overline{1,m \text{ or } n}}$ verifies
-\rom{1}), \rom{4}) from \ref{sturm_lemma}
+\rom{1}, \rom{4} from \ref{sturm_lemma}
 
-\rom{2}) $\iff p(ix) \neq 0, \forall x \in \mathbb{R}$
+\rom{2} $\iff p(ix) \neq 0, \forall x \in \mathbb{R}$
 
-$p_m(x) = \text{gcd}(p_0(x), p_1(x)) \iff \text{ \rom{2}) } \implies
-	\text{ \rom{3}) }$
+$p_m(x) = \text{gcd}(p_0(x), p_1(x)) \iff \text{ \rom{2} } \implies
+\text{ \rom{3} }$
 
 \par
 
 So here's the big guy:
 
 \begin{theorem}\label{routh_theorem}
-	Routh:
-	\begin{gather*}
-		Re(\lambda) < 0, \quad \forall \lambda \in \text{det}(J - \lambda
-		I_n)^{-1}(0) \text{ from \ref{lin_apporx_char_equation} with } a_0 > 0 \\
-		\Updownarrow  \\
-		c_{i,0} > 0, \forall  i = \overline{1,n} \text{ from \ref{coeff_gen_form} }
-	\end{gather*}
+Routh:
+\begin{gather*}
+	Re(\lambda) < 0, \quad \forall \lambda \in \text{det}(J - \lambda
+	I_n)^{-1}(0) \text{ from \ref{lin_apporx_char_equation} with } a_0 > 0 \\
+	\Updownarrow  \\
+	c_{i,0} > 0, \forall  i = \overline{1,n} \text{ from \ref{coeff_gen_form} }
+\end{gather*}
 \end{theorem}
 Meaning the system is stable.
 
 \textbf{Proof: } $arg(p_0,p_1) = 360^\degree - arg(\text{Re}(p),
-	\text{Im}(p)) \implies \frac{n}{2}$ positive rotations of $p(ix)$ are
+\text{Im}(p)) \implies \frac{n}{2}$ positive rotations of $p(ix)$ are
 bascially $\frac{n}{2}$ neg. rot. of $(p_0(x), p_1(x))$. If
 $Re(\lambda) < 0, \forall \lambda \in p(\lambda)^{-1}(0) \implies$ (
 from  \ref{cauchy_arg_lemma}, \ref{sturm_lemma} ) $w(\infty) - w( -
-	\infty) = -n$. Could only be for $w(\infty) = 0, w(- \infty) = n$,
+\infty) = -n$. Could only be for $w(\infty) = 0, w(- \infty) = n$,
 though. $ \implies p_i(x) \geq 0$ for all leading $i$. Having
 \ref{routh_theorem} $\implies p_n(x) \equiv c_{n0}$. Because
 $\nexists \text{gcd}(p_0(x),p_1(x)), p(\lambda) \neq 0$ for
@@ -1081,19 +1081,20 @@ Re$(\lambda) = 0$. Now we just do \ref{cauchy_arg_lemma} +
 
 Adolf Hurwitz later wrote the positivity criterion ($2^{nd}$ condition in \ref{routh_theorem}) making use of this matrix we now basically call "his".
 \begin{theorem}
-	Hurwitz:
-	\begin{align*}
-		H =
-		\begin{pmatrix*}
-			a_{2j-i}
-		\end{pmatrix*}^n_{i,j=1} =
-		\begin{pmatrix*}
-			a_1 & a_0 & 0 & 0 & 0 & \dots & 0 \\
-			a_3 & a_2 &  a_1 & a_0 & 0 & \dots &  0 \\
-			\vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-			a_{ 2n-1 } &  a_{ 2n-2 } & a_{ 2n-3 }  & a_{ 2n-4 }  & a_{ 2n-5 }  & \dots & a_n
-		\end{pmatrix*}
-	\end{align*}
+Hurwitz:
+\begin{align*}
+	H =
+	\begin{pmatrix*}
+		a_{2j-i}
+	\end{pmatrix*}^n_{i,j=1} =
+	\begin{pmatrix*}
+		a_1 & a_0 & 0 & 0 & 0 & \dots & 0 \\
+		a_3 & a_2 &  a_1 & a_0 & 0 & \dots &  0 \\
+		\vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+		a_{ 2n-1 } &  a_{ 2n-2 } & a_{ 2n-3 }  & a_{ 2n-4 }  & a_{ 2n-5 }  & \dots & a_n
+	\end{pmatrix*}
+\end{align*}
+
 \end{theorem}
 
 \vskip\bigskipamount

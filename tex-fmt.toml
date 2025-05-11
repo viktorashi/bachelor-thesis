@@ -1,3 +1,4 @@
 wrap = false
 tabchar = "tab"
-tabsize = 2
+tabsize = 1
+verbosity = "error"
