@@ -1,4 +1,4 @@
-\chapter{Existence and Absence of Hopf Bifurcation in Phosphorylation–Dephosphorylation CRN}
+\chapter{Existence and Absence of Hopf Bifurcation in Phosphorylation-Dephosphorylation CRN}
 
 \section{What even \textbf{is} a bifurcation?}
 To better generalize them, it'd be best to also define the notion of:
@@ -249,7 +249,7 @@ Finding necessary conditions for their existence makes use of a tool defined in 
 
 Instead, now the characteristic polynomial depends on this new bifurcation parameter $\mu$.
 
-\begin{proposition}
+\begin{proposition}\label{symmetric_roots_pair_criterion}
 	Take $p_{\mu_0} \in \mathbb{C}^n[Z]$ with $n \geq 2$ and consider $\mu_0$ fixed:
 	\[
 		p_{\mu_0}(z) = a_0(\mu_0)z^n + a_1(\mu_0)z^{ n-1 } + \dots + a_n (\mu_0)
@@ -259,7 +259,7 @@ Instead, now the characteristic polynomial depends on this new bifurcation param
 
 	If we have:
 	\begin{gather*}
-		\text{det}H_1(\mu_0) > 0 , \dots, \text{det}H_{n-2} (\mu_0) > 0. \\
+		\text{det }H_1(\mu_0) > 0 , \dots, \text{det }H_{n-2} (\mu_0) > 0. \\
 		\Downarrow \\
 		p_{\mu_0}(z) \text{ has } \leq 1 \text{ pair of symmetric roots  }
 	\end{gather*}
@@ -271,10 +271,44 @@ Instead, now the characteristic polynomial depends on this new bifurcation param
 
 Now, more specifically, the necessary conditions for a simple Hopf bifurcation are:
 
+\begin{proposition}\label{yangs_criterion}
+	(Yang)
+	A simple Hopf bifurcation occurs at fixed point $x^*$ and at the parameter threshold $\mu_0$ $\iff$
+	\begin{gather*}
+		\rom{1} \quad \text{det } H_{ n-1 }(\mu_0) = 0 \text{  and  } a_s(\mu_0) > 0, \\
+		\rom{2} \quad 		\text{det }H_1(\mu_0) > 0 , \dots, \text{det }H_{n-2} (\mu_0) > 0 \text{  and  } \\
+		\rom{3} \quad \left. \frac{d(\text{det }H_{n-1}(\mu))}{d\mu} \right|_{\mu = \mu_0} \neq 0.
+	\end{gather*}
+\end{proposition}
+
 \subsection{Ruling out simple Hopf bifurcations}
+
+Directly from criterion \ref{symmetric_roots_pair_criterion} we have a criterion for showing $\nexists \mu$ for which $x(\mu)$ undergoes simple Hopf bifurcations.
+\begin{theorem}\label{ruling_out_simple_hopf_bif}
+
+	For the dynamical system $\dot{x} = f_\mu(x)$ assume $\exists$ a curve of steady states $x(\mu)$.
+	$p_\mu(z)$ is the characteristic polynomial of degree $s \geq 2$ of the linearization $J(x(\mu), \mu)$, and $H_i(\mu)$ its $i$-th Hurwitz matrix. Given:
+	\[
+		\text{det }H_1(\mu_0) > 0 , \dots, \text{det }H_{n-2} (\mu_0) > 0. \forall \mu
+	\]
+	And either:
+	\begin{gather*}
+		a_s(\mu) \leq 0 \text{whenever  det } H_{s-1} = 0  \\
+		\text{or} \\
+		\text{det }  H_{s-1}(\mu) \neq 0, \forall \mu    \\
+		\Downarrow
+	\end{gather*}
+	$\nexists$ simple Hopf bifurcation $\forall \mu$ at the steady states $x(\mu)$.
+\end{theorem}
 
 \subsection{Convex parameters}
 
+//TODO: Aici trebuie re-introducere la notatia specifica pt reactiile chimice, si adica mai bine te pui sa vb despre asta in primele capitole de "Introduction to chemical reaction networks"
+si asta o sa fie pt orice fel de reactii chimice, nu doar pt astea de mai jos:
+Poti sa te folosesti n u numa de prezentare da si din lucrarea lui conradi ca zice chestii mai specifice asa sa zic nuj.
+
 \section{What is a Phosphorylation-Dephosphorylation CRN?}
+
+Povestesti frumos specific pt asta ce sunt, din nou, te iei din ce s-a vb in prezentare da poate un pic si din ala alu conradi
 
 \subsection{Cyclic and mixed distributive and processive Phosphorylation-Dephosphorylation CRN}
