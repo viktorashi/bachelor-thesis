@@ -9,14 +9,57 @@ The following picture, that's also been shown by my Professor in his presentatio
 si sa mai scrii niste chestii din astea in mare de despre ce inseamna disciplina asta de prin paperuri sau istorie de prin ce carti gasesti sa faci o introdcuere pe bune, eu ma pun sa scriu speicfic de matele pe care il gasim
 \hfill\break
 
-A Chemical Reaction Network (CRN) consits of:
+A Chemical Reaction Network (CRN) consists of:
 
-the set $S = \left\{ X_1, \dots, X_n \right\}, \left| S \right| = n$ of chemical species.
+the set $S = \left\{ X_1, \dots, X_n \right\}, \left| S \right| = n$ of chemical species,
 
 and $r$ reactions of the form:
 \[
 	\alpha_{1j} X_1 + \dots + \alpha_{n j} X_n \xrightarrow{k_j} \beta_{1j} X_1 + \dots + \beta_{n j}, \forall j = \overline{1,r}.
 \]
-Where $\alpha_{ij}$ is the stoichiometric coefficient of species $X_i$ in the reaction $j$.
-The same goes for $\beta_{ij}$.
+
+Where $\alpha_{ij}$ is the stoichiometric coefficient of the reactant $X_i$ in reaction $j$.
+
+The same goes for $\beta_{ij}$, but for the \textbf{produced} $X_i$ in reaction $j$.
+
+$k_j$ are the reactions' rate constants.
+
 We denote the species' concentrations with $[X_1], \dots, [X_n]$.
+
+Now we may define the mass-action \textbf{reaction rate}, which depends on the rate constant, the concentrations of reacting species and their molecularities.
+\[
+	v = k_j [X_1]^{\alpha_{1j}} \dots [X_n]^{\alpha_{nj}}
+\]
+
+\hfill\break
+//TODO poti sa mai zici si de alea de non-mass action si de unde a aparut si de unde a disparut sau cum se foloseste fiecare, si ala de mass action
+\hfill\break
+
+A pretty common example would be:
+\[
+	2H_2 + O_2 \xrightarrow{k} 2H_2O
+\]
+Where its reaction vector is:
+\[
+	\bordermatrix{\cr \cr
+		H_2 & -2 \cr
+		O_2 & -1 \cr
+		H_2O & 2 \cr
+	}
+\]
+with reaction rate $v(x) = k[H_2]^2[O_2]$. Or, by using the vector $x=(x_1, x_2, x_3, x_4)$, $v(x) = k x_1^2 x_2$.
+So the reaction's dynamical system (defined more in detail in \ref{3.2.1}) is:
+\begin{align*}
+	\frac{d}{dt}
+	\begin{pmatrix*}
+		x_1 \\
+		x_2 \\
+		x_3
+	\end{pmatrix*} =
+	v(x)
+	\begin{pmatrix}
+		-2 \\
+		-1 \\
+		2
+	\end{pmatrix}
+\end{align*}
