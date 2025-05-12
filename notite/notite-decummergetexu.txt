@@ -70,7 +70,6 @@ Youngs criterion (prosopsition) ca se folose  uc0  u537 te (ori gasesti la conra
 III. dupa un capitol de ruling out simple hobf bifuccation ( adica despre absence)  
 Doar Theorma 1.1  e si la conradi ( Theorem1) cu proof-ul teoremei inrt-adevar  
   
-  
 IV. Convex parameters pentru ca toate calculele sunt facute in parametiri convexi  
 Tot la conradi prezinta ce sunt aia parametrii convexi  
   
