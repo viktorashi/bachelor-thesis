@@ -20,7 +20,7 @@ and $r$ reactions of the form:
 
 Where $\alpha_{ij}$ is the stoichiometric coefficient of the reactant $X_i$ in reaction $j$.
 
-The same goes for $\beta_{ij}$, but for the \textbf{produced} $X_i$ in reaction $j$. These are also called the \textbf{stoichiometries.}
+The same goes for $\beta_{ij}$, but for the \textbf{produced} $X_i$ in reaction $j$. These are also called the \textbf{stoichiometries} of each reactant / product.
 
 $k_j$ are the reactions' rate constants.
 
@@ -28,18 +28,30 @@ We denote the species' concentrations with $[X_1], \dots, [X_n]$.
 
 We could shorthand both of them in their vector form:
 \begin{gather*}
-	x \in \mathcal{M}_{1 \bigtimes n}(\mathbb{R}),  k \in \mathcal{M}_{1 \bigtimes r}(\mathbb{R}) \\
-	x = (x_1, \ldots, x_n), \quad k = (k_1, \ldots, k_r)	
+	x \in \mathcal{M}_{n \bigtimes 1}(\mathbb{R}),  k \in \mathcal{M}_{r \bigtimes 1}(\mathbb{R}) \\
+	x =
+	\begin{pmatrix}
+		x_1 \\
+		\vdots \\
+		x_n 	
+	\end{pmatrix}, \quad k =
+	\begin{pmatrix*}
+		k_1  \\
+		\vdots \\
+		k_r	
+	\end{pmatrix*}
 \end{gather*}
 Now we may define the mass-action \textbf{reaction rate} of this particular reaction, which depends on the rate constant, the concentrations of reacting species and their molecularities.
 \begin{align}\label{reaction_rate}
-	v &= k_j [X_1]^{\alpha_{1j}} \dots [X_n]^{\alpha_{nj}} \\
+	v : \mathcal{M}_{r \bigtimes 1}(\mathbb{R}) &\bigtimes \mathcal{M}_{n \bigtimes 1}(\mathbb{R}) \rightarrow \mathbb{R}  \nonumber \\
+	v(k,x) &= k_j [X_1]^{\alpha_{1j}} \dots [X_n]^{\alpha_{nj}} \\
 	&= k_j x_1^{\alpha_{1j}} \dots x_n^{\alpha_{nj}} \nonumber
 \end{align}
 
 \hfill\break
 //TODO poti sa mai zici si de alea de non-mass action si de unde a aparut si de unde a disparut sau cum se foloseste fiecare, si ala de mass action
 \hfill\break
+
 A pretty common example would be:
 \[
 	2H_2 + O_2 \xrightarrow{k} 2H_2O
@@ -52,7 +64,7 @@ Where its reaction vector is:
 		H_2O & 2 \cr
 	}
 \]
-with reaction rate $v(x) = k[H_2]^2[O_2]$. Or, by using the vector $x=(x_1, x_2, x_3, x_4)$: $v(x) = k x_1^2 x_2$.
+with reaction rate $v(k,x) = k[H_2]^2[O_2]$. Or, by using the vector $x=(x_1, x_2, x_3, x_4)$: $v(x) = k x_1^2 x_2$.
 So the reaction's dynamical system (defined more in detail in \ref{3.2.1}) is:
 \begin{align}\label{1st_example_dyn_system}
 	\frac{d}{dt}
@@ -61,12 +73,12 @@ So the reaction's dynamical system (defined more in detail in \ref{3.2.1}) is:
 		x_2 \\
 		x_3
 	\end{pmatrix*} =
-	v(x)
 	\begin{pmatrix}
 		-2 \\
 		-1 \\
 		2
 	\end{pmatrix}
+	v(k,x)
 \end{align}
 But if we have multiple such reactions we need to use their $\ldots$
 \begin{definition}
@@ -89,14 +101,14 @@ So constructing their equivalent of \ref{1st_example_dyn_system}:
 		x_n
 	\end{pmatrix*} = \Gamma
 	\begin{pmatrix*}
-		v_1(x)	 \\
+		v_1(k,x)	 \\
 		\vdots \\
-		v_r(x)
+		v_r(k,x)
 	\end{pmatrix*}
 	\text{ or, even more shorthand:  }
-	\frac{dx}{dt} = \Gamma v(x).
+	\frac{dx}{dt} = \Gamma v(k,x).
 \end{align}
-Where $v(x) \in \mathcal{M}_{r \bigtimes 1}$ is the column vector of all reaction rates for the reactions.
+Where $v(k,x) \in \mathcal{M}_{r \bigtimes 1}; (v(x,k))_{i,1} = v_i(k_i, x)$ now becomes a column vector of all reaction rates for the reactions.
 
 An \textbf{example} of such a bigger network would be the following \textbf{open network}.
 \begin{align*}
@@ -106,7 +118,7 @@ An \textbf{example} of such a bigger network would be the following \textbf{open
 	B \xrightarrow{k_{4}} \emptyset \\
 	\emptyset \xrightarrow{k_{5}} C
 \end{align*}
-Or, where the last $3$ could be written as
+Or, where the last $3$ could also be written as
 \begin{align*}
 	A \xrightarrow{k_{3}} \\
 	B \xrightarrow{k_{4}} \\
@@ -120,7 +132,7 @@ $C$ is like a "resource" molecule.
 $A$, $B$ \textbf{autocatalyze} themselves with $C$.
 
 \hfill\break
-//TODO: Defineste si ce e ala un open closed network, autocalalyzation.
+//TODO: Defineste si ce e ala un open closed network, autocalalyzation etc.
 \hfill\break
 
 This system would look like:
@@ -151,11 +163,11 @@ Whereas, the reaction rate:
 \[
 	v(x) =
 	\begin{pmatrix*}
-		v_{1}(x)	 \\
-		v_{2}(x)	 \\
-		v_{3}(x)	 \\
-		v_{4}(x)	 \\
-		v_{5}(x)
+		v_{1}(k,x)	 \\
+		v_{2}(k,x)	 \\
+		v_{3}(k,x)	 \\
+		v_{4}(k,x)	 \\
+		v_{5}(k,x)
 	\end{pmatrix*} =
 	\begin{pmatrix}
 		k_1 x_1 x_3 \\
@@ -187,7 +199,7 @@ And so its dynamical system in matrix form is:
 		k_5
 	\end{pmatrix}
 \end{align*}
-As you can see this is the same as \ref{1st_example_dyn_system}, I just didn't use $\Gamma$ then. This results in:
+As you can see this is the same as \ref{1st_example_dyn_system}, I just didn't use the notation " $\Gamma$ " then. This results in:
 \[
 	\begin{cases*}
 		\dot{x_1} = k_1 x_1 x_3 - k_3x_1  \\
