@@ -27,6 +27,7 @@ pana acm am folosit latexmk cu optiunea de -f forced gen ca sa-mi mearga asta , 
 ],
 "env": {}
 ```
+unde %DOC% ar fi gen `main.tex` ma gandesc sincer idk n-am incercat
 
 Cand vrei sa formatezi, recomand sa iei [tex-fmt](https://github.com/WGUNDERWOOD/tex-fmt) si sa te folosesti de `tex-fmt.toml` care e acl in root (foloseste automat doar cand dai)
 

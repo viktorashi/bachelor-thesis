@@ -34,7 +34,6 @@ Now we may define the mass-action \textbf{reaction rate} of this particular reac
 \hfill\break
 //TODO poti sa mai zici si de alea de non-mass action si de unde a aparut si de unde a disparut sau cum se foloseste fiecare, si ala de mass action
 \hfill\break
-
 A pretty common example would be:
 \[
 	2H_2 + O_2 \xrightarrow{k} 2H_2O
@@ -72,8 +71,8 @@ But if we have multiple such reactions we need to use their $\ldots$
 		(\Gamma_R)_{ij} = \beta{ij} \text{ from \ref{mass-action_network}}
 	\end{align*}
 	$\Gamma_L$ the \textbf{left} stoichiometric matrix, \\
-	$\Gamma_R$ the \textbf{right} stoichiometric matrix,\\
-	And $\Gamma = \Gamma_R - \Gamma_L$ is the \textbf{full} stoichiometric matrix.
+	$\Gamma_R$ the \textbf{right} stoichiometric matrix, and \\
+	$\Gamma = \Gamma_R - \Gamma_L$ : the \textbf{full} stoichiometric matrix.
 \end{definition}
 So constructing their equivalent of \ref{1st_example_dyn_system}:
 \begin{align}
@@ -91,4 +90,8 @@ So constructing their equivalent of \ref{1st_example_dyn_system}:
 	\text{ or, even more shorthand:  }
 	\frac{dx}{dt} = \Gamma v(x).
 \end{align}
-Where $v(x) \in \mathcal{M}_{r,1}$ is the column vector of all reaction rates for the reactions.
+Where $v(x) \in \mathcal{M}_{r \bigtimes 1}$ is the column vector of all reaction rates for the reactions.
+
+\hfill\break
+//TODO: poti sa scrii in general de ce ala un interaction graph din cartea aia de-ai gasit-o, si dupa sa zici ca poza aia de-o punem la phorolylation de-hpoysohp e un interaction graph pt networku asta: ge
+\hfill\break
