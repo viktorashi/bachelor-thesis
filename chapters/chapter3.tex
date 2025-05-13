@@ -221,7 +221,7 @@ So $2k$ new solutions.
 
 \textbf{The superposition principle}
 
-Bernoulli (to the disbelief of Euler and Langrange) told us that the complex behaviour of vibrating strings can be modeled by separating their motion into well-defined and easy to compute simple waves with known frequencies and amplitudes, which can later be \textbf{superposed} with one-another to form the complete system.
+Bernoulli (to the disbelief of Euler and Langrange) told us that the complex behavior of vibrating strings can be modeled by separating their motion into well-defined and easy to compute simple waves with known frequencies and amplitudes, which can later be \textbf{superposed} with one-another to form the complete system.
 
 This principle can be applied to \textit{our} easier to compute \textbf{fundamental solutions} ($x_1,\dots,x_n$) in relation to the system formed by our linear operator $Lx =0$.
 
@@ -232,7 +232,7 @@ Since it's a linear operator, additivity and homogeneity apply:
 \end{gather*}
 where $x,x_1,x_2$ are fundamental solutions of the system.
 
-Hence the complete, final, \textbf{general} solution for \ref{lin_hom_eq_const} are linear combinations of all our previously found fundamental solutions:
+Hence, the complete, final, \textbf{general} solution for \ref{lin_hom_eq_const} are linear combinations of all our previously found fundamental solutions:
 \[
 	x(t) = c_1 x_1 + \dots + c_nx_n
 \]
@@ -431,7 +431,6 @@ then:
 \]
 
 Waitt, I saw this somewhere in year 1, semester 1 during Linear Algebra (which I definitely didn't have to re-take twice)
-
 That is the same as:
 \begin{align*}
 	\begin{bmatrix}
@@ -463,7 +462,7 @@ Writing it in compact form:
 \[
 	\dot{x} = A x
 \]
-With $x, \dot{x}$ 2 $n$ sized column vectors and $A$ an $n \bigtimes n$ matrix.
+With $x, \dot{x} \in \mathcal{M}_{n,1}(\mathbb{R})$ and $A \in \mathcal{M}_n(\mathbb{R})$.
 
 Now notice that
 \[
@@ -476,11 +475,9 @@ Is precisely the char. poly. \ref{lin_eq_char_poly}. So the $r$ solutions for
 \]
 (a.k.a the eigenvalues of the A matrix) are also the roots of \ref{lin_eq_char_poly}. So solving for them would obtain the solutions
 \[
-	x_i = e^{rt}x_i(0)
+	x_i = e^{rt}x_i(0) \quad \text{for  } i = \overline{1,n}.
 \]
-for $i = \overline{1,n}$.
-
-A much simpler example of a system that can be solved by not even having to make such computations is that of a \textbf{decoupled} dyamical system. Alas one where each state variable only depends on itself. Common examples that come to mind would be the concentration of a homogenous substance in an isolated tank while under the influence of heat transfer. This wouldn't really be a "system" so we could take multiple such tanks in a lab, where they are indeed sepparated from one-another but still form the system.
+A much simpler example of a system that can be solved by not even having to make such computations is that of a \textbf{decoupled} dynamical system. Alas, one where each state variable only depends on itself. Common examples that come to mind would be the concentration of a homogenous substance in an isolated tank while under the influence of heat transfer. This wouldn't really be a "system" so we could take multiple such tanks in a lab, where they are indeed separated from one-another but still form the system.
 \begin{equation*}
 	\begin{cases}
 		\dot{x}_1 = \lambda_1 x_1 \\
@@ -507,7 +504,7 @@ We notice that our solutions will now take the form
 	x = e^{Dt}x(0)
 \]
 
-where $\cdot^A : \mathbb{C} \rightarrow \mathbb{C}^{n \bigtimes m}$ for an $A = (a_{ij}) \in \mathbb{C}^{n \bigtimes m}$ is defined as:
+where $\cdot^A : \mathbb{C} \rightarrow \mathcal{M}_{n \bigtimes m}(\mathbb{C})$ for an $A = (a_{ij}) \in \mathcal{M}_{n \bigtimes m}(\mathbb{C})$ is defined as:
 \[
 	\alpha^A = (\alpha^{a_{ij}}_{ij})
 \]
@@ -558,7 +555,6 @@ Derivating \ref{diag_trans_rel} and substituting into \ref{diag_matrix_init_sys}
 Everything comes down to solving the above eigenvalue problem.
 
 As stated in the above sections: $diag(D) = \{ \lambda | det(A - \lambda I_n) = 0 \}$ and it can also be found that the columns of $T$ are $A$'s corresponding eigenvectors $\xi_i$.
-
 After computing $A$'s eigenvalues, we've essentially also found $T$, now
 \[
 	D = T^{-1} A T
@@ -581,7 +577,7 @@ Now we know the equations have the form
 \[
 	x_i = T z_i(t), i = \overline{1,n}.
 \]
-Where $T$ is the $n \bigtimes n$ matrix whose columns are $A$ (not necesarily linearly independent) eigenvectors.
+Where $T \in \mathcal{M}_n(\mathbb{R})$ and its columns are $A$'s (not necessarily linearly independent) eigenvectors.
 \begin{equation*}
 	\begin{bmatrix*}
 		\vdots & \vdots & \dots & \vdots \\
@@ -591,7 +587,7 @@ Where $T$ is the $n \bigtimes n$ matrix whose columns are $A$ (not necesarily li
 \end{equation*}
 Boom! You're golden.
 
-Now the transformation only scales the basis vectors in our new coordinate system and we can use this to our advantage to find solutions in that system, then turn them back into our original system to see which values they correspond to.
+Now the transformation only scales the basis vectors in our new coordinate system, and we can use this to our advantage to find solutions in that system, then turn them back into our original system to see which values they correspond to.
 \vskip\bigskipamount
 
 Okay but what if my system is not linear? \textbf{Then} how will forming its corresponding system help me?
@@ -651,7 +647,6 @@ This would in turn form the phase portrait of the dynamical system, described by
 \]
 
 \vskip\bigskipamount
-
 //TODO: faci tu dupa aici un plot in matlab frumusel
 si dupa mai gasesti un exemplu mistio in 3d
 
@@ -665,13 +660,12 @@ Although, like a coin left standing on its side, even the slightest deviation wi
 
 \newpage
 
-The study of how much such changes in initial conditions (or just the passing of time itself) influence later behaviour is what we call the \textbf{stability}.
+The study of how much such changes in initial conditions (or just the passing of time itself) influence later behavior  is what we call the \textbf{stability}.
 
 In general, for a system: \ref{fo_system_auton_eq}, written in the compact form
 \begin{equation}\label{auton_sys_compact}
 \dot{y}(t) = \underline{f}(y(t)).
 \end{equation}
-
 we have:
 \begin{definition}\label{equilibrium_stability}
 \textbf{Equilibrium (fixed) points} $y_0$ those satisfying:
@@ -723,7 +717,7 @@ Taking the eigenvalues
 \text{ \rom{3} if: } \exists i = \overline{1,n} : Re(\lambda_i) > 0 \implies \text{system is \textbf{unstable}.}
 \end{gather*}
 
-The behaviour can also be classified looking at Im:
+The behavior  can also be classified looking at Im:
 \begin{gather*}
 Im(\lambda_i) = 0 : \text{The system has no oscillations in the direction of } \lambda_i \text{'s eigenvectors.} \\
 Im(\lambda_i) \neq 0 : \text{The system has oscillations in the direction of } \lambda_i \text{'s eigenvectors:} \\
@@ -762,7 +756,7 @@ $J_{\underline{f}}(y_f)$ is the Jacobian matrix of $\underline{f}$ evaluated at 
 
 \textbf{Reminder:}
 \begin{definition}
-The Jacobian matrix of a vector-valued vector function $f : D \subseteq \mathbb{R}^n \rightarrow S \subseteq \mathbb{R}^m$, $f(x_1, \dots, x_n) = (y_1, \dots , y_m) \quad [f(x) = (y_1, \dots , y_m)], f \in D(\mathbb{R}^n)$ is $J_f \in \mathbb{R}^{m \bigtimes n}$ an alogue for its first-order derivative, defined as:
+The Jacobian matrix of a vector-valued vector function $f : D \subseteq \mathbb{R}^n \rightarrow S \subseteq \mathbb{R}^m$, $f(x_1, \dots, x_n) = (y_1, \dots , y_m) \quad [f(x) = (y_1, \dots , y_m)], f \in \mathcal{D}(\mathbb{R}^n)$ is $J_f \in \mathcal{M}_{m \bigtimes n}(\mathbb{R})$ an analogue for its first-order derivative, defined as:
 \begin{align*}
 	J_f = \left[ \frac{\partial f}{\partial x_1}, \dots , \frac{\partial f}{\partial x_n}  \right] =
 	\begin{bmatrix*}
@@ -839,7 +833,7 @@ how to obtain:
 
 \textbf{The Routh-Hurwitz matrix and its determinants.}
 
-The english mathematician Edward John Routh was looking at the
+English mathematician Edward John Routh was looking at the
 (\ref{eq:lin_approx}) of
 \[
 x_i' = f_i(x_1,\dots , x_n), \quad i = \overline{1,n}
