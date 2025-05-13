@@ -26,8 +26,11 @@ $k_j$ are the reactions' rate constants.
 
 We denote the species' concentrations with $[X_1], \dots, [X_n]$.
 
-Or, shorthand: $x = (x_1, \ldots, x_n)$
-
+We could shorthand both of them in their vector form:
+\begin{gather*}
+	x \in \mathcal{M}_{1 \bigtimes n}(\mathbb{R}),  k \in \mathcal{M}_{1 \bigtimes r}(\mathbb{R}) \\
+	x = (x_1, \ldots, x_n), \quad k = (k_1, \ldots, k_r)	
+\end{gather*}
 Now we may define the mass-action \textbf{reaction rate} of this particular reaction, which depends on the rate constant, the concentrations of reacting species and their molecularities.
 \begin{align}\label{reaction_rate}
 	v &= k_j [X_1]^{\alpha_{1j}} \dots [X_n]^{\alpha_{nj}} \\
@@ -184,10 +187,14 @@ And so its dynamical system in matrix form is:
 		k_5
 	\end{pmatrix}
 \end{align*}
-Resulting in:
-\begin{equation*}
-	//TODO incepe sa zici de cum arata ca sistem de ecuatii
-\end{equation*}
+As you can see this is the same as \ref{1st_example_dyn_system}, I just didn't use $\Gamma$ then. This results in:
+\[
+	\begin{cases*}
+		\dot{x_1} = k_1 x_1 x_3 - k_3x_1  \\
+		\dot{x_2} = k_2 x_2 x_3 - k_4 x_2  \\
+		\dot{x_3} = -k_1 x_1 x_3 - k_2 x_2 x_3 + k_5 \\
+	\end{cases*}
+\]
 
 \hfill\break
 //TODO: poti sa scrii in general de ce ala un interaction graph din cartea aia de-ai gasit-o, si dupa sa zici ca poza aia de-o punem la phorolylation de-hpoysohp e un interaction graph pt networku asta: gen
