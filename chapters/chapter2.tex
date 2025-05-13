@@ -14,9 +14,9 @@ A Chemical Reaction Network (CRN) consists of:
 the set $S = \left\{ X_1, \dots, X_n \right\}, \left| S \right| = n$ of chemical species,
 
 and $r$ reactions of the form:
-\[
-	\alpha_{1j} X_1 + \dots + \alpha_{n j} X_n \xrightarrow{k_j} \beta_{1j} X_1 + \dots + \beta_{n j}, \forall j = \overline{1,r}.
-\]
+\begin{equation}\label{mass-action_network}
+	\alpha_{1j} X_1 + \dots + \alpha_{n j} X_n \xrightarrow{k_j} \beta_{1j} X_1 + \dots + \beta_{n j}, \forall j = \overline{1,r}.	
+\end{equation}
 
 Where $\alpha_{ij}$ is the stoichiometric coefficient of the reactant $X_i$ in reaction $j$.
 
@@ -26,10 +26,10 @@ $k_j$ are the reactions' rate constants.
 
 We denote the species' concentrations with $[X_1], \dots, [X_n]$.
 
-Now we may define the mass-action \textbf{reaction rate}, which depends on the rate constant, the concentrations of reacting species and their molecularities.
-\[
+Now we may define the mass-action \textbf{reaction rate} of this particular reaction, which depends on the rate constant, the concentrations of reacting species and their molecularities.
+\begin{equation}\label{reaction_rate}
 	v = k_j [X_1]^{\alpha_{1j}} \dots [X_n]^{\alpha_{nj}}
-\]
+\end{equation}
 
 \hfill\break
 //TODO poti sa mai zici si de alea de non-mass action si de unde a aparut si de unde a disparut sau cum se foloseste fiecare, si ala de mass action
@@ -49,7 +49,7 @@ Where its reaction vector is:
 \]
 with reaction rate $v(x) = k[H_2]^2[O_2]$. Or, by using the vector $x=(x_1, x_2, x_3, x_4)$: $v(x) = k x_1^2 x_2$.
 So the reaction's dynamical system (defined more in detail in \ref{3.2.1}) is:
-\begin{align*}
+\begin{align}\label{1st_example_dyn_system}
 	\frac{d}{dt}
 	\begin{pmatrix*}
 		x_1 \\
@@ -62,12 +62,33 @@ So the reaction's dynamical system (defined more in detail in \ref{3.2.1}) is:
 		-1 \\
 		2
 	\end{pmatrix}
-\end{align*}
-Now if we have multiple such reactions we need to use their $\ldots$:
+\end{align}
+But if we have multiple such reactions we need to use their $\ldots$
 \begin{definition}
-	\textbf{Stoichiometric matrices}.
-
-	\[
-		\Gamma_L, \Gamma_R \in \mathcal{M}_{n \bigtimes r}(\mathbb{N})
-	\]
+	\textbf{Stoichiometric matrices.}
+	\begin{align*}
+		\Gamma_L, \Gamma_R \in \mathcal{M}_{n \bigtimes r}(\mathbb{N}) \\
+		(\Gamma_L)_{ij} = \alpha_{ij} \text{ from \ref{mass-action_network}} \\
+		(\Gamma_R)_{ij} = \beta{ij} \text{ from \ref{mass-action_network}}
+	\end{align*}
+	$\Gamma_L$ the \textbf{left} stoichiometric matrix, \\
+	$\Gamma_R$ the \textbf{right} stoichiometric matrix,\\
+	And $\Gamma = \Gamma_R - \Gamma_L$ is the \textbf{full} stoichiometric matrix.
 \end{definition}
+So constructing their equivalent of \ref{1st_example_dyn_system}:
+\begin{align}
+	\frac{d}{dt}
+	\begin{pmatrix*}
+		x_1 \\
+		\vdots \\
+		x_n
+	\end{pmatrix*} = \Gamma
+	\begin{pmatrix*}
+		v_1(x)	 \\
+		\vdots \\
+		v_r(x)
+	\end{pmatrix*}
+	\text{ or, even more shorthand:  }
+	\frac{dx}{dt} = \Gamma v(x).
+\end{align}
+Where $v(x) \in \mathcal{M}_{r,1}$ is the column vector of all reaction rates for the reactions.
