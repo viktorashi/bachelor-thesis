@@ -47,7 +47,7 @@ Where its reaction vector is:
 		H_2O & 2 \cr
 	}
 \]
-with reaction rate $v(x) = k[H_2]^2[O_2]$. Or, by using the vector $x=(x_1, x_2, x_3, x_4)$, $v(x) = k x_1^2 x_2$.
+with reaction rate $v(x) = k[H_2]^2[O_2]$. Or, by using the vector $x=(x_1, x_2, x_3, x_4)$: $v(x) = k x_1^2 x_2$.
 So the reaction's dynamical system (defined more in detail in \ref{3.2.1}) is:
 \begin{align*}
 	\frac{d}{dt}
@@ -63,3 +63,11 @@ So the reaction's dynamical system (defined more in detail in \ref{3.2.1}) is:
 		2
 	\end{pmatrix}
 \end{align*}
+Now if we have multiple such reactions we need to use their $\ldots$:
+\begin{definition}
+	\textbf{Stoichiometric matrices}.
+
+	\[
+		\Gamma_L, \Gamma_R \in M_{n \bigtimes r}(\mathbb{N})
+	\]
+\end{definition}
