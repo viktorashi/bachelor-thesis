@@ -406,7 +406,7 @@ Basically, do these biochemical systems induce periodic solutions as in (\ref{ho
 
 What these all have in common, though are the \textbf{building blocks} used to create them:
 \begin{equation}\label{ptm_building_blocks}
-	S+M \xleftrightharpoons[k_1]{k_2} SM \xrightarrow{k_3} S^* + M \quad \mathrm{~and~} \quad S^* + U \xleftrightharpoons[k_4]{k_5} S^* U \xrightarrow{k_6} S + U
+	S+M \xrightleftharpoons[k_2]{k_1} SM \xrightarrow{k_3} S^* + M \quad \mathrm{~and~} \quad S^* + U \xrightleftharpoons[k_5]{k_4} S^* U \xrightarrow{k_6} S + U
 \end{equation}
 
 What's familiar to the previous example is the presence of a substrate ($S$), which forms the \textbf{complex} ($SM$) with the \textbf{modifier} ($M$), which - as the name implies - modifies ($S$) to become ($S^*$), which then dissociates with ($M$);
@@ -415,9 +415,9 @@ And just like in dephosphorylation, another modifier ($U$) can come in and undo 
 
 So the \textbf{phosphorylation version of this would be}:
 \begin{gather*}\label{phosphorylation_reaction_basis}
-	S_0 + K \xleftrightharpoons[k_1]{k_2} K S_0 \xrightarrow{k_3} S_1 + K  \xleftrightharpoons[k_4]{k_5} \ldots K S_{n-1} \xrightarrow{k_{ 3n}} S_n + K  \\
+	S_0 + K \xrightleftharpoons[k_2]{k_1} K S_0 \xrightarrow{k_3} S_1 + K  \xrightleftharpoons[k_5]{k_4} \ldots K S_{n-1} \xrightarrow{k_{ 3n}} S_n + K  \\
 	\text{ for the phosphorylation side, and} \\
-	S_n + F \xleftrightharpoons[k_{2(n+1)}]{k_{2n+1}} F S_n \xrightarrow{k_{2n + 3}} S_{n-1} + F  \xleftrightharpoons[k_{2n + 4}]{k_{2n + 5}} \ldots F S_{1} \xrightarrow{k_{6n}} S_0 + F  \\
+	S_n + F \xrightleftharpoons[k_{2(n+1)}]{k_{2n+1}} F S_n \xrightarrow{k_{2n + 3}} S_{n-1} + F  \xrightleftharpoons[k_{2n + 5}]{k_{2n + 4}} \ldots F S_{1} \xrightarrow{k_{6n}} S_0 + F  \\
 	\text{ for the dephosphorylation side, and}
 \end{gather*}
 Which phosphorylates the substrate ($S$) up to a certain number of phosphate groups $n$, and then \textbf{de}phosphorylates it back to 0, where the subscript notation $S_i ;  i = \overline{1,n}$ represents the substrate ($S$) with its $i$ phosphate groups.
