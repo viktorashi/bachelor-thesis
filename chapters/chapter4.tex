@@ -324,10 +324,65 @@ Where diag $: \mathbb{C}^n \rightarrow \mathcal{M}_n(\mathbb{C})$,
 \end{align*}
 And $\Psi$ is the flux vector, where the reaction rates \ref{reaction_rate} are written without the leading $k_i$'s.
 
+If we want to look into how the system behaves near equilibrium points $x^*$ we have to, just like other systems, study their Jacobian matrix, which, because the flux vector is made of polynomials can be written using this little trick:
+\[
+	J(k, x)_{\mid x=x^*}=\Gamma \operatorname{diag}\left(v\left(k, x^*\right)\right) \Gamma_L^T \operatorname{diag}\left(\frac{1}{x^*}\right)
+\]
+
+Now since $x^*$ is a fixed point, the flux vector satisfies:
+\begin{equation}\label{flux_vector_linear_problem}
+	\Gamma v(k,x^*) = 0, \quad v \geq 0.
+\end{equation}
+And so the solutions of (\ref{flux_vector_linear_problem}) are a \textbf{convex polyhedral cone} called the \textbf{flux cone}.
+
+A flux cone is expressed as an $\mathbb{R}_{\geq 0}$ linear combination of it extreme vectors $\left\{ E_1 , \ldots , E_l \right\}$.
+
+\begin{definition}\label{convex_params_definition}
+	\textbf{Convex parameters.}
+	\begin{equation}\label{flux_cone}
+		\boxed{		v=\sum_{i=1}^l \lambda_i E_i=E \lambda, \quad \lambda_i \geq 0, \forall i = \overline{1,l} }
+	\end{equation}
+	Where $\lambda_i$ are called \textbf{convex parameters}.
+\end{definition}
+But we also need something to parametrize the $x$'s, so:
+\begin{equation}\label{other_convex_parameters}
+	\boxed{	h_i=\frac{1}{x_i^*}, \quad i = \overline{1,n} }
+\end{equation}
+So having this in mind:
+\begin{definition}
+	A convex parameter vector:
+	\[
+		(h, \lambda) = (h_1, \ldots, h_n , \lambda_1, \ldots , \lambda_l) \in \mathbb{R}_{>0}^n \times \mathbb{R}_{\geq 0}^{l} : E \lambda \in \mathbb{R}^r_{> 0}.
+	\]
+	With $E$ the matrix whose columns are the convex polyhedral cone's extreme vectors.
+\end{definition}
+So we may write the Jacobian using this new coordinate system, which in turn makes its coefficients monomials, instead of the usual polynomial and multiple-term expressions you usually get with these systems, like in Ex. (\ref{bigger_network_example1}).
+\newcommand\eqCuzConvex{\stackrel{\mathclap{\normalfont\mbox{\ref{flux_vector_linear_problem}, \ref{convex_params_definition}}}}{=\joinrel=\joinrel=\joinrel=\joinrel=}}
+
+\begin{gather*}
+	v(k, x^*) \eqCuzConvex E \lambda	 \\
+	\Downarrow \text{ \ref{other_convex_parameters} } \\
+	\boxed{J(k,x)_{|x=x^{*}}=J(h,\lambda)=\Gamma \text{diag}(E\lambda)\Gamma_{L}^{T}\text{diag}(h)}
+\end{gather*}
+
+We could, of course turn this convex vector back into the regular coordinate system:
+
+Given:
+\begin{gather*}
+	(h,\lambda) \Downarrow \\
+	\text{Let  } x^* \in \mathbb{R}^n , \boxed{
+		x^*_i = \frac{1}{h_i} , i = \overline{1,n}
+	} \\
+	\boxed{
+		k = \text{diag}(\Psi(h)) E \lambda \in \mathbb{R}^r_{> 0}
+ }
+\end{gather*}
+
 \hfill\break
 //TODO: Aici trebuie re-introducere la notatia specifica pt reactiile chimice, si adica mai bine te pui sa vb despre asta in primele capitole de "Introduction to chemical reaction networks"
 si asta o sa fie pt orice fel de reactii chimice, nu doar pt astea de mai jos:
 Poti sa te folosesti nu numa de prezentare da si din lucrarea lui conradi ca zice chestii mai specifice asa sa zic nuj.
+//TODO sa mai zici si tu cand e si cand te intereseaza ce e ala flux cone si cum functioneste
 \hfill\break
 
 \section{What is a Phosphorylation-Dephosphorylation CRN?}
