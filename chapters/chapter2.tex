@@ -28,7 +28,7 @@ We denote the species' concentrations with $[X_1], \dots, [X_n]$.
 
 We could shorthand both of them in their vector form:
 \begin{gather*}
-	x \in \mathcal{M}_{n \bigtimes 1}(\mathbb{R}),  k \in \mathcal{M}_{r \bigtimes 1}(\mathbb{R}) \\
+	x \in \mathbb{R}^n_{> 0},  k \in \mathbb{R}^r_{\geq 0} \\
 	x =
 	\begin{pmatrix}
 		x_1 \\
@@ -42,11 +42,14 @@ We could shorthand both of them in their vector form:
 	\end{pmatrix*}
 \end{gather*}
 Now we may define the mass-action \textbf{reaction rate} of this particular reaction, which depends on the rate constant, the concentrations of reacting species and their molecularities.
-\begin{align}\label{reaction_rate}
-	v : \mathcal{M}_{r \bigtimes 1}(\mathbb{R}) &\bigtimes \mathcal{M}_{n \bigtimes 1}(\mathbb{R}) \rightarrow \mathbb{R}  \nonumber \\
-	v(k,x) &= k_j [X_1]^{\alpha_{1j}} \dots [X_n]^{\alpha_{nj}} \\
-	&= k_j x_1^{\alpha_{1j}} \dots x_n^{\alpha_{nj}} \nonumber
-\end{align}
+\begin{definition}
+	\textbf{Reaction Rate}:	
+	\begin{align}\label{reaction_rate}
+		v : \mathbb{R}^r_{\geq 0}  &\bigtimes \mathbb{R}^n_{> 0} \rightarrow \mathbb{R}_{\geq 0}  \nonumber \\
+		v(k,x) &= k_j [X_1]^{\alpha_{1j}} \dots [X_n]^{\alpha_{nj}} \\
+		&= k_j x_1^{\alpha_{1j}} \dots x_n^{\alpha_{nj}} \nonumber
+	\end{align}
+\end{definition}
 
 \hfill\break
 //TODO poti sa mai zici si de alea de non-mass action si de unde a aparut si de unde a disparut sau cum se foloseste fiecare, si ala de mass action
@@ -84,16 +87,18 @@ But if we have multiple such reactions we need to use their $\ldots$
 \begin{definition}
 	\textbf{Stoichiometric matrices.}
 	\begin{align*}
-		\Gamma_L, \Gamma_R \in \mathcal{M}_{n \bigtimes r}(\mathbb{N}) \\
-		(\Gamma_L)_{ij} = \alpha_{ij} \text{ from \ref{mass-action_network}} \\
-		(\Gamma_R)_{ij} = \beta{ij} \text{ from \ref{mass-action_network}}
+		\Gamma_L, \Gamma_R &\in \mathcal{M}_{n \bigtimes r}(\mathbb{N}) \\
+		(\Gamma_L)_{ij} &= \alpha_{ij} \text{ from \ref{mass-action_network}} \\
+		(\Gamma_R)_{ij} &= \beta{ij} \text{ from \ref{mass-action_network}} \\
+		\Gamma &\in \mathcal{M}_{n \bigtimes r}(\mathbb{Z}) \\
+		\Gamma &= \Gamma_R - \Gamma_L
 	\end{align*}
 	$\Gamma_L$ the \textbf{left} stoichiometric matrix, \\
 	$\Gamma_R$ the \textbf{right} stoichiometric matrix, and \\
-	$\Gamma = \Gamma_R - \Gamma_L$ : the \textbf{full} stoichiometric matrix.
+	$\Gamma$ : the \textbf{full} stoichiometric matrix.
 \end{definition}
 So constructing their equivalent of \ref{1st_example_dyn_system}:
-\begin{align}
+\begin{align}\label{crn_system_matrix_form}
 	\frac{d}{dt}
 	\begin{pmatrix*}
 		x_1 \\
@@ -108,9 +113,19 @@ So constructing their equivalent of \ref{1st_example_dyn_system}:
 	\text{ or, even more shorthand:  }
 	\frac{dx}{dt} = \Gamma v(k,x).
 \end{align}
-Where $v(k,x) \in \mathcal{M}_{r \bigtimes 1}; (v(x,k))_{i,1} = v_i(k_i, x)$ now becomes a column vector of all reaction rates for the reactions.
+Where
+\begin{definition}\label{flux_vector}
+	\textbf{Flux Vector.}
+	\begin{align}
+		v : \mathbb{R}^r_{\geq 0}  \bigtimes &\mathbb{R}^n_{> 0} \rightarrow \mathbb{R}^r_{\geq 0}  \nonumber \\
+		(v(x,k))_{i} &= v_i(k_i, x)
+	\end{align}
+	is a column vector of all reaction rates for the reactions. For reasons later discussed in \ref{convex_paramteres}, we will call it the \textbf{flux vector.}
+\end{definition}
 
-An \textbf{example} of such a bigger network would be the following \textbf{open network}.
+\textbf{Example}\label{network_example1} 1:
+
+One such bigger network would be the following \textbf{open network}.
 \begin{align*}
 	A + C \xrightarrow{k_{1}} 2A \\
 	B + C \xrightarrow{k_{2}} 2B  \\
@@ -118,7 +133,7 @@ An \textbf{example} of such a bigger network would be the following \textbf{open
 	B \xrightarrow{k_{4}} \emptyset \\
 	\emptyset \xrightarrow{k_{5}} C
 \end{align*}
-Or, where the last $3$ could also be written as
+Or, where the last $3$ degradation / production reactions could also be written as
 \begin{align*}
 	A \xrightarrow{k_{3}} \\
 	B \xrightarrow{k_{4}} \\
@@ -161,7 +176,7 @@ This system would look like:
 \end{equation*}
 Whereas, the reaction rate:
 \[
-	v(x) =
+	v(k,x) =
 	\begin{pmatrix*}
 		v_{1}(k,x)	 \\
 		v_{2}(k,x)	 \\
@@ -179,7 +194,7 @@ Whereas, the reaction rate:
 \]
 And so its dynamical system in matrix form is:
 \begin{align*}
-	\frac{dx}{dt} &= \Gamma v(x) \\
+	\frac{dx}{dt} &= \Gamma v(k,x) \\
 	\frac{d}{dt}
 	\begin{pmatrix*}
 		x_1	\\
@@ -202,9 +217,9 @@ And so its dynamical system in matrix form is:
 As you can see this is the same as \ref{1st_example_dyn_system}, I just didn't use the notation " $\Gamma$ " then. This results in:
 \[
 	\begin{cases*}
-		\dot{x_1} = k_1 x_1 x_3 - k_3x_1  \\
-		\dot{x_2} = k_2 x_2 x_3 - k_4 x_2  \\
-		\dot{x_3} = -k_1 x_1 x_3 - k_2 x_2 x_3 + k_5 \\
+		\dot{x}_1 = k_1 x_1 x_3 - k_3x_1  \\
+		\dot{x}_2 = k_2 x_2 x_3 - k_4 x_2  \\
+		\dot{x}_3 = -k_1 x_1 x_3 - k_2 x_2 x_3 + k_5 \\
 	\end{cases*}
 \]
 

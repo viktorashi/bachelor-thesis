@@ -301,7 +301,28 @@ Directly from criterion \ref{symmetric_roots_pair_criterion} we have a criterion
 	$\nexists$ simple Hopf bifurcation $\forall \mu$ at the steady states $x(\mu)$.
 \end{theorem}
 
-\subsection{Convex parameters}
+\subsection{Convex parameters}\label{convex_paramteres}
+With most dynamical systems, if we want to analyze their behavior we have to find, through all possible values if $\exists x^*(\mu)$ fixed points for which bifurcation occur, and hence we need to find any value $\exists \mu$ of the bifurcation parameter for which said bifurcation occurs, throughout our entire domain.
+
+But luck would have it, though that the kind of systems we care about in this thesis, namely chemical reaction systems, defined in more detail in \ref{mass-action_network}, are not like "most" dynamical systems.
+
+They all have a certain structure and their corresponding differential equations look in a way that can be represented more manageably.
+
+Take now a system for a CRN written, written as well in its matrix form, as in \ref{crn_system_matrix_form}
+\[
+	\dot{x} = f(k,x) :=\Gamma v(k,x)
+\]
+Where $v$, the flux vector, as in \ref{flux_vector} can be written as:
+\[
+	v(k, x) = \text{diag}(k)\Psi(x).
+\]
+as well.
+Where diag $: \mathbb{C}^n \rightarrow \mathcal{M}_n(\mathbb{C})$,
+\begin{align*}
+	(\text{diag}(x))_{i,i} = x_i, \quad \forall i = \overline{1,n} \\
+	(\text{diag}(x))_{i,j} = 0, \quad \forall i,j = \overline{1,n} , i \neq j.
+\end{align*}
+And $\Psi$ is the flux vector, where the reaction rates \ref{reaction_rate} are written without the leading $k_i$'s.
 
 \hfill\break
 //TODO: Aici trebuie re-introducere la notatia specifica pt reactiile chimice, si adica mai bine te pui sa vb despre asta in primele capitole de "Introduction to chemical reaction networks"
