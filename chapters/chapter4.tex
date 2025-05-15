@@ -308,7 +308,7 @@ But luck would have it, though that the kind of systems we care about in this th
 
 They all have a certain structure and their corresponding differential equations look in a way that can be represented more manageably.
 
-Take now a system for a CRN written, written as well in its matrix form, as in \ref{crn_system_matrix_form}
+Take now a system for a CRN, written as well in its matrix form, as in \ref{crn_system_matrix_form}
 \[
 	\dot{x} = f(k,x) :=\Gamma v(k,x)
 \]
@@ -322,7 +322,7 @@ Where diag $: \mathbb{C}^n \rightarrow \mathcal{M}_n(\mathbb{C})$,
 	(\text{diag}(x))_{i,i} = x_i, \quad \forall i = \overline{1,n} \\
 	(\text{diag}(x))_{i,j} = 0, \quad \forall i,j = \overline{1,n} , i \neq j.
 \end{align*}
-And $\Psi$ is the flux vector, where the reaction rates \ref{reaction_rate} are written without the leading $k_i$'s.
+And $\Psi(x)$ is the flux vector, where the reaction rates \ref{reaction_rate} are written without the leading $k_i$'s, only depending on $x$.
 
 If we want to look into how the system behaves near equilibrium points $x^*$ we have to, just like other systems, study their Jacobian matrix, which, because the flux vector is made of polynomials can be written using this little trick:
 \[
@@ -453,7 +453,10 @@ It was shown that processive systems are globally stable and distributive ones m
 We'll now try to solve the problem whether a particular system undergoes simple Hopf bifurcations.
 
 Take, for example, the following basic cycle:
+\newpage
+\textbf{Example 1}:
 \begin{figure*}[h]
+	\text{\\TODO: cum drq desenez si eu frumusel cu sageti in latex sa fac asa la toate:}
 	\includegraphics[width=38mm]{math_pics/ex1-no-bifurcations.png}	
 	\centering
 \end{figure*}
@@ -552,6 +555,15 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 
 	So, det$H_1(k,x^*) > 0, \forall k, x^* > 0$, moreover the coefficient of the largest degree term in the characteristic polynomial $a_3(k, x^*) > 0$, so according to \ref{ruling_out_simple_hopf_bif} : For network (\ref{network1}), $\nexists k, x^* \geqq 0$ for which $J_1(k,x^*)$ has a pair of purely imaginary eigenvalues $\implies \nexists$ a simple Hopf bifurcation in our system for any rate constants or positive steady states
 \end{proof}
+
+\textbf{Example 2}:
+
+Now let us apply the same method and intuition for the following network.
+\begin{figure}[h]
+	\text{\\TODO: cum drq desenez si eu frumusel cu sageti in latex sa fac asa la toate:}
+	\includegraphics[width=13cm]{math_pics/ex2-no-bifurcations.png}
+	\centering
+\end{figure}
 
 \hfill\break
 //TODO: 2. zici de inheritance theorem si operatiile pe care ai putea sa le faci ca sa se mentina bifurcatiile
