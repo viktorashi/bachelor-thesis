@@ -450,6 +450,56 @@ It was shown that processive systems are globally stable and distributive ones m
 //TODO: 1. scrii despre un exemplu care arata cand nu se gases bifuractii
 \hfill\break
 
+We'll now try to solve the problem whether a particular system undergoes simple Hopf bifurcations.
+
+Take, for example, the following basic cycle:
+\begin{figure*}[h]
+	\includegraphics[width=38mm]{math_pics/ex1-no-bifurcations.png}	
+	\centering
+\end{figure*}
+
+Whose chemical reaction notation looks like:
+\begin{gather*}
+	K + S_0 \xrightleftharpoons[k_2]{k_1} K S_0 \xrightarrow{k_3} K + S_1 \\
+	F + S_1 \xrightleftharpoons[k_4]{k_5} F S_1 \xrightarrow{k_6} F + S_0
+\end{gather*}
+
+\textbf{Remark 1:} $(a)$ As you can see, it consists of $6$ species ($2$ substrates $S_0$, $S_1$; $2$ enzymes $K$, $F$; which together form $2$ complexes: $K S_0$, $F S_1$) and $6$ reactions ($2$ reversible and $2$ irreversible) with matrix subspace $=$ rank $\Gamma = 3$.
+
+Using \href{https://github.com/viktorashi/Open-CoNtRol}{my app} I've generated the following stoichiometric matrix, its rank and its corresponding dynamical system:
+\begin{align*}
+	\Gamma &=
+	\begin{pmatrix}
+		K & -1 &  1 &  1 &  0 &  0 &  0 \\
+		S0& -1 &  1 &  0 &  0 &  0 &  1 \\
+		KS0 &  1& -1& -1 &  0 &  0 &  0 \\
+		S1 &  0 &  0 &  1& -1 &  1 &  0 \\
+		F &  0 &  0 &  0& -1 &  1 &  1 \\
+		FS1 &  0 &  0 &  0 &  1& -1& -1  \\		
+	\end{pmatrix}, \quad \text{rank}(\Gamma) = 3 \\[3ex]
+	&
+	\begin{cases*}
+		\begin{array}{ll}
+			\dot{x}_1(t) = -k_4 x_1(t) *x_6(t)+k_5 x_2(t)+k_6 x_2(t) \\
+			\dot{x}_2(t) = k_4 x_1(t) *x_6(t)-k_5 x_2(t)-k_6 x_2(t) \\
+			\dot{x}_3(t) = -k_1 x_3(t) *x_5(t)+k_2 x_4(t)+k_3 x_4(t) \\
+			\dot{x}_4(t) = k_1 x_3(t) *x_5(t)-k_2 x_4(t)-k_3 x_4(t) \\
+			\dot{x}_5(t) = -k_1 x_3(t) *x_5(t)+k_2 x_4(t)+k_6 x_2(t) \\
+			\dot{x}_6(t) = k_3 x_4(t)-k_4 x_1(t) *x_6(t)+k_5 x_2(t) \\
+		\end{array}	
+	\end{cases*}
+\end{align*}
+Where the "species to index mapping" is:
+\[
+	F:  x_1
+ | FS1: x_2
+ | K: x_3
+ | KS0: x_4
+ | S0: x_5
+ | S1: x_6
+\]
+\textbf{Remark 1:} $(b)$
+
 \hfill\break
 //TODO: 2. zici de inheritance theorem si operatiile pe care ai putea sa le faci ca sa se mentina bifurcatiile
 \hfill\break
