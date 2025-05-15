@@ -359,11 +359,11 @@ So having this in mind:
 So we may write the Jacobian using this new coordinate system, which in turn makes its coefficients monomials, instead of the usual polynomial and multiple-term expressions you usually get with these systems, like in Ex. (\ref{bigger_network_example1}).
 \newcommand\eqCuzConvex{\stackrel{\mathclap{\normalfont\mbox{\ref{flux_vector_linear_problem}, \ref{convex_params_definition}}}}{=\joinrel=\joinrel=\joinrel=\joinrel=}}
 
-\begin{gather*}
-	v(k, x^*) \eqCuzConvex E \lambda	 \\
-	\Downarrow \text{ \ref{other_convex_parameters} } \\
+\begin{gather}\label{jacobian_convex_params}
+	v(k, x^*) \eqCuzConvex E \lambda  \notag \\
+	\Downarrow \text{ \ref{other_convex_parameters} } \notag \\
 	\boxed{J(k,x)_{|x=x^{*}}=J(h,\lambda)=\Gamma \text{diag}(E\lambda)\Gamma_{L}^{T}\text{diag}(h)}
-\end{gather*}
+\end{gather}
 
 We could, of course turn this convex vector back into the regular coordinate system:
 
@@ -459,14 +459,14 @@ Take, for example, the following basic cycle:
 \end{figure*}
 
 Whose chemical reaction notation looks like:
-\begin{gather*}
-	K + S_0 \xrightleftharpoons[k_2]{k_1} K S_0 \xrightarrow{k_3} K + S_1 \\
-	F + S_1 \xrightleftharpoons[k_4]{k_5} F S_1 \xrightarrow{k_6} F + S_0
-\end{gather*}
+\begin{gather}\label{network1}
+	K + S_0 \xrightleftharpoons[k_2]{k_1} K S_0 \xrightarrow{k_3} K + S_1 \tag{$\mathcal{N}_1$} \\
+	F + S_1 \xrightleftharpoons[k_4]{k_5} F S_1 \xrightarrow{k_6} F + S_0 \notag
+\end{gather}
 
-\textbf{Remark 1:} $(a)$ As you can see, it consists of $6$ species ($2$ substrates $S_0$, $S_1$; $2$ enzymes $K$, $F$; which together form $2$ complexes: $K S_0$, $F S_1$) and $6$ reactions ($2$ reversible and $2$ irreversible) with matrix subspace $=$ rank $\Gamma = 3$.
+\textbf{Remark 1:} $(a)$ As you can see, the network (\ref{network1}) consists of $6$ species ($2$ substrates $S_0$, $S_1$; $2$ enzymes $K$, $F$; which together form $2$ complexes: $K S_0$, $F S_1$) and $6$ reactions ($2$ reversible and $2$ irreversible) with matrix subspace $=$ rank $\Gamma = 3$.
 
-Using \href{https://github.com/viktorashi/Open-CoNtRol}{my app} I've generated the following stoichiometric matrix, its rank and its corresponding dynamical system:
+Using \href{https://github.com/viktorashi/Open-CoNtRol}{the app} I've generated the following stoichiometric matrix, its rank and its corresponding dynamical system:
 \begin{align*}
 	\Gamma &=
 	\begin{pmatrix}
@@ -498,7 +498,26 @@ Where the "species to index mapping" is:
  | S0: x_5
  | S1: x_6
 \]
-\textbf{Remark 1:} $(b)$
+\textbf{Remark 1:} $(b)$ For the network (\ref{network1}), the cone (defined as in \ref{flux_cone}) $\Gamma v(k,x) = 0, \forall v \geqq 0$ is spanned by the vectors $w_0, w_1, w_2 \geqq 0 : \lambda_0 w_0 + \lambda_1 w_1 + \lambda_2 w_2 \geqq 0 \iff \lambda_1, \lambda_2, \lambda_3 \geq 0$.
+
+Now we may consider the Jacobian written in convex parameters for network (\ref{network1}), $J_1(h,\lambda)$ as defined in \ref{jacobian_convex_params}, which is parametrized by $9$ parameters: $\lambda_0, \lambda_1, \lambda_2$ and $h_1, \ldots, h_6$.
+
+So, from \textbf{Remark 1} $(a)$ and $(b)$, it follows that the characteristic polynomial of $J_1(h, \lambda)$ is
+\[
+	p_{h,\lambda}(z) = z^3 (a_0(h,\lambda) z^3 + a_1(h, \lambda)z^2 + a_2 (h,\lambda)z + a_3(h,\lambda) )
+\]
+Where each coefficient $a_i, i = \overline{0,3}$ depends on these $9$ parameters.
+
+Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compute the values of $a_i(h,\lambda), i = \overline{0,3}$ and det$H_i(h,\lambda), i = \overline{1,2}$ according to (\ref{hurwitz_theorem}), obtaining the following theorem:
+
+\begin{proposition}
+	Based on the notation above, for the network (\ref{network1}):
+
+	det$H_1(h,\lambda)$, det$H_2(h,\lambda)$ and $a_3(h,\lambda)$ contain only positive monomials. Thus, det$H_1(h,\lambda)$, det$H_2(h,\lambda) \geq 0, \forall h, \lambda \geqq$, specifically det$H_2(h,\lambda) \neq 0$, $\lightning$ (\ref{ruling_out_simple_hopf_bif}).
+\end{proposition}
+\begin{proof}
+	From the statements above, for network (\ref{network1}), $\nexists k, x^* \geqq 0$ for which $J_1(k,x^*)$ has a pair of purely imaginary eigenvalues $\implies \nexists$ a simple Hopf bifurcation in our system for any rate constants or positive steady states
+\end{proof}
 
 \hfill\break
 //TODO: 2. zici de inheritance theorem si operatiile pe care ai putea sa le faci ca sa se mentina bifurcatiile
