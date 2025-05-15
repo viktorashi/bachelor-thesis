@@ -32,9 +32,9 @@ As an example: The relation for a cardioid cannot be expressed as a sole functio
 	$\square_{\textbf{Y}} \ni V_0 \subseteq V$ and a function $f : U_0 \rightarrow V_0$ s.t. $f(t) = \textbf{Y}$ and $F(t,f(t))=0, \forall t \in U_0; f \in C^1(U_0)$ and $\frac{\partial f}{\partial t_i} = - \frac{\frac{\partial F}{\partial t_i}(t,f(t))}{\frac{\partial F}{\partial y}(t,f(t))}, \forall i = \overline{1,n} , \forall t \in U_0$ and $F \in C^1(U \bigtimes V),K \in N^* \Rightarrow f \in C^K(U_0).$
 \end{theorem}
 
-\hfill\break
-//TODO : proof: trust me bro
-\hfill\break
+\begin{proof}
+	//TODO : proof: trust me bro
+\end{proof}
 
 So restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
 \begin{equation}\label{implicit_func_theorem}
@@ -150,45 +150,46 @@ By Euler's formula:
 
 So $e^{\lambda t}\text{cos}(\mu t)$ and $e^{\lambda t}\text{sin}(\mu t)$ are both fundamental solutions for $Lx=0$.
 
-\textbf{Proof}: \par
-Since $a_i \in \mathbb{R}, \forall i=\overline{1,n}$ in $p \implies p(\overline{r})=\overline{p(r)}, \forall r \in \mathbb{C}$, hence, just like 2AM coffee and the exam session, complex roots of $p$ always come in pairs. They both satisfy:
-\begin{equation}\label{lin_op_solution}
-	Le^{(\lambda \pm i \mu)} = 0
-\end{equation}
+\begin{proof}
+	Since $a_i \in \mathbb{R}, \forall i=\overline{1,n}$ in $p \implies p(\overline{r})=\overline{p(r)}, \forall r \in \mathbb{C}$, hence, just like 2AM coffee and the exam session, complex roots of $p$ always come in pairs. They both satisfy:
+	\begin{equation}\label{lin_op_solution}
+		Le^{(\lambda \pm i \mu)} = 0
+	\end{equation}
 
-But since our $x : \mathbb{R} \rightarrow \mathbb{R}$ we're looking for \textbf{real} valued solutions.
-Because $\mu \in \mathbb{R}$ the following properties hold equivalently for $\lambda + i\mu$ and for $\overline{\lambda + i\mu}=\lambda - i\mu$ so I'll only write $\lambda \textbf{+} i \mu$ for simplicity. By \ref{euler}:
-\begin{equation}\label{eulers_real_and_imaginary}
-	\text{Re}(e^{rt})=e^{\lambda t} \cdot \text{cos}(\mu t), \hspace{2cm}    \text{Im}(e^{rt}) = e^{\lambda t} \cdot \text{sin}(\mu t).
-\end{equation}
-But (\textbf{reminder})
-\begin{gather}\label{real_imag_another_way_to_write}
-	\text{Re}(c)= \frac{c+\overline{c}}{2}, \hspace{2cm}
-	\text{Im}(c) = \frac{c-\overline{c}}{2i}
-\end{gather}
-\begin{gather*}
-	\forall c \in \mathbb{C}
-\end{gather*}
+	But since our $x : \mathbb{R} \rightarrow \mathbb{R}$ we're looking for \textbf{real} valued solutions.
+	Because $\mu \in \mathbb{R}$ the following properties hold equivalently for $\lambda + i\mu$ and for $\overline{\lambda + i\mu}=\lambda - i\mu$ so I'll only write $\lambda \textbf{+} i \mu$ for simplicity. By \ref{euler}:
+	\begin{equation}\label{eulers_real_and_imaginary}
+		\text{Re}(e^{rt})=e^{\lambda t} \cdot \text{cos}(\mu t), \hspace{2cm}    \text{Im}(e^{rt}) = e^{\lambda t} \cdot \text{sin}(\mu t).
+	\end{equation}
+	But (\textbf{reminder})
+	\begin{gather}\label{real_imag_another_way_to_write}
+		\text{Re}(c)= \frac{c+\overline{c}}{2}, \hspace{2cm}
+		\text{Im}(c) = \frac{c-\overline{c}}{2i}
+	\end{gather}
+	\begin{gather*}
+		\forall c \in \mathbb{C}
+	\end{gather*}
 
-\newcommand\firstConclusion{\stackrel{\mathclap{\normalfont\mbox{\ref{eulers_real_and_imaginary}, \ref{real_imag_another_way_to_write}}}}{=\joinrel=\joinrel=\joinrel=\joinrel=\joinrel=}}
+	\newcommand\firstConclusion{\stackrel{\mathclap{\normalfont\mbox{\ref{eulers_real_and_imaginary}, \ref{real_imag_another_way_to_write}}}}{=\joinrel=\joinrel=\joinrel=\joinrel=\joinrel=}}
 
-\newcommand\byDistributivity{\stackrel{\mathclap{\normalfont\mbox{dist.}}}{=\joinrel=\joinrel=}}
+	\newcommand\byDistributivity{\stackrel{\mathclap{\normalfont\mbox{dist.}}}{=\joinrel=\joinrel=}}
 
-\newcommand\operatorSatisfy{\stackrel{\mathclap{\normalfont\mbox{\ref{lin_op_solution}}}}{=\joinrel=}}
+	\newcommand\operatorSatisfy{\stackrel{\mathclap{\normalfont\mbox{\ref{lin_op_solution}}}}{=\joinrel=}}
 
-Using these three conclusions we get:
-\begin{align*}
-	L(e^{\lambda t} \cdot \text{cos}(\mu t)) \firstConclusion
-	L\left(\frac{e^{rt}+e^{\overline{r}t}}{2} \right) \byDistributivity
-	\frac{1}{2} \left( Le^{rt} + Le^{\overline{r}t} \right) \operatorSatisfy 0 , \\
-	L(e^{\lambda t} \cdot \text{sin}(\mu t)) \firstConclusion
-	L\left(\frac{e^{rt}-e^{\overline{r}t}}{2i} \right) \byDistributivity
-	\frac{1}{2i} \left( Le^{rt} - Le^{\overline{r}t} \right) \operatorSatisfy 0 ,
-\end{align*}
+	Using these three conclusions we get:
+	\begin{align*}
+		L(e^{\lambda t} \cdot \text{cos}(\mu t)) \firstConclusion
+		L\left(\frac{e^{rt}+e^{\overline{r}t}}{2} \right) \byDistributivity
+		\frac{1}{2} \left( Le^{rt} + Le^{\overline{r}t} \right) \operatorSatisfy 0 , \\
+		L(e^{\lambda t} \cdot \text{sin}(\mu t)) \firstConclusion
+		L\left(\frac{e^{rt}-e^{\overline{r}t}}{2i} \right) \byDistributivity
+		\frac{1}{2i} \left( Le^{rt} - Le^{\overline{r}t} \right) \operatorSatisfy 0 ,
+	\end{align*}
 
-In conclusion, if $Le^{ct}=0$ for some $c \in \mathbb{C} \implies L\text{Re}(e^{ ct })= L\text{Im}(e^{ct})=0, \\
-\text{for } \text{Re}(e^{ct}), \text{Im}(e^{ct}) \in \mathbb{R}$.
-Moreover, the same can be said for $e^{\overline{c}t}$. \qed
+	In conclusion, if $Le^{ct}=0$ for some $c \in \mathbb{C} \implies L\text{Re}(e^{ ct })= L\text{Im}(e^{ct})=0, \\
+	\text{for } \text{Re}(e^{ct}), \text{Im}(e^{ct}) \in \mathbb{R}$.
+	Moreover, the same can be said for $e^{\overline{c}t}$.
+\end{proof}
 
 Now something let's say... \textbf{fundamental} (hehe) about these solutions, is they have to be linearly independent to each other. Meaning the only solution for
 \begin{equation}\label{liniar_independece}
@@ -305,22 +306,23 @@ $\Gamma_{U,\Phi}:=\{ \gamma_s | s \in S \}$
 of all orbits of the dynamical system $(U,\Phi)$, with $U\subseteq (T \times S)$ and $\Phi$ the evolution function, it follows that:
 $\forall \gamma_1,\gamma_2 \in \Gamma_{U, \Phi}, \gamma_1 \bigcap \gamma_2 = \emptyset$, meaning the set of orbits forms a partition of the phase space $S$
 
-\textbf{Proof:}
-Conditions for partitions:
-\par \textbf{Reminder:} A partition $\Gamma_U$ of a set $U$ is a set of non-empty disjoint subsets of $U$:
-\[
-	\bigcup_{\gamma\in \Gamma_U} \gamma = U
-\]
-So we need to prove:
+\begin{proof}
+	Conditions for partitions:
+	\par \textbf{Reminder:} A partition $\Gamma_U$ of a set $U$ is a set of non-empty disjoint subsets of $U$:
+	\[
+		\bigcup_{\gamma\in \Gamma_U} \gamma = U
+	\]
+	So we need to prove:
 
-\hfill\break
-//TODO: te apuci de asta mai incolo \par
-\hfill\break
+	\hfill\break
+	//TODO: te apuci de asta mai incolo \par
+	\hfill\break
 
-\rom{1}. $\gamma \subseteq U, \forall \gamma \in \Gamma_{U,\Phi}$ \par
-\rom{2}. $ \gamma \neq \emptyset, \forall \gamma \in \Gamma_{U,\Phi}$ \par
-\rom{3}. $\gamma_1 \bigcap \gamma_2 = \emptyset, \forall \gamma_1, \gamma_2 \in \Gamma_{U,\Phi}$ \par
-\rom{4}. $\bigcup_{\gamma\in \Gamma_U} \gamma = U$ \par
+	\rom{1}. $\gamma \subseteq U, \forall \gamma \in \Gamma_{U,\Phi}$ \par
+	\rom{2}. $ \gamma \neq \emptyset, \forall \gamma \in \Gamma_{U,\Phi}$ \par
+	\rom{3}. $\gamma_1 \bigcap \gamma_2 = \emptyset, \forall \gamma_1, \gamma_2 \in \Gamma_{U,\Phi}$ \par
+	\rom{4}. $\bigcup_{\gamma\in \Gamma_U} \gamma = U$ \par
+\end{proof}
 
 \hfill\break
 //TODO: oki, deci aici zici cum se rezolva o ecuatie autonoma liniara in mod normal si despre solutiile fundamentale si independenta si dependa lor and stuff si dupa dai un mod echivalnt de a le rezolva cu metoda de mai jos care face un sistem din ele
@@ -789,7 +791,7 @@ If $\exists J_{\underline{f}}^{-1}(y_f) \implies y_f$ is an \textbf{isolated eq.
 
 \newpage
 
-\textbf{Proof:}
+\begin{proof}
 Let's try proving the flip-side of this;
 
 Assume  $\exists J_{\underline{f}}^{-1}(y_f)$ and $y_f$ is not isolated $\implies$
@@ -799,7 +801,8 @@ $ \implies \exists y'_f \neq y_f : \underline{f}(y'_f) = 0, \norm{y_f - y'_f} < 
 Then, taking (\ref{eq:t_taylor_expansion}) about $y'_f$ and the var. change $\zeta = y - y'_f \implies \dot{\zeta} \approx J_{\underline{f}}(y'_f)(\zeta). $
 
 But because $f(y'_f) =0 \implies J_{\underline{f}}(y'_f)(\zeta) = 0$ and since the substitution has to hold $\forall y : \norm{y - y'_f} < \epsilon$, including $\norm{y - y'_f}|_{y \equiv y_f} > 0 \implies J_{\underline{f}(y'_f)} = 0
-\quad \lightning \quad \exists J_{\underline{f}}^{-1}(y'_f)$" \qed
+\quad \lightning \quad \exists J_{\underline{f}}^{-1}(y'_f)$"
+\end{proof}
 
 \vspace{20pt}
 However, $\exists J_{\underline{f}}^{-1}(y_f) \nLeftarrow y_f$, in general.
@@ -957,7 +960,9 @@ We have (for the above defined $w$ \ref{no_sign_changes_func}) :
 \end{gather}
 \end{lemma}
 
-Proof: As stated in \ref{sturm_seq_property}: $w(x)$ doesn't change at roots of
+\begin{proof}
+
+As stated in \ref{sturm_seq_property}: $w(x)$ doesn't change at roots of
 
 $p_k(x), k = \overline{1,m-1}$. Asumption \rom{3} shows $p_m(x)$
 doesn't influence it either. So there can only be one suspect:
@@ -966,11 +971,11 @@ $p_0(x)$. If there's a spike by $1$ at $\overline{x}$ in $w(\overline{x})$,
 zero of $p_0$
 (   $p_0(\overline{x}) =0 $) either:
 \[
-p_0(x) \text{ changes from + to - and   } p_1(\overline{x}) > 0
+	p_0(x) \text{ changes from + to - and   } p_1(\overline{x}) > 0
 \]
 or:
 \[
-p_0(x) \text{ changes from - to + and  } p_1(\overline{x}) < 0
+	p_0(x) \text{ changes from - to + and  } p_1(\overline{x}) < 0
 \]
 [   $\nexists \overline{x}: p_1(\overline{x}) = 0$ by assumption \rom{2}  ]
 
@@ -983,7 +988,7 @@ done clock-wise, this time.
 Now taking \rom{1} into account and the fact that $(p_0(y), p_1(y))$
 is horizontal for $y \rightarrow  - \infty$ and $y \rightarrow +
 \infty  $ outcomes the result of our lemma
-\qed
+\end{proof}
 
 \hfill\break
 //TODO Maybe try to draw this yourself cu arrows nstuff
@@ -1054,7 +1059,9 @@ Routh:
 \end{theorem}
 Meaning the system is stable.
 
-\textbf{Proof: } $arg(p_0,p_1) = 360^\degree - arg(\text{Re}(p),
+\begin{proof}
+
+$arg(p_0,p_1) = 360^\degree - arg(\text{Re}(p),
 \text{Im}(p)) \implies \frac{n}{2}$ positive rotations of $p(ix)$ are
 bascially $\frac{n}{2}$ neg. rot. of $(p_0(x), p_1(x))$. If
 $Re(\lambda) < 0, \forall \lambda \in p(\lambda)^{-1}(0) \implies$ (
@@ -1064,7 +1071,8 @@ though. $ \implies p_i(x) \geq 0$ for all leading $i$. Having
 \ref{routh_theorem} $\implies p_n(x) \equiv c_{n0}$. Because
 $\nexists \text{gcd}(p_0(x),p_1(x)), p(\lambda) \neq 0$ for
 Re$(\lambda) = 0$. Now we just do \ref{cauchy_arg_lemma} +
-\ref{sturm_lemma} once more. \qed
+\ref{sturm_lemma} once more.
+\end{proof}
 
 \hfill\break
 //TODO vezi ba sa rezolbi asta cumva ca nu esti chiar asa prost te pui cu pixu cu astea sa vezi de unde vine si faci pasii de rezolvare de le-a facut hurwitz intr-un fel
