@@ -382,6 +382,7 @@ Given:
 //TODO: Aici trebuie re-introducere la notatia specifica pt reactiile chimice, si adica mai bine te pui sa vb despre asta in primele capitole de "Introduction to chemical reaction networks"
 si asta o sa fie pt orice fel de reactii chimice, nu doar pt astea de mai jos:
 Poti sa te folosesti nu numa de prezentare da si din lucrarea lui conradi ca zice chestii mai specifice asa sa zic nuj.
+
 //TODO sa mai zici si tu cand e si cand te intereseaza ce e ala flux cone si cum functioneste
 \hfill\break
 
@@ -422,6 +423,7 @@ So the \textbf{phosphorylation version of this would be}:
 \end{gather*}
 Which phosphorylates the substrate ($S$) up to a certain number of phosphate groups $n$, and then \textbf{de}phosphorylates it back to 0, where the subscript notation $S_i ;  i = \overline{1,n}$ represents the substrate ($S$) with its $i$ phosphate groups.
 
+\subsection{Cyclic and mixed distributive and processive Phosphorylation-Dephosphorylation CRN}
 The system above represents a \textbf{distributive} cycle, meaning each bounding site of ($K$) and ($F$) (de)phosphorylate only one single phosphate group.
 
 As opposed to a \textbf{processive} one, which would look something like:
@@ -442,6 +444,20 @@ Notice the following reactions where the enzymes don't dissociate.
 
 It was shown that processive systems are globally stable and distributive ones may be bistable (having multiple steady states).
 
+There are also extra classifications in double phosphorylation systems:
+
+The order phosphorylation occurs matters too, so if:
+\rom{1}: If the \text{last} phosphorylated site is being dephosphorylated in the first dephosphorylation binding, then the mechanism is said to be \textbf{sequential}.
+
+\rom{2} Whereas, if the \text{first} phosphorylated site is being \textbf{de}phosphorylated first then the system is \textbf{cyclic}.
+
+You can see here an example of this classification in two mechanisms that, while they differ in this category, they are still both distributive.
+\begin{figure}[H]
+	\includegraphics[width=13cm]{math_pics/cyclic-vs-sequential.png}
+	\centering
+\end{figure}
+In the left one here, $S_{ij}$ shows which one of the $2$ binding sites gets phosphate groups attached to it, (Ex, $S_{10}$: first one is phosphorylated, second not).
+
 \hfill\break
 //TODO: de ce ne intereseaza specfic phospho, de phosho?
 \hfill\break
@@ -453,7 +469,6 @@ It was shown that processive systems are globally stable and distributive ones m
 We'll now try to solve the problem whether a particular system undergoes simple Hopf bifurcations.
 
 Take, for example, the following basic cycle:
-\newpage
 \textbf{Example 1}:
 \begin{figure*}[h]
 	\text{\\TODO: cum drq desenez si eu frumusel cu sageti in latex sa fac asa la toate:}
@@ -572,7 +587,6 @@ Its chemical reaction network is:
 We also now have $9$ reactions: $3$ reversible, $3$ irreversible.
 
 Now the app generated the following:
-
 \begin{align*}
 	\Gamma &=
 	\begin{pmatrix}
@@ -610,5 +624,3 @@ Now the app generated the following:
 //TODO: 3. de cum s-a folosit pt un network de s-ai eliminat cate 2 specii si s-a facut tabel cu diverse sisteme care sunt mostenite din el
 deci practic un ucare chiar a gasit bifurcatii, toata nebunia aia de s-a scris despre ea de cum au reusit sa demonstreze ca chiar exista bifurcatii si sa le si gaseasca valorile pt care sunt
 \hfill\break
-
-\subsection{Cyclic and mixed distributive and processive Phosphorylation-Dephosphorylation CRN}
