@@ -9,6 +9,15 @@ Medley et al. (2018). "Tellurium notebooks—An environment for reproducible dyn
 Choi et al. (2018). "Tellurium: An extensible python-based modeling environment for systems and synthetic biology." Biosystems, 171, 74-79.
 
 #asta mai academica
+@misc{conradi2024distributivephosphorylationcatalyticconstants,
+      title={In distributive phosphorylation catalytic constants enable non-trivial dynamics}, 
+      author={Carsten Conradi and Maya Mincheva},
+      year={2024},
+      eprint={2308.08524},
+      archivePrefix={arXiv},
+      primaryClass={q-bio.MN},
+      url={https://arxiv.org/abs/2308.08524}, 
+}
 https://www.math.ucdavis.edu/~hunter/m207/m207.pdf
 
 https://math.okstate.edu/people/binegar/4233/4233-l02.pdf
