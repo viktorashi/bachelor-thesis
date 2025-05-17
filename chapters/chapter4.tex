@@ -335,7 +335,7 @@ Now since $x^*$ is a fixed point, the flux vector satisfies:
 \end{equation}
 And so the solutions of (\ref{flux_vector_linear_problem}) are a \textbf{convex polyhedral cone} called the \textbf{flux cone}.
 
-A flux cone is expressed as an $\mathbb{R}_{\geq 0}$ linear combination of it extreme vectors $\left\{ E_1 , \ldots , E_l \right\}$.
+A flux cone is expressed as an $\mathbb{R}_{\geq 0}$ positive linear combination (positive hull) of it extreme vectors $\left\{ E_1 , \ldots , E_l \right\}$.
 
 \begin{definition}\label{convex_params_definition}
 	\textbf{Convex parameters.}
@@ -469,7 +469,8 @@ In the left one here, $S_{ij}$ shows which one of the $2$ binding sites gets pho
 We'll now try to solve the problem whether a particular system undergoes simple Hopf bifurcations.
 
 Take, for example, the following basic cycle:
-\textbf{Example 1}:
+
+\textbf{Example 1} $(\mathcal{N}_1)$:
 \begin{figure*}[h]
 	\text{\\TODO: cum drq desenez si eu frumusel cu sageti in latex sa fac asa la toate:}
 	\includegraphics[width=38mm]{math_pics/ex1-no-bifurcations.png}	
@@ -571,17 +572,18 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 
 \newpage
 \textbf{Example 2}:
-Now let us apply the same method and intuition for the following network.
+Now let us apply the same method and intuition for the following network $(\mathcal{N}_2)$.
 \begin{figure}[H]
 	\text{\\TODO: cum drq desenez si eu frumusel cu sageti in latex sa fac asa la toate:}
 	\includegraphics[width=13cm]{math_pics/ex2-no-bifurcations.png}
 	\centering
 \end{figure}
 Its chemical reaction network is:
-\begin{align*}
-	S_0+K &\xrightleftharpoons[k_2]{k_1} KS_0 \xrightarrow{k_3} S_1 + K \xrightleftharpoons[k_5]{k_4} KS_1 \xrightarrow{k_6} S_2 + K \\
-	S_2+F &\xrightleftharpoons[k_8]{k_7} FS_2 \xrightarrow{k_9} S_0 + F
-\end{align*}
+\begin{align}\label{network2}
+	S_0+K &\xrightleftharpoons[k_2]{k_1} KS_0 \xrightarrow{k_3} S_1 + K \xrightleftharpoons[k_5]{k_4} KS_1 \xrightarrow{k_6} S_2 + K \tag{$\mathcal{N}_2$}
+ \\
+	S_2+F &\xrightleftharpoons[k_8]{k_7} FS_2 \xrightarrow{k_9} S_0 + F \notag
+\end{align}
 \textbf{Remark 2:} $(a)$ Here the system is composed of $8$ species: The two enzymes like before, $K$ and $F$, but $K$ not phosphorylates up to $S_2$ and hence forms the complexes $KS_0$, $KS_1$ as well, so as a consequence, now $F$ \textbf{de}-phosphorylates starting from $FS_2$, and because the network is cyclic, it skips directly to the disassociated relation $S_0 + F$.
 
 We also now have $9$ reactions: $3$ reversible, $3$ irreversible.
@@ -628,6 +630,7 @@ With this "species to index mapping":
  | S1: x_7, \hspace{1mm}
  | S2: x_8
 \]
+\textbf{Remark 2:} $(b)$
 
 \hfill\break
 //TODO: 3. de cum s-a folosit pt un network de s-ai eliminat cate 2 specii si s-a facut tabel cu diverse sisteme care sunt mostenite din el

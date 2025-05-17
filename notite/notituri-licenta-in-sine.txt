@@ -94,6 +94,8 @@ ai putea sa-l intrebi de ce inca se foloseste huwritz routh inca, cand cam toate
 
 Sa te uiti dupa sa re-corectezi toate locurile unde definesti matrici si polinomi sa vezi daca e constitenta notatia
 
+ok deci packageu de maple face un poshull ca sa construiasca un polyhedron (cone) din "extreme rays" care sunt default doar kernelu lui full stoichiometry matrix
+
 #################### done cat de cat cred ####################
 implicit function theoremm?? help
 
