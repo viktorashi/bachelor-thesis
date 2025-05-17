@@ -1,0 +1,14 @@
+mu := 0.2;
+                           mu := 0.2
+
+g := 10;
+                            g := 10
+
+L := 2;
+                             L := 2
+
+eq_1 := D(theta)(t) = omega(t);
+                 eq_1 := D(theta)(t) = omega(t)
+
+eq_2 := D(omega)(t) = -mu*omega(t) - g*sin(theta(t))/L;
+

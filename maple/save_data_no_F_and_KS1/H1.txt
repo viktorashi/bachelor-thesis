@@ -1,0 +1,2 @@
+d1 := h1*lambda[1]+h2*lambda[1]+h3*lambda[1]+h4*lambda[1]+h4*lambda[2]+h5*
+lambda[2]+h6*lambda[2]+h7*lambda[1];
