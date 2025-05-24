@@ -780,7 +780,7 @@ where $(x_1, \ldots, x_n)^{(y_1, \ldots, y_n)}$ is a representation of the monom
 	\mathrm{Newt}(f)=\left\{\sum_k\alpha_k\mathbf{a}_k:\sum_k\alpha_k=1\And\forall j\alpha_j\geq0\right\}. \forall c_k \neq 0_n
 \]
 Now this structure offers a lot in insight into where (or if) roots might be.
-Take now, the Newton Polytope of $\det G_6(h)$, which by using software like \href{https://polymake.org/doku.php/start}{Polymake} we can obtain its hyper-plane intersection form.
+Take now, the Newton Polytope of $\det G_6(h)$, which by using software like \href{https://polymake.org/doku.php/start}{Polymake} we can obtain its hyper-plane intersection form
 % create matrix with no borders like no parantheses, just like a table
 \begin{align*}
 	\left.
@@ -806,6 +806,30 @@ Take now, the Newton Polytope of $\det G_6(h)$, which by using software like \hr
 		h_{3} \geq 0
 	\end{array} \right.
 \end{align*}
+By treating $G_6(h)$ as a polynomial in $h_1, h_2, h_3 \text{ and }, h_6$, we observe that the factor
+\[
+	h_{10}h_7 - h_8 h_9
+\]
+pops out. Now we might want to make the monomials whose factors are that, dominant, by performing the restriction / transformation;
+\[
+	h_1\to t,h_2\to t,h_3\to t,h_6\to t.
+\]
+Now we represent $\det G_6(h)$ as a polynomial of variable $t$ with coefficients in all other h's:
+\[
+	\begin{aligned}
+		\det G_6(t)
+		&=324t^{18}(h_{10}+h_7)(h_{10}h_7-h_8h_9)+\ldots\\&+h_{10}h_4h_5h_7h_8h_9\\&\cdot(h_{10}+h_4)(h_{10}+h_5)(h_{10}+h_7)(h_{10}+h_8)(h_{10}+h_9)\\&\cdot(h_4+h_5)(h_4+h_7)(h_4+h_8)(h_4+h_9)\\&\cdot(h_5+h_7)(h_5+h_8)(h_5+h_9)\\&\cdot(h_7+h_8)(h_7+h_9)\\&\cdot(h_8+h_9).
+	\end{aligned}
+\]
+Since the only $minues$'s that might pollute its positivity are in the $324 t^{18}$ term $\implies \det G_6(0) > 0$, so if $h_{10}h_{7} - h_{8}h_{9} < 0, \implies \exists t_1 > 0 : \det G_6(t_1) = 0, \det G_6(t) < 0, \forall t > t_1$ by the Intermediate Value Theorem.
+
+So it means we've shown a root exists for $\det G_6(h)$, and hence a Hopf bifurcation exists in the system.
+
+\hfill\break
+\hfill\break
+//TODO : not really sure where that root is, but we'll leave that for the la vara.
+\hfill\break
+\hfill\break
 
 \hfill\break
 \hfill\break
