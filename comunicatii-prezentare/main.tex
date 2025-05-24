@@ -4,15 +4,18 @@
 \usepackage{amssymb}
 \usepackage{graphicx} % For including images if needed
 \usepackage{amsfonts} % For \mathbb symbols
+% pt produsu cartezian
+\usepackage{mathabx}
+\usepackage{mathtools}
 
 % If ITMOtheme is not used, define some colors for consistency or use standard beamer colors
 % \definecolor{ITMOblue}{RGB}{0,70,132}
 % \definecolor{ITMOred}{RGB}{200,0,0}
 
-\title[Hopf Bifurcations in CRNs]{Understanding Hopf Bifurcations in (De)phosphorylation Chemical Reaction Networks}
-\author{Your Name Here}
+\title[Hopf Bifurcations in CRNs]{Proving existence and ruling out of Hopf bifurcations in Phosphorylation–Dephosphorylation reaction networks}
+\author{Stan Ioan-Victor}
 \date{\today}
-\institute{Your Institution Here}
+\institute{UBB MIE3}
 
 \begin{document}
 
@@ -38,7 +41,7 @@
 				\item \textbf{Hormonal Cycles:} Regular fluctuations in hormone levels (e.g., menstrual cycle).
 			\end{itemize}
 		\item These rhythms are often driven by complex networks of interacting molecules - \alert{Chemical Reaction Networks (CRNs)}.
-		\item Understanding how these networks generate oscillations is crucial for understanding life itself.
+		\item Understanding how these networks generate oscillations is crucial to understanding life's phenomena.
 	\end{itemize}
 \end{frame}
 
@@ -70,30 +73,130 @@
 	\frametitle{What is a Chemical Reaction Network (CRN)?}
 	A CRN consists of:
 	\begin{itemize}
-		\item A set of chemical \alert{species} $S = \{X_1, \dots, X_n\}$.
-		\item A set of \alert{reactions} $R_j$, each of the form:
-			$$ \sum_{i=1}^{n} \alpha_{ij} X_i \xrightarrow{k_j} \sum_{i=1}^{n} \beta_{ij} X_i $$
-		\item $\alpha_{ij}, \beta_{ij} \in \mathbb{N}_0$ are \alert{stoichiometric coefficients}.
+		\item A set of $\left|S\right| = n$ chemical \alert{species} $S = \{X_1, \dots, X_n\}$.
+		\item A set of $r$ \alert{reactions}, each of the form:
+			\[
+				\alpha_{1j} X_1 + \dots + \alpha_{n j} X_n \xrightarrow{k_j} \beta_{1j} X_1 + \dots + \beta_{n j}, \forall j = \overline{1,r}.	
+			\]
+		\item $\alpha_{ij}, \beta_{ij} \in \mathbb{N}$ are \alert{stoichiometric coefficients} (stoichiometries) of reactants, respectively products.
 		\item $k_j > 0$ are the \alert{reaction rate constants}.
 		\item Concentrations are $x = (x_1, \dots, x_n)^T$, where $x_i = [X_i]$.
 	\end{itemize}
-	CRNs are the language we use to describe the complex web of chemical interactions within cells.
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
 	\frametitle{Mass-Action Kinetics \& ODE Model}
 	\begin{itemize}
-		\item The \alert{rate} of reaction $j$ (mass-action):
+		\item The \alert{rate} of a certain reaction $j$ (mass-action):
+			$$ 	v_j : \mathbb{R}^r_{> 0} \bigtimes \mathbb{R}^n_{\geq 0} \rightarrow \mathbb{R}_{\geq 0}   $$
 			$$ v_j(k,x) = k_j \prod_{i=1}^{n} x_i^{\alpha_{ij}} $$
+
+		\item The \alert{flux vector} $v : \mathbb{R}^r_{> 0}  \bigtimes \mathbb{R}^n_{\geq 0} \rightarrow \mathbb{R}^r_{\geq 0}$:
+			$$ 	(v(x,k))_{i} = v_i(k_i, x)$$
+		\item The \alert{left / right stoichiometric matrices} $		\Gamma_L, \Gamma_R \in \mathcal{M}_{n \bigtimes r}(\mathbb{N}), 		(\Gamma_L)_{ij} = \alpha_{ij};
+			(\Gamma_R)_{ij} = \beta{ij} $
 		\item The \alert{stoichiometric matrix} $\Gamma \in \mathcal{M}_{n \times r}(\mathbb{Z})$: $\Gamma_{ij} = \beta_{ij} - \alpha_{ij}$ (net change).
-		\item Dynamics via Ordinary Differential Equations (ODEs):
-			$$ \frac{dx}{dt} = \Gamma \cdot v(k,x) $$
-			$v(k,x)$ is the flux vector. This system models how concentrations change over time.
+
 	\end{itemize}
 \end{frame}
 
 % --- Section 3: Dynamical Systems Fundamentals ---
 \section{Dynamical Systems Fundamentals}
+
+\begin{frame}
+	\begin{itemize}
+		\item Dynamics via Ordinary Differential Equations (ODEs):
+			$$ \frac{dx}{dt} = \Gamma \cdot v(k,x) $$
+			This system models how concentrations change over time.
+
+			Take this \textbf{open network} as an example:
+	\end{itemize}
+	\begin{align*}
+		A + C \xrightarrow{k_{1}} 2A \\
+		B + C \xrightarrow{k_{2}} 2B  \\
+		A \xrightarrow{k_{3}} \emptyset \\
+		B \xrightarrow{k_{4}} \emptyset \\
+		\emptyset \xrightarrow{k_{5}} C
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	The stoichiometric matrices:
+	\begin{align*}
+		\Gamma_L =
+		\begin{pmatrix}
+			1 & 0 & 1 & 0 & 0 \\
+			0 & 1 & 0 & 1 & 0 \\
+			1 & 1 & 0 & 0 & 0
+		\end{pmatrix}
+		, \quad
+		\Gamma_R =
+		\begin{pmatrix}
+			2 & 0 & 0 & 0 & 0 \\
+			0 & 2 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0 & 1
+		\end{pmatrix}
+	\end{align*}
+	\begin{equation*}
+		\Gamma =
+		\begin{pmatrix*}
+			1 & 0 & -1 & 0 & 0 \\
+			0 & 1 & 0 & -1 & 0 \\
+			-1 & -1 & 0 & 0 & 1
+		\end{pmatrix*}
+	\end{equation*}
+	Whereas, the reaction rate (\textbf{flux vector}):
+	\[
+		v(k,x) =
+		\begin{pmatrix*}
+			v_{1}(k,x)	 \\
+			v_{2}(k,x)	 \\
+			v_{3}(k,x)	 \\
+			v_{4}(k,x)	 \\
+			v_{5}(k,x)
+		\end{pmatrix*} =
+		\begin{pmatrix}
+			k_1 x_1 x_3 \\
+			k_2 x_2 x_3 \\
+			k_3 x_1 \\
+			k_4 x_2 \\
+			k_5
+		\end{pmatrix}
+	\]
+\end{frame}
+
+\begin{frame}
+	And so its dynamical system in matrix form is:
+	\begin{align*}
+		\frac{dx}{dt} &= \Gamma v(k,x) \\
+		\frac{d}{dt}
+		\begin{pmatrix*}
+			x_1	\\
+			x_2	\\
+			x_3	
+		\end{pmatrix*} &=
+		\begin{pmatrix*}
+			1 & 0 & -1 & 0 & 0 \\
+			0 & 1 & 0 & -1 & 0 \\
+			-1 & -1 & 0 & 0 & 1
+		\end{pmatrix*}
+		\begin{pmatrix}
+			k_1 x_1 x_3 \\
+			k_2 x_2 x_3 \\
+			k_3 x_1 \\
+			k_4 x_2 \\
+			k_5
+		\end{pmatrix}
+	\end{align*}
+	Resulting in the ODE system:
+	\[
+		\begin{cases*}
+			\dot{x}_1 = k_1 x_1 x_3 - k_3x_1  \\
+			\dot{x}_2 = k_2 x_2 x_3 - k_4 x_2  \\
+			\dot{x}_3 = -k_1 x_1 x_3 - k_2 x_2 x_3 + k_5 \\
+		\end{cases*}
+	\]
+\end{frame}
 
 \begin{frame}{\insertsectionhead}
 	\frametitle{Ordinary Differential Equations (ODEs)}
@@ -102,10 +205,10 @@
 			$$ F(t, y(t), y'(t), \dots, y^{(n)}(t)) = 0 $$
 		\item \alert{Explicit form}: $y^{(n)}(t) = f(t, y(t), \dots, y^{(n-1)}(t))$.
 		\item A \alert{system of first-order ODEs}:
-			$$ \dot{y}_i = f_i(t, y_1, \dots, y_n), \quad i=1, \dots, n $$
+			$$ \dot{y}_i = f_i(t, y_1, \dots, y_n), \quad i=\overline{1, n} $$
 			Vector form: $\dot{y} = f(t,y)$.
-		\item CRN models are typically systems of first-order \alert{autonomous} ODEs (where $f$ does not explicitly depend on $t$).
-	\end{itemize}
+		\item CRN models are typically systems of first-order \alert{autonomous} ODEs.
+	\end{itemize}	
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
@@ -117,12 +220,17 @@
 		\item $\Phi$: Evolution function $\Phi(t, s_0)$ gives the state at time $t$ starting from $s_0$.
 			\begin{itemize}
 				\item $\Phi(0, s) = s$.
-				\item $\Phi(t_2, \Phi(t_1, s)) = \Phi(t_1+t_2, s)$ (semigroup property).
+				\item $\Phi(t_2, \Phi(t_1, s)) = \Phi(t_1+t_2, s)$.
 			\end{itemize}
 		\item The \alert{flow} through $s_0$ is $\Phi_{s_0}(t) = \Phi(t,s_0)$.
 		\item The \alert{orbit} (or trajectory) $\gamma_{s_0}$ is the image of the flow: $\{\Phi(t,s_0) | t \in T\}$.
-		\item An \alert{invariant set} $\mathcal{M} \subseteq S$ is a set such that if $s_0 \in \mathcal{M}$, then $\Phi(t,s_0) \in \mathcal{M}$ for all $t \ge 0$.
+		\item An \alert{invariant set} $\mathcal{M} \subseteq S$ is s.t. $\forall s_0 \in \mathcal{M} \implies \Phi(t,s_0) \in \mathcal{M}, \forall t \ge 0$.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\includegraphics[width=0.6\linewidth]{pics/lorenz.jpg}\\
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
@@ -147,7 +255,7 @@
 			\begin{itemize}
 				\item All Re($\lambda_k$) $< 0 \implies x^*$ is asymptotically stable.
 				\item Some Re($\lambda_k$) $> 0 \implies x^*$ is unstable.
-				\item Some Re($\lambda_k$) $= 0$ (others $<0$) $\implies x^*$ is non-hyperbolic. \alert{Crucial for bifurcations!}
+				\item Some Re($\lambda_k$) $= 0$ (others $<0$) $\implies x^*$ is non-hyperbolic. \alert{Crucial for bifurcations!} (pretty hard to study given only the linearization).
 			\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -166,6 +274,7 @@
 				\item Appearance/disappearance of \alert{periodic orbits (limit cycles)}.
 			\end{itemize}
 		\item \alert{Local bifurcations} involve changes near an equilibrium and are detected via Jacobian eigenvalues.
+		\item Whereas \alert{global bifurcations} involve changes in the system's topology or structure, often requiring more complex analysis.
 	\end{itemize}
 \end{frame}
 
@@ -178,6 +287,24 @@
 		\item \alert{Pitchfork}: One equilibrium splits into three (or vice-versa), often due to symmetry. Requires $f(-y,\mu)=-f(y,\mu)$, $\frac{\partial^2 f}{\partial \mu \partial y} \neq 0, \frac{\partial^3 f}{\partial y^3} \neq 0$.
 	\end{itemize}
 	These illustrate how parameter changes can alter system structure. Our focus is on a bifurcation that creates oscillations in higher dimensions: the Hopf Bifurcation.
+\end{frame}
+
+\begin{frame}
+	\centering
+	\includegraphics[width=0.8\linewidth]{pics/saddle-node-bif.png}\\
+	\tiny (Illustrative: Saddle-node bifurcation)
+\end{frame}
+
+\begin{frame}
+	\centering
+	\includegraphics[width=0.8\linewidth]{pics/transcritical-bif.png}\\
+	\tiny (Illustrative: Transcritical bifurcation)
+\end{frame}
+
+\begin{frame}
+	\centering
+	\includegraphics[width=1.01\linewidth]{pics/pitchfork-bif.png}\\
+	\tiny (Illustrative: Pitchfork bifurcation)
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
@@ -198,9 +325,9 @@
 \begin{frame}{\insertsectionhead}
 	\frametitle{Limit Cycles}
 	\begin{itemize}
-		\item A \alert{closed orbit (or cycle)} $\gamma$ is an orbit that is periodic: $\Phi(t+T, s_0) = \Phi(t, s_0)$ for some period $T>0$ and any $s_0 \in \gamma$.
+		\item A \alert{closed orbit (or cycle)} $\gamma$ is an orbit that is periodic: $\Phi(t+T, s_0) = \Phi(t, s_0)$ for some period $T>0$ and $\forall s_0 \in \gamma$.
 		\item A \alert{limit cycle} is an isolated closed orbit. Solutions nearby either spiral towards it (stable limit cycle) or away from it (unstable limit cycle).
-		\item \textbf{Poincaré-Bendixson Theorem (for 2D systems):} If a trajectory remains in a bounded region that contains no equilibria, it must approach a limit cycle. (This doesn't directly apply to $n>2$ dimensions, but Hopf gives a mechanism for limit cycles in $n$D).
+		\item \textbf{Poincaré-Bendixson Theorem (for 2D systems):} for a system in $X \subseteq \mathbb{R}^2, \forall S$ compact invariant set without equilibria $\implies \forall s \in S$ either tend to limit cycles, or are limit cycles themselves. (This doesn't directly apply to $n>2$ dimensions, but Hopf gives a mechanism for limit cycles in $\mathbb{R}^n$).
 		\item Hopf bifurcations are a primary mechanism for the creation of limit cycles from equilibria.
 	\end{itemize}
 \end{frame}
@@ -234,6 +361,24 @@
 	\small Supercritical: stable limit cycle born. Subcritical: unstable limit cycle merges/destroys stable equilibrium.
 \end{frame}
 
+\begin{frame}
+	So having these in mind, Hopf is kind of like an $\mathbb{R}^n$ version of a Pitchfork bifurcation when you think about it.
+	You can even see the resemblance in the way they look
+	\centering
+	\includegraphics[width=0.8\linewidth]{pics/hopf-bif-pic.png}\\
+	\tiny (Illustrative: Hopf vs Pitchfork bifurcations)
+\end{frame}
+
+\begin{frame}
+	\centering
+	\includegraphics[width=0.54\linewidth]{pics/leo.jpg}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\includegraphics[width=0.7\linewidth]{pics/pitchfork-photo.png}
+\end{frame}
+
 % --- Section 5: Detecting Hopf Bifurcations ---
 \section{Detecting Hopf Bifurcations}
 
@@ -241,7 +386,7 @@
 	\frametitle{Characteristic Polynomial \& Routh-Hurwitz}
 	\begin{itemize}
 		\item Characteristic polynomial of $J(\mu)$:
-			$$ P(\lambda, \mu) = \det(J(\mu) - \lambda I) = a_0\lambda^n + a_1\lambda^{n-1} + \dots + a_n = 0 $$
+			$$ P(\lambda, \mu) = \det(J(\mu) - \lambda I_n) = a_0\lambda^n + a_1\lambda^{n-1} + \dots + a_n = 0 $$
 			(Assume $a_0 > 0$, coefficients $a_i$ depend on $\mu$).
 		\item \alert{Routh-Hurwitz criterion}: Conditions on $a_i(\mu)$ for all Re($\lambda_k$) $< 0$.
 		\item Involves \alert{Hurwitz matrices} $H_k(\mu)$. For $n$, $H_n(\mu)$:
@@ -250,35 +395,36 @@
 				a_1 & a_3 & a_5 & \dots \\
 				a_0 & a_2 & a_4 & \dots \\
 				0 & a_1 & a_3 & \dots \\
-				\vdots & \vdots & \ddots & \\
+				\vdots & \vdots & \ddots & \vdots \\
 				0 & \dots & & a_n
-			\end{pmatrix} $$
+			\end{pmatrix}
+			= (a_{2j - i})_{ij}$$
 			($a_k = 0$ if $k<0$ or $k>n$).
-		\item Stability $\iff$ all leading principal minors $\Delta_k = \det H_k(\mu)$ are positive: $\Delta_1 > 0, \dots, \Delta_n > 0$.
+		\item Stability $\iff$ all leading principal minors $\Delta_k = \det H_k(\mu)$ are positive: $\det H_i(\mu) > 0, \forall i = \overline{1,n}$.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
-	\frametitle{Conditions for Hopf Bifurcation (Yang, Prop. 2)}
+	\frametitle{Criterion for Hopf Bifurcation (Yang)}
 	For a system of effective degree $s \ge 2$ (after factoring out zero eigenvalues), a simple Hopf bifurcation occurs at $\mu_0$ if:
 	\begin{enumerate}
-		\item $\Delta_{s-1}(\mu_0) = 0$ (where $\Delta_{s-1}$ is the $(s-1)^{th}$ Hurwitz determinant).
-		\item $\Delta_1(\mu_0) > 0, \dots, \Delta_{s-2}(\mu_0) > 0$.
+		\item $\det H_{s-1}(\mu_0) = 0$.
+		\item $\det H_1(\mu_0) > 0, \dots, \det H_{s-2}(\mu_0) > 0$.
 		\item $a_s(\mu_0) > 0$ (constant term of the effective characteristic polynomial).
-		\item Transversality: $\frac{d}{d\mu}(\Delta_{s-1}(\mu))\bigg|_{\mu_0} \neq 0$.
+		\item Transversality: $\frac{d}{d\mu}(\det H_{s-1}(\mu))\bigg|_{\mu_0} \neq 0$.
 	\end{enumerate}
 	These ensure one pair of purely imaginary eigenvalues crosses the axis, others stable.
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
-	\frametitle{Ruling Out Hopf Bifurcations (Thm. 6)}
+	\frametitle{(Thm.) Ruling Out Hopf Bifurcations}
 	No simple Hopf bifurcation along $x^*(\mu)$ if, for all relevant $\mu$:
 	\begin{itemize}
-		\item $\Delta_1(\mu) > 0, \dots, \Delta_{s-2}(\mu) > 0$ (preliminary stability for other roots),
+		\item $\det H_1(\mu) > 0, \dots, \det H_{s-2}(\mu) > 0$ (preliminary stability for other roots),
 		\item AND either:
 			\begin{itemize}
-				\item Whenever $\Delta_{s-1}(\mu) = 0 \implies a_s(\mu) \le 0$. (Violates condition 3)
-				\item OR, $\Delta_{s-1}(\mu) \neq 0$ for all $\mu$. (Violates condition 1)
+				\item Whenever $\det H_{s-1}(\mu) = 0 \implies a_s(\mu) \le 0$. (breaks condition 3)
+				\item OR, $\det H_{s-1}(\mu) \neq 0$ for all $\mu$. (breaks condition 1)
 			\end{itemize}
 	\end{itemize}
 	The system never meets the precise criteria for a Hopf bifurcation.
@@ -292,13 +438,24 @@
 	\begin{itemize}
 		\item (De)phosphorylation cycles are key in \alert{signal transduction}.
 		\item Involve: Substrate $S$ (forms $S_0, \dots, S_n$), Kinase $K$, Phosphatase $F$.
-		\item Example (single site):
+		\item Example (single site) $\mathcal{N}_1$:
 			\begin{align*}
 				S_0 + K &\rightleftharpoons KS_0 \xrightarrow{k_3} S_1 + K \\
 				S_1 + F &\rightleftharpoons FS_1 \xrightarrow{k_6} S_0 + F
 			\end{align*}
 		\item \alert{Key Question}: Can these networks act as \alert{switches} (multiple steady states, bistability) or as \alert{clocks} (sustained oscillations via Hopf)? This determines their functional role.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	% picture insert
+	\centering
+	\includegraphics[width=0.5\linewidth]{pics/ex1-no-bifurcations.png} \\ 	
+
+	\begin{align*}
+		S_0 + K &\rightleftharpoons KS_0 \xrightarrow{k_3} S_1 + K  \tag{$\mathcal{N}_1$} \\
+		S_1 + F &\rightleftharpoons FS_1 \xrightarrow{k_6} S_0 + F
+	\end{align*}
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
@@ -320,7 +477,7 @@
 			\end{itemize}
 	\end{itemize}
 	\centering
-	\includegraphics[width=0.7\linewidth]{pics/cyclic-vs-sequential.png} \\
+	\includegraphics[width=0.6\linewidth]{pics/cyclic-vs-sequential.png} \\
 	\tiny (Illustrative: Placeholder for Fig (a) and (b) from `main.pdf` section 4.3.1)
 \end{frame}
 
@@ -330,9 +487,9 @@
 		\item Jacobian $J(k, x^*)$ analysis can be algebraically complex.
 		\item \alert{Convex parameterization} $(h, \lambda)$ can simplify $J$:
 			\begin{itemize}
-				\item $h_i = 1/x_i^*$ (inverse steady-state concentrations).
-				\item $v^* = E\lambda$ (flux vector, $E$ matrix of extreme rays of flux cone $\text{ker}(\Gamma) \cap \mathbb{R}^r_{\ge 0}$, $\lambda$ convex parameters).
-				\item $J(h, \lambda) = \Gamma \text{diag}(E\lambda) \Gamma_L^T \text{diag}(h)$ ($\Gamma_L$ reactant stoich. matrix).
+				\item $h_i = \frac{1}{x_i^*}$ (inverse steady-state concentrations).
+				\item $v^* = E\lambda$ : flux vector, $E$ matrix of extreme rays of flux cone $\text{ker}(\Gamma) \bigcap \mathbb{R}^r_{\ge 0}$, $\lambda$ convex parameters.
+				\item $J(h, \lambda) = \Gamma \text{diag}(E\lambda) \Gamma_L^T \text{diag}(h)$ (cool trick that differentiates).
 			\end{itemize}
 		\item Coefficients of $J(h,\lambda)$ become \alert{monomials} in $h, \lambda$, simplifying analysis of Hurwitz determinants.
 	\end{itemize}
@@ -350,19 +507,104 @@
 			\end{itemize}
 		\item Characteristic polynomial coefficients: $a_i(\lambda_1, h) = \lambda_1^i b_i(h)$, where $b_i(h)$ are for $J_1(h)$.
 		\item Hurwitz determinants: $\det(H_k(\lambda_1,h)) = \lambda_1^{k(k+1)/2} \det(G_k(h))$, where $G_k(h)$ are for $J_1(h)$.
-		\item \alert{Hopf analysis depends primarily on $h$ (via $b_i(h)$ and $G_k(h)$), not $\lambda_1$ as a bifurcation parameter for crossing.} (Prop. 5 in `main.pdf`)
+		\item \alert{Hopf analysis depends primarily on $h$ (via $b_i(h)$ and $G_k(h)$), not $\lambda_1$ as a bifurcation parameter for crossing.}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
-	\frametitle{Example 1: Network N1 (Basic Cycle - No Hopf)}
-	Recap for $K + S_0 \rightleftharpoons KS_0 \rightarrow K + S_1$, $F + S_1 \rightleftharpoons FS_1 \rightarrow F + S_0$:
+	\frametitle{Example 1: Network $\mathcal{N}_1$ (Basic Cycle)} Using this as example I'll also showcase \href{https://github.com/viktorashi/Open-CoNtRol}{the app} that I've been working on for my thesis.
+	For $K + S_0 \rightleftharpoons KS_0 \rightarrow K + S_1$, $F + S_1 \rightleftharpoons FS_1 \rightarrow F + S_0$ ($\mathcal{N}_1$):
+	\begin{align*}
+		\Gamma &=
+		\begin{pmatrix}
+			K & -1 &  1 &  1 &  0 &  0 &  0 \\
+			S0& -1 &  1 &  0 &  0 &  0 &  1 \\
+			KS0 &  1& -1& -1 &  0 &  0 &  0 \\
+			S1 &  0 &  0 &  1& -1 &  1 &  0 \\
+			F &  0 &  0 &  0& -1 &  1 &  1 \\
+			FS1 &  0 &  0 &  0 &  1& -1& -1  \\		
+		\end{pmatrix}, \quad \text{rank}(\Gamma) = 3 \\[3ex]
+		\Gamma_L &=
+		\begin{bmatrix}
+			1&0&0&0&0&0\\
+			1&0&0&0&0&0\\
+			0&1&1&0&0&0\\
+			0&0&0&1&0&0\\
+			0&0&0&1&0&0\\
+			0&0&0&0&1&1
+		\end{bmatrix} \\[3ex]
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\begin{align*}
+		\begin{cases*}
+			\begin{array}{ll}
+				\dot{x}_1(t) = -k_4 x_1(t) *x_6(t)+k_5 x_2(t)+k_6 x_2(t) \\
+				\dot{x}_2(t) = k_4 x_1(t) *x_6(t)-k_5 x_2(t)-k_6 x_2(t) \\
+				\dot{x}_3(t) = -k_1 x_3(t) *x_5(t)+k_2 x_4(t)+k_3 x_4(t) \\
+				\dot{x}_4(t) = k_1 x_3(t) *x_5(t)-k_2 x_4(t)-k_3 x_4(t) \\
+				\dot{x}_5(t) = -k_1 x_3(t) *x_5(t)+k_2 x_4(t)+k_6 x_2(t) \\
+				\dot{x}_6(t) = k_3 x_4(t)-k_4 x_1(t) *x_6(t)+k_5 x_2(t) \\
+			\end{array}	
+		\end{cases*}		
+	\end{align*}
+	is the output it generated.
+	Where the "species to index mapping" is:
+	\[
+		F:  x_1
+		| FS1: x_2
+		| K: x_3
+		| KS0: x_4
+		| S0: x_5
+		| S1: x_6
+	\]
+	\textbf{Remark 1:} $(a)$ As you can see, ($\mathcal{N}_1$) consists of $6$ species ($2$ substrates $S_0$, $S_1$; $2$ enzymes $K$, $F$; which together form $2$ complexes: $K S_0$, $F S_1$) and $6$ reactions ($2$ reversible and $2$ irreversible) with matrix subspace $=$ rank $\Gamma = 3$.
+\end{frame}
+
+\begin{frame}
 	\begin{itemize}
-		\item Effective degree $s=3$. Critical Hurwitz determinant is $\Delta_2 = \det H_2$.
-		\item Analysis (Prop. 3 in `main.pdf`) shows for N1:
-			$\det H_1(h, \lambda) > 0$, $\det H_2(h, \lambda) > 0$, $a_3(h, \lambda) > 0$.
-		\item Since $\det H_2(h, \lambda)$ (which is $\Delta_{s-1}$) is always positive (sum of positive monomials), it's \alert{never zero}.
-		\item \alert{Conclusion}: Network N1 does not admit simple Hopf bifurcations.
+		\item \textbf{Remark 1:} $(b)$ For ($\mathcal{N}_1$), the cone $\Gamma v(k,x) = 0, \forall v \geqq 0$ is spanned by the vectors $w_0, w_1, w_2 \geqq 0 : \lambda_0 w_0 + \lambda_1 w_1 + \lambda_2 w_2 \geqq 0 \iff \lambda_1, \lambda_2, \lambda_3 \geq 0$.	
+			$E\lambda$ matrix made of the extreme cone vectors (\textbf{ray}):
+			\[
+				E\lambda =
+				\begin{bmatrix}
+					\lambda_2 + \lambda_3 \\
+					\lambda_1 \\
+					\lambda_3 \\
+					\lambda_2 + \lambda_3 \\
+					\lambda_2 \\
+					\lambda_3
+				\end{bmatrix}
+			\]
+		\item Now we may consider the Jacobian written in convex parameters for $\mathcal{N}_1$, $J_1(h,\lambda)$, which is parametrized by $9$ parameters: $\lambda_0, \lambda_1, \lambda_2$ and $h_1, \ldots, h_6$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\[
+		\left. J_1(h, \lambda) =\left[
+			\begin{array}{ccccccc}-\lambda_1hl&-\lambda_1h2&0&0&0&0&\lambda_1h7\\-\lambda_1hl&-\lambda_1h2&\lambda_1h3&0&0&0&0\\\lambda_1hl&\lambda_1h2&-\lambda_1h3&0&0&0&0\\0&-\lambda_2h2&\lambda_1h3&(-\lambda_2-\lambda_1)h4&0&\lambda_2h6&0\\0&\lambda_2h2&0&\lambda_2h4&-\lambda_2h5&0&0\\0&0&0&0&\lambda_2h5&-\lambda_2h6&0\\0&0&0&\lambda_1h4&0&0&-\lambda_1h7
+		\end{array}\right.\right]
+	\]
+\end{frame}
+
+\begin{frame}
+	\begin{itemize}
+		\item So, from \textbf{Remark 1} $(a)$ and $(b)$, it follows that the characteristic polynomial of $J_1(h, \lambda)$ is
+			\[
+				p_{h,\lambda}(z) = z^3 (a_0(h,\lambda) z^3 + a_1(h,\lambda) z^2 + a_2(h,\lambda) z + a_3(h,\lambda))
+			\]
+			Whose Hurwitz is pretty huge (will always overflow \TeX).
+	\end{itemize}
+	But do trust me that:
+	\begin{itemize}
+		\item Effective degree $s=3$. Critical Hurwitz determinant is $\det H_2(h,\lambda)$.
+		\item Analysis shows for $\mathcal{N}_1$:
+			$\det H_1(h, \lambda) > 0$, $\det H_2(h, \lambda) > 0$, $a_3(h, \lambda) > 0$, meaning
+		\item $a_3(k, x^*) > 0$ (highest degree polynomial coefficient)
+		\item Since $\det H_2(h, \lambda)$ is always positive (sum of positive monomials)
+		\item \alert{Conclusion}: Network $\mathcal{N}_1$ does not admit simple Hopf bifurcations.
 	\end{itemize}
 \end{frame}
 
@@ -370,25 +612,24 @@
 \section{Case Study: Network N2 - Finding Oscillations}
 
 \begin{frame}{\insertsectionhead}
-	\frametitle{Network N2: A Cyclic Double Phosphorylation System}
+	\frametitle{Network $\mathcal{N}_2$: A Cyclic Double Phosphorylation System}
 	Consider the cyclic, distributive double (de)phosphorylation system
 	\centering
 	\includegraphics[width=0.6\linewidth]{pics/cyclic-distributive-n1.png} \\
 	\begin{align*}
-		S_{00} + K &\rightleftharpoons KS_{00} \rightarrow S_{10} + K & S_{10} + K &\rightleftharpoons KS_{10} \rightarrow S_{11} + K \\
+		S_{00} + K &\rightleftharpoons KS_{00} \rightarrow S_{10} + K & S_{10} + K &\rightleftharpoons KS_{10} \rightarrow S_{11} + K \tag{$\mathcal{N}_2$} \\
 		S_{11} + F &\rightleftharpoons FS_{11} \rightarrow S_{01} + F & S_{01} + F &\rightleftharpoons FS_{01} \rightarrow S_{00} + F
 	\end{align*}
 	We analyze its \alert{irreversible version} for Hopf bifurcations.
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
-	\frametitle{N2 (Irreversible): Setup for Analysis}
-	Irreversible reactions (species $x_1..x_{10}$ as per `main.pdf`):
+	\frametitle{$\mathcal{N}_3$ (Irreversible): Setup for Analysis}
+	Irreversible reactions:
 	\begin{align*}
-		S_{00} + K &\xrightarrow{\kappa_1} KS_{00} \xrightarrow{\kappa_3} S_{10} + K \\
-		S_{10} + K &\xrightarrow{\kappa_4} KS_{10} \xrightarrow{\kappa_6} S_{11} + K \\
-		S_{11} + F &\xrightarrow{\kappa_7} FS_{11} \xrightarrow{\kappa_9} S_{01} + F \\
-		S_{01} + F &\xrightarrow{\kappa_{10}} FS_{01} \xrightarrow{\kappa_{12}} S_{00} + F
+		S_{00} + K \xrightarrow{\kappa_1} KS_{00} \xrightarrow{\kappa_3} S_{10} + K \xrightarrow{\kappa_4} KS_{10} \xrightarrow{\kappa_6} S_{11} + K \tag{$\mathcal{N}_3$}
+		\\
+		S_{11} + F \xrightarrow{\kappa_7} FS_{11} \xrightarrow{\kappa_9} S_{01} + F \xrightarrow{\kappa_{10}} FS_{01} \xrightarrow{\kappa_{12}} S_{00} + F \ \notag
 	\end{align*}
 	\begin{itemize}
 		\item 10 species, 8 reactions.
@@ -398,53 +639,119 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{\insertsectionhead}
-	\frametitle{N2: Jacobian and Characteristic Polynomial}
-	\begin{itemize}
-		\item The Jacobian $J_1(h)$ (for $\lambda=1$) is a $10 \times 10$ matrix with entries being $-h_i$ or $h_i$ (see Eq. 4.19 in `main.pdf`).
-		\item Characteristic polynomial of $J_\lambda(h)$:
-			$$ \det(\mu I - J_\lambda(h)) = \mu^3 (\mu^7 + \lambda b_1(h)\mu^6 + \dots + \lambda^6 b_6(h)\mu + \lambda^7 b_7(h)) $$
-			We analyze the degree 7 polynomial in $J_1(h)$ (setting $\lambda=1$):
-			$P_1(\mu,h) = \mu^7 + b_1(h)\mu^6 + \dots + b_7(h)$.
-		\item For Hopf, we need $\Delta_6(h) = \det G_6(h) = 0$, where $G_k(h)$ are Hurwitz matrices for $P_1(\mu,h)$.
-		\item Also need $\Delta_1(h)>0, \dots, \Delta_5(h)>0$ and $b_7(h)>0$.
-	\end{itemize}
+\begin{frame}
+	\[
+		\begin{aligned}
+			\dot{x}_{1} &= -\kappa_{1} x_{1} x_{3} - \kappa_{4} x_{1} x_{4} + \kappa_{3} x_{7} + \kappa_{6} x_{8},\\
+			\dot{x}_{2} &= \kappa_{9} x_{10} - \kappa_{10} x_{2} x_{5} - \kappa_{7} x_{2} x_{6} + \kappa_{12} x_{9},\\
+			\dot{x}_{3} &= -\kappa_{1} x_{1} x_{3} + \kappa_{12} x_{9},\\
+			\dot{x}_{4} &= -\kappa_{4} x_{1} x_{4} + \kappa_{3} x_{7},\\
+			\dot{x}_{5} &= \kappa_{9} x_{10} - \kappa_{10} x_{2} x_{5},\\
+			\dot{x}_{6} &= -\kappa_{7} x_{2} x_{6} + \kappa_{6} x_{8},\\
+			\dot{x}_{7} &= \kappa_{1} x_{1} x_{3} - \kappa_{3} x_{7},\\
+			\dot{x}_{8} &= \kappa_{4} x_{1} x_{4} - \kappa_{6} x_{8},\\
+			\dot{x}_{9} &= \kappa_{10} x_{2} x_{5} - \kappa_{12} x_{9},\\
+			\dot{x}_{10} &= -\kappa_{9} x_{10} + \kappa_{7} x_{2} x_{6}.
+		\end{aligned}
+	\]
+	Now there are 3 conservation laws for both networks, diminishing the rank of the Jacobian matrix to $7$. These are:
+	\[
+		\begin{aligned}
+			x_{1}+x_{7}+x_{8}&=c_{1}\\x_{2}+x_{9}+x_{10}&=c_{2}\\x_{3}+x_{4}+x_{5}+x_{6}+x_{7}+x_{8}+x_{9}+x_{10}&=c_{3}
+		\end{aligned}
+	\]
+\end{frame}
+
+\begin{frame}
+	And Now with the simplifications we can obtain the relations
+	\begin{gather*}
+		\kappa_1x_1x_3=\kappa_3x_7=\kappa_4x_1x_4=\kappa_6x_8=\kappa_7x_2x_6=\kappa_9x_{10}=\kappa_{10}x_2x_5=\kappa_{12}x_9=\lambda. \\
+		\Downarrow \\
+		x_{3} = \frac{\lambda}{\kappa_{1} x_{1}}, \ x_{4} = \frac{\lambda}{\kappa_{4} x_{1}}, \ x_{5} = \frac{\lambda}{\kappa_{10} x_{2}}, \ x_{6} = \frac{\lambda}{\kappa_{7} x_{2}} \\
+		x_{7} = \frac{\lambda}{\kappa_{3}}, \ x_{8} = \frac{\lambda}{\kappa_{6}}, \ x_{9} = \frac{\lambda}{\kappa_{12}}, \ x_{10} = \frac{\lambda}{\kappa_{9}} \\
+		\forall x_1, x_2 > 0 \\
+		\Downarrow \\
+		\kappa_{1} = h_{1} h_{3} \lambda, \kappa_{3} = h_{7} \lambda, \kappa_{4} = h_{1} h_{4} \lambda, \kappa_{6} = h_{8} \lambda \\
+		\kappa_{7} = h_{2} h_{6} \lambda, \kappa_{9} = h_{10} \lambda, \kappa_{10} = h_{2} h_{5} \lambda, \kappa_{12} = h_{9} \lambda \\
+		\text{with } h_i = \frac{1}{x_i} , i = \overline{1,10}
+	\end{gather*}
+\end{frame}
+
+\begin{frame}
+	And, $J_\lambda(h)$:
+	\begin{align}
+		J_\lambda(h) = \lambda
+		\left.\left[
+			\begin{array}{rrrrrrrrrr}-2h_{1}&0&-h_{3}&-h_{4}&0&0&h_{7}&h_{3}&0&0\\0&-2h_{2}&0&0&-h_{5}&-h_{6}&0&0&h_{9}&h_{10}\\-h_{1}&0&-h_{3}&0&0&0&0&0&h_{3}&0\\-h_{1}&0&0&-h_{4}&0&0&h_{7}&0&0&0\\0&-h_{2}&0&0&-h_{5}&0&0&0&0&h_{10}\\0&-h_{2}&0&0&0&-h_{6}&0&h_{3}&0&0\\h_{1}&0&h_{3}&0&0&0&-h_{7}&0&0&0\\h_{1}&0&0&h_{4}&0&0&0&-h_{3}&0&0\\0&h_{2}&0&0&h_{5}&0&0&0&-h_{9}&0\\0&h_{2}&0&0&0&0&h_{6}&0&0&-h_{10}
+		\end{array}\right.\right]
+	\end{align}
+	with $rank(J_\lambda(h)) = 7$ and characteristic polynomial is of the form:
+	\[
+		\det\left(\mu I-J_\lambda(h)\right)=\mu^3\left(\mu^7+\lambda b_1(h)\mu^6+\ldots+\lambda^6b_6(h)\mu+\lambda^7b_7(h)\right),
+	\]
+	With $b_i(h)$ from char. poly of $J_1(h)$.
+\end{frame}
+
+\begin{frame}
+	Now, constructing the (simplified) Hurwitz matrices $G_i(h), i = \overline{1,6}$. Assume that at a fixed $h = h^*$ the following occur.
+	\[
+		\begin{aligned}b_{7}(h^{*})&>0and\\\det(G_1(h^*))&>0,\ldots,\det(G_5(h^*))>0and\\\det(G_6(h^*))&=0.
+		\end{aligned}
+	\]
+	then, if additionally:
+	\[
+		\exists l\in\{1,\ldots,10\} : \frac{\partial\det(G_6)}{\partial h_l}|_{h=h^*}\neq0\quad.
+	\]
+
+	Then ($\mathcal{N}_3$) has a simple Hopf bifurcation at $h = h^*, \forall \lambda > 0$.
+
+	$\det(G_6(h))$ has terms with both signs (trust me), so it may have roots.
+
+	In the following section we'll talk about $\det(G_6(h))$'s potential to have roots.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Polytopes}
+	First (and I swear this is relevant), let's look at some shapes:
+
+	These are all (k)-\textbf{polytopes}, shapes whose faces are flat (k-1)-\textbf{polytopes}.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{pics/polytopes.png}
+		\caption{Polytopes}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	The \textbf{Newton polytope} of that polynomial is.
+	\[
+		\mathrm{Newt}(f)=\left\{\sum_k\alpha_k\mathbf{a}_k:\sum_k\alpha_k=1 \And \forall j\alpha_j\geq0\right\}. \forall c_k \neq 0_n
+	\]a structure that offers insight into the coefficients.
+	Using a software like \href{https://polymake.org/doku.php/start}{Polymake} we're able to observe that the factor $	h_{10}h_7 - h_8 h_9$ appears in the hyper-plane representation of the polytope, which is of help to us since it has negative factors.
+	Doing the restriction / transformation $	h_1\to t,h_2\to t,h_3\to t,h_6\to t.$ We're able to represent $\det G_6(h)$ as:
+	\[
+		\begin{aligned}
+			\det G_6(t)
+			&=324t^{18}(h_{10}+h_7)(h_{10}h_7-h_8h_9)+\ldots\\&+h_{10}h_4h_5h_7h_8h_9\\&\cdot(h_{10}+h_4)(h_{10}+h_5)(h_{10}+h_7)(h_{10}+h_8)(h_{10}+h_9)\\&\cdot(h_4+h_5)(h_4+h_7)(h_4+h_8)(h_4+h_9)\\&\cdot(h_5+h_7)(h_5+h_8)(h_5+h_9)\\&\cdot(h_7+h_8)(h_7+h_9)\\&\cdot(h_8+h_9).
+		\end{aligned}
+	\]
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
-	\frametitle{N2: Hopf Conditions - Focus on $\det G_6(h)$}
-	\begin{itemize}
-		\item It's found that $b_1(h), \dots, b_5(h)$, $b_7(h)$ and $\det G_1(h), \dots, \det G_5(h)$ consist of \alert{only positive monomials} in $h_i$.
-			Thus, they are always positive for $h_i > 0$.
-		\item The critical condition $\det G_6(h) = 0$ is the key.
-		\item $\det G_6(h)$ is a complex polynomial in $h_1, \dots, h_{10}$. Crucially, it contains terms with \alert{both positive and negative coefficients}.
-		\item This means $\det G_6(h)$ \textit{can} be zero for some $h^* > 0$.
-	\end{itemize}
+	\frametitle{$\mathcal{N}_3$: Transversality}
+	$\det G_6(0) > 0$, so if $h_{10}h_{7} - h_{8}h_{9} < 0, \implies \exists t_1 > 0 : \det G_6(t_1) = 0, \det G_6(t) < 0, \forall t > t_1$ by the \alert{Intermediate Value Theorem}.
+	So it means we've shown a root exists for $\det G_6(h)$, so a bifurcation may occur in our system.
+
+	Once a root $h^*$ for $\det G_6(h)=0$ is found (with other Hurwitz determinants positive), the transversality condition must also be checked:
+	$$ \frac{\partial \det(G_6(h))}{\partial h_l} \bigg|_{h=h^*} \neq 0 \quad \text{for some } l \in \{1, \dots, 10\} $$
+	This ensures the eigenvalues genuinely cross the imaginary axis.
 \end{frame}
 
-\begin{frame}{\insertsectionhead}
-	\frametitle{N2: Proving Existence of Roots for $\det G_6(h)$}
-	How to show $\det G_6(h)=0$ is possible?
+\begin{frame}
+	\frametitle{$\mathcal{N}_3$: Conclusion}
 	\begin{itemize}
-		\item One approach involves analyzing the structure of $\det G_6(h)$.
-		\item By specific variable substitutions (e.g., $h_1, h_2, h_3, h_6 \to t$, others fixed), $\det G_6(h)$ can be viewed as a polynomial in $t$.
-		\item The leading term in $t$ might be $C_1 t^{18} (h_{10}h_7 - h_8h_9) + \dots$
-		\item The constant term (when $t=0$) is $C_0 > 0$ (sum of positive $h_i$ terms).
-		\item If we choose $h_i$ such that $(h_{10}h_7 - h_8h_9) < 0$, then for large $t$, $\det G_6(t)$ becomes negative.
-		\item Since $\det G_6(0) > 0$ and $\det G_6(t \to \infty) < 0$ (under this condition), by the \alert{Intermediate Value Theorem}, there must be some $t^* > 0$ where $\det G_6(t^*) = 0$.
-		\item This demonstrates that values $h^*$ exist for which $\det G_6(h^*) = 0$.
-		\item (Advanced: Newton Polytopes can also be used to analyze the sign of multivariate polynomials).
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{\insertsectionhead}
-	\frametitle{N2: Transversality and Conclusion}
-	\begin{itemize}
-		\item Once a root $h^*$ for $\det G_6(h)=0$ is found (with other Hurwitz determinants positive), the transversality condition must also be checked:
-			$$ \frac{\partial \det(G_6(h))}{\partial h_l} \bigg|_{h=h^*} \neq 0 \quad \text{for some } l \in \{1, \dots, 10\} $$
-			This ensures the eigenvalues genuinely cross the imaginary axis.
 		\item Calculations (often symbolic and extensive) can confirm this for specific parameter regions.
-		\item \alert{Conclusion for N2}: The cyclic double (de)phosphorylation network N2 (irreversible version) \alert{can exhibit simple Hopf bifurcations} for certain parameter values $h^*$ (and any $\lambda > 0$).
+		\item \alert{Conclusion for $\mathcal{N}_2$}: The cyclic double (de)phosphorylation network $\mathcal{N}_2$ (irreversible version) \alert{can exhibit simple Hopf bifurcations} for certain parameter values $h^*$ (and any $\lambda > 0$).
 		\item This means this network structure is capable of generating sustained oscillations, acting as a biochemical clock.
 	\end{itemize}
 \end{frame}
@@ -464,8 +771,8 @@
 				\item Routh-Hurwitz determinants ($\Delta_k$) to check stability and Hopf conditions (esp. $\Delta_{s-1}=0$, $\Delta_{s-2}>0, \dots, \Delta_1>0, a_s>0$, transversality).
 			\end{enumerate}
 		\item \alert{Convex parameterization} and \alert{single extreme ray} analysis can greatly simplify complex CRNs.
-		\item We saw Network N1 (basic cycle) \alert{cannot} have Hopf bifurcations.
-		\item We saw Network N2 (cyclic double phosphorylation) \alert{can} have Hopf bifurcations, providing a mechanism for intrinsic oscillations.
+		\item We saw Network $\mathcal{N}_1$ (basic cycle) \alert{cannot} have Hopf bifurcations.
+		\item We saw Network $\mathcal{N}_2$ (cyclic double phosphorylation) \alert{can} have Hopf bifurcations (shown through polytope tricks), providing a mechanism for intrinsic oscillations while showcasing some functions of the web-application.
 		\item This mathematical framework allows rigorous investigation of biological "clocks" and "switches".
 	\end{itemize}
 \end{frame}
@@ -475,7 +782,8 @@
 	\vfill
 	\Huge Thank You!
 	\vfill
-	Questions?
+	Questions? \\
+	{\small (please don't) }
 	\vfill
 \end{frame}
 
