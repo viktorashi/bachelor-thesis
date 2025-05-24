@@ -335,7 +335,13 @@ Now since $x^*$ is a fixed point, the flux vector satisfies:
 \end{equation}
 And so the solutions of (\ref{flux_vector_linear_problem}) (ker$\Gamma$) are vectors (rays) which describe a \textbf{convex polyhedral cone} called the \textbf{flux cone}.
 
-A flux cone is expressed as an $\mathbb{R}_{\geq 0}$ linear combination (positive hull) of it extreme vectors $\left\{ E_1 , \ldots , E_l \right\}$.
+It's been shown in (Clarke and coworkers) that:
+
+$(k,x^*)$ satisfies \ref{flux_vector_linear_problem} $\iff  v(k,x^*)\in \text{ker}(\Gamma) \bigcap \mathbb{R}^r_{\geq 0}$
+
+Where $r:$ no. of reactions.
+
+A flux cone is expressed as an $\mathbb{R}_{\geq 0}$ linear combination (positive hull) of it extreme vectors $\left\{ E_1 , \ldots , E_l \right\}$. Also, we need $E_i \neq 0_r, \forall i = \overline{1,l}$
 
 \begin{definition}\label{convex_params_definition}
 	\textbf{Convex parameters.}
@@ -377,6 +383,8 @@ Given:
 		k = \text{diag}(\Psi(h)) E \lambda \in \mathbb{R}^r_{> 0}
  }
 \end{gather*}
+
+There is one particular case that is of interest to us, though.
 
 \hfill\break
 //TODO: Aici trebuie re-introducere la notatia specifica pt reactiile chimice, si adica mai bine te pui sa vb despre asta in primele capitole de "Introduction to chemical reaction networks"
@@ -452,8 +460,8 @@ The order phosphorylation occurs matters too, so if:
 \rom{2} Whereas, if the \text{first} phosphorylated site is being \textbf{de}phosphorylated first then the system is \textbf{cyclic}.
 
 You can see here an example of this classification in two mechanisms that, while they differ in this category, they are still both distributive.
-\begin{figure}[H]
-	\includegraphics[width=13cm]{math_pics/cyclic-vs-sequential.png}
+\begin{figure}[H]	
+	\includegraphics[width=13cm]{math_pics/cyclic-vs-sequential.png}\label{cyclic_vs_sequential_figure}
 	\centering
 \end{figure}
 In the left one here, $S_{ij}$ shows which one of the $2$ binding sites gets phosphate groups attached to it, (Ex, $S_{10}$: first one is phosphorylated, second not).
@@ -572,19 +580,203 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 
 \newpage
 \textbf{Example 2}:
-Now let us apply the same method and intuition for the following network $(\mathcal{N}_2)$.
+Here we'll show how to prove the \textbf{existence} of a Hopf bifurcation in a network, which requires quite a bit of a lot of work. Let us take the cyclic example, Network $(a)$ from \ref{cyclic_vs_sequential_figure}, from which we can actually infer a particular case of networks with some nice properties.
+
+We'll first need to define some continuations of convex parameters \ref{convex_params_definition}, aided by \ref{hurwitz_theorem} in regard to this particular case.
+
+\hfill\break
+\subsection{The Jacobian of networks with a single extreme vector}\label{jacobian_single_extreme_vector}
+
+If (\text{no. of extreme rays}) $l = 1 \implies$ the cone ker$(\Gamma) \bigcap \mathbb{R}^r_{\geq 0}$ is spanned by a single extreme vector, so the Jacobian can be written more simply in terms of just it, and its corresponding scalar $\lambda$, in convex coordinates.
+\begin{equation}\label{jacobian_convex_single_extreme_ray}
+	J_\lambda(h)=\lambda \Gamma \operatorname{diag}(E)\Gamma_L^T\operatorname{diag}(h).
+\end{equation}
+Where its char. poly. is:
+\begin{equation}\label{char_poly_j_lambda}
+	\det(\mu I-J_\lambda(h))=\mu^{n-s}(\mu^s+a_1(\lambda,h)\mu^{s-1}+\ldots+a_s(\lambda,h))
+\end{equation}
+With $s := \text{rank}(J_\lambda) \leq n$.
+But for the particular case $\lambda = 1$:
+\begin{equation}\label{char_poly_j_1}
+	\det(\mu I-J_1(h))=\mu^{n-s}(\mu^s+b_1(h)\mu^{s-1}+\ldots+b_s(h))
+\end{equation}
+Now we'll use a Corollary (the consequence of a Lemma discussed in another more in-depth section) to relate the general $\lambda > 0$ case with the $\lambda = 1$ case.
+\begin{corollary}
+	Let's say $E \in \mathbb{R}^r_{\geq 0}$. Let $J_\lambda(h)$ as in \ref{jacobian_convex_single_extreme_ray} with
+
+	rank$(J_{\lambda}(h))=\mathrm{rank}(J_{1}(h))=s<n$ and $a_i(\lambda,h), b_i(h)$ coeff. of \ref{char_poly_j_lambda} and \ref{char_poly_j_1}. $\implies$
+	\begin{equation}\label{colorally_jacobians_1st_satisfaction}
+		a_i(\lambda,h)=\lambda^ib_i(h),i=1,\ldots,s.
+	\end{equation}
+	aaand
+	\begin{equation}\label{colorally_jacobians_2nd_satisfaction}
+		\begin{aligned}\det(\mu I_n-J_\lambda(h))&=\det(\mu I_n-\lambda J_1(h))\\&=\mu^{n-s}\lambda^s\left(\left(\frac{\mu}{\lambda}\right)^s+\sum_{i=1}^sb_i(h)\left(\frac{\mu}{\lambda}\right)^{s-i}\right)
+		\end{aligned}
+	\end{equation}
+\end{corollary}
+Sooo: \textbf{Remark: }
+
+\rom{1} From \ref{colorally_jacobians_2nd_satisfaction} $\implies$ for $\omega(h) \in \text{Eig}(J_1(h)) \implies \mu(\lambda, \omega) = \lambda \omega(h) \in \text{Eig}(J_\lambda)(h)$.
+
+\rom{2} $\mathrm{sign}(Re(\mu(\lambda,h)))=\mathrm{sign}(Re(\omega(h)))$
+
+\rom{3} $J_\lambda(h)$ has an $\mu \in$Eig with Re$(\mu) = 0$ of the form $\pm i \lambda w(h) \iff J_1$ has one of the form $\pm i \omega (h)$.
+
+Now, utilizing this result, along with \ref{yangs_criterion}, we may find sufficient conditions for bifurcations in single ray-defined networks
+
+Constructing Hurwitz determinants:
+\begin{gather*}
+	H_l(\lambda, h) \text{of \ref{colorally_jacobians_1st_satisfaction}} \\
+	\text{and} \\
+	G_l(h) \text{of \ref{colorally_jacobians_2nd_satisfaction}}
+\end{gather*}
+
+\begin{proposition}
+	We get the following relationship:
+	\[
+		\det\left(H_l(\lambda,h)\right)=\lambda^{l(l+1)/2}\det\left(G_l(h)\right),l=\overline{1,s}
+	\]
+	So we basically only need \ref{colorally_jacobians_2nd_satisfaction} and to study the $G_i(h), i = \overline{1,s}$ Hurwitz matrices if the system's convex polyhedral cone ker$\Gamma \bigcap \mathbb{R}^r_{\geq 0}$.
+\end{proposition}
+\begin{proposition}
+	For $\dot{x} = \Gamma v(k,x)$, ODE system for CRN with mass-action kinetics, rank$(\Gamma) = s$. Suppose the Matrix E from \ref{convex_params_definition} is a single extreme ray, and the Jacobian $J_\lambda(h)$ is as in \ref{jacobian_convex_single_extreme_ray}.
+	Also, let the char. polynomials of $J_\lambda(h)$ and $J_1(h)$ be as in \ref{char_poly_j_lambda} and \ref{char_poly_j_1}, respectively.
+
+	If $\exists h = h^* :$
+	\[
+		\begin{aligned}
+			b_s(h^*)&\mathrm{>0~and}\\\det(G_1(h^*))&>0,...,\det(G_{s-2}(h^*))>0\mathrm{and}\\\det(G_{s-1}(h^*))&=0,
+		\end{aligned}
+	\]
+	then:
+
+	\rom{1} $J_1(h^*)$ has a single pair of purely imaginary eigenvalues $\mu = \pm i \omega(h^*)$.
+
+	\rom{2} $J_\lambda(h^*)$ has a single pair of purely imaginary eigenvalues $\mu = \pm i \lambda \omega(h^*), \forall \lambda > 0$.
+
+	\rom{3} for $\dot{x} = \Gamma v(k,x), \exists$ simple Hopf	 bifurcation at $h = h^*$, $\forall \lambda > 0$ if $\exists i \in \left\{ 1 , \ldots , n \right\}:$
+	\[
+		\frac{\partial\det(G_{n-1})}{\partial h_i}|_{h_i=h_i^*}\neq0.
+	\]
+	Meaning, it crosses the axis at that point.
+\end{proposition}
+Hence, because $\det(H_{s-1}(h,\lambda))=\lambda^{\frac{s(s-1)}{2}}\det(G_{s-1}(h))$, $\lambda$ is not a well-suited bifurcation parameter, since $\frac{\partial\det(H_{s-1}(h,\lambda))}{\partial\lambda}|_{h=h^{*}}=0$ when $\det(G_{s-1}(h^{*}))=0$. It all basically comes down to $h$, not $\lambda$.
+\hfill\break
+Now, let's get into the bread of it. We may re-define the cyclic and distributive system we're going to discuss again.
+\begin{figure}[H]
+	\includegraphics[width=13cm]{math_pics/cyclic-distributive-n1.png}	
+	\centering
+	\caption{$\mathcal{N}_2$}
+\end{figure}
+Defined by these reactions:
+\begin{align}\label{network2}
+	S_{00} + K \xrightleftharpoons[ \kappa_2 ]{\kappa_1} KS_{00} \xrightarrow{\kappa_3} S_{10} + K \xrightleftharpoons[ \kappa_5 ]{\kappa_4} KS_{10} \xrightarrow{\kappa_6} S_{11} + K \tag{$\mathcal{N}_2$}
+	\\
+	S_{11} + F \xrightleftharpoons[ \kappa_8 ]{\kappa_7} FS_{11} \xrightarrow{\kappa_9} S_{01} + F \xrightleftharpoons[ \kappa_{11} ]{\kappa_{10}} FS_{01} \xrightarrow{\kappa_{12}} S_{00} + F \ \notag
+\end{align}
+We'll look into the irreversible sub-network, though.
+\begin{align}\label{network2_irr}
+	S_{00} + K \xrightarrow{\kappa_1} KS_{00} \xrightarrow{\kappa_3} S_{10} + K \xrightarrow{\kappa_4} KS_{10} \xrightarrow{\kappa_6} S_{11} + K \tag{$\mathcal{N}_2$}
+	\\
+	S_{11} + F \xrightarrow{\kappa_7} FS_{11} \xrightarrow{\kappa_9} S_{01} + F \xrightarrow{\kappa_{10}} FS_{01} \xrightarrow{\kappa_{12}} S_{00} + F \ \notag
+\end{align}
+And using the following index-to-species mapping:
+\[
+	\begin{array}{ccccccccccc}x_{1}&x_{2}&x_{3}&x_{4}&x_{5}&x_{6}&x_{7}&x_{8}&x_{9}&x_{10}\\K&F&S_{00}&S_{10}&S_{01}&S_{11}&KS_{00}&KS_{10}&FS_{01}&FS_{11}
+	\end{array}
+\]
+We may obtain their system of ODEs:
+
+$\mathcal{N}_2$:
+\[
+	\begin{aligned}
+		\dot{x}_1&=-\kappa_{1}x_{1}x_{3}-\kappa_{4}x_{1}x_{4}+(\kappa_{2}+\kappa_{3})x_{7}+(\kappa_{5}+\kappa_{6})x_{8}\\\dot{x}_2&=-\kappa_{10}x_{2}x_{5}-\kappa_{7}x_{2}x_{6}+(\kappa_{8}+\kappa_{9})x_{10}+(\kappa_{11}+\kappa_{12})x_{9}\\\dot{x}_3&=-\kappa_1x_1x_3+\kappa_2x_7+\kappa_{12}x_9\\\dot{x}_4&=-\kappa_4x_1x_4+\kappa_3x_7+\kappa_5x_8\\\dot{x}_5&=-\kappa_{10}x_2x_5+\kappa_9x_{10}+\kappa_{11}x_9\\\dot{x}_6&=-\kappa_7x_2x_6+\kappa_8x_{10}+\kappa_6x_8\\\dot{x}_7&=-(\kappa_2+\kappa_3)x_7+\kappa_1x_1x_3\\\dot{x}_8&=-(\kappa_5+\kappa_6)x_8+\kappa_4x_1x_4\\\dot{x}_9&=-(\kappa_{11}+\kappa_{12})x_9+\kappa_{10}x_2x_5\\\dot{x}_{10}&=-(\kappa_8+\kappa_9)x_{10}+\kappa_7x_2x_6
+	\end{aligned}
+\]
+$\mathcal{N}_3$:
+\[
+	\begin{aligned}
+		\dot{x}_{1} &= -\kappa_{1} x_{1} x_{3} - \kappa_{4} x_{1} x_{4} + \kappa_{3} x_{7} + \kappa_{6} x_{8},\\
+		\dot{x}_{2} &= \kappa_{9} x_{10} - \kappa_{10} x_{2} x_{5} - \kappa_{7} x_{2} x_{6} + \kappa_{12} x_{9},\\
+		\dot{x}_{3} &= -\kappa_{1} x_{1} x_{3} + \kappa_{12} x_{9},\\
+		\dot{x}_{4} &= -\kappa_{4} x_{1} x_{4} + \kappa_{3} x_{7},\\
+		\dot{x}_{5} &= \kappa_{9} x_{10} - \kappa_{10} x_{2} x_{5},\\
+		\dot{x}_{6} &= -\kappa_{7} x_{2} x_{6} + \kappa_{6} x_{8},\\
+		\dot{x}_{7} &= \kappa_{1} x_{1} x_{3} - \kappa_{3} x_{7},\\
+		\dot{x}_{8} &= \kappa_{4} x_{1} x_{4} - \kappa_{6} x_{8},\\
+		\dot{x}_{9} &= \kappa_{10} x_{2} x_{5} - \kappa_{12} x_{9},\\
+		\dot{x}_{10} &= -\kappa_{9} x_{10} + \kappa_{7} x_{2} x_{6}.
+	\end{aligned}
+\]
+Now there are 3 conservation laws for both networks, diminishing the rank of the Jacobian matrix to $7$. These are:
+\[
+	\begin{aligned}
+		x_{1}+x_{7}+x_{8}&=c_{1}\\x_{2}+x_{9}+x_{10}&=c_{2}\\x_{3}+x_{4}+x_{5}+x_{6}+x_{7}+x_{8}+x_{9}+x_{10}&=c_{3}
+	\end{aligned}
+\]
+$E \in \mathbb{R}^8$ extreme ray matrix of $\mathcal{N}_3$ is:
+\begin{equation}\label{e_matix_net3}
+	E^T=(1,1,1,1,1,1,1,1)
+\end{equation}
+Hence, we can use \ref{jacobian_convex_single_extreme_ray}. So with $E$ of \ref{e_matix_net3} and \ref{convex_params_definition}, which can be written as:
+\begin{gather*}
+	\kappa_1x_1x_3=\kappa_3x_7=\kappa_4x_1x_4=\kappa_6x_8=\kappa_7x_2x_6=\kappa_9x_{10}=\kappa_{10}x_2x_5=\kappa_{12}x_9=\lambda. \\
+	\Downarrow \\
+	x_{3} = \frac{\lambda}{\kappa_{1} x_{1}}, \ x_{4} = \frac{\lambda}{\kappa_{4} x_{1}}, \ x_{5} = \frac{\lambda}{\kappa_{10} x_{2}}, \ x_{6} = \frac{\lambda}{\kappa_{7} x_{2}} \\
+	x_{7} = \frac{\lambda}{\kappa_{3}}, \ x_{8} = \frac{\lambda}{\kappa_{6}}, \ x_{9} = \frac{\lambda}{\kappa_{12}}, \ x_{10} = \frac{\lambda}{\kappa_{9}} \\
+	\forall x_1, x_2 > 0 \\
+	\Downarrow \\
+	\kappa_{1} = h_{1} h_{3} \lambda, \kappa_{3} = h_{7} \lambda, \kappa_{4} = h_{1} h_{4} \lambda, \kappa_{6} = h_{8} \lambda \\
+	\kappa_{7} = h_{2} h_{6} \lambda, \kappa_{9} = h_{10} \lambda, \kappa_{10} = h_{2} h_{5} \lambda, \kappa_{12} = h_{9} \lambda \\
+	\text{with } h_i = \frac{1}{x_i} , i = \overline{1,10}
+\end{gather*}
+Now, $J_\lambda(h)$ of \ref{network2_irr} as defined in \ref{jacobian_convex_single_extreme_ray} is:
+\begin{align}
+	J_\lambda(h) = \lambda
+	\left.\left[
+		\begin{array}{rrrrrrrrrr}-2h_{1}&0&-h_{3}&-h_{4}&0&0&h_{7}&h_{3}&0&0\\0&-2h_{2}&0&0&-h_{5}&-h_{6}&0&0&h_{9}&h_{10}\\-h_{1}&0&-h_{3}&0&0&0&0&0&h_{3}&0\\-h_{1}&0&0&-h_{4}&0&0&h_{7}&0&0&0\\0&-h_{2}&0&0&-h_{5}&0&0&0&0&h_{10}\\0&-h_{2}&0&0&0&-h_{6}&0&h_{3}&0&0\\h_{1}&0&h_{3}&0&0&0&-h_{7}&0&0&0\\h_{1}&0&0&h_{4}&0&0&0&-h_{3}&0&0\\0&h_{2}&0&0&h_{5}&0&0&0&-h_{9}&0\\0&h_{2}&0&0&0&0&h_{6}&0&0&-h_{10}
+	\end{array}\right.\right]
+\end{align}
+with $rank(J_\lambda(h)) = 7$ and characteristic polynomial is of the form:
+\[
+	\det\left(\mu I-J_\lambda(h)\right)=\mu^3\left(\mu^7+\lambda b_1(h)\mu^6+\ldots+\lambda^6b_6(h)\mu+\lambda^7b_7(h)\right),
+\]
+With $b_i(h)$ from char. poly of $J_1(h)$.
+Now, constructing the Hurwitz matrices $G_i(h), i = \overline{1,6}$. Assume that at a fixed $h = h^*$ the following occur.
+\[
+	\begin{aligned}b_{7}(h^{*})&>0and\\\det(G_1(h^*))&>0,\ldots,\det(G_5(h^*))>0and\\\det(G_6(h^*))&=0.
+	\end{aligned}
+\]
+then, if additionally:
+\[
+	\exists l\in\{1,\ldots,10\} : \frac{\partial\det(G_6)}{\partial h_l}|_{h=h^*}\neq0\quad.
+\]
+
+Then \ref{network2_irr} has a simple Hopf bifurcation at $h = h^*, \forall \lambda > 0$.
+
+Both $b_0(h), \ldots, b_5(h) \text{ and } b_7(h)$ and
+$\det(G_i(h)), i = \overline{2,5}$ are made up of only positive monomials, whereas $\det(G_6(h))$ has terms with both signs, so it may have roots.
+
+In the following section we'll talk about $\det(G_6(h))$'s ability to have roots.
+
+\hfill\break
+\hfill\break
+//TODO: lasa asta pt mai incolo
+
+\textbf{Example 3}:
+Now let us apply the same method and intuition for the following network $(\mathcal{N}_3)$.
 \begin{figure}[H]
 	\text{\\TODO: cum drq desenez si eu frumusel cu sageti in latex sa fac asa la toate:}
 	\includegraphics[width=13cm]{math_pics/ex2-no-bifurcations.png}
 	\centering
 \end{figure}
 Its chemical reaction network is:
-\begin{align}\label{network2}
-	S_0+K &\xrightleftharpoons[k_2]{k_1} KS_0 \xrightarrow{k_3} S_1 + K \xrightleftharpoons[k_5]{k_4} KS_1 \xrightarrow{k_6} S_2 + K \tag{$\mathcal{N}_2$}
- \\
+\begin{align}\label{network3}
+	S_0+K &\xrightleftharpoons[k_2]{k_1} KS_0 \xrightarrow{k_3} S_1 + K \xrightleftharpoons[k_5]{k_4} KS_1 \xrightarrow{k_6} S_2 + K \tag{$\mathcal{N}_3$}
+	\\
 	S_2+F &\xrightleftharpoons[k_8]{k_7} FS_2 \xrightarrow{k_9} S_0 + F \notag
 \end{align}
-\textbf{Remark 2:} $(a)$ Here the system is composed of $8$ species: The two enzymes like before, $K$ and $F$, but $K$ not phosphorylates up to $S_2$ and hence forms the complexes $KS_0$, $KS_1$ as well, so as a consequence, now $F$ \textbf{de}-phosphorylates starting from $FS_2$, and because the network is cyclic, it skips directly to the disassociated relation $S_0 + F$.
+\textbf{Remark 3:} $(a)$ Here the system is composed of $8$ species: The two enzymes like before, $K$ and $F$, but $K$ not phosphorylates up to $S_2$ and hence forms the complexes $KS_0$, $KS_1$ as well, so as a consequence, now $F$ \textbf{de}-phosphorylates starting from $FS_2$, and because the network is cyclic, it skips directly to the disassociated relation $S_0 + F$.
 
 We also now have $9$ reactions: $3$ reversible, $3$ irreversible.
 
@@ -621,17 +813,19 @@ Now the app generated the following:
 \end{align*}
 With this "species to index mapping":
 \[
- F: x_1, \hspace{1mm}
- | FS2: x_2, \hspace{1mm}
- | K: x_3, \hspace{1mm}
- | KS0: x_4, \hspace{1mm}
- | KS1: x_5, \hspace{1mm}
- | S0: x_6, \hspace{1mm}
- | S1: x_7, \hspace{1mm}
- | S2: x_8
+	F: x_1, \hspace{1mm}
+	| FS2: x_2, \hspace{1mm}
+	| K: x_3, \hspace{1mm}
+	| KS0: x_4, \hspace{1mm}
+	| KS1: x_5, \hspace{1mm}
+	| S0: x_6, \hspace{1mm}
+	| S1: x_7, \hspace{1mm}
+	| S2: x_8
 \]
 \textbf{Remark 2:} $(b)$
 
+\hfill\break
+\hfill\break
 \hfill\break
 //TODO: 3. de cum s-a folosit pt un network de s-ai eliminat cate 2 specii si s-a facut tabel cu diverse sisteme care sunt mostenite din el
 
