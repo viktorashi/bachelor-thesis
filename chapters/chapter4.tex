@@ -259,12 +259,12 @@ Instead, now the characteristic polynomial depends on this new bifurcation param
 
 	If we have:
 	\begin{gather*}
-		\text{det }H_1(\mu_0) > 0 , \dots, \text{det }H_{n-2} (\mu_0) > 0. \\
+		\det H_1(\mu_0) > 0 , \dots, \det H_{n-2} (\mu_0) > 0. \\
 		\Downarrow \\
 		p_{\mu_0}(z) \text{ has } \leq 1 \text{ pair of symmetric roots  }
 	\end{gather*}
 
-	And $\exists!$ pair of symmetric roots $\iff \text{det}H_{n-1}(\mu_0) = 0$.
+	And $\exists!$ pair of symmetric roots $\iff \det H_{n-1}(\mu_0) = 0$.
 
 	If $a_n(\mu_0) > 0 \implies$ for the pair $\lambda_i, \overline{\lambda_i}$  : Re$(\lambda_i) =$ Re$(\overline{\lambda_i}) = 0$.
 \end{proposition}
@@ -275,9 +275,9 @@ Now, more specifically, the necessary conditions for a simple Hopf bifurcation a
 	(Yang)
 	A simple Hopf bifurcation occurs at fixed point $x^*$ and at the parameter threshold $\mu_0$ $\iff$
 	\begin{gather*}
-		\rom{1} \quad \text{det } H_{ n-1 }(\mu_0) = 0 \text{  and  } a_s(\mu_0) > 0, \\
-		\rom{2} \quad 		\text{det }H_1(\mu_0) > 0 , \dots, \text{det }H_{n-2} (\mu_0) > 0 \text{  and  } \\
-		\rom{3} \quad \left. \frac{d(\text{det }H_{n-1}(\mu))}{d\mu} \right|_{\mu = \mu_0} \neq 0.
+		\rom{1} \quad \det  H_{ n-1 }(\mu_0) = 0 \text{  and  } a_s(\mu_0) > 0, \\
+		\rom{2} \quad 		\det H_1(\mu_0) > 0 , \dots, \det H_{n-2} (\mu_0) > 0 \text{  and  } \\
+		\rom{3} \quad \left. \frac{d(\det H_{n-1}(\mu))}{d\mu} \right|_{\mu = \mu_0} \neq 0.
 	\end{gather*}
 \end{proposition}
 
@@ -289,13 +289,13 @@ Directly from criterion \ref{symmetric_roots_pair_criterion} we have a criterion
 	For the dynamical system $\dot{x} = f_\mu(x)$ assume $\exists$ a curve of steady states $x(\mu)$.
 	$p_\mu(z)$ is the characteristic polynomial of degree $s \geq 2$ of the linearization $J(x(\mu), \mu)$, and $H_i(\mu)$ its $i$-th Hurwitz matrix. Given:
 	\[
-		\text{det }H_1(\mu_0) > 0 , \dots, \text{det }H_{n-2} (\mu_0) > 0. \forall \mu
+		\det H_1(\mu_0) > 0 , \dots, \det H_{n-2} (\mu_0) > 0. \forall \mu
 	\]
 	And either:
 	\begin{gather*}
-		a_s(\mu) \leq 0 \text{whenever  det } H_{s-1} = 0  \\
+		a_s(\mu) \leq 0 \text{ whenever  } \det H_{s-1} = 0  \\
 		\text{or} \\
-		\text{det }  H_{s-1}(\mu) \neq 0, \forall \mu    \\
+		\det   H_{s-1}(\mu) \neq 0, \forall \mu    \\
 		\Downarrow
 	\end{gather*}
 	$\nexists$ simple Hopf bifurcation $\forall \mu$ at the steady states $x(\mu)$.
@@ -545,11 +545,11 @@ So, from \textbf{Remark 1} $(a)$ and $(b)$, it follows that the characteristic p
 \]
 Where each coefficient $a_i, i = \overline{0,3}$ depends on these $9$ parameters.
 
-Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compute the values of $a_i(h,\lambda), i = \overline{0,3}$ and det$H_i(h,\lambda), i = \overline{1,2}$ according to (\ref{hurwitz_theorem}), obtaining the following proposition:
+Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compute the values of $a_i(h,\lambda), i = \overline{0,3}$ and $\det H_i(h,\lambda), i = \overline{1,2}$ according to (\ref{hurwitz_theorem}), obtaining the following proposition:
 \begin{proposition}
 	Based on the notation above, for the network (\ref{network1}):
 
-	det$H_1(h,\lambda)$, det$H_2(h,\lambda)$ and $a_3(h,\lambda)$ contain only positive monomials. Thus, det$H_1(h,\lambda)$, det$H_2(h,\lambda) \geq 0, \forall h, \lambda \geqq 0$, specifically det$H_2(h,\lambda) \neq 0$, $\lightning$ (\ref{ruling_out_simple_hopf_bif}).
+	$\det H_1(h,\lambda)$, $\det H_2(h,\lambda)$ and $a_3(h,\lambda)$ contain only positive monomials. Thus, $\det H_1(h,\lambda)$, $\det H_2(h,\lambda) \geq 0, \forall h, \lambda \geqq 0$, specifically $\det H_2(h,\lambda) \neq 0$, $\lightning$ (\ref{ruling_out_simple_hopf_bif}).
 \end{proposition}
 \begin{proof}
 	Given the network structure defined above, as well as the $E\lambda$ matrix made of the extreme cone vectors (\textbf{ray}):
@@ -573,9 +573,9 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 	\[
 		\text{//TODO: doar pune aici ce iti da maplru}
 	\]
-	Just by looking at $H_2(h,\lambda)$, we can deduce that $a_{ij}$ is a positive monomial, for all  its entries $\forall h , \lambda > 0$, in particular det$H_2(h, \lambda) \neq 0$.
+	Just by looking at $H_2(h,\lambda)$, we can deduce that $a_{ij}$ is a positive monomial, for all  its entries $\forall h , \lambda > 0$, in particular $\det H_2(h, \lambda) \neq 0$.
 
-	So, det$H_1(k,x^*) > 0, \forall k, x^* > 0$, moreover the coefficient of the largest degree term in the characteristic polynomial $a_3(k, x^*) > 0$, so according to \ref{ruling_out_simple_hopf_bif} : For network (\ref{network1}), $\nexists k, x^* \geqq 0$ for which $J_1(k,x^*)$ has a pair of purely imaginary eigenvalues $\implies \nexists$ a simple Hopf bifurcation in our system for any rate constants or positive steady states
+	So, $\det H_1(k,x^*) > 0, \forall k, x^* > 0$, moreover the coefficient of the largest degree term in the characteristic polynomial $a_3(k, x^*) > 0$, so according to \ref{ruling_out_simple_hopf_bif} : For network (\ref{network1}), $\nexists k, x^* \geqq 0$ for which $J_1(k,x^*)$ has a pair of purely imaginary eigenvalues $\implies \nexists$ a simple Hopf bifurcation in our system for any rate constants or positive steady states
 \end{proof}
 
 \newpage

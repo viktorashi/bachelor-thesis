@@ -468,12 +468,12 @@ With $x, \dot{x} \in \mathcal{M}_{n,1}(\mathbb{R})$ and $A \in \mathcal{M}_n(\ma
 
 Now notice that
 \[
-	\text{det}(A- r I_n)
+	\det (A- r I_n)
 \]
 
 Is precisely the char. poly. \ref{lin_eq_char_poly}. So the $r$ solutions for
 \[
-	\text{det}(A - r I_n) =0
+	\det (A - r I_n) =0
 \]
 (a.k.a the eigenvalues of the A matrix) are also the roots of \ref{lin_eq_char_poly}. So solving for them would obtain the solutions
 \[
@@ -556,7 +556,7 @@ Derivating \ref{diag_trans_rel} and substituting into \ref{diag_matrix_init_sys}
 
 Everything comes down to solving the above eigenvalue problem.
 
-As stated in the above sections: $diag(D) = \{ \lambda | det(A - \lambda I_n) = 0 \}$ and it can also be found that the columns of $T$ are $A$'s corresponding eigenvectors $\xi_i$.
+As stated in the above sections: $diag(D) = \{ \lambda | \det(A - \lambda I_n) = 0 \}$ and it can also be found that the columns of $T$ are $A$'s corresponding eigenvectors $\xi_i$.
 After computing $A$'s eigenvalues, we've essentially also found $T$, now
 \[
 	D = T^{-1} A T
@@ -729,7 +729,7 @@ This can be seen by \ref{euler} (Euler) because of how complex values are relate
 
 We can actually plot stabilty diagram for having a visual representation of these classifications:
 
-For a 2x2 Linear system with transform matrix $A$, plotting different systems by their $(Tr(A), det(A))$ plane, where $Tr(A) = \sum_{i}^{n}a_{ii}$ we get:
+For a 2x2 Linear system with transform matrix $A$, plotting different systems by their $(Tr(A), \det(A))$ plane, where $Tr(A) = \sum_{i}^{n}a_{ii}$ we get:
 
 \begin{figure}[H]
 \includegraphics[width=13cm]{math_pics/Stability_Diagram.png}
@@ -848,7 +848,7 @@ f_i}{\partial x_j}(0)
 \]
 He figured out he doesn't have to find the roots of
 \begin{equation}\label{lin_apporx_char_equation}
-det(J - \lambda I_n) =
+\det(J - \lambda I_n) =
 a_0 \lambda^n + a_1 \lambda^{n-1} + \dots + a_{n-1}\lambda + a_n = 0
 \end{equation}
 To infer the system's stability, as in check
@@ -1026,7 +1026,7 @@ Putting \ref{polys_general_form} into \ref{euclid_algorithm} to get
 the general form of all the coefficients as well we get:
 \begin{align}\label{coeff_gen_form}
 c_{i+1,j} = c_{i,j+1} \cdot \frac{c_{i-1,0}}{c_{i,0}} - c_{i-1,j+1 }
-= \frac{1}{c_{i,0}} \text{det}
+= \frac{1}{c_{i,0}} \det
 \begin{pmatrix}
 	c_{i-1,0} & c_{i-1, j+1}            \\
 	c_{i,0}   & c_{i, j+1} \tag{Coeff.}
@@ -1051,7 +1051,7 @@ So here's the big guy:
 \begin{theorem}\label{routh_theorem}
 Routh:
 \begin{gather*}
-	Re(\lambda) < 0, \quad \forall \lambda \in \text{det}(J - \lambda
+	Re(\lambda) < 0, \quad \forall \lambda \in \det (J - \lambda
 	I_n)^{-1}(0) \text{ from \ref{lin_apporx_char_equation} with } a_0 > 0 \\
 	\Updownarrow  \\
 	c_{i,0} > 0, \forall  i = \overline{1,n} \text{ from \ref{coeff_gen_form} }
@@ -1106,7 +1106,7 @@ and constructing its \textbf{Hurwitz matrix}:
 
 with the exception that $a_k = 0$ if $k \notin \left\{0, \dots , n\right\}$
 
-He's shown that condition \rom{2} of \ref{routh_theorem} (hence $\text{ Re }(\lambda)< 0, \forall \lambda \in p^{-1}(0)$ with $a_0 > 0$ as well) $\iff \text{det}(H_i) \forall i = \overline{1,n}$
+He's shown that condition \rom{2} of \ref{routh_theorem} (hence $\text{ Re }(\lambda)< 0, \forall \lambda \in p^{-1}(0)$ with $a_0 > 0$ as well) $\iff \det (H_i) \forall i = \overline{1,n}$
 
 So this is what's used to show the stabilty of the linear system (or linearization of a non-linear one), computing matrices of coefficients of the charracteristic polynomial, instead of having to compute Eig($J$) directly.
 \end{theorem}
