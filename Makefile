@@ -1,16 +1,14 @@
 .PHONY: indent
 
-# Default value for FILES if none is provided on the command line
-# You can set this to process all .tex files in the current directory by default,
-# or leave it empty requiring files to be specified.
+# sa fie toate in mod normal igig sa le formateze
 FILES = chapters/*.tex
 
-# Pattern rule to process any .tex file when it's given as a target
+# daca dai target oricare fisier in specific sa-l proceseze pe el numa direct ($@ e fix fisieru pe care e tagetu, numele lui)
 %.tex:
 	latexindent --silent --overwrite -c=build $@
 
+# ok kinda stupid ca gen nu-i de parca am schimbat FILES-u ala
 indent:
-	# Use the FILES variable in the command
 	latexindent --silent --overwrite -c=build $(FILES)
 
 
