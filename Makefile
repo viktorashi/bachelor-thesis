@@ -1,5 +1,12 @@
 .PHONY: indent
 
+luatex:
+	latexmk -f -synctex=1 -interaction=nonstopmode \
+                 -file-line-error \
+                 -lualatex \
+                 -outdir=build \
+                 main.tex \
+ 
 # sa fie toate in mod normal igig sa le formateze
 FILES = chapters/*.tex
 
