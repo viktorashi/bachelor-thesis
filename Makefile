@@ -6,6 +6,11 @@ luatex:
                  -lualatex \
                  -outdir=build \
                  main.tex \
+
+#aici incerc 
+tectonic:
+	mkdir -p build
+	#si dupa kkturi care trebuie builduite lmao tre sa-i dau eu build ca nu e in cel mai nou release
  
 # sa fie toate in mod normal igig sa le formateze
 FILES = chapters/*.tex
