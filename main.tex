@@ -5,8 +5,9 @@
 % type may be bachelor or master (default is bachelor)
 \usepackage[language=english, type=bachelor]{style}
 
-\usepackage[citestyle=alphabetic,bibstyle=authortitle]{biblatex}
-\addbibresource{references.bibreferences.bib}
+\usepackage[style=numeric,sorting=nyt, backend=biber, backref=true]{biblatex}
+\addbibresource{references.bib}
+\nocite{*}
 
 % am nevoie de asta aparent ca sa-mi typesetuiasca quoturile din alte referinte
 \usepackage{csquotes}
@@ -45,8 +46,8 @@
 \pagestyle{fancy}
 \lhead{}
 \chead{}
-\renewcommand{\headrulewidth}{0.1pt}
-\renewcommand{\footrulewidth}{0.1pt}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
 
 %asta e destul de picky
 \usepackage{witharrows}
@@ -68,6 +69,7 @@
 
 % pt cand vreau doar sa apara naibii figura fix acolo unde vreau
 \usepackage{float}
+\usepackage{hyperref}
 
 %Code listing style named "mystyle"
 \lstdefinestyle{mystyle}{
@@ -128,9 +130,9 @@ ABSTRACT
 Abstract:
 un abstract in engleza
 one in romanian
-un rezumat în limba engleză
+un rezumat în limba englez
 
-cu prezentarea, pe scurt, a conținutului pe capitole, punând accent pe contribuțiile proprii și originalitate
+cu prezentarea, pe scurt, a conținutului pe capitole, punand accent pe contributiile proprii și originalitate
 
 \tableofcontents
 
