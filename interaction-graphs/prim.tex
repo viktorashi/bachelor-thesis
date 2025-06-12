@@ -1,0 +1,14 @@
+\usetikzlibrary{arrows.meta, positioning}
+
+\begin{center}
+	\begin{tikzpicture}[>=Stealth, node distance=2cm]
+		\centering
+		\node (A) {A};
+		\node[below=1.2cm of A] (B) {B};
+		\node[right=3cm of A] (C) {C};
+		\node[right=3cm of B] (D) {D};
+
+		\draw[->, bend right=45] (A) to (C);
+		\draw[->, bend left=45] (B) to (D);
+	\end{tikzpicture}
+\end{center}

@@ -1,15 +1,17 @@
 \chapter{Introduction to Chemical Reaction Networks}\label{chap:ch1}
 
-In this first chapter we'll start with the concepts that apply to the broader range of \text{natural sciences}. We'll introduce and mathematically define
+In this first chapter we'll start with the concepts that apply to the broader range of \text{natural sciences}.
 
-The following picture, that's also been shown by my Professor in his presentation of this topic might be a good introduction to this topic:
+The following picture, that's also been shown by my Professor in his presentation of this topic \parencite{Lorand2024} might be a good introduction to this topic:
 
-\hfill\break
-//TODO: sa gasesti poza aia ca s-a cam luat de pe net
-si sa mai scrii niste chestii din astea in mare de despre ce inseamna disciplina asta de prin paperuri sau istorie de prin ce carti gasesti sa faci o introdcuere pe bune, eu ma pun sa scriu speicfic de matele pe care il gasim
-\hfill\break
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{chem-pics/metabolic-pathways.png}	
+	\caption{The Metabolical Pathways poster by Dr. Gerhard Michal over at Roche Biochemical \cite{RouchePathways}}
+	\label{fig:metabolic-pathways}
+\end{figure}
 
-A Chemical Reaction Network (CRN) consists of:
+We'll introduce and mathematically define Chemical Reaction Networks (CRN) consisting of:
 
 the set $S = \left\{ X_1, \dots, X_n \right\}, \left| S \right| = n$ of chemical species,
 
@@ -42,6 +44,7 @@ We could shorthand both of them in their vector form:
 	\end{pmatrix*}
 \end{gather*}
 Now we may define the mass-action \textbf{reaction rate} of this particular reaction, which depends on the rate constant, the concentrations of reacting species and their molecularities.
+\footcite{Derbez2015,Lorand2024}
 \begin{definition}
 	\textbf{Reaction Rate}:	
 	\begin{align}\label{reaction_rate}
@@ -50,10 +53,6 @@ Now we may define the mass-action \textbf{reaction rate} of this particular reac
 		&= k_j x_1^{\alpha_{1j}} \dots x_n^{\alpha_{nj}} \nonumber
 	\end{align}
 \end{definition}
-
-\hfill\break
-//TODO poti sa mai zici si de alea de non-mass action si de unde a aparut si de unde a disparut sau cum se foloseste fiecare, si ala de mass action
-\hfill\break
 
 The way we use such a model for representing chemical reactions is with the premise that the concentrations of the species are not affected by their spatial distribution, so no funky spatial gradients and partial differential equations. Implying the "room" they have is considered necessary, the only factor in the reactions' rate being their "active mass", meaning their concentration or activity.
 
@@ -230,3 +229,16 @@ As you can see this is the same as \ref{1st_example_dyn_system}, I just didn't u
 \hfill\break
 //TODO: poti sa scrii in general de ce ala un interaction graph din cartea aia de-ai gasit-o, si dupa sa zici ca poza aia de-o punem la phorolylation de-hpoysohp e un interaction graph pt networku asta: gen
 \hfill\break
+
+\textbf{Interaction graphs}\footcite{Derbez2015}: Every chemical reaction network has its corresponding interaction graph, formed of the following basic structure.
+
+Two intersecting arrows mean a sum of the reacting / produced species.
+
+So for a reaction of the form
+\begin{align*}
+	A + B \xrightarrow{k_{1}} C + D
+\end{align*}
+Its interaction graph is:
+\input{interaction-graphs/prim.tex}
+We'll use these kinds of figures in later chapters, when talking about more specific CRN's.
+But one thing that's certain is these CRN's can also be modeled by: \ldots
