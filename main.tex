@@ -5,8 +5,12 @@
 % type may be bachelor or master (default is bachelor)
 \usepackage[language=english, type=bachelor]{style}
 
-\usepackage[style=numeric,sorting=nyt, backend=biber, backref=true]{biblatex}
+\usepackage[style=alphabetic,sorting=nyt, backend=biber, backref=true]{biblatex}
 \addbibresource{references.bib}
+% sa apara in loc de numar, entry keyu
+\DeclareLabelalphaTemplate{
+	\labelelement{\field{entrykey}}
+}
 \nocite{*}
 
 % am nevoie de asta aparent ca sa-mi typesetuiasca quoturile din alte referinte
