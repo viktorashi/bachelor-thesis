@@ -1,8 +1,7 @@
 \chapter{Existence and Absence of Hopf Bifurcation in Phosphorylation-Dephosphorylation CRN}
 
 \section{What even \textbf{is} a bifurcation?}
-To better generalize them, it'd be best to also define the notion of:
-
+\footcite{faye2011Bifurcation} \footcite{afrajmovich1999Bifurcation} : To better generalize them, it'd be best to also define the notion of:
 \begin{definition}
 	\textbf{Invariant sets}.
 
@@ -205,8 +204,6 @@ In $\mathbb{R}^2$, such Bifurcations cause special kinds of invariant sets, name
 	\]
 \end{definition}
 
-//TODO: Proof: trust me bro;
-
 What's interesting though, and makes calculations easier for the 2-D case is:
 \begin{theorem}  \textbf{Poincaré-Bendixson}
 
@@ -222,7 +219,7 @@ But the problem is this theorem only holds for $\mathbb{R}^2$. For higher dimens
 
 So having these in mind, Hopf is kind of like an $\mathbb{R}^n$ version of Pitchfork bif.: \ref{pitchfork_bif} when you think about it.
 
-You can even see the resemblance in the way they look
+You can even see the resemblance in the way they look \footcite{brainsci10080536}
 
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/hopf-bif-pic.png}
@@ -234,18 +231,12 @@ You can even see the resemblance in the way they look
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/pitchfork-photo.png}
 	\centering
-	\caption{Pitchfork bifurcation}
+	\caption{Pitchfork bifurcation \cite{YangAltu2020}}
 \end{figure}
-
-\hfill\break
-//TODO: scrie (si fa mai mult research) despre  \textbf{normal form} si despre cum aproximeaza el sistemul dinamic in jurul punctelor de bifurcatie, ca o sa-ti fie de folos la cam toate punctele de birufcatie sincer pare important si chiarn u stiu de el am vzt in mai multe parti
-
-//TODO: sincer mai bine lasa tbh noone cares as of now
-\hfill\break
 
 \subsection{Proving the existence of simple Hopf bifurcations}
 
-Finding necessary conditions for their existence makes use of a tool defined in the previous chapter (\ref{hurwitz_theorem}) the \textbf{Hurwitz matrix}.
+Finding necessary conditions for their existence makes use of a tool defined in the previous chapter (\ref{hurwitz_theorem}) the \textbf{Hurwitz matrix}. \footcite{LIU1994250}
 
 Instead, now the characteristic polynomial depends on this new bifurcation parameter $\mu$.
 
@@ -261,7 +252,7 @@ Instead, now the characteristic polynomial depends on this new bifurcation param
 	\begin{gather*}
 		\det H_1(\mu_0) > 0 , \dots, \det H_{n-2} (\mu_0) > 0. \\
 		\Downarrow \\
-		p_{\mu_0}(z) \text{ has } \leq 1 \text{ pair of symmetric roots  }
+		\text{ pair of symmetric roots of   } p_{\mu_0}(z) \leq 1
 	\end{gather*}
 
 	And $\exists!$ pair of symmetric roots $\iff \det H_{n-1}(\mu_0) = 0$.
@@ -272,7 +263,7 @@ Instead, now the characteristic polynomial depends on this new bifurcation param
 Now, more specifically, the necessary conditions for a simple Hopf bifurcation are:
 
 \begin{proposition}\label{yangs_criterion}
-	(Yang)
+	\cite{Yang2002}
 	A simple Hopf bifurcation occurs at fixed point $x^*$ and at the parameter threshold $\mu_0$ $\iff$
 	\begin{gather*}
 		\rom{1} \quad \det  H_{ n-1 }(\mu_0) = 0 \text{  and  } a_s(\mu_0) > 0, \\
@@ -302,6 +293,7 @@ Directly from criterion \ref{symmetric_roots_pair_criterion} we have a criterion
 \end{theorem}
 
 \subsection{Convex parameters}\label{convex_paramteres}
+\footcite{ErramiEtAl2015a} \footcite{dattorro2018Convex} \footcite{Rockafellar1973}
 With most dynamical systems, if we want to analyze their behavior we have to find, through all possible values if $\exists x^*(\mu)$ fixed points for which bifurcation occur, and hence we need to find any value $\exists \mu$ of the bifurcation parameter for which said bifurcation occurs, throughout our entire domain.
 
 But luck would have it, though that the kind of systems we care about in this thesis, namely chemical reaction systems, defined in more detail in \ref{mass-action_network}, are not like "most" dynamical systems.
@@ -459,7 +451,7 @@ The order phosphorylation occurs matters too, so if:
 
 \rom{2} Whereas, if the \text{first} phosphorylated site is being \textbf{de}phosphorylated first then the system is \textbf{cyclic}.
 
-You can see here an example of this classification in two mechanisms that, while they differ in this category, they are still both distributive.
+You can see here an example of this classification in two mechanisms that, while they differ in this category, they are still both distributive.\footcite{conradi2024}
 \begin{figure}[H]	
 	\includegraphics[width=13cm]{math_pics/cyclic-vs-sequential.png}\label{cyclic_vs_sequential_figure}
 	\centering
@@ -552,6 +544,8 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 	$\det H_1(h,\lambda)$, $\det H_2(h,\lambda)$ and $a_3(h,\lambda)$ contain only positive monomials. Thus, $\det H_1(h,\lambda)$, $\det H_2(h,\lambda) \geq 0, \forall h, \lambda \geqq 0$, specifically $\det H_2(h,\lambda) \neq 0$, $\lightning$ (\ref{ruling_out_simple_hopf_bif}).
 \end{proposition}
 \begin{proof}
+	Now to solve these we're going to use some Maple scripts that rely on the \cite{franz2016ConvexMaple} package.
+
 	Given the network structure defined above, as well as the $E\lambda$ matrix made of the extreme cone vectors (\textbf{ray}):
 	\[
 		E\lambda =
@@ -564,7 +558,7 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 			\lambda_3
 		\end{bmatrix}
 	\]
-	The Jacobian in convex parameters, as given in (\ref{jacobian_convex_params}), using the Maple script is:
+	The Jacobian in convex parameters, as given in (\ref{jacobian_convex_params}), using that script is:
 	\[
 		J_1(h,\lambda)=
 		\text{//TODO: si acm te pui tu sa rulezi scriptu de maple in virtual machinu ala}

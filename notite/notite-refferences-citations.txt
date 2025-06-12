@@ -11,21 +11,25 @@
 ### APLICATIE ###########
 
 
-
-######## stabilitate, seturi invariante, etc #############
-
-      https://www.math.utah.edu/~gustafso/s2013/2250/lectureslides2250/references/lectureslides2250/systems/DynSysStability.pdf
-
-      http://www.diag.uniroma1.it/oriolo/amr/material/stability.pdf
-
-      http://www-control.eng.cam.ac.uk/jmm/4f3/handout2.pdf
-
-######## stabilitate, seturi invariante, etc #############
-
-
-
-################ cand vb de bifurcatii #################3
-
+######## am citat deja / nici nu prea e nevoie sa le citez #############
+https://www.math.ucdavis.edu/~hunter/m207/m207.pdf
+https://math.okstate.edu/people/binegar/4233/4233-l02.pdf
+https://www.math.umd.edu/courses/math246/NODE/2223F/Higher-Homo-CC.pdf
+https://en.wikipedia.org/wiki/Autonomous_system_(mathematics)#:~:text=In%20mathematics%2C%20an%20autonomous%20system,also%20called%20time-invariant%20systems.
+https://math.libretexts.org/Bookshelves/Scientific_Computing_Simulations_and_Modeling/Introduction_to_the_Modeling_and_Analysis_of_Complex_Systems_(Sayama)/07%3A_ContinuousTime_Models_II__Analysis/7.05%3A_Linear_Stability_Analysis_of_Nonlinear_Dynamical_Systems
+https://en.wikipedia.org/wiki/Orbit_(dynamics)
+https://en.wikipedia.org/wiki/Phase_plane
+https://www.math.utah.edu/~gustafso/s2013/2250/lectureslides2250/references/lectureslides2250/systems/DynSysStability.pdf
+http://www.diag.uniroma1.it/oriolo/amr/material/stability.pdf
+ttp://www-control.eng.cam.ac.uk/jmm/4f3/handout2.pdf
+https://en.wikipedia.org/wiki/Stability_theory
+buna rau poza asta de aici :
+https://bosonphoton.medium.com/mathematical-introduction-to-dynamical-systems-2d581fcb2444
+###########asta mai putin academica#######33
+      #astea de wiki la care ar trebui sa le iei referintele
+      https://en.wikipedia.org/wiki/Steady_state
+      https://en.wikipedia.org/wiki/Equilibrium_point_(mathematics)
+###########asta mai putin academica#######33
       @misc{conradi2024distributivephosphorylationcatalyticconstants,
             title={In distributive phosphorylation catalytic constants enable non-trivial dynamics}, 
             author={Carsten Conradi and Maya Mincheva},
@@ -35,9 +39,48 @@
             primaryClass={q-bio.MN},
             url={https://arxiv.org/abs/2308.08524}, 
       }
+https://www.math.univ-toulouse.fr/~gfaye/ENS11/chap_bif.pdf
+## Poza aia de pitchfork (incearca sa ti-o faci tu)
+https://www.researchgate.net/publication/341236551_Finding_Method_and_Analysis_of_Hidden_Chaotic_Attractors_for_Plasma_Chaotic_System_From_Physical_and_Mechanistic_Perspectives/figures?lo=1
+#poza de hopf, ast creca mai greu de grafuit tu lmao
+https://www.mdpi.com/2076-3425/10/8/536
+efectiv nu pot sa le gasesc moca pe astea care explica care e faza cu parametrii convexi:
 
-      https://www.math.univ-toulouse.fr/~gfaye/ENS11/chap_bif.pdf
+H. Errami, M. Eiswirth, D. Grigoriev, W. M. Seiler, T. Sturm, and A. Weber. Detection of hopf
+bifurcations in chemical reaction networks using convex coordinates. Journal of Computational Physics,
+291:279 – 302, 2015.
 
+okok am gasit-o pe aia de sus
+
+https://www.sciencedirect.com/science/article/pii/S0021999115001400
+
+cu:
+BibTeX
+@article{ErramiEtAl2015a,
+      title = {Detection of {Hopf} bifurcations in chemical reaction networks using convex coordinates},
+      author = {Errami, Hassan and Eiswirth, Markus and Grigoriev, Dima and Seiler, Werner M. and Sturm, Thomas and Weber \textdagger{}, Andreas},
+      journal = {Journal of Computational Physics},
+      year = {2015},
+      doi = {10.1016/j.jcp.2015.02.050},
+      pages = {279--302},
+      url = {http://dx.doi.org/10.1016/j.jcp.2015.02.050},
+      howpublished = {http://dx.doi.org/10.1016/j.jcp.2015.02.050},
+      volume = {291},
+}
+
+
+################################################
+R. T. Rockafellar. Convex Analysis. Princeton University Press, 1970.o
+creeed ca l-am gasit dar nuj sigur ca era un site piratat si nu stiu ce face pdful ala sa fiu sincer
+asta de jos idk
+##################### convex  ############################
+      pt packageu convex de maple
+      https://www.math.uwo.ca/faculty/franz/convex/doc/current/intro.html#cite
+##################### convex  ############################
+
+
+
+################ cand vb de bifurcatii #################3
       ######## cand cv de alea care AU bifucatii #############3
       https://link.springer.com/article/10.1007/s00285-024-02114-8
 
@@ -50,79 +93,4 @@
             primaryClass={q-bio.MN},
             url={https://arxiv.org/abs/2308.08524}, 
       }
-
-      ## Poza aia de pitchfork (incearca sa ti-o faci tu)
-      https://www.researchgate.net/publication/341236551_Finding_Method_and_Analysis_of_Hidden_Chaotic_Attractors_for_Plasma_Chaotic_System_From_Physical_and_Mechanistic_Perspectives/figures?lo=1
-
-      #poza de hopf, ast creca mai greu de grafuit tu lmao
-      https://www.mdpi.com/2076-3425/10/8/536
-
 ################ cand vb de bifurcatii #################3
-
-
-###### convex  ###########33
-      pt packageu convex de maple
-      https://www.math.uwo.ca/faculty/franz/convex/doc/current/intro.html#cite
-
-      efectiv nu pot sa le gasesc moca pe astea care explica care e faza cu parametrii convexi:
-
-      H. Errami, M. Eiswirth, D. Grigoriev, W. M. Seiler, T. Sturm, and A. Weber. Detection of hopf
-      bifurcations in chemical reaction networks using convex coordinates. Journal of Computational Physics,
-      291:279 – 302, 2015.
-
-      okok am gasit-o pe aia de sus
-
-      https://www.sciencedirect.com/science/article/pii/S0021999115001400
-
-      cu:
-      BibTeX
-      @article{ErramiEtAl2015a,
-            title = {Detection of {Hopf} bifurcations in chemical reaction networks using convex coordinates},
-            author = {Errami, Hassan and Eiswirth, Markus and Grigoriev, Dima and Seiler, Werner M. and Sturm, Thomas and Weber \textdagger{}, Andreas},
-            journal = {Journal of Computational Physics},
-            year = {2015},
-            doi = {10.1016/j.jcp.2015.02.050},
-            pages = {279--302},
-            url = {http://dx.doi.org/10.1016/j.jcp.2015.02.050},
-            howpublished = {http://dx.doi.org/10.1016/j.jcp.2015.02.050},
-            volume = {291},
-      }
-
-
-      ################################################
-      R. T. Rockafellar. Convex Analysis. Princeton University Press, 1970.o
-
-
-      creeed ca l-am gasit dar nuj sigur ca era un site piratat si nu stiu ce face pdful ala sa fiu sincer
-      asta de jos idk
-
-###### convex  ###########33
-
-
-###########asta mai putin academica#######33
-
-      buna rau poza asta de aici :
-      https://bosonphoton.medium.com/mathematical-introduction-to-dynamical-systems-2d581fcb2444
-
-
-      #astea de wiki la care ar trebui sa le iei referintele
-      https://en.wikipedia.org/wiki/Phase_plane
-
-      https://en.wikipedia.org/wiki/Orbit_(dynamics)
-
-
-      https://en.wikipedia.org/wiki/Stability_theory
-
-      https://en.wikipedia.org/wiki/Steady_state
-
-      https://en.wikipedia.org/wiki/Equilibrium_point_(mathematics)
-
-###########asta mai putin academica#######33
-
-
-######## am citat deja / nici nu prea e nevoie sa le citez #############
-https://www.math.ucdavis.edu/~hunter/m207/m207.pdf
-https://math.okstate.edu/people/binegar/4233/4233-l02.pdf
-https://www.math.umd.edu/courses/math246/NODE/2223F/Higher-Homo-CC.pdf
-https://en.wikipedia.org/wiki/Autonomous_system_(mathematics)#:~:text=In%20mathematics%2C%20an%20autonomous%20system,also%20called%20time-invariant%20systems.
-https://math.libretexts.org/Bookshelves/Scientific_Computing_Simulations_and_Modeling/Introduction_to_the_Modeling_and_Analysis_of_Complex_Systems_(Sayama)/07%3A_ContinuousTime_Models_II__Analysis/7.05%3A_Linear_Stability_Analysis_of_Nonlinear_Dynamical_Systems
