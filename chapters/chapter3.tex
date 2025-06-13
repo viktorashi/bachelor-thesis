@@ -266,7 +266,7 @@ So keeping this in mind, we may form a formal definition:
 	\begin{itemize}
 		\item $T$: part of the $(T,+)$ monoid of all possible $time$ moments of our system
 		\item $S$: is the set of all possible states, and
-		\item the function: $\Phi : U \subseteq (T \times S ) \rightarrow S$ where values of the second component span all of $S$, meaning $proj_2(U) = S$.
+		\item the function: $\Phi : U \subseteq (T \times S ) \rightarrow S$ where values of the second component span all of $S$, meaning $proj_2(U) = S$ is called the \textbf{evolution function} of the dynamical system.
 	\end{itemize}
 	In order to give the necessary properties of $\Phi$ we will need to also define:
 	\begin{definition}\label{dyn_sys_orbit_flow_etc_def}
@@ -280,7 +280,7 @@ So keeping this in mind, we may form a formal definition:
 
 		$\Phi(t_2,\Phi(t_1,s)) = \Phi(t_1+t_2,s); \forall t_1, t_1+t_2 \in I(s), t_2 \in I(\Phi(t_1,s)), s \in S$.
 
-		We call such a function $\Phi$ the \textbf{evolution function} of the dynamical system, mapping every state and $time$ after which that specific state is found, to another unique state.
+		$\Phi$ maps every state and $time$ after which that specific state is found, to another unique state.
 	\end{definition}
 
 	If we take a specific state $s$ as an initial constant, we can form the function
@@ -643,8 +643,6 @@ This would in turn form the phase portrait of the dynamical system, described by
 si dupa mai gasesti un exemplu mistio in 3d
 \vskip\bigskipamount
 
-arat dupa ce faci toate demonstratiile pentru n dimensiuni, niste poze si cazuri particulare in 2,3 dimensiuni, cv ce se paote vedea cu poze
-
 arata in state spaceu ala cum iti dai seama stabilitatea sistemului dand graficul oribtelor in vector spaceu ala ( sa mai pui si snite poze)
 \vskip\bigskipamount
 
@@ -697,9 +695,9 @@ A fixed point $y_0$ is said to be \textbf{isolated} if
 \]
 \end{definition}
 
-Classifying the stabilty for a system comes down to looking at the way each state variable evolves with time.
+Classifying the stability for a system comes down to looking at the way each state variable evolves with time.
 
-For a linear system, looking at the eigenvalues of the transformation is enough to classify the stabilty of the entire system; taking into consideration how the solutions look; like so:
+For a linear system, looking at the eigenvalues of the transformation is enough to classify the stability of the entire system; taking into consideration how the solutions look; like so:
 
 Taking the eigenvalues
 \begin{gather*}
@@ -710,7 +708,7 @@ Taking the eigenvalues
 \text{ \rom{3} if: } \exists i = \overline{1,n} : Re(\lambda_i) > 0 \implies \text{system is \textbf{unstable}.}
 \end{gather*}
 
-The behavior  can also be classified looking at Im:
+The behavior  can also be classified looking at $Im$:
 \begin{gather*}
 Im(\lambda_i) = 0 : \text{The system has no oscillations in the direction of } \lambda_i \text{'s eigenvectors.} \\
 Im(\lambda_i) \neq 0 : \text{The system has oscillations in the direction of } \lambda_i \text{'s eigenvectors:} \\
@@ -718,20 +716,20 @@ Im(\lambda_i) \neq 0 : \text{The system has oscillations in the direction of } \
 
 This can be seen by \ref{euler} (Euler) because of how complex values are related to rotations.
 
-We can actually plot stabilty diagram for having a visual representation of these classifications:
+We can actually plot stability diagram for having a visual representation of these classifications:
 
 For a 2x2 Linear system with transform matrix $A$, plotting different systems by their $(Tr(A), \det(A))$ plane, where $Tr(A) = \sum_{i}^{n}a_{ii}$ we get:
 
 \begin{figure}[H]
 \includegraphics[width=13cm]{math_pics/Stability_Diagram.png}
 \centering
-\caption{Poincaré Diagram}
+\caption{Poincaré Diagram (GIMP, free adaptation of \cite{wiensStability})}
 \end{figure}
 
 \newpage
 Taking the same concept and applying it to non-linear systems we would have:
 
-For a non-linear autonomous system we can look at a zoomed-in portion of whichever equilibrium points we have and we may be able to locally approximate their stabilty by means of the Taylor series at that particular point, which would infer the stabilty of that point in the greater context of the non-linear system.
+For a non-linear autonomous system we can look at a zoomed-in portion of whichever equilibrium points we have and we may be able to locally approximate their stability by means of the \textbf{Taylor series} at that particular point, which would infer the stability of that point in the greater context of the non-linear system.
 
 So for a system \ref{auton_sys_compact}
 \[
@@ -758,7 +756,7 @@ The Jacobian matrix of a vector-valued vector function $f : D \subseteq \mathbb{
 		\frac{\partial y_m}{\partial x_1} & \dots &  \frac{\partial y_m}{\partial x_n}
 	\end{bmatrix*} =
 	\frac{df}{dx} =
-	\left(   \frac{\partial y_i}{\partial x_j} \right)_{ij | 1 \leqslant i \leqslant n, 1 \leqslant j \leqslant m}
+	\left(   \frac{\partial y_i}{\partial x_j} \right)_{1 \leqslant i \leqslant n, 1 \leqslant j \leqslant m}
 \end{align*}
 \end{definition}
 
@@ -798,7 +796,7 @@ But because $f(y'_f) =0 \implies J_{\underline{f}}(y'_f)(\zeta) = 0$ and since t
 \vspace{20pt}
 However, $\exists J_{\underline{f}}^{-1}(y_f) \nLeftarrow y_f$, in general.
 
-Unfortunately, though, using this method we can only find the stabilty of a subclass of equilibrium points and non-linear systems.
+Unfortunately, though, using this method we can only find the stability of a subclass of equilibrium points and non-linear systems.
 
 So for a nonlinear system $\dot{y} = \underline{f}(y)$ and its (\ref{eq:lin_approx}) $\dot{\zeta} = J(y_f)\zeta$ about fixed state $y_f$ we can only show if (in the context of the non-linear system) that fixed point is either:
 
@@ -806,22 +804,15 @@ So for a nonlinear system $\dot{y} = \underline{f}(y)$ and its (\ref{eq:lin_appr
 
 2.\textbf{Unstable} if $\exists \lambda \in Eig(J(y_f)) : Re(\lambda)> 0$.
 
-i.e. One can only show Asymptotic (or in-) stabilty, although in the case:
+i.e. One can only show Asymptotic (or in-) stability, although in the case:
 
 $Re(\lambda) \leqslant  0 \forall \lambda \in Eig(J(y_f)) \text{ and,
 at least } \exists \lambda : Re(\lambda) = 0$ then the results are
 inconclusive and can't be implied for the non-linear system.
 
 \hfill\break
-//TODO: HAI MA CA NU ESTI PROST (update lasa ca esti prost nu mai ai timp) invata si despre lyapuov mai bine sa
 
-poti sa vorbesti despre dansul dupa ce zici din astea mai de
-specifice de chimie ca sigur o sa ajute cu ceva na pana mea
-
-5. arata poza de clasificarea sistemelor, dat
-
-\hfill\break
-But another way of analysing the stabilty would be by using one of
+But another way of analyzing the stability would be by using one of
 the most fundamental tools during our study, so we'll define and show
 how to obtain:
 
@@ -869,10 +860,8 @@ v(z))$ (or $arg(p(z))$) makes as $z$ moves across $\partial \gamma$
 in a positive sense [c.c.].
 
 \hfill\break
-//TODO: ai putea sa pui si tu o poza cu un vector space format de un
+//TODO: ai putea sa pui si tu o poza cu un vector space format de un anumit polinom complex cu valori complexe
 \hfill\break
-
-anumit polinom complex cu valori complexe
 
 Now all we need to do is make this "closed contour" the entire
 left-half of the complex axis!
@@ -981,16 +970,14 @@ is horizontal for $y \rightarrow  - \infty$ and $y \rightarrow +
 \infty  $ outcomes the result of our lemma
 \end{proof}
 
-\hfill\break
-//TODO Maybe try to draw this yourself cu arrows nstuff
-\hfill\break
-
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=13cm]{math_pics/sageti-cumse-invart.png}
 \centering
+\label{fig:vector-ploly-rotations}
+\caption{Rotations of $(p_0(y), p_1(y))$ compared to $w(y)$, \cite{hairer1993Nonstiff}}
 \end{figure}
 
-So using these 2 Lemmas we have the criteria for stabilty:
+So using these 2 Lemmas we have the criteria for stability:
 For the characteristic polynomial \ref{lin_apporx_char_equation},
 written instead like this:
 \[
@@ -1065,14 +1052,7 @@ Re$(\lambda) = 0$. Now we just do \ref{cauchy_arg_lemma} +
 \ref{sturm_lemma} once more.
 \end{proof}
 
-\hfill\break
-//TODO vezi ba sa rezolbi asta cumva ca nu esti chiar asa prost te pui cu pixu cu astea sa vezi de unde vine si faci pasii de rezolvare de le-a facut hurwitz intr-un fel
-\hfill\break
-
-\includegraphics[width=13cm]{math_pics/TODO SA FACI KKTU ASTA BA.png}
-
 Adolf Hurwitz later wrote the positivity criterion ($2^{nd}$ condition in \ref{routh_theorem}) making use of this matrix we now basically call "his".
-\newpage
 \begin{theorem}\label{hurwitz_theorem}
 Hurwitz \cite{hairer1993Nonstiff}:
 
@@ -1099,9 +1079,9 @@ with the exception that $a_k = 0$ if $k \notin \left\{0, \dots , n\right\}$
 
 He's shown that condition \rom{2} of \ref{routh_theorem} (hence $\text{ Re }(\lambda)< 0, \forall \lambda \in p^{-1}(0)$ with $a_0 > 0$ as well) $\iff \det (H_i) \forall i = \overline{1,n}$
 
-So this is what's used to show the stabilty of the linear system (or linearization of a non-linear one), computing matrices of coefficients of the charracteristic polynomial, instead of having to compute Eig($J$) directly.
+So this is what's used to show the stability of the linear system (or linearization of a non-linear one), computing matrices of coefficients of the charracteristic polynomial, instead of having to compute Eig($J$) directly.
 \end{theorem}
 
-We'll use this later during the section about \text{bifurcations} as well.
+We'll use this later during the section about \textbf{bifurcations} as well.
 
 \vskip\bigskipamount

@@ -1,9 +1,9 @@
 \chapter{Existence and Absence of Hopf Bifurcation in Phosphorylation-Dephosphorylation CRN}
 
 \section{What even \textbf{is} a bifurcation?}
-\footcite{faye2011Bifurcation} \footcite{afrajmovich1999Bifurcation} : To better generalize them, it'd be best to also define the notion of:
-\begin{definition}
-	\textbf{Invariant sets}.
+To better generalize them, it'd be best to also define the notion of:
+\begin{definition}	
+	\textbf{Invariant sets}. \footcite{faye2011Bifurcation} \footcite{afrajmovich1999Bifurcation}
 
 	Taking the Auton. sys.
 	\begin{equation}\label{invar_set_auton_sys}
@@ -46,7 +46,7 @@ This odd behavior is called a \textbf{bifurcation}, and $\mu$, in this case is a
 
 The former types of bifurcations I talked about previously are called \textbf{local}, those in which changes in stability can only be considered mostly for \textbf{isolated equilibria}, individually, or other invariant sets whose stability can be analyzed \textbf{locally}, via the system's linearization at a point.
 
-The latter are \textbf{global}, which are more complex and require greater understanding of the system beyond a local linearization, but that falls into the special-case category described in the last paragraphs of the previous chapter, and so far all I know about Mr. Prof. Lyapunov as of now is that his brother was pianist. But thankfully our interest for this work lies with local bifurcations, so we'll be ignoring this for now, maybe I'll come back to it during my Master's (not).
+The latter are \textbf{global}, which are more complex and require greater understanding of the system beyond a local linearization, but that falls into the special-case category described in the last paragraphs of the previous chapter, and so far all I know about Mr. Prof. Lyapunov as of now is that his brother was a pianist. But thankfully our interest for this work lies with local bifurcations, so we'll be ignoring this for now, maybe I'll come back to it during my Master's (not).
 
 To better define and illustrate them for the 1-D case and give example of bifurcations for such dimension, we could instead write our vector field $f$ as depending on $\mu$ in addition to the unknown function $y$.
 \begin{equation}\label{eq:1-d_bif_sys}
@@ -144,7 +144,7 @@ Visually, just to hammer it in:
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/hopf-bif-eigenvalue-graph.png}
 	\centering
-	\caption{Visualizing the zeroes}
+	\caption{Visualizing the zeroes \footcite{vogel2020HopfEigenvalues}}
 \end{figure}
 
 In $\mathbb{R}^2$, such Bifurcations cause special kinds of invariant sets, namely \textbf{limit cycles} to appear. These are periodic solutions, for which we'll need a few more concepts in order to be able to define them:
@@ -192,7 +192,7 @@ In $\mathbb{R}^2$, such Bifurcations cause special kinds of invariant sets, name
 	\]
 \end{definition}
 
-\begin{definition} \textbf{Limit cycle}
+\begin{definition} \textbf{Limit cycle}(finally)
 
 	A Limit Cycle is a cycle which is the limit set of at least another trajectory.
 	Also, interestingly:
@@ -231,7 +231,7 @@ You can even see the resemblance in the way they look \footcite{brainsci10080536
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/pitchfork-photo.png}
 	\centering
-	\caption{Pitchfork bifurcation \cite{YangAltu2020}}
+	\caption{Pitchfork bifurcation \cite{Yang2020}}
 \end{figure}
 
 \subsection{Proving the existence of simple Hopf bifurcations}
@@ -293,7 +293,7 @@ Directly from criterion \ref{symmetric_roots_pair_criterion} we have a criterion
 \end{theorem}
 
 \subsection{Convex parameters}\label{convex_paramteres}
-\footcite{ErramiEtAl2015a} \footcite{dattorro2018Convex} \footcite{Rockafellar1973}
+\footcite{ErramiEtAl2015a} \footcite{Rockafellar1973}
 With most dynamical systems, if we want to analyze their behavior we have to find, through all possible values if $\exists x^*(\mu)$ fixed points for which bifurcation occur, and hence we need to find any value $\exists \mu$ of the bifurcation parameter for which said bifurcation occurs, throughout our entire domain.
 
 But luck would have it, though that the kind of systems we care about in this thesis, namely chemical reaction systems, defined in more detail in \ref{mass-action_network}, are not like "most" dynamical systems.
@@ -325,15 +325,15 @@ Now since $x^*$ is a fixed point, the flux vector satisfies:
 \begin{equation}\label{flux_vector_linear_problem}
 	\Gamma v(k,x^*) = 0, \quad v \geq 0.
 \end{equation}
-And so the solutions of (\ref{flux_vector_linear_problem}) (ker$\Gamma$) are vectors (rays) which describe a \textbf{convex polyhedral cone} called the \textbf{flux cone}.
+And so the solutions of (\ref{flux_vector_linear_problem}) (ker$\Gamma$) are vectors (rays) which describe a \textbf{convex polyhedral cone} \footcite{dattorro2018Convex} called the \textbf{flux cone}.
 
-It's been shown in (Clarke and coworkers) that:
+It's been shown in (\cite{clarke1980stability}) that:
 
 $(k,x^*)$ satisfies \ref{flux_vector_linear_problem} $\iff  v(k,x^*)\in \text{ker}(\Gamma) \bigcap \mathbb{R}^r_{\geq 0}$
 
 Where $r:$ no. of reactions.
 
-A flux cone is expressed as an $\mathbb{R}_{\geq 0}$ linear combination (positive hull) of it extreme vectors $\left\{ E_1 , \ldots , E_l \right\}$. Also, we need $E_i \neq 0_r, \forall i = \overline{1,l}$
+A flux cone is expressed as an $\mathbb{R}_{\geq 0}$ linear combination (positive hull) of its extreme vectors $\left\{ E_1 , \ldots , E_l \right\}$. Also, we need $E_i \neq 0_r, \forall i = \overline{1,l}$
 
 \begin{definition}\label{convex_params_definition}
 	\textbf{Convex parameters.}
@@ -378,30 +378,18 @@ Given:
 
 There is one particular case that is of interest to us, though.
 
-\hfill\break
-//TODO: Aici trebuie re-introducere la notatia specifica pt reactiile chimice, si adica mai bine te pui sa vb despre asta in primele capitole de "Introduction to chemical reaction networks"
-si asta o sa fie pt orice fel de reactii chimice, nu doar pt astea de mai jos:
-Poti sa te folosesti nu numa de prezentare da si din lucrarea lui conradi ca zice chestii mai specifice asa sa zic nuj.
-
-//TODO sa mai zici si tu cand e si cand te intereseaza ce e ala flux cone si cum functioneste
-\hfill\break
-
 \section{What is a Phosphorylation-Dephosphorylation CRN?}
 
-\hfill\break
-//TODO: Povestesti frumos specific pt asta ce sunt, din nou, te iei din ce s-a vb in prezentare da poate un pic si din ala alu conradi
-\hfill\break
-
-Phosphorylation of proteins occurs in cycles, which are fueled by $3$ proteins which are the ingredients: A substrate $S$ and $2$ enzymes: kinase ($K$) and phosphatase ($F$).
+Phosphorylation of proteins occurs in cycles, which are fueled by $3$ proteins which are the ingredients: a substrate $S$ and $2$ enzymes: kinase ($K$) and phosphatase ($F$). \footcite{bibid}
 
 The one that starts this chain is the kinase ($K$), attaching phosphate groups onto the substrate, phosphorylating it.
 
 Then, phosphatase ($F$) comes in and undoes all the hard work kinase ($K$) put in and removes the phosphate groups, now dephosphorylating the substrate.
 
 \hfill\break
-These cycles are a particular case of a broader type of what are called \textbf{posttranslational modification (PTM) systems.} Another example would be, for instance \textbf{methylation}.
+These cycles are a particular case of a broader type of what are called \textbf{posttranslational modification (PTM) systems.} \footcite{conradi2024} Another example would be, for instance \textbf{methylation}, where in this case methyl groups are the ones attaching to specific sites. \footcite{ramazi2021Ptms, SCHOENHEIMER1939333}
 
-The reason we care about them is their key implication in \textbf{ signal transduction}, which is the process our cells use to communicate with one-another. Any disturbance in this system is linked to its own class of health complications in our body.
+The reason we care about them is their key implication in \textbf{ signal transduction}, which is the process our cells use to communicate with one-another. Any disturbance in this system is linked to its own class of health complications in our body. \footcite{CONRADI2018507, 10.1093/hmg/ddp186, cohen2001Phosphorylation}
 
 Basically, do these biochemical systems induce periodic solutions as in (\ref{hopf_bif_def}), likening clocks, or do they have multiple steady-states (\textbf{capacity for bistability}), likening switches?
 
@@ -436,7 +424,7 @@ For a binding one, and
 \end{equation*}
 For the unbinding operation.
 
-Notice the following reactions where the enzymes don't dissociate.
+Notice these extra reactions where the enzymes don't dissociate.
 \begin{gather*}
 	\ldots S_0 K \xrightarrow{k_3} S_1 K \xrightarrow{k_4} \ldots \\
 	\ldots S_2 F \xrightarrow{k_3} S_1 F \xrightarrow{k_4} \ldots	
@@ -447,7 +435,7 @@ It was shown that processive systems are globally stable and distributive ones m
 There are also extra classifications in double phosphorylation systems:
 
 The order phosphorylation occurs matters too, so if:
-\rom{1}: If the \text{last} phosphorylated site is being dephosphorylated in the first dephosphorylation binding, then the mechanism is said to be \textbf{sequential}.
+\rom{1}: the \text{last} phosphorylated site is being dephosphorylated in the first dephosphorylation binding, then the mechanism is said to be \textbf{sequential}.
 
 \rom{2} Whereas, if the \text{first} phosphorylated site is being \textbf{de}phosphorylated first then the system is \textbf{cyclic}.
 
@@ -458,24 +446,16 @@ You can see here an example of this classification in two mechanisms that, while
 \end{figure}
 In the left one here, $S_{ij}$ shows which one of the $2$ binding sites gets phosphate groups attached to it, (Ex, $S_{10}$: first one is phosphorylated, second not).
 
-\hfill\break
-//TODO: de ce ne intereseaza specfic phospho, de phosho?
-\hfill\break
-
-\hfill\break
-//TODO: 1. scrii despre un exemplu care arata cand nu se gases bifuractii
-\hfill\break
-
 We'll now try to solve the problem whether a particular system undergoes simple Hopf bifurcations.
 
 Take, for example, the following basic cycle:
 
 \textbf{Example 1} $(\mathcal{N}_1)$:
-\begin{figure*}[h]
-	\text{\\TODO: cum drq desenez si eu frumusel cu sageti in latex sa fac asa la toate:}
-	\includegraphics[width=38mm]{math_pics/ex1-no-bifurcations.png}	
+\begin{figure}[H]
 	\centering
-\end{figure*}
+	\includegraphics[width=38mm]{math_pics/ex1-no-bifurcations.png}	
+	\caption{Network $( \mathcal{N}_1 )$ \footcite{doi:10.1098/rsif.2014.1405}}
+\end{figure}
 
 Whose chemical reaction notation looks like:
 \begin{gather}\label{network1}
@@ -485,7 +465,7 @@ Whose chemical reaction notation looks like:
 
 \textbf{Remark 1:} $(a)$ As you can see, the network (\ref{network1}) consists of $6$ species ($2$ substrates $S_0$, $S_1$; $2$ enzymes $K$, $F$; which together form $2$ complexes: $K S_0$, $F S_1$) and $6$ reactions ($2$ reversible and $2$ irreversible) with matrix subspace $=$ rank $\Gamma = 3$.
 
-Using \href{https://github.com/viktorashi/Open-CoNtRol}{the app} I've generated the following stoichiometric matrices, its rank and its corresponding dynamical system:
+Using \href{https://github.com/viktorashi/Open-CoNtRol}{the app}, talked more about in Chap.\ref{ch:web-app}, I've generated the following stoichiometric matrices, its rank and its corresponding dynamical system:
 
 \begin{align*}
 	\Gamma &=
@@ -574,7 +554,7 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 
 \newpage
 \textbf{Example 2}:
-Here we'll show how to prove the \textbf{existence} of a Hopf bifurcation in a network, which requires quite a bit of a lot of work. Let us take the cyclic example, Network $(a)$ from \ref{cyclic_vs_sequential_figure}, from which we can actually infer a particular case of networks with some nice properties.
+Here we'll show how to prove the \textbf{existence} of a Hopf bifurcation in a network, which requires quite a bit of a lot of work.\footcite{conradi2024, Suwanmajo2020, Conradi2020} Let us take the cyclic example, Network $(a)$ from \ref{cyclic_vs_sequential_figure}, from which we can actually infer a particular case of networks with some nice properties.
 
 We'll first need to define some continuations of convex parameters \ref{convex_params_definition}, aided by \ref{hurwitz_theorem} in regard to this particular case.
 
@@ -660,7 +640,7 @@ Now, let's get into the bread of it. We may re-define the cyclic and distributiv
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/cyclic-distributive-n1.png}	
 	\centering
-	\caption{$\mathcal{N}_2$}
+	\caption{$\mathcal{N}_2$ \footcite{conradi2024}}
 \end{figure}
 Defined by these reactions:
 \begin{align}\label{network2}
@@ -668,9 +648,9 @@ Defined by these reactions:
 	\\
 	S_{11} + F \xrightleftharpoons[ \kappa_8 ]{\kappa_7} FS_{11} \xrightarrow{\kappa_9} S_{01} + F \xrightleftharpoons[ \kappa_{11} ]{\kappa_{10}} FS_{01} \xrightarrow{\kappa_{12}} S_{00} + F \ \notag
 \end{align}
-We'll look into the irreversible sub-network, though.
+We'll look into just the irreversible sub-network, though.
 \begin{align}\label{network2_irr}
-	S_{00} + K \xrightarrow{\kappa_1} KS_{00} \xrightarrow{\kappa_3} S_{10} + K \xrightarrow{\kappa_4} KS_{10} \xrightarrow{\kappa_6} S_{11} + K \tag{$\mathcal{N}_2$}
+	S_{00} + K \xrightarrow{\kappa_1} KS_{00} \xrightarrow{\kappa_3} S_{10} + K \xrightarrow{\kappa_4} KS_{10} \xrightarrow{\kappa_6} S_{11} + K \tag{$\mathcal{N}_3$}
 	\\
 	S_{11} + F \xrightarrow{\kappa_7} FS_{11} \xrightarrow{\kappa_9} S_{01} + F \xrightarrow{\kappa_{10}} FS_{01} \xrightarrow{\kappa_{12}} S_{00} + F \ \notag
 \end{align}
@@ -724,7 +704,7 @@ Hence, we can use \ref{jacobian_convex_single_extreme_ray}. So with $E$ of \ref{
 	\kappa_{7} = h_{2} h_{6} \lambda, \kappa_{9} = h_{10} \lambda, \kappa_{10} = h_{2} h_{5} \lambda, \kappa_{12} = h_{9} \lambda \\
 	\text{with } h_i = \frac{1}{x_i} , i = \overline{1,10}
 \end{gather*}
-Now, $J_\lambda(h)$ of \ref{network2_irr} as defined in \ref{jacobian_convex_single_extreme_ray} is:
+Now using \cite{franz2016ConvexMaple} for $J_\lambda(h)$ of \ref{network2_irr} as defined in \ref{jacobian_convex_single_extreme_ray} is:
 \begin{align}
 	J_\lambda(h) = \lambda
 	\left.\left[
@@ -759,7 +739,7 @@ These are all (k)-\textbf{polytopes}, shapes whose faces are flat (k-1)-\textbf{
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=13cm]{math_pics/polytopes.png}
-	\caption{Polytopes}
+	\caption{Polytopes \cite{Brandenburg2024}}
 \end{figure}
 Now, if their vertices are exactly at the integer Cartesian coordinates, then they are called \textbf{integer polytopes}, meaning the polytope itself is the \textbf{convex hull} of the integer points inside it.
 
@@ -775,7 +755,7 @@ Now, the \textbf{Newton polytope} of that polynomial is.
 	\mathrm{Newt}(f)=\left\{\sum_k\alpha_k\mathbf{a}_k:\sum_k\alpha_k=1\And\forall j\alpha_j\geq0\right\}. \forall c_k \neq 0_n
 \]
 This structure offers a lot in insight into where (or if) roots might be.
-Take now, the Newton Polytope of $\det G_6(h)$, which by using software like \href{https://polymake.org/doku.php/start}{Polymake} we can obtain its hyper-plane intersection form
+Take now, the Newton Polytope of $\det G_6(h)$, which by using software like \href{https://polymake.org/doku.php/start}{Polymake}\footcite{Assarf2017, Gawrilow2000} we can obtain its hyper-plane intersection form
 % create matrix with no borders like no parantheses, just like a table
 \begin{align*}
 	\left.
@@ -820,28 +800,20 @@ Since the only $minuses$ that might pollute its positivity are in the $324 t^{18
 
 So it means we've shown a root exists for $\det G_6(h)$, and hence a Hopf bifurcation may occur in the system.
 
-\hfill\break
-\hfill\break
-//TODO : not really sure where that root is, but we'll leave that for the la vara.
-\hfill\break
-\hfill\break
-
-\hfill\break
-\hfill\break
-//TODO: lasa asta pt mai incolo
+Where though? This is where the second part of the problem comes in.
 
 \textbf{Example 3}:
-Now let us apply the same method and intuition for the following network $(\mathcal{N}_3)$.
+Now let us apply the same method and intuition for the following network $(\mathcal{N}_4)$.
 \begin{figure}[H]
-	\text{\\TODO: cum drq desenez si eu frumusel cu sageti in latex sa fac asa la toate:}
-	\includegraphics[width=13cm]{math_pics/ex2-no-bifurcations.png}
+	\text{//TODO: zice in prezentare cum se face asta (provine din una care provine din alta, poti sa le iei asa chaingin sa zici dupa alta)}
+	\includegraphics[width=13cm]{math_pics/ex3-bifurcations.png}
 	\centering
 \end{figure}
 Its chemical reaction network is:
 \begin{align}\label{network3}
-	S_0+K &\xrightleftharpoons[k_2]{k_1} KS_0 \xrightarrow{k_3} S_1 + K \xrightleftharpoons[k_5]{k_4} KS_1 \xrightarrow{k_6} S_2 + K \tag{$\mathcal{N}_3$}
+	S_0+K &\xrightleftharpoons[k_2]{k_1} KS_0 \xrightarrow{k_3} S_1 + K \xrightleftharpoons[k_5]{k_4} KS_1 \xrightarrow{k_6} S_2 + K \tag{$\mathcal{N}_4$}
 	\\
-	S_2+F &\xrightleftharpoons[k_8]{k_7} FS_2 \xrightarrow{k_9} S_0 + F \notag
+	S_2+F &\xrightleftharpoons[k_8]{k_7} FS_2 \xrightarrow{k_9} S_0 + F \notag \xrightarrow{k_{10}} S_0 + F
 \end{align}
 \textbf{Remark 3:} $(a)$ Here the system is composed of $8$ species: The two enzymes like before, $K$ and $F$, but $K$ not phosphorylates up to $S_2$ and hence forms the complexes $KS_0$, $KS_1$ as well, so as a consequence, now $F$ \textbf{de}-phosphorylates starting from $FS_2$, and because the network is cyclic, it skips directly to the disassociated relation $S_0 + F$.
 
@@ -890,13 +862,3 @@ With this "species to index mapping":
 	| S2: x_8
 \]
 \textbf{Remark 2:} $(b)$
-
-\hfill\break
-\hfill\break
-\hfill\break
-//TODO: 3. de cum s-a folosit pt un network de s-ai eliminat cate 2 specii si s-a facut tabel cu diverse sisteme care sunt mostenite din el
-
-deci practic un ucare chiar a gasit bifurcatii, toata nebunia aia de s-a scris despre ea de cum au reusit sa demonstreze ca chiar exista bifurcatii si sa le si gaseasca valorile pt care sunt
-
-faci mai incolo, lasa fa ala care e exemplu clar de la conradi, poate te prinzi cum se face asta mai incolo sincer
-\hfill\break

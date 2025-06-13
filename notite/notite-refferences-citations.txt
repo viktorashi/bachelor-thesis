@@ -1,16 +1,5 @@
 ## TODO incearca sa te pui sa faci tu poze in maple cu cod original sa inlocuiesti toate pozele care sunt acolo de pe la ce surse sunt 
 
-### APLICATIE ###########
-      SBMLDIAgram
-      (https://doi.org/10.1093/bioinformatics/btac730) and the PYPI web page (https://pypi.org/project/SBMLDiagrams/). Thanks.
-
-      Tellurium
-      Medley et al. (2018). "Tellurium notebooks—An environment for reproducible dynamical modeling in systems biology." PLoS Computational Biology, 14(6), e1006220.
-
-      Choi et al. (2018). "Tellurium: An extensible python-based modeling environment for systems and synthetic biology." Biosystems, 171, 74-79.
-### APLICATIE ###########
-
-
 ######## am citat deja / nici nu prea e nevoie sa le citez #############
 https://www.math.ucdavis.edu/~hunter/m207/m207.pdf
 https://math.okstate.edu/people/binegar/4233/4233-l02.pdf
@@ -94,3 +83,10 @@ asta de jos idk
             url={https://arxiv.org/abs/2308.08524}, 
       }
 ################ cand vb de bifurcatii #################3
+SBMLDIAgram
+(https://doi.org/10.1093/bioinformatics/btac730) and the PYPI web page (https://pypi.org/project/SBMLDiagrams/). Thanks.
+Tellurium
+Medley et al. (2018). "Tellurium notebooks—An environment for reproducible dynamical modeling in systems biology." PLoS Computational Biology, 14(6), e1006220.
+### APLICATIE ###########
+      Choi et al. (2018). "Tellurium: An extensible python-based modeling environment for systems and synthetic biology." Biosystems, 171, 74-79.
+### APLICATIE ###########
