@@ -44,17 +44,17 @@ Or, more formally:
 \begin{definition}
 	A function $y:I \rightarrow \mathbb{R}$ is a solution of the equation \ref{ODE} if the following conditions are met:
 
-	1. $I \subseteq \mathbb{R}$ is nondegeneate interval. ($|I|>1$)
+	1. $I \subseteq \mathbb{R}$ is a nondegenerate interval. ($|I|>1$)
 
 	2. $y \in C^n(I)$ and $(t,y(t), y'(t), \dots, y^{(n)}(t)) \in D_f, \forall t \in I$.
 
-	3. $y^{(n)}(t)= f(t,y(t),y'(t),\dots,y^{ (n-1) }(t)), \forall t \in I$. ( \ref{implicit_func_theorem} is satisfied)
+	3. $y^{(n)}(t)= f(t,y(t),y'(t),\dots,y^{ (n-1) }(t)), \forall t \in I$. (\ref{implicit_func_theorem} is satisfied)
 
 \end{definition}
 
 \section{Forming Ordinary Differential Equation systems}\footcite{Hiroki2015}
 We may take a sequence of such first order ordinary differential equations to form a system:
-\begin{equation}\label{3.2.1}
+\begin{equation}\label{eq:ode-sys}
 	\begin{cases}
 		y'_1(t) = f_1(t,y_1(t),y_2(t),\dots,y_n(t)) \\
 		y'_2(t) = f_2(t,y_1(t),y_2(t),\dots,y_n(t)) \\
@@ -64,14 +64,13 @@ We may take a sequence of such first order ordinary differential equations to fo
 \end{equation}
 
 Constructing $y: D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n, f : D_f \subseteq \mathbb{R}^{n+1} \rightarrow \mathbb{R}^n$ and denoting \\
-$y(t)= (y_1(t), \dots, y_n(t))$ and $f(t,y_1(t),\dots,y_n(t)) = (f_1,\dots,f_n)$ we get what is called the \textbf{vector form} of the system \ref{3.2.1}.
-
-\begin{equation}\label{3.2.2}
+$y(t)= (y_1(t), \dots, y_n(t))$ and $f(t,y_1(t),\dots,y_n(t)) = (f_1,\dots,f_n)$ we get what is called the \textbf{vector form} of the system \ref{eq:ode-sys}.
+\begin{equation}\label{eq:ode-sys-vec-form}
 	y'(t) = f (t, y(t))
 \end{equation}
 
 \begin{definition}
-	For a function $y:D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n$ , $|D| > 1$, if $y \in C^1(D,\mathbb{R}^n)$, and $y'(t) = f(t,y(t)), \forall t \in D \Rightarrow$ $y$ is a \textbf{solution of the system} \ref{3.2.2}.
+	For a function $y:D \subseteq \mathbb{R} \rightarrow \mathbb{R}^n$ , $|D| > 1$, if $y \in C^1(D,\mathbb{R}^n)$, and $y'(t) = f(t,y(t)), \forall t \in D \Rightarrow$ $y$ is a \textbf{solution of the system} \ref{eq:ode-sys-vec-form}.
 \end{definition}
 
 \begin{definition}
@@ -95,9 +94,9 @@ Where:
 \end{itemize}
 
 In addition, a frequently used notation in physics is
-$\dot{x} = \frac{d}{dt}x$ , $\ddot{x}=\frac{d^2}{dt^2}x$
+$\dot{x} = \frac{d}{dt}x$, $\ddot{x}=\frac{d^2}{dt^2}x$
 
-That equation is a \textbf{linear} homogenous equation with constant coefficients (hence autonomous), which is pretty nice to work with. Their general form would be:
+That equation is a \textbf{linear} homogenous equation with constant coefficients (hence autonomous), which is pretty nice to work with. Their general form is:
 \begin{equation}\label{lin_hom_eq_const}
 	a_0 x + a_1\dot{x}+ \dots +a_{n} x^{(n)} = 0
 \end{equation}
@@ -214,7 +213,7 @@ So $2k$ new solutions.
 
 \textbf{The superposition principle}\cite{Hiroki2015}
 
-Bernoulli (to the disbelief of Euler and Langrange) told us that the complex behavior of vibrating strings can be modeled by separating their motion into well-defined and easy to compute simple waves with known frequencies and amplitudes, which can later be \textbf{superposed} with one-another to form the complete system.
+Bernoulli (to the disbelief of Euler and Lagrange) told us that the complex behavior of vibrating strings can be modeled by separating their motion into well-defined and easy to compute simple waves with known frequencies and amplitudes, which can later be \textbf{superposed} with one-another to form the complete system.
 
 This principle can be applied to \textit{our} easier to compute \textbf{fundamental solutions} ($x_1,\dots,x_n$) in relation to the system formed by our linear operator $Lx =0$.
 
@@ -307,19 +306,17 @@ $\forall \gamma_1,\gamma_2 \in \Gamma_{U, \Phi}, \gamma_1 \bigcap \gamma_2 = \em
 	\]
 	So we need to prove:
 
-	\hfill\break
-	//TODO: te apuci de asta mai incolo \par
-	\hfill\break
-
 	\rom{1}. $\gamma \subseteq U, \forall \gamma \in \Gamma_{U,\Phi}$ \par
 	\rom{2}. $ \gamma \neq \emptyset, \forall \gamma \in \Gamma_{U,\Phi}$ \par
-	\rom{3}. $\gamma_1 \bigcap \gamma_2 = \emptyset, \forall \gamma_1, \gamma_2 \in \Gamma_{U,\Phi}$ \par
+	\rom{3}. either $\gamma_1 \bigcap \gamma_2 = \emptyset$, or $ \gamma_1 = \gamma_2 \forall \gamma_1, \gamma_2 \in \Gamma_{U,\Phi}$ \par
 	\rom{4}. $\bigcup_{\gamma\in \Gamma_U} \gamma = U$ \par
-\end{proof}
 
-\hfill\break
-//TODO: oki, deci aici zici cum se rezolva o ecuatie autonoma liniara in mod normal si despre solutiile fundamentale si independenta si dependa lor and stuff si dupa dai un mod echivalnt de a le rezolva cu metoda de mai jos care face un sistem din ele
-\hfill\break
+	\rom{1} is true by Def. of $\gamma_s$. \rom{2} as well, since $\Phi(0,s) = s$, it contains at least the initial condition.
+
+	For \rom{3}, take $\gamma_{s_1}, \gamma_{s_2} \in \Gamma_{U, \Phi}$, and assume $\exists s \in \gamma_{s_1} \bigcap \gamma_{s_2} \implies \exists t_1,t_2 \in T : s = \Phi(t_1,s_1) = \Phi(t_2, s_2)$. Solving for $s_1 \implies s_1 = \Phi(t_2-t_1, s_2)$ meaning $s_1$ is on the orbit made by $s_2$, so $\gamma_{s_1} \subseteq \gamma_{s_2}$, conversely we can show $\gamma_{s_2} \subseteq \gamma_{s_1} \implies \gamma_{s_1} = \gamma_{s_2}$. So $\gamma_{s_1}, \gamma_{s_2}$ are either disjoint or one and the same.
+
+	From \rom{1} we know $\forall \gamma \subseteq U \implies \bigcup_{\gamma\in \Gamma_U} \subseteq U$. Take $\forall s \in U \implies \gamma_s \in \Gamma_U$, from \rom{2} $\implies U \subseteq \bigcup_{\gamma\in \Gamma_U}$, \rom{4} checked
+\end{proof}
 
 We may, in fact construct an equivalent system
 \[

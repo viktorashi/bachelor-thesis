@@ -2,12 +2,12 @@
 
 In this first chapter we'll start with the concepts that apply to the broader range of \text{natural sciences}.
 
-The following picture, that's also been shown by my Professor in his presentation of this topic \parencite{Lorand2024} might be a good introduction to this topic:
+The following picture, that's also been shown by my Professor in his presentation of this topic \parencite{Lorand2024} might be a good introduction:
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{chem-pics/metabolic-pathways.png}	
-	\caption{The Metabolical Pathways poster by Dr. Gerhard Michal over at Roche Biochemical \cite{RouchePathways}}
+	\caption{The Metabolic Pathways poster by Dr. Gerhard Michal from Roche Biochemical \cite{RouchePathways}}
 	\label{fig:metabolic-pathways}
 \end{figure}
 
@@ -56,9 +56,9 @@ Now we may define the mass-action \textbf{reaction rate} of this particular reac
 
 The way we use such a model for representing chemical reactions is with the premise that the concentrations of the species are not affected by their spatial distribution, so no funky spatial gradients and partial differential equations. Implying the "room" they have is considered necessary, the only factor in the reactions' rate being their "active mass", meaning their concentration or activity.
 
-Otherwise, way more complex models would be used. Ones that take into account things like intermolecular interactions, the mixing process of the solution.
+Otherwise, way more complex models would be used. Ones that take into account things like intermolecular interactions, the mixing process of the solution etc.
 
-A pretty common example would be:
+A pretty common example that you might've seen in 6th grade would be:
 \[
 	2H_2 + O_2 \xrightarrow{k} 2H_2O
 \]
@@ -142,16 +142,12 @@ Or, where the last $3$ degradation / production reactions could also be written 
 	B \xrightarrow{k_{4}} \\
 	\xrightarrow{k_{5}} C	
 \end{align*}
-To indicate interaction with the "outside" world.
+To indicate interaction with the "outside" world (kind of like an interface to the outside world).
 Here: 	
 
 $C$ is like a "resource" molecule.
 
-$A$, $B$ \textbf{autocatalyze} themselves with $C$.
-
-\hfill\break
-//TODO: Defineste si ce e ala un open closed network, autocalalyzation etc.
-\hfill\break
+$A$, $B$ \textbf{autocatalyze} themselves with $C$, so they produce themselves as they go, until they use $C$ up and one of them ends up on top, depending on their initial concentrations, so this system would also be \textbf{bistable}.
 
 This system would look like:
 \begin{align*}
@@ -226,10 +222,6 @@ As you can see this is the same as \ref{1st_example_dyn_system}, I just didn't u
 	\end{cases*}
 \]
 
-\hfill\break
-//TODO: poti sa scrii in general de ce ala un interaction graph din cartea aia de-ai gasit-o, si dupa sa zici ca poza aia de-o punem la phorolylation de-hpoysohp e un interaction graph pt networku asta: gen
-\hfill\break
-
 \textbf{Interaction graphs}\footcite{Derbez2015}: Every chemical reaction network has its corresponding interaction graph, formed of the following basic structure.
 
 Two intersecting arrows mean a sum of the reacting / produced species.
@@ -238,7 +230,7 @@ So for a reaction of the form
 \begin{align*}
 	A + B \xrightarrow{k_{1}} C + D
 \end{align*}
-Its interaction graph is:
+Its interaction graph would be:
 \input{interaction-graphs/prim.tex}
 We'll use these kinds of figures in later chapters, when talking about more specific CRN's.
 But one thing that's certain is these CRN's can also be modeled by: \ldots
