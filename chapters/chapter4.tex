@@ -937,10 +937,10 @@ And finally, removing the $2$ complexes $FS_1$,$KS_0$ and their corresponding $2
 We get the system which we'll end up analysing, again, as before knowing that if we are to find a bifurcation in \ref{network3_irr_ss} - this extra-extra simplification - then that would also be the case for \ref{network3_irr_s} $\implies$ \ref{network3_irr} $\implies$ \ref{network3}.
 
 (\ref{network3_irr_ss})'s system of equations is:
-\[
+\begin{equation}\label{last_dyn_sys}
 	\begin{aligned}&\dot{x}_1(t)=-k_1x_1(t)+k_5x_4(t)\\&\dot{x}_2(t)=k_1x_1(t)-k_2x_2(t)\\&\dot{x}_3(t)=k_2x_2(t)-k_3x_3(t)x_4(t)\\&\dot{x}_4(t)=-k_3x_3(t)x_4(t)+k_4x_5(t)\\&\dot{x}_5(t)=k_3x_3(t)x_4(t)-k_4x_5(t).
 	\end{aligned}
-\]
+\end{equation}
 Using \ref{jacobian_convex_params} to get the convex-parametered Jacobian:
 \[
 	J_{\text{\ref{network3_irr_ss}}}(h,\lambda)=
@@ -960,22 +960,32 @@ into \ref{flux_cone} $\implies$
 	k_1x_1=k_2x_2=k_3x_3x_4=k_4x_5=k_5x_4=\lambda.
 \]
 We can flip these around like so
-\[
+\begin{equation}\label{last_jacobian}
 	x_{1}=\frac{\lambda}{k_{1}},x_{2}=\frac{\lambda}{k_{2}},x_{3}=\frac{\lambda}{k_{3}x_{4}},x_{4}=\frac{\lambda}{k_{5}},x_{5}=\frac{\lambda}{k_{4}}.
-\]
+\end{equation}
+
 And only couting $x_4 = \frac{\lambda}{\kappa_5}$ as a principal, we get $\lambda = \kappa_5 x_4 \implies$
-\[
+\begin{equation}\label{last_char_poly}
 	x =
-	\left(\frac{k_5x_4}{k_1},\frac{k_5x_4}{k_2},\frac{k_5}{k_3},x_4,\frac{k_5x_4}{k_4}\right).
-\]
+	\left(\frac{k_5x_4}{k_1},\frac{k_5x_4}{k_2},\frac{k_5}{k_3},x_4,\frac{k_5x_4}{k_4}\right).	
+\end{equation}
 We can get our $\kappa$'s from \ref{k_convert_back_from_convex}
 \begin{gather*}
 	\kappa =
 	\left(h_1 \lambda, h_2 \lambda, h_3 h_4 \lambda, h_5 \lambda, h_4 \lambda\right), \\
-	h =
 	\left(h_1, h_2, h_3, h_4, h_5\right)
-	= \frac{1}{x}
+	= h = \frac{1}{x}
 \end{gather*}
+Take \ref{last_dyn_sys}, \ref{last_jacobian}, \ref{last_char_poly} and considering $\lambda^*$, $h^* :$
+\begin{itemize}
+	\item \rom{1} $\det H3(h^*, \lambda^*) = 0 \text{ and } a4(h^*, \lambda^*) > 0,$
+	\item \rom{2} $\det H_1(h^*,\lambda^*)>0\quad\mathrm{and}\quad\det H_2(h^*,\lambda^*)>0,$
+
+		With $H_i$ being the Hurwitz matrices coming from $a_0(h,\lambda^*), \ldots, a_4(h, \lambda^*)$ of \ref{last_char_poly}.
+		Then $\exists$ simple Hopf bifurcaton $\forall \lambda>0$ at $h = h^*$ if, as well:
+
+	\item \rom{3} $\exists i\in\{1,\ldots,5\}\text{ s.t. }\left.\frac{\partial\det H_3(h,\lambda)}{\partial h_i}\right|_{(h^*,\lambda)}\neq0.$ (transversality)
+\end{itemize}
 
 \hfill\break
 //TODO sa nu uiti sa schimbi din $k$ basic sa faci $\kappa$ la toate
