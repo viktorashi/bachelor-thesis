@@ -1,4 +1,4 @@
-## TODO incearca sa te pui sa faci tu poze in maple cu cod original sa inlocuiesti toate pozele care sunt acolo de pe la ce surse sunt 
+
 
 ######## am citat deja / nici nu prea e nevoie sa le citez #############
 https://www.math.ucdavis.edu/~hunter/m207/m207.pdf
@@ -90,3 +90,4 @@ Medley et al. (2018). "Tellurium notebooks—An environment for reproducible dyn
 ### APLICATIE ###########
       Choi et al. (2018). "Tellurium: An extensible python-based modeling environment for systems and synthetic biology." Biosystems, 171, 74-79.
 ### APLICATIE ###########
+## TOcompletedDO incearca sa te pui sa faci tu poze in maple cu cod original sa inlocuiesti toate pozele care sunt acolo de pe la ce surse sunt 
