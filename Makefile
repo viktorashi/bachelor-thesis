@@ -34,4 +34,4 @@ clean_indent:
 
 # verifica unused citationsurile
 unused-citations:
-	checkcites --unused --backend biber build/main.bcf
+	checkcites --backend biber build/main.bcf
