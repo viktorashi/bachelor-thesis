@@ -52,3 +52,11 @@ sau poti direct cu latexindent care il are cam toata lumea
 ```bash
     make indent
 ```
+
+### BONUSSS
+
+poti sa verifici daca o referinta din bibliografie chiar a fost referita sau nuu cu
+
+```bash
+checkcites --unused --backend biber build/main.bcf
+```

@@ -26,3 +26,5 @@ clean_indent:
 	rm -rf build/chapters
 
 
+check-cites:
+	checkcites --unused --backend biber build/main.bcf
