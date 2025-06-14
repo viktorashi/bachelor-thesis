@@ -1,10 +1,12 @@
 .PHONY: indent
 
 luatex:
-	latexmk -f -synctex=1 -interaction=nonstopmode \
+	TERM=xterm-256color latexmk -f -shell-escape -synctex=1 \
+		 -interaction=nonstopmode \
                  -file-line-error \
                  -lualatex \
-                 -outdir=build \
+		 -quiet \
+                 -outdir=build/ \
                  main.tex \
 
 #da clean up la tot ce e in build in sine, da nu la folder
@@ -31,5 +33,5 @@ clean_indent:
 
 
 # verifica unused citationsurile
-check-cites:
+unused-citations:
 	checkcites --unused --backend biber build/main.bcf
