@@ -935,3 +935,48 @@ And finally, removing the $2$ complexes $FS_1$,$KS_0$ and their corresponding $2
 \end{align}
 
 We get the system which we'll end up analysing, again, as before knowing that if we are to find a bifurcation in \ref{network3_irr_ss} - this extra-extra simplification - then that would also be the case for \ref{network3_irr_s} $\implies$ \ref{network3_irr} $\implies$ \ref{network3}.
+
+(\ref{network3_irr_ss})'s system of equations is:
+\[
+	\begin{aligned}&\dot{x}_1(t)=-k_1x_1(t)+k_5x_4(t)\\&\dot{x}_2(t)=k_1x_1(t)-k_2x_2(t)\\&\dot{x}_3(t)=k_2x_2(t)-k_3x_3(t)x_4(t)\\&\dot{x}_4(t)=-k_3x_3(t)x_4(t)+k_4x_5(t)\\&\dot{x}_5(t)=k_3x_3(t)x_4(t)-k_4x_5(t).
+	\end{aligned}
+\]
+Using \ref{jacobian_convex_params} to get the convex-parametered Jacobian:
+\[
+	J_{\text{\ref{network3_irr_ss}}}(h,\lambda)=
+	\begin{bmatrix}-\lambda h_{1}&0&0&\lambda h_{4}&0\\\lambda h_{1}&-\lambda h_{2}&0&0&0\\0&\lambda h_{2}&-\lambda h_{3}&-\lambda h_{4}&0\\0&0&-\lambda h_{3}&-\lambda h_{4}&\lambda h_{5}\\0&0&\lambda h_{3}&\lambda h_{4}&-\lambda h_{5}
+	\end{bmatrix}.
+\]
+And its char. poly.:
+\[
+	det(zI-J_A(h,\lambda))=z[a_0(h,\lambda)z^4+a_1(h,\lambda)z^3+a_2(h,\lambda)z^2+a_3(h,\lambda)z+a_4(h,\lambda)].
+\]
+We may find that this is also a network with only one extreme ray, namely $E^T = \left(1,1,1,1,1\right)$. Using
+\[
+	v(k,x^*)=(k_1x_1,k_2x_2,k_3x_3x_4,k_4x_5,k_5x_4)^T.
+\]
+into \ref{flux_cone} $\implies$
+\[
+	k_1x_1=k_2x_2=k_3x_3x_4=k_4x_5=k_5x_4=\lambda.
+\]
+We can flip these around like so
+\[
+	x_{1}=\frac{\lambda}{k_{1}},x_{2}=\frac{\lambda}{k_{2}},x_{3}=\frac{\lambda}{k_{3}x_{4}},x_{4}=\frac{\lambda}{k_{5}},x_{5}=\frac{\lambda}{k_{4}}.
+\]
+And only couting $x_4 = \frac{\lambda}{\kappa_5}$ as a principal, we get $\lambda = \kappa_5 x_4 \implies$
+\[
+	x =
+	\left(\frac{k_5x_4}{k_1},\frac{k_5x_4}{k_2},\frac{k_5}{k_3},x_4,\frac{k_5x_4}{k_4}\right).
+\]
+We can get our $\kappa$'s from \ref{k_convert_back_from_convex}
+\begin{gather*}
+	\kappa =
+	\left(h_1 \lambda, h_2 \lambda, h_3 h_4 \lambda, h_5 \lambda, h_4 \lambda\right), \\
+	h =
+	\left(h_1, h_2, h_3, h_4, h_5\right)
+	= \frac{1}{x}
+\end{gather*}
+
+\hfill\break
+//TODO sa nu uiti sa schimbi din $k$ basic sa faci $\kappa$ la toate
+\hfill\break
