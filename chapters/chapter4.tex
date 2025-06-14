@@ -648,7 +648,7 @@ Defined by these reactions:
 \end{align}
 We'll look into just the irreversible sub-network, though.
 \begin{align}\label{network2_irr}
-	S_{00} + K \xrightarrow{\kappa_1} KS_{00} \xrightarrow{\kappa_3} S_{10} + K \xrightarrow{\kappa_4} KS_{10} \xrightarrow{\kappa_6} S_{11} + K \tag{$\mathcal{N}_3$}
+	S_{00} + K \xrightarrow{\kappa_1} KS_{00} \xrightarrow{\kappa_3} S_{10} + K \xrightarrow{\kappa_4} KS_{10} \xrightarrow{\kappa_6} S_{11} + K \tag{$\mathcal{N}_2 / IR$}
 	\\
 	S_{11} + F \xrightarrow{\kappa_7} FS_{11} \xrightarrow{\kappa_9} S_{01} + F \xrightarrow{\kappa_{10}} FS_{01} \xrightarrow{\kappa_{12}} S_{00} + F \ \notag
 \end{align}
@@ -665,7 +665,7 @@ $\mathcal{N}_2$:
 		\dot{x}_1&=-\kappa_{1}x_{1}x_{3}-\kappa_{4}x_{1}x_{4}+(\kappa_{2}+\kappa_{3})x_{7}+(\kappa_{5}+\kappa_{6})x_{8}\\\dot{x}_2&=-\kappa_{10}x_{2}x_{5}-\kappa_{7}x_{2}x_{6}+(\kappa_{8}+\kappa_{9})x_{10}+(\kappa_{11}+\kappa_{12})x_{9}\\\dot{x}_3&=-\kappa_1x_1x_3+\kappa_2x_7+\kappa_{12}x_9\\\dot{x}_4&=-\kappa_4x_1x_4+\kappa_3x_7+\kappa_5x_8\\\dot{x}_5&=-\kappa_{10}x_2x_5+\kappa_9x_{10}+\kappa_{11}x_9\\\dot{x}_6&=-\kappa_7x_2x_6+\kappa_8x_{10}+\kappa_6x_8\\\dot{x}_7&=-(\kappa_2+\kappa_3)x_7+\kappa_1x_1x_3\\\dot{x}_8&=-(\kappa_5+\kappa_6)x_8+\kappa_4x_1x_4\\\dot{x}_9&=-(\kappa_{11}+\kappa_{12})x_9+\kappa_{10}x_2x_5\\\dot{x}_{10}&=-(\kappa_8+\kappa_9)x_{10}+\kappa_7x_2x_6
 	\end{aligned}
 \]
-$\mathcal{N}_3$:
+$\mathcal{N}_2 / IR$:
 \[
 	\begin{aligned}
 		\dot{x}_{1} &= -\kappa_{1} x_{1} x_{3} - \kappa_{4} x_{1} x_{4} + \kappa_{3} x_{7} + \kappa_{6} x_{8},\\
@@ -897,7 +897,7 @@ There we have, a "visual" proof, you could say.
 \hfill\break
 
 \textbf{Example 3}:
-Now let us apply the same intuition for the following network $(\mathcal{N}_4)$.
+Now let us apply the same intuition for the following network (\ref{network3}).
 
 \hfill\break
 //TODO: zice in prezentare cum se face asta (provine din una care provine din alta, poti sa le iei asa chaingin sa zici dupa alta)
@@ -909,7 +909,7 @@ Now let us apply the same intuition for the following network $(\mathcal{N}_4)$.
 \end{figure}
 Its chemical reaction network is:
 \begin{align}\label{network3}
-	S_0+K &\xrightleftharpoons[k_2]{k_1} KS_0 \xrightarrow{k_3} S_1 + K \xrightleftharpoons[k_5]{k_4} KS_1 \xrightarrow{k_6} S_2 + K \tag{$\mathcal{N}_4$}
+	S_0+K &\xrightleftharpoons[k_2]{k_1} KS_0 \xrightarrow{k_3} S_1 + K \xrightleftharpoons[k_5]{k_4} KS_1 \xrightarrow{k_6} S_2 + K \tag{$\mathcal{N}_3$}
 	\\
 	S_2+F &\xrightleftharpoons[k_8]{k_7} FS_2 \xrightarrow{k_9} S_0 + F \notag
 \end{align}
