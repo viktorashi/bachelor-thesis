@@ -826,7 +826,7 @@ Where though? This is where the second part of the problem comes in.
 	\item \rom{5} Using these to verify \ref{bifurcation_transversality_condition}:
 		\begin{align*}
 			h^* =
-			\begin{bmatrix}
+			\begin{pmatrix}
 				14.8 \\
 				14.8 \\
 				14.8 \\
@@ -837,7 +837,7 @@ Where though? This is where the second part of the problem comes in.
 				1 \\
 				2 \\
 				1
-			\end{bmatrix}
+			\end{pmatrix}
 		\end{align*}
 	\item \rom{6} Taking $t > t^*$, say $15$, and solving for \ref{k_convert_back_from_convex} and $x = \frac{1}{h}$:
 		\begin{align}
@@ -847,13 +847,57 @@ Where though? This is where the second part of the problem comes in.
 			&= (t^{2},1,t,1,t^{2},1,t,2)
 		\end{align}
 \end{itemize}
-Considering $\lambda = 1$ and putting these into \href{https://github.com/viktorashi/Open-CoNtRol}{the app} we get the following graphs:
+Considering $\lambda = 1$ and putting these into \href{https://github.com/viktorashi/Open-CoNtRol}{the app} we get something that looks like:
+\begin{figure}[H]
+	\includegraphics[width=13cm]{math_pics/oscillations.png}
+	\centering
+	\label{fig:x3_x6_osccilations}
+	\caption{Oscillations of $S00, S11$}
+\end{figure}
+
+They're oscillating! We've found a bifurcation point!
+
+But wait, in the beginning we reduced our system from \ref{network2} to \ref{network2_irr}, taking the reversible reactions with us. But luck would have it that \cite{banaji2017} shows that adding a reaction who's reaction vector is a linear combination of the other reactions, and hence preserves rank$\Gamma$ does, in fact mean the resulting system preserves its capacity for bifurcations.
+
+So adding back
+\begin{gather*}
+	KS_{00} \xrightarrow{k_2} K \\
+	KS_{10} \xrightarrow{k_5} S_{10} + K \\
+	FS_{11} \xrightarrow{k_8} S_{11} + F \\
+	FS_{01} \xrightarrow{k_{11}} S_{01} + F
+\end{gather*}
+Into our system, we obtain bifurcation parameters and initial conditions for which oscillations occur, namely:
+\[
+	x =
+	\begin{bmatrix*}
+		0.0885267\\
+		0.0528367\\
+		0.0496013\\
+		0.74587\\
+		1.261\\
+		0.084892\\
+		0.97124\\
+		1.0069\\
+		0.49383\\
+		1.02
+	\end{bmatrix*}
+\]
+and $k$ as before, but with the extra reaction rates being simply a constant we can vary to see how the system looks $k_b = k_5 = k_2 = k_{11} = k_8$. Thus we get:
+
+\begin{figure}[H]
+	\includegraphics[width=13cm]{math_pics/oscillations-full-network.png}
+	\centering
+	\label{fig:full_net_oscillations}
+	\caption{Oscillations of the full \ref{network1} network}
+\end{figure}
+
+There we have, a "visual" proof, you could say.
 
 \hfill\break
 \hfill\break
 
 \textbf{Example 3}:
-Now let us apply the same method and intuition for the following network $(\mathcal{N}_4)$.
+Now let us apply the same intuition for the following network $(\mathcal{N}_4)$.
 
 \hfill\break
 //TODO: zice in prezentare cum se face asta (provine din una care provine din alta, poti sa le iei asa chaingin sa zici dupa alta)
@@ -867,7 +911,7 @@ Its chemical reaction network is:
 \begin{align}\label{network3}
 	S_0+K &\xrightleftharpoons[k_2]{k_1} KS_0 \xrightarrow{k_3} S_1 + K \xrightleftharpoons[k_5]{k_4} KS_1 \xrightarrow{k_6} S_2 + K \tag{$\mathcal{N}_4$}
 	\\
-	S_2+F &\xrightleftharpoons[k_8]{k_7} FS_2 \xrightarrow{k_9} S_0 + F \notag \xrightarrow{k_{10}} S_0 + F
+	S_2+F &\xrightleftharpoons[k_8]{k_7} FS_2 \xrightarrow{k_9} S_0 + F \notag
 \end{align}
 \textbf{Remark 3:} $(a)$ Here the system is composed of $8$ species: The two enzymes like before, $K$ and $F$, but $K$ not phosphorylates up to $S_2$ and hence forms the complexes $KS_0$, $KS_1$ as well, so as a consequence, now $F$ \textbf{de}-phosphorylates starting from $FS_2$, and because the network is cyclic, it skips directly to the disassociated relation $S_0 + F$.
 
