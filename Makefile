@@ -6,6 +6,10 @@ luatex:
                  -lualatex \
                  -outdir=build \
                  main.tex \
+
+#da clean up la tot ce e in build in sine, da nu la folder
+clean-build:
+	yes | rm -rf build/*
  
 # sa fie toate in mod normal igig sa le formateze
 FILES = chapters/*.tex
@@ -26,5 +30,6 @@ clean_indent:
 	rm -rf build/chapters
 
 
+# verifica unused citationsurile
 check-cites:
 	checkcites --unused --backend biber build/main.bcf

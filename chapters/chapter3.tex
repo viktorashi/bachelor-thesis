@@ -15,7 +15,7 @@ Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega
 This would be what's called the implicit form of the differential equation.
 
 \begin{definition}
-	\textit{The \textbf{order} of an ODE is the highest order of the derivative present in the equation.}
+	\textit{The highest derivative found in the equation is the \textbf{order} of an ODE.}
 \end{definition}
 In our case, the order is $n$.
 If, however $F$ satisfies the regularity condition \textbf{of the implicit function theorem} then the equation can be written in a much more digestible form.
@@ -23,6 +23,36 @@ If, however $F$ satisfies the regularity condition \textbf{of the implicit funct
 The \textbf{implicit function theorem} allows one to convert a relation (implicit form) to functions of some variables. These functions may not be unique, but together, their graph may locally satisfy the relation.
 
 As an example: The relation for a cardioid cannot be expressed as a sole function, we'd instead need the union of the graph of two separate functions for expressing it.
+
+Here is a piece of Maple code that draws that cardioid, for example.
+
+\begin{minted}[
+    linenos,
+    frame=single,
+    bgcolor=yellow!5!white,
+    fontsize=\footnotesize
+]{maple}
+eq := x^2 - 4 = 0;
+solve(eq, x);
+
+expr := (a^2 - b^2) / (a - b);
+simplify(expr);
+
+with(LinearAlgebra):
+M := Matrix([[1,2],[3,4]]);
+Eigenvalues(M);
+
+# A multi-line string example
+s := "Hello
+      World";
+\end{minted}
+
+% Whose output is
+% \begin{align*}
+% 	a\coloneqq 1 \\
+% 	\textit{x\_}t\coloneqq t\hiderel{\mapsto }a\cdot \left(1+\cos \left(t\right)\right)\cdot \cos \left(t\right) \\
+% 	\textit{y\_}t\coloneqq t\hiderel{\mapsto }a\cdot \left(1+\cos \left(t\right)\right)\cdot \sin \left(t\right)
+% \end{align*}
 
 \hfill\break
 //TODO:
