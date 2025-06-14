@@ -920,4 +920,18 @@ By the same results used in \ref{network2}, we go $1$ level up the simplificatio
 	S_{2} + F \xrightarrow{\kappa_4} FS_{2} \xrightarrow{\kappa_5} S_1 + F \xrightarrow{\kappa_6} FS_1 \xrightarrow{\kappa_{7}} S_0 + F \notag
 \end{align}
 
-By the results used previously, we find that if this network is to have bifurcations, then adding the inverse reactions back would mean \ref{network3} also does. Going up $1$ more level, using \textbf{Theorem 3.2} from \cite{banaji2017} we see that we can
+By the results used previously, we find that if this network is to have bifurcations, then adding the inverse reactions back would mean \ref{network3} also does. Going up $1$ more level, using \textbf{Theorem 3.2} from \cite{banaji2017} we see that performing a stoichiometry matrix rank preserving operation of removing species $S_1$ and $K$, then we get network:
+\begin{align}\label{network3_irr_s}
+	S_{0} \xrightarrow{\kappa_1} KS_{0} \xrightarrow{\kappa_2} K S_1 \xrightarrow{\kappa_3} S_2 \tag{$\mathcal{N}_3 / IR / S$} \\
+	S_{2} + F \xrightarrow{\kappa_4} FS_{2} \xrightarrow{\kappa_5} F \xrightarrow{\kappa_6} FS_1 \xrightarrow{\kappa_{7}} S_0 + F \notag
+\end{align}
+
+which - as previously - if it's to admit bifurcations, then \ref{network3_irr} would have them as well.
+
+And finally, removing the $2$ complexes $FS_1$,$KS_0$ and their corresponding $2$ reactions through a simmilar opperation \cite{banaji2017}, this time dipping from rank $\Gamma_{\text{\ref{network3_irr_s}}}$ = 6 to rank $\Gamma_{\text{\ref{network3_irr_ss}}}$ = 4
+\begin{align}\label{network3_irr_ss}
+	S_{0} \xrightarrow{\kappa_1} KS_{1} \xrightarrow{\kappa_2} S_2 \tag{$\mathcal{N}_3 / IR / SS$} \\
+	S_{2} + F \xrightarrow{\kappa_3} FS_{2} \xrightarrow{\kappa_4} F \xrightarrow{\kappa_{5}} S_0 + F \notag
+\end{align}
+
+We get the system which we'll end up analysing, again, as before knowing that if we are to find a bifurcation in \ref{network3_irr_ss} - this extra-extra simplification - then that would also be the case for \ref{network3_irr_s} $\implies$ \ref{network3_irr} $\implies$ \ref{network3}.
