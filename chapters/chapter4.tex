@@ -364,15 +364,15 @@ So we may write the Jacobian using this new coordinate system, which in turn mak
 We could, of course turn this convex vector back into the regular coordinate system:
 
 Given:
-\begin{gather*}
-	(h,\lambda) \Downarrow \\
+\begin{gather}\label{k_convert_back_from_convex}
+	(h,\lambda) \Downarrow \notag \\
 	\text{Let  } x^* \in \mathbb{R}^n , \boxed{
 		x^*_i = \frac{1}{h_i} , i = \overline{1,n}
-	} \\
+	} \notag \\
 	\boxed{
 		k = \text{diag}(\Psi(h)) E \lambda \in \mathbb{R}^r_{> 0}
  }
-\end{gather*}
+\end{gather}
 
 There is one particular case that is of interest to us, though.
 
@@ -717,17 +717,17 @@ with $rank(J_\lambda(h)) = 7$ and characteristic polynomial is of the form:
 \]
 With $b_i(h)$ from char. poly of $J_1(h)$.
 Now, constructing the Hurwitz matrices $G_i(h), i = \overline{1,6}$. Assume that at a fixed $h = h^*$ the following occur.
-\[
+\begin{equation}\label{bifurcation_main_condition}
 	\begin{aligned}
 		b_{7}(h^{*})&>0 \text{ and } \\
 		\det(G_1(h^*))&>0,\ldots,\det(G_5(h^*))>0 \text{ and }\\
 		\det(G_6(h^*))&=0.
 	\end{aligned}
-\]
-then, if additionally:
-\[
+\end{equation}
+Then, if additionally:
+\begin{equation}\label{bifurcation_transversality_condition}
 	\exists l\in\{1,\ldots,10\} : \frac{\partial\det(G_6)}{\partial h_l}|_{h=h^*}\neq0\quad.
-\]
+\end{equation}
 
 \ref{network2_irr} has a simple Hopf bifurcation at $h = h^*, \forall \lambda > 0$.
 
@@ -789,21 +789,65 @@ By treating $G_6(h)$ like an $h_1, h_2, h_3 \text{ and }, h_6$ polynomial, we ob
 	h_{10}h_7 - h_8 h_9
 \]
 pops out. Now we might want to make the monomials whose factors are that, dominant, by performing the restriction / transformation;
-\[
+\begin{equation}\label{h_substitution}
 	h_1\to t,h_2\to t,h_3\to t,h_6\to t.
-\]
+\end{equation}
 Now we represent $\det G_6(h)$ as a polynomial of variable $t$ with coefficients in all other h's:
-\[
+\begin{equation}\label{6th_hurwitz_det}
 	\begin{aligned}
 		\det G_6(t)
 		&=324t^{18}(h_{10}+h_7)(h_{10}h_7-h_8h_9)+\ldots\\&+h_{10}h_4h_5h_7h_8h_9\\&\cdot(h_{10}+h_4)(h_{10}+h_5)(h_{10}+h_7)(h_{10}+h_8)(h_{10}+h_9)\\&\cdot(h_4+h_5)(h_4+h_7)(h_4+h_8)(h_4+h_9)\\&\cdot(h_5+h_7)(h_5+h_8)(h_5+h_9)\\&\cdot(h_7+h_8)(h_7+h_9)\\&\cdot(h_8+h_9).
-	\end{aligned}
-\]
-Since the only $minuses$ that might pollute its positivity are in the "$324 t^{18}$" term $\implies \det G_6(0) > 0$, so if $h_{10}h_{7} - h_{8}h_{9} < 0, \implies \exists t_1 > 0 : \det G_6(t_1) = 0, \det G_6(t) < 0, \forall t > t_1$ by the Intermediate Value Theorem, meaning it passes $0$.
+	\end{aligned}	
+\end{equation}
+Since the only $minuses$ that might pollute its positivity are in the "$324 t^{18}$" term $\implies \det G_6(0) > 0$, so if
+\begin{gather}\label{bif_ineq_condition}
+	h_{10}h_{7} - h_{8}h_{9} < 0 \\
+	\Downarrow \notag \\
+	\exists t_1 > 0 : \det G_6(t_1) = 0, \det G_6(t) < 0, \forall t > t_1 \notag
+\end{gather}
+by the Intermediate Value Theorem, meaning it passes $0$.
 
 So it means we've shown a root exists for $\det G_6(h)$, and hence a Hopf bifurcation may occur in the system.
 
 Where though? This is where the second part of the problem comes in.
+
+\begin{itemize}
+	\item \rom{1} We may experimentally just pick and choose values that verify	\ref{bifurcation_main_condition} and \ref{bif_ineq_condition}, for exmaple, \cite{conradi2024} did $ h_9 = 2, h_8 = h_7 = h_{ 10 } = 1$
+	\item \rom{2} $\forall h_4, h_5 > 0$, like $h_5 = h_4 = 1$
+	\item \rom{3} Now taking \ref{h_substitution} along with the previous values and using them in \ref{6th_hurwitz_det} we get
+		\begin{gather*}
+			497664+10946304t+103721056t^{2}+579850652t^{3}+2169242876t^{4} \\
+			+5787611019t^{5}+113986711182t^{6}+16865933820t^{7} \\
+			+18863357157t^{8}+15900121640t^{9}+9989687485t^{10} \\
+			+4589099030t^{11}+1497364081t^{12}+331280824t^{13} \\
+			+45135703t^{14}+2794428t^{15}-85122t^{16}-20304t^{17}-648t^{18}=0	
+		\end{gather*}
+	\item \rom{4} Now taking its root $\implies t^* \approx 14.8$
+	\item \rom{5} Using these to verify \ref{bifurcation_transversality_condition}:
+		\begin{align*}
+			h^* =
+			\begin{bmatrix}
+				14.8 \\
+				14.8 \\
+				14.8 \\
+				1 \\
+				1 \\
+				14.8 \\
+				1 \\
+				1 \\
+				2 \\
+				1
+			\end{bmatrix}
+		\end{align*}
+	\item \rom{6} Taking $t > t^*$, say $15$, and solving for \ref{k_convert_back_from_convex} and $x = \frac{1}{h}$:
+		\begin{align}
+			h &= \left(15,15,15, 1,1,15,1,1,2,1\right)^T \\
+			x &= \left( \frac{1}{15},\frac{1}{15},\frac{1}{15},1,1,\frac{1}{15},1,1,\frac{1}{2},1 \right)^T \\
+			k &= \left( 225 \lambda, \lambda, 15\lambda, 225\lambda, \lambda, 15\lambda, 2\lambda  \right) \\
+			&= (t^{2},1,t,1,t^{2},1,t,2)
+		\end{align}
+\end{itemize}
+Considering $\lambda = 1$ and putting these into \href{https://github.com/viktorashi/Open-CoNtRol}{the app} we get the following graphs:
 
 \hfill\break
 \hfill\break
