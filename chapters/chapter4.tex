@@ -987,6 +987,31 @@ Take \ref{last_dyn_sys}, \ref{last_jacobian}, \ref{last_char_poly} and consideri
 	\item \rom{3} $\exists i\in\{1,\ldots,5\}\text{ s.t. }\left.\frac{\partial\det H_3(h,\lambda)}{\partial h_i}\right|_{(h^*,\lambda)}\neq0.$ (transversality)
 \end{itemize}
 
+Well, for one, we know that
+\[
+	\forall h > 0 : a_{0}(h,\lambda)>0,\ldots,a_{4}(h,\lambda)>0\quad \text{ and } \quad\det H_{1}(h,\lambda)>0,\det H_{2}(h,\lambda)>0.
+\]
+All that's left is $H_3$. Treating $\lambda, h_3, h_4 > 0$ as some constants and $h_2 = h_5 = h_1 = t \implies h(t)^T = (t,t,h_3,h_4,t)$ we get
+\begin{align*}
+	\det \text{H}_3 &=
+	t^2 \lambda^6
+	(
+		8t^4 + 24t^3h_3 + 16t^3h_4 + 24t^2h_3^2 + \\
+		23t^2h_3h_4+ 10t^2h_4^2 + 8th_3 \\
+		+ 10th_3^2h_4 + 4th_3h_4^2 +
+		2th_4^3 - h_3h_4 - 2h_3^2h_4^2 - h_3h_4^3
+	) \\
+	&= 	t^2 \lambda^6 \cdot g(t)
+\end{align*}
+By the same logic as in \ref{bif_ineq_condition}, noticing $\frac{ d g(t) }{dt} > 0, \forall t > 0,  g(0) < 0, \lim_{t \rightarrow \infty}  g(t) = \infty \implies \exists t_1 > 0 \text{ s.t. }  g(t_1) = 0$.
+Also, $\frac{d  \det \text{H}_3(t) }{dt} = 2 t \lambda^6 g(t) + t^2 \lambda^6 g'(t) \implies \frac{d  \det \text{H}_3(t) }{dt} |_{t = t_1}  = t_1^2 \lambda^6 g'(t_1) > 0,$ since $t_1 > 0; \lambda > 0$ and $g'(t_1) > 0$
+
+Meaning \ref{network3_irr_ss} undergoes a simple Hopf bifurcation for that $t_1$ and $\forall \lambda > 0$ and some $h_3, h_4 > 0$ fixed.
+
+In the section \ref{last_system_init_cond}, I'm plotting this sytem using \href{https://github.com/viktorashi/bachelor-thesis.git}{the app} for those initial conditions and rate constants, obtain simmilarly to \ref{network2}, as you can see, these also admit oscillations.
+
+Now we know system \ref{network3_irr_ss} undergoes bifurcations, which means \ref{network3_irr_s}, \ref{network3_irr} and \ref{network3} all do, respectively.
+
 \hfill\break
 //TODO sa nu uiti sa schimbi din $k$ basic sa faci $\kappa$ la toate
 \hfill\break
