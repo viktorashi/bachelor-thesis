@@ -361,7 +361,7 @@ Starting from any autonomous differential equation
 \[
 	f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0
 \]
-via a technique which associates to each respective derivative a state unknown (variable). (first got a friendlty introduction to this by Steve Brunton on his lectures at the University of Washington \cite{eigensteve})
+via a technique which associates to each respective derivative a state unknown (variable). (first got a friendly introduction to this by Steve Brunton on his lectures at the University of Washington \cite{eigensteve})
 This system's form depends on the solvability with respect to the highest derivative $y^{(n)}$.
 The first form may be obtained if the above equation \textbf{can} be solved in terms of $y^{(n)}$, meaning it can be re-written as
 \begin{gather*}
@@ -542,7 +542,7 @@ so
 	\end{bmatrix}
 	\underline{x}(0)
 \end{align*}
-Where I use $\underline{x}$ to denote the \textbf{vector form} of a the state-space vars.
+Where I use $\underline{x}$ to denote the \textbf{vector form} of the state-space vars.
 In conclusion, it'd be ideal for us to work with such \textbf{diagonal} matrices.
 
 There are, however situations when we don't have that luxury, so we could instead \textbf{transform} the way we write our $x$'s (and hence, our transformation as well) in order for us \textbf{diagonalize} our system. This would decouple the system and simplify the computations.
@@ -681,7 +681,7 @@ Which plots:
 \label{fig:damped-pendulum}
 \end{figure}
 
-We can observe that the pendulum will not move an inch if it is just left in its "equilibrium" point hanging down ($\omega \equiv \theta \equiv 0$), but that like a coin left on its side, it will also stay still if started at the \textbf{polar} opposite angle in relation to the stability angle ($\omega =0 , \theta = 180 \degree)$, standing up.
+We can observe that the pendulum will not move an inch if it is just left in its "equilibrium" point hanging down ($\omega \equiv \theta \equiv 0$), but that like a coin left on its side, it will also stay still if started at the \textbf{polar} opposite angle in relation to the stability angle $(\omega =0 , \theta = 180^\degree)$, standing up.
 Although, like a coin left standing on its side, even the slightest deviation will get it tumbling down. This can be observed in the system's phase portrait.
 
 \newpage
@@ -777,7 +777,7 @@ If $f \in C^\infty(\mathbb{R}^n) $, the Taylor about $y_f$:
 \underline{f}(y) = \underline{f}(y_f) + \left. \frac{d \underline{f}}{dy} \right|_{y_f}(y - y_f) + \mathfrak{H}(y - y_f) = J_{\underline{f}}(y_f)(y - y_f) + \mathfrak{H}(y - y_f) \tag{Taylor}
 \end{equation}
 
-$\mathfrak{H}$ is the rest of Taylor's terms which, for values near the one we're analysing can be neglected since everything looks like a line when you're that zoomed-in eitherway.
+$\mathfrak{H}$ is the rest of Taylor's terms which, for values near the one we're analysing can be neglected since everything looks like a line when you're that zoomed-in either way.
 
 $J_{\underline{f}}(y_f)$ is the Jacobian matrix of $\underline{f}$ evaluated at point $y_f$.
 
@@ -873,7 +873,7 @@ a_0 \lambda^n + a_1 \lambda^{n-1} + \dots + a_{n-1}\lambda + a_n = 0
 To infer the system's stability, as in check
 $ Re(\lambda_0) < 0$,
 
-but can instead instead just simply look at the coefficients of
+but can instead just simply look at the coefficients of
 \ref{lin_apporx_char_equation}: $a_{i}$ to verify it.
 
 To do this he used:
@@ -972,7 +972,7 @@ R := \bigcup_{i \in \left\{ 1, \dots, m-1 \right\} } p_i^{-1}(0) \\
 Hence we have:
 \begin{lemma}\label{sturm_lemma}
 For a seq. of $  (p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]$
-that satifies:
+that satisfies:
 
 \rom{1}
 $ deg(p_0) > deg(p_1), $
@@ -1095,7 +1095,7 @@ Meaning the system is stable.
 
 $arg(p_0,p_1) = 360^\degree - arg(\text{Re}(p),
 \text{Im}(p)) \implies \frac{n}{2}$ positive rotations of $p(ix)$ are
-bascially $\frac{n}{2}$ neg. rot. of $(p_0(x), p_1(x))$. If
+basically $\frac{n}{2}$ neg. rot. of $(p_0(x), p_1(x))$. If
 $Re(\lambda) < 0, \forall \lambda \in p(\lambda)^{-1}(0) \implies$ (
 from  \ref{cauchy_arg_lemma}, \ref{sturm_lemma} ) $w(\infty) - w( -
 \infty) = -n$. Could only be for $w(\infty) = 0, w(- \infty) = n$,
@@ -1133,7 +1133,7 @@ with the exception that $a_k = 0$ if $k \notin \left\{0, \dots , n\right\}$
 
 He's shown that condition \rom{2} of \ref{routh_theorem} (hence $\text{ Re }(\lambda)< 0, \forall \lambda \in p^{-1}(0)$ with $a_0 > 0$ as well) $\iff \det (H_i) \forall i = \overline{1,n}$
 
-So this is what's used to show the stability of the linear system (or linearization of a non-linear one), computing matrices of coefficients of the charracteristic polynomial, instead of having to compute Eig($J$) directly.
+So this is what's used to show the stability of the linear system (or linearization of a non-linear one), computing matrices of coefficients of the characteristic polynomial, instead of having to compute Eig($J$) directly.
 \end{theorem}
 
 We'll use this later during the section about \textbf{bifurcations} as well.
