@@ -8,7 +8,7 @@
 \usepackage{minted}
 \setminted{python3=true}
 
-\usepackage{biblatex}
+\usepackage[backend=biber]{biblatex}
 \addbibresource{references.bib}
 % sa apara in loc de numar, entry keyu
 \DeclareLabelalphaTemplate{
@@ -46,6 +46,16 @@
 \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
 \makeatother
 
+\makeatletter
+% Define a macro that loops through all ASCII characters and makes them break points
+\def\UrlEveryCharBreaks{\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z%
+	\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z%
+	\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9%
+	\do\/\do\.\do\-\do\_\do\?\do\=\do\&\do\#\do\%\do\+\do\*\do\(\do\)\do\[\do\]\do\{\do\}\do\@\do\!\do\~\do\`\do\|\do\;\do\:\do\,\do\'\do\"%
+\do\`} % Add any other special chars you might encounter
+\g@addto@macro{\UrlBreaks}{\UrlEveryCharBreaks}
+\makeatother
+
 %\geometry{a4paper,top=2.5cm,left=3cm,right=2.5cm,bottom=2.5cm}
 %in style
 %controlling the appearance of your headers and footers
@@ -76,9 +86,12 @@
 
 % pt cand vreau doar sa apara naibii figura fix acolo unde vreau
 \usepackage{float}
-\usepackage{hyperref}
 
 \usepackage{epigraph}
+
+\setcounter{biburlnumpenalty}{9000} % Allow breaks after numbers
+\setcounter{biburlucpenalty}{9000} % Allow breaks after uppercase letters
+\setcounter{biburllcpenalty}{9000} % Allow breaks after lowercase letters
 
 %Code listing style named "mystyle"
 \lstdefinestyle{mystyle}{
