@@ -98,29 +98,29 @@ Among the wall of output will also be the line showing the address your server i
 	\includegraphics[width=13cm]{app_photos/control_home_screen.png}\\
 \]
 
-You can either use this as a starting point or the page located at the \verb|/antimony| path:
-
-\[
-	\includegraphics[width=13cm]{app_photos/control_antimony_home.png}\\
-\]
-Both of these redirect to \verb|/numerical_analysis| analysing the system \ldots well, numerically.
-As an example, this Antimony code:
-
-\begin{lstlisting}
-S0 -> KS1; k1*S0
-KS1 -> S2; k2*KS1
-S2 + F -> FS2; k3*S2*F
-FS2 -> F; k4*FS2
-F -> S0 + F; k5*F
-\end{lstlisting}
-
-and its longer to write alternative:
+To start, you can either start typing equations inside those pre-aligned fields like so:
 
 \[
 	\includegraphics[width=13cm]{app_photos/creca-prima-data-cand-am-scris-asta.png}\\
 \]
 
-both yield the same numerical analysis results:
+or put the equations you're analysing:
+
+\begin{lstlisting}
+S0 -> KS1
+KS1 -> S2
+S2 + F -> FS2
+FS2 -> F
+F -> S0 + F
+\end{lstlisting}
+
+right into the \verb|textfield| that pops up when clicking "Write CRN".
+
+\[
+	\includegraphics[width=13cm]{app_photos/antimony_area.png}\\
+\]
+
+both of these options / paths yield the same numerical analysis results:
 
 \[
 	\includegraphics[width=13cm]{app_photos/numerical_analysis.png}\\
@@ -132,7 +132,7 @@ from here, one can choose from a selection of graphs they can represent given th
 	\includegraphics[width=13cm]{app_photos/tsr-input.png}\\
 \]
 
-from which we fill out the initial values of the concentrations for each species as, well as the reaction rates. So given, for example the values:\label{last_system_init_cond}
+from which we fill out the initial values of the concentrations for each species as, well as the reaction rates. As you can see, we've found oscillations for network \ref{network3_irr_ss} \label{last_system_init_cond}
 \begin{lstlisting}
     F = 0.874108
     FS2 = 7.620157734
