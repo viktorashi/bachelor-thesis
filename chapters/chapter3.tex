@@ -7,7 +7,7 @@ In order for us to be able to analyze and make assumptions about chemical reacti
 \begin{definition}
 	\textit{An \textbf{ordinary differential equation} is an equation of an unknown function of \textbf{one} variable. This can be expressed as a function \textbf{of} this unknown function, its corresponding variable and its various derivatives}.
 \end{definition}
-Its general form looks something like (see \cite{hunter2011introduction}):
+Its general form looks something like (see Hunter, John K \cite{hunter2011introduction}):
 \begin{equation}\label{ODE}
 	F(t,y(t),y'(t),....,y^{(n)}(t))=0,
 \end{equation}
@@ -16,7 +16,7 @@ Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega
 This would be what's called the implicit form of the differential equation.
 
 \begin{definition}
-	\textit{The highest derivative found in the equation is the \textbf{order} of an ODE.} (see \cite{binegar2008})
+	\textit{The highest derivative found in the equation is the \textbf{order} of an ODE.} (see Birne Binegar \cite{binegar2008})
 \end{definition}
 In our case, the order is $n$.
 If, however $F$ satisfies the regularity condition \textbf{of the implicit function theorem} then the equation can be written in a much more digestible form.
@@ -66,7 +66,7 @@ So restricting the domain $\Omega$ to one that allows the implicit form to be re
 would yield what's called the \textbf{explicit} form of the ODE.
 
 A \textbf{solution} is an expression of the unknown function $y(t)$ which satisfies the relation
-$y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$. A \textbf{general solution} (see \cite{maryland2022}) includes all of these functions and usually has some constants of integration in the expression, while a \textbf{particular solution} doesn't have them.
+$y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$. A \textbf{general solution} (see C. David Levermore et al. \cite{maryland2022}) includes all of these functions and usually has some constants of integration in the expression, while a \textbf{particular solution} doesn't have them.
 
 A particular solution is usually found if we also have some initial conditions given for the unknown function, like $y(a)=b, y'(a)=c$ for some $a,b,c \in \mathbb{R}$.
 Or, more formally:
@@ -104,7 +104,7 @@ $y(t)= (y_1(t), \dots, y_n(t))$ and $f(t,y_1(t),\dots,y_n(t)) = (f_1,\dots,f_n)$
 \end{definition}
 
 \begin{definition}
-	An \textbf{autonomous equation} \cite{Hiroki2015} is a differential equation that does not explicitly depend on time, but is instead only defined by the relation between the function itself and its derivatives, so an equation of the form
+	An \textbf{autonomous equation} (also explained really well in \cite{Hiroki2015} ) is a differential equation that does not explicitly depend on time, but is instead only defined by the relation between the function itself and its derivatives, so an equation of the form
 	\begin{equation}\label{eq:3.2.3}
 		f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0
 	\end{equation}
@@ -299,7 +299,7 @@ So keeping this in mind, we may form a formal definition:
 	\end{itemize}
 	In order to give the necessary properties of $\Phi$ we will need to also define:
 	\begin{definition}\label{dyn_sys_orbit_flow_etc_def}
-		\textbf{A lot of notions about dynamical systems.} \cite{hale1996}
+		\textbf{A lot of notions about dynamical systems.} (see Jack K. Hale \cite{hale1996})
 
 		$I(s):= \{ t \in T | (t,s) \in U \}, \forall s \in S$
 
@@ -361,7 +361,7 @@ Starting from any autonomous differential equation
 \[
 	f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0
 \]
-via a technique which associates to each respective derivative a state unknown (variable). \cite{eigensteve}
+via a technique which associates to each respective derivative a state unknown (variable). (first got a friendlty introduction to this by Steve Brunton on his lectures at the University of Washington \cite{eigensteve})
 This system's form depends on the solvability with respect to the highest derivative $y^{(n)}$.
 The first form may be obtained if the above equation \textbf{can} be solved in terms of $y^{(n)}$, meaning it can be re-written as
 \begin{gather*}
@@ -662,7 +662,7 @@ This would in turn form the phase portrait of the dynamical system, described by
 \end{cases}
 \]
 
-Here is some Maple code (more about that in the Appendix \ref{appendix}), courtesy of   \cite{georgePendulumDemo}, plotting that phase-space for $\mu =0.2 \text{ and } \sqrt{\frac{g}{L}} = 2$:
+Here is some Maple code (more about that in the Appendix \ref{appendix}), courtesy of Glyn George \cite{georgePendulumDemo}, plotting that phase-space for $\mu =0.2 \text{ and } \sqrt{\frac{g}{L}} = 2$:
 \begin{minted}[
     frame=single,
     bgcolor=yellow!5!white,
@@ -759,7 +759,7 @@ For a 2x2 Linear system with transform matrix $A$, plotting different systems by
 \begin{figure}[H]
 \includegraphics[width=13cm]{math_pics/Stability_Diagram.png}
 \centering
-\caption{Poincaré Diagram (GIMP, free adaptation of \cite{wiensStability})}
+\caption{Poincaré Diagram (GIMP, free adaptation of \cite{wiensStability} from Elmer G. Wiens)}
 \end{figure}
 
 \newpage
@@ -852,7 +852,8 @@ But another way of analyzing the stability would be by using one of
 the most fundamental tools during our study, so we'll define and show
 how to obtain:
 
-\textbf{The Routh-Hurwitz matrix and its determinants.} \cite{hairer1993Nonstiff}
+\textbf{The Routh-Hurwitz matrix and its determinants.}
+(Complete demonstrations in \cite{hairer1993Nonstiff} by Ernst Hairer et al., which I've had a blast reading)
 
 English mathematician Edward John Routh was looking at the
 (\ref{eq:lin_approx}) of
