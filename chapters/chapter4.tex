@@ -658,13 +658,13 @@ By the same results used in \ref{network3}, we go $1$ level up the simplificatio
 	S_{2} + F \xrightarrow{k_4} FS_{2} \xrightarrow{k_5} S_1 + F \xrightarrow{k_6} FS_1 \xrightarrow{k_{7}} S_0 + F \notag
 \end{align}
 
-By the results used previously, we find that if this network is to have bifurcations, then adding the inverse reactions back would mean \ref{network2} also does. Going up $1$ more level, using \textbf{Theorem 3.2} from Banaji \cite{banaji2017} we see that performing a stoichiometry matrix rank preserving operation of removing species $S_1$ and $K$, then we get network:
+By the results used there, we find that if this network is to have bifurcations, then adding the inverse reactions back would mean \ref{network2} also does. Going up $1$ more level, using \textbf{Theorem 3.2} from Banaji \cite{banaji2017} we see that performing a stoichiometry matrix rank preserving operation of removing species $S_1$ and $K$ we get network:
 \begin{align}\label{network2_irr_s}
 	S_{0} \xrightarrow{k_1} KS_{0} \xrightarrow{k_2} K S_1 \xrightarrow{k_3} S_2 \tag{$\mathcal{N}_2 / IR / S$} \\
 	S_{2} + F \xrightarrow{k_4} FS_{2} \xrightarrow{k_5} F \xrightarrow{k_6} FS_1 \xrightarrow{k_{7}} S_0 + F \notag
 \end{align}
 
-which - as previously - if it's to admit bifurcations, then \ref{network2_irr} would have them as well.
+Which - as in \ref{network3} - if it's to admit bifurcations, then \ref{network2_irr} would have them as well.
 
 And finally, removing the $2$ complexes $FS_1$,$KS_0$ and their corresponding $2$ reactions through a simmilar opperation \cite{banaji2017}, this time dipping from rank $\Gamma_{\text{\ref{network2_irr_s}}}$ = 6 to rank $\Gamma_{\text{\ref{network2_irr_ss}}}$ = 4
 \begin{align}\label{network2_irr_ss}
@@ -674,7 +674,7 @@ And finally, removing the $2$ complexes $FS_1$,$KS_0$ and their corresponding $2
 
 We get the system which we'll end up analysing, again, as before knowing that if we are to find a bifurcation in \ref{network2_irr_ss} - this extra-extra simplification - then that would also be the case for \ref{network2_irr_s} $\implies$ \ref{network2_irr} $\implies$ \ref{network2}.
 
-(\ref{network2_irr_ss})'s system of equations is:
+The system of equations for \ref{network2_irr_ss} is:
 \begin{equation}\label{last_dyn_sys}
 	\begin{aligned}&\dot{x}_1(t)=-k_1x_1(t)+k_5x_4(t)\\&\dot{x}_2(t)=k_1x_1(t)-k_2x_2(t)\\&\dot{x}_3(t)=k_2x_2(t)-k_3x_3(t)x_4(t)\\&\dot{x}_4(t)=-k_3x_3(t)x_4(t)+k_4x_5(t)\\&\dot{x}_5(t)=k_3x_3(t)x_4(t)-k_4x_5(t).
 	\end{aligned}
@@ -799,7 +799,7 @@ $\mathcal{N}_3 / IR$:
 		\dot{x}_{10} &= -k_{9} x_{10} + k_{7} x_{2} x_{6}.
 	\end{aligned}
 \]
-Now there are 3 conservation laws for both networks, diminishing the rank of the Jacobian matrix to $7$. These are:
+Now there are 3 conservation laws for both networks, dropping the rank of the Jacobian matrix to $7$. These are:
 \[
 	\begin{aligned}
 		x_{8}+x_{7}+x_{1} &=c_{1}\\
@@ -966,7 +966,7 @@ Where though? This is where the second part of the problem comes in.
 			&= (t^{2},1,t,1,t^{2},1,t,2)
 		\end{align}
 \end{itemize}
-Considering $\lambda = 1$ and putting these into \href{https://github.com/viktorashi/Open-CoNtRol}{the app} we get something that looks like:
+Considering $\lambda = 1$ and putting these into \href{https://github.com/viktorashi/Open-CoNtRol}{the app} we get something that looks like this:
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/oscillations.png}
 	\centering
