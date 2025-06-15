@@ -82,8 +82,8 @@ Or, more formally:
 
 \end{definition}
 
-\section{Forming Ordinary Differential Equation systems}\footcite{Hiroki2015}
-We may take a sequence of such first order ordinary differential equations to form a system:
+\section{Forming Ordinary Differential Equation systems}
+We may take a sequence of such first order ordinary differential equations to form a system (well explained by Hiroki Sayama in \cite{Hiroki2015}):
 \begin{equation}\label{eq:ode-sys}
 	\begin{cases}
 		y'_1(t) = f_1(t,y_1(t),y_2(t),\dots,y_n(t)) \\
@@ -212,7 +212,7 @@ So $e^{\lambda t}\text{cos}(\mu t)$ and $e^{\lambda t}\text{sin}(\mu t)$ are bot
 	Moreover, the same can be said for $e^{\overline{c}t}$.
 \end{proof}
 
-Now something let's say... \textbf{fundamental} (hehe) about these solutions, is they have to be linearly independent to each other. Meaning the only solution for
+Now something let's say... \textbf{fundamental} about these solutions, is they have to be linearly independent to each other. Meaning the only solution for
 \begin{equation}\label{liniar_independece}
 	c_1 x_1+c_2 x_2 + \dots + c^n x^n = 0
 \end{equation}
@@ -261,8 +261,7 @@ Hence, the complete, final, \textbf{general} solution for \ref{lin_hom_eq_const}
 for some constants $c_i$.
 \newpage
 \section{Formally defining and characterizing dynamical systems}\label{ch:dynamical_systems}
-\footcite{Hiroki2015}
-The reason why autonomous equations are so useful to us is because of the ease with which we can visualize the \textbf{evolution} of a system of such equations.
+The reason why autonomous equations are so useful to us is because of the ease with which we can visualize the \textbf{evolution} of a system of such equations. Also well explained by Hiroki in \cite{Hiroki2015}
 Take, for example:
 \begin{definition}
 	A \textbf{system of first-order autonomous equations} is a system of equations of the form
@@ -663,7 +662,7 @@ This would in turn form the phase portrait of the dynamical system, described by
 \end{cases}
 \]
 
-Here is some Maple code (\ref{appendix}), courtesy of   \footcite{georgePendulumDemo}, plotting that phase-space for $\mu =0.2 \text{ and } \sqrt{\frac{g}{L}} = 2$:
+Here is some Maple code (more about that in the Appendix \ref{appendix}), courtesy of   \cite{georgePendulumDemo}, plotting that phase-space for $\mu =0.2 \text{ and } \sqrt{\frac{g}{L}} = 2$:
 \begin{minted}[
     frame=single,
     bgcolor=yellow!5!white,
@@ -687,7 +686,8 @@ Although, like a coin left standing on its side, even the slightest deviation wi
 
 \newpage
 
-The study of how much such changes in initial conditions (or just the passing of time itself) influence later behavior  is what we call the \textbf{stability}\footcite{gustafson2013}\footcite{orioloStability} \footcite{maciejowskiHandout2} \footcite{wiensStability} \footcite{mattuck2010Chapter26}.
+The study of how much such changes in initial conditions (or just the passing of time itself) influence later behavior  is what we call the \textbf{stability}.
+Concept which I've been able to grasp way better thanks to the these materials: \cite{gustafson2013, orioloStability, maciejowskiHandout2, wiensStability, mattuck2010Chapter26}.
 
 In general, for a system: \ref{fo_system_auton_eq}, written in the compact form
 \begin{equation}\label{auton_sys_compact}
