@@ -142,7 +142,7 @@ Introducing the notion of \textbf{operators} would help in writing this next sec
 	\hspace{20pt} is the \textbf{linear differential operator of order n}. Meaning \ref{lin_hom_eq_const} $\iff Lx=0$.
 \end{definition}
 
-We now can; just by pure Ansatz; assume the solutions take the form $e^{rt}$ for some (yet unknown) $r$'s. Because the exponential is so easy to work with when it comes to taking derivatives - a.k.a. : $D^n(e^{rt})=r^ne^{rt}$, so its derivatives are proportional to itself, meaning no new $t$'s are introduced - substituting back into \ref{lin_hom_eq_const} yields
+We now can; just by pure Ansatz; assume the solutions take the form $e^{rt}$ for some (yet unknown) $r$'s. Because the exponential is so easy to work with when it comes to taking derivatives - meaning: $D^n(e^{rt})=r^ne^{rt}$, so its derivatives are proportional to itself, meaning no new $t$'s are introduced - substituting back into \ref{lin_hom_eq_const} yields
 \begin{gather*}
 	Le^{rt} = a_0 e^{rt} + a_1 De^{rt} + \dots +a_{n} D^ne^{rt} = 0      \\
 	\Updownarrow \\
@@ -494,7 +494,7 @@ Is precisely the char. poly. \ref{lin_eq_char_poly}. So the $r$ solutions for
 \[
 	\det (A - r I_n) =0
 \]
-(a.k.a the eigenvalues of the A matrix) are also the roots of \ref{lin_eq_char_poly}. So solving for them would obtain the solutions
+(also the eigenvalues of the A matrix) are also the roots of \ref{lin_eq_char_poly}. So solving for them would obtain the solutions
 \[
 	x_i = e^{rt}x_i(0) \quad \text{for  } i = \overline{1,n}.
 \]
