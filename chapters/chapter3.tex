@@ -59,7 +59,7 @@ Whose output is shown below, you can see how we can to generate two unique funct
 	\label{fig:cardioid}
 \end{figure}
 
-So restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
+By restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
 \begin{equation}\label{implicit_func_theorem}
 	y^{(n)}(t)=f(t,y(t),y'(t),...,y^{(n-1)}(t))
 \end{equation}
@@ -172,7 +172,7 @@ By Euler's formula:
 So $e^{\lambda t}\text{cos}(\mu t)$ and $e^{\lambda t}\text{sin}(\mu t)$ are both fundamental solutions for $Lx=0$.
 
 \begin{proof}
-	Since $a_i \in \mathbb{R}, \forall i=\overline{1,n}$ in $p \implies p(\overline{r})=\overline{p(r)}, \forall r \in \mathbb{C}$, hence, just like 2AM coffee and the exam session, complex roots of $p$ always come in pairs. They both satisfy:
+	Since $a_i \in \mathbb{R}, \forall i=\overline{1,n}$ in $p \implies p(\overline{r})=\overline{p(r)}, \forall r \in \mathbb{C}$, hence, complex roots of $p$ always come in pairs. They both satisfy:
 	\begin{equation}\label{lin_op_solution}
 		Le^{(\lambda \pm i \mu)} = 0
 	\end{equation}
@@ -220,7 +220,7 @@ is the trivial solution $c_1=c_2=\dots=c_n=0$ where $x_i$ are the fundamental so
 
 So the reason I've emphasized "\textbf{unique}" in the first 2 cases was because if we're to apply those methods for \textbf{repeating} roots, meaning the ones with multiplicity $k>1$, the resulting solutions wouldn't hold \ref{liniar_independece} because they would in fact be the same!
 
-To counteract this issue, the clever people over at the 1748 Berlin Academy (just Euler) came up with yet another (easily provable) Ansatz: just multiplying by powers of $x$.
+To counteract this issue, the clever people over at the 1748 Berlin Academy (just Euler) came up with yet another (easily provable) Ansatz: multiplying by powers of $x$.
 
 A root with multiplicity $k$ would introduce yet another $k$ -for real- or $2k$ - for complex - fundamental solutions to this equation, so to finish what we've started:
 
@@ -243,7 +243,7 @@ So $2k$ new solutions.
 
 \textbf{The superposition principle}\cite{Hiroki2015}
 
-Bernoulli (to the disbelief of Euler and Lagrange) told us that the complex behavior of vibrating strings can be modeled by separating their motion into well-defined and easy to compute simple waves with known frequencies and amplitudes, which can later be \textbf{superposed} with one-another to form the complete system.
+Bernoulli (to the disbelief of Euler and Lagrange) told us that the complex behavior of vibrating strings can be modeled by separating their motion into well-defined and easy to compute simple waves with known frequencies and amplitudes, which can later be \textbf{superposed} on one another to form the complete system.
 
 This principle can be applied to \textit{our} easier to compute \textbf{fundamental solutions} ($x_1,\dots,x_n$) in relation to the system formed by our linear operator $Lx =0$.
 
@@ -419,9 +419,9 @@ So the system would be:
 	\end{cases}
 \]
 
-This is a differential-algebraic system of equations (DAE), which is beyond the scope of this thesis but figured I'd cover all cases (this one's usually solved via numerical methods).
+This is a differential-algebraic system of equations (DAE), which is beyond the scope of this thesis but just to be complete, all cases are considered (this one's usually solved via numerical methods).
 
-Okay, but now since we know how to form systems from any autonomous equation, how does that make our lives easier in any way?
+Very well, but now since we know how to form systems from any autonomous equation, how does that make our lives easier in any way?
 
 Let's consider \ref{lin_hom_eq_const}, the equation we worked with previously. Now we can express it differently:
 
@@ -451,7 +451,7 @@ then:
 	\end{cases}
 \]
 
-Waitt, I saw this somewhere in year 1, semester 1 during Linear Algebra (which I definitely didn't have to re-take twice)
+I remember seeing this somewhere in year 1, semester 1 during Linear Algebra (which I definitely didn't have to re-take twice)
 That is the same as:
 \begin{align*}
 	\begin{bmatrix}
@@ -545,7 +545,7 @@ so
 Where I use $\underline{x}$ to denote the \textbf{vector form} of a the state-space vars.
 In conclusion, it'd be ideal for us to work with such \textbf{diagonal} matrices.
 
-There are, however situations when we don't have that luxury, so we could instead \textbf{transofrm} the way we write our $x$'s (and hence, our transformation as well) in order for us \textbf{diagonalize} our system. This would decouple the system and simplify the computations.
+There are, however situations when we don't have that luxury, so we could instead \textbf{transform} the way we write our $x$'s (and hence, our transformation as well) in order for us \textbf{diagonalize} our system. This would decouple the system and simplify the computations.
 
 This is pretty straight-forward:
 
@@ -561,7 +561,7 @@ s.t. our dynamics are decoupled (the new transformation matrix $D$ is diagonal)
 \[
 	\dot{z} = Dz
 \]
-Derivating \ref{diag_trans_rel} and substituting into \ref{diag_matrix_init_sys}:
+Differentiating \ref{diag_trans_rel} and substituting into \ref{diag_matrix_init_sys}:
 \begin{gather*}
 	\left. x = Tz \middle| \frac{d}{dt} \right. \iff
 	\dot{x} = T\dot{z} = Ax = ATz \Rightarrow \dot{z} = T^{-1} A T z = Dz \\
@@ -606,12 +606,12 @@ Where $T \in \mathcal{M}_n(\mathbb{R})$ and its columns are $A$'s (not necessari
 		\vdots & \vdots & \dots & \vdots \\
 	\end{bmatrix*}
 \end{equation*}
-Boom! You're golden.
+Now you're golden.
 
 Now the transformation only scales the basis vectors in our new coordinate system, and we can use this to our advantage to find solutions in that system, then turn them back into our original system to see which values they correspond to.
 \vskip\bigskipamount
 
-Okay but what if my system is not linear? \textbf{Then} how will forming its corresponding system help me?
+What if my system is not linear, though? \textbf{Then} how will forming its corresponding system help me?
 
 Taking, in particular, a more complex autonomous differential equation; the one for the damped pendulum:
 
@@ -654,7 +654,7 @@ And attach to each point the vector formed from the derivatives of each componen
 \end{bmatrix}
 \end{align}
 
-This would in turn form the phase portrait of the dynamical system, described by a system of first-order autonomous differential equations:
+This would in turn yield the phase portrait of the dynamical system, described by a system of first-order autonomous differential equations:
 \[
 \begin{cases}
 	\dot{\theta}  = \omega \\
@@ -727,7 +727,7 @@ And as opposed to, say  a continuum of fixed points we have:
 
 A fixed point $y_0$ is said to be \textbf{isolated} if
 \[
-	\exists \delta > 0 : \forall y \text{ satifying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
+	\exists \delta > 0 : \forall y \text{ satisfying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
 \]
 \end{definition}
 
