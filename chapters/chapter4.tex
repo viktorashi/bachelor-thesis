@@ -753,21 +753,21 @@ Now we know system \ref{network2_irr_ss} undergoes bifurcations, which means \re
 \hfill\break
 \hfill\break
 
-Now, let's get into the bread of it. We may re-define the cyclic and distributive system we're going to discuss again.
+\textbf{Example 3}: Now, let's get into the bread of it. We may re-define the cyclic and distributive system we're going to discuss again.
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/cyclic-distributive-n1.png}	
 	\centering
-	\caption{$\mathcal{N}_2$ \cite{conradi2024}}
+	\caption{$\mathcal{N}_3$ \cite{conradi2024}}
 \end{figure}
 Defined by these reactions:
-\begin{align}\label{network2}
-	S_{00} + K \xrightleftharpoons[ k_2 ]{k_1} KS_{00} \xrightarrow{k_3} S_{10} + K \xrightleftharpoons[ k_5 ]{k_4} KS_{10} \xrightarrow{k_6} S_{11} + K \tag{$\mathcal{N}_2$}
+\begin{align}\label{network3}
+	S_{00} + K \xrightleftharpoons[ k_2 ]{k_1} KS_{00} \xrightarrow{k_3} S_{10} + K \xrightleftharpoons[ k_5 ]{k_4} KS_{10} \xrightarrow{k_6} S_{11} + K \tag{$\mathcal{N}_3$}
 	\\
 	S_{11} + F \xrightleftharpoons[ k_8 ]{k_7} FS_{11} \xrightarrow{k_9} S_{01} + F \xrightleftharpoons[ k_{11} ]{k_{10}} FS_{01} \xrightarrow{k_{12}} S_{00} + F \ \notag
 \end{align}
 We'll look into just the irreversible sub-network, though.
-\begin{align}\label{network2_irr}
-	S_{00} + K \xrightarrow{k_1} KS_{00} \xrightarrow{k_3} S_{10} + K \xrightarrow{k_4} KS_{10} \xrightarrow{k_6} S_{11} + K \tag{$\mathcal{N}_2 / IR$}
+\begin{align}\label{network3_irr}
+	S_{00} + K \xrightarrow{k_1} KS_{00} \xrightarrow{k_3} S_{10} + K \xrightarrow{k_4} KS_{10} \xrightarrow{k_6} S_{11} + K \tag{$\mathcal{N}_3 / IR$}
 	\\
 	S_{11} + F \xrightarrow{k_7} FS_{11} \xrightarrow{k_9} S_{01} + F \xrightarrow{k_{10}} FS_{01} \xrightarrow{k_{12}} S_{00} + F \ \notag
 \end{align}
@@ -778,13 +778,13 @@ And using the following index-to-species mapping:
 \]
 We may obtain their system of ODEs:
 
-$\mathcal{N}_2$:
+$\mathcal{N}_3$:
 \[
 	\begin{aligned}
 		\dot{x}_1&=-k_{1}x_{1}x_{3}-k_{4}x_{1}x_{4}+(k_{2}+k_{3})x_{7}+(k_{5}+k_{6})x_{8}\\\dot{x}_2&=-k_{10}x_{2}x_{5}-k_{7}x_{2}x_{6}+(k_{8}+k_{9})x_{10}+(k_{11}+k_{12})x_{9}\\\dot{x}_3&=-k_1x_1x_3+k_2x_7+k_{12}x_9\\\dot{x}_4&=-k_4x_1x_4+k_3x_7+k_5x_8\\\dot{x}_5&=-k_{10}x_2x_5+k_9x_{10}+k_{11}x_9\\\dot{x}_6&=-k_7x_2x_6+k_8x_{10}+k_6x_8\\\dot{x}_7&=-(k_2+k_3)x_7+k_1x_1x_3\\\dot{x}_8&=-(k_5+k_6)x_8+k_4x_1x_4\\\dot{x}_9&=-(k_{11}+k_{12})x_9+k_{10}x_2x_5\\\dot{x}_{10}&=-(k_8+k_9)x_{10}+k_7x_2x_6
 	\end{aligned}
 \]
-$\mathcal{N}_2 / IR$:
+$\mathcal{N}_3 / IR$:
 \[
 	\begin{aligned}
 		\dot{x}_{1} &= -k_{1} x_{1} x_{3} - k_{4} x_{1} x_{4} + k_{3} x_{7} + k_{6} x_{8},\\
@@ -823,7 +823,7 @@ Hence, we can use \ref{jacobian_convex_single_extreme_ray}. So with $E$ of \ref{
 	k_{7} = h_{2} h_{6} \lambda, k_{9} = h_{10} \lambda, k_{10} = h_{2} h_{5} \lambda, k_{12} = h_{9} \lambda \\
 	\text{with } h_i = \frac{1}{x_i} , i = \overline{1,10}
 \end{gather*}
-Now using the convex package \cite{franz2016ConvexMaple} for $J_\lambda(h)$ of \ref{network2_irr} as defined in \ref{jacobian_convex_single_extreme_ray} is:
+Now using the convex package \cite{franz2016ConvexMaple} for $J_\lambda(h)$ of \ref{network3_irr} as defined in \ref{jacobian_convex_single_extreme_ray} is:
 \begin{align}
 	J_\lambda(h) = \lambda
 	\left.\left[
@@ -848,7 +848,7 @@ Then, if additionally:
 	\exists l\in\{1,\ldots,10\} : \frac{\partial\det(G_6)}{\partial h_l}|_{h=h^*}\neq0\quad.
 \end{equation}
 
-\ref{network2_irr} has a simple Hopf bifurcation at $h = h^*, \forall \lambda > 0$.
+\ref{network3_irr} has a simple Hopf bifurcation at $h = h^*, \forall \lambda > 0$.
 
 Both $\left\{ b_0(h), \ldots, b_5(h) \right\} \bigcup \left\{   b_7(h) \right\}$ and
 $\det(G_i(h)), i = \overline{2,5}$ are made up of only positive monomials, whereas $\det(G_6(h))$ has terms with both signs, so it may have roots.
@@ -976,7 +976,7 @@ Considering $\lambda = 1$ and putting these into \href{https://github.com/viktor
 
 They're oscillating! We've found a bifurcation point!
 
-But wait, in the beginning we reduced our system from \ref{network2} to \ref{network2_irr}, taking the reversible reactions with us. But luck would have it that Murad Banaji \cite{banaji2017} shows that adding a reaction who's reaction vector is a linear combination of the other reactions, and hence preserves rank$\Gamma$ does, in fact mean the resulting system preserves its capacity for bifurcations.
+But wait, in the beginning we reduced our system from \ref{network3} to \ref{network3_irr}, taking the reversible reactions with us. But luck would have it that Murad Banaji \cite{banaji2017} shows that adding a reaction who's reaction vector is a linear combination of the other reactions, and hence preserves rank$\Gamma$ does, in fact mean the resulting system preserves its capacity for bifurcations.
 
 So adding back
 \begin{gather*}
@@ -1007,7 +1007,7 @@ and $k$ as before, but with the extra reaction rates being simply a constant we 
 	\includegraphics[width=13cm]{math_pics/oscillations-full-network.png}
 	\centering
 	\label{fig:full_net_oscillations}
-	\caption{Oscillations of the full \ref{network2} network}
+	\caption{Oscillations of the full \ref{network3} network}
 \end{figure}
 
 There we have, a "visual" proof, you could say.
