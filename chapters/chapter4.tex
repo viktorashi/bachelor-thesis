@@ -522,7 +522,7 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 	$\det H_1(h,\lambda)$, $\det H_2(h,\lambda)$ and $a_3(h,\lambda)$ contain only positive monomials. Thus, $\det H_1(h,\lambda)$, $\det H_2(h,\lambda) \geq 0, \forall h, \lambda \geqq 0$, specifically $\det H_2(h,\lambda) \neq 0$, $\lightning$ (\ref{ruling_out_simple_hopf_bif}).
 \end{proposition}
 \begin{proof}
-	Now to solve these we're going to use some Maple scripts that rely on the \cite{franz2016ConvexMaple} package (too large to include inside this document).
+	Now to solve these we're going to use some Maple scripts (\ref{appendix}) that rely on the \cite{franz2016ConvexMaple} package (too large to include inside this document).
 
 	Given the network structure defined above, as well as the $E\lambda$ matrix made of the extreme cone vectors (\textbf{ray}):
 	\[
@@ -543,7 +543,7 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 			\begin{array}{ccccccc}-\lambda_1hl&-\lambda_1h2&0&0&0&0&\lambda_1h7\\-\lambda_1hl&-\lambda_1h2&\lambda_1h3&0&0&0&0\\\lambda_1hl&\lambda_1h2&-\lambda_1h3&0&0&0&0\\0&-\lambda_2h2&\lambda_1h3&(-\lambda_2-\lambda_1)h4&0&\lambda_2h6&0\\0&\lambda_2h2&0&\lambda_2h4&-\lambda_2h5&0&0\\0&0&0&0&\lambda_2h5&-\lambda_2h6&0\\0&0&0&\lambda_1h4&0&0&-\lambda_1h7
 		\end{array}\right.\right]
 	\]
-	Then by means of another Maple script, we can write the Hurwitz matrices of its corresponding characteristic polynomial. (They are pretty huge and will always overflow \LaTeX, you can find more about them in \ref{appendix})
+	Then by means of another Maple script (\ref{appendix}), we can write the Hurwitz matrices of its corresponding characteristic polynomial. (They are pretty huge and will always overflow \LaTeX, you can find more about them in \ref{appendix})
 
 	But just by looking at $H_2(h,\lambda)$, we can deduce that $a_{ij}$ is a positive monomial, for all  its entries $\forall h , \lambda > 0$, in particular $\det H_2(h, \lambda) \neq 0$.
 
@@ -812,7 +812,7 @@ So it means we've shown a root exists for $\det G_6(h)$, and hence a Hopf bifurc
 Where though? This is where the second part of the problem comes in.
 
 \begin{itemize}
-	\item \rom{1} We may experimentally just pick and choose values that verify	\ref{bifurcation_main_condition} and \ref{bif_ineq_condition}, for exmaple, \cite{conradi2024} did $ h_9 = 2, h_8 = h_7 = h_{ 10 } = 1$
+	\item \rom{1} We may experimentally just pick and choose values that verify	\ref{bifurcation_main_condition} and \ref{bif_ineq_condition}, for example, \cite{conradi2024} did $ h_9 = 2, h_8 = h_7 = h_{ 10 } = 1$
 	\item \rom{2} $\forall h_4, h_5 > 0$, like $h_5 = h_4 = 1$
 	\item \rom{3} Now taking \ref{h_substitution} along with the previous values and using them in \ref{6th_hurwitz_det} we get
 		\begin{gather*}
