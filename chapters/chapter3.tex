@@ -4,11 +4,10 @@
 In order for us to be able to analyze and make assumptions about chemical reaction networks, we need to model them somehow. So in this chapter this is exactly what we'll do. We'll go through the very basics that might be taught to an undergraduate student, all the way the more specific aspects and tools which we're going to put into practice towards the end.
 
 \section{Defining Ordinary Differential Equations}
-\cite{hunter2011introduction,binegar2008,maryland2022}
 \begin{definition}
 	\textit{An \textbf{ordinary differential equation} is an equation of an unknown function of \textbf{one} variable. This can be expressed as a function \textbf{of} this unknown function, its corresponding variable and its various derivatives}.
 \end{definition}
-Its general form looks something like:
+Its general form looks something like (see \cite{hunter2011introduction}):
 \begin{equation}\label{ODE}
 	F(t,y(t),y'(t),....,y^{(n)}(t))=0,
 \end{equation}
@@ -17,7 +16,7 @@ Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega
 This would be what's called the implicit form of the differential equation.
 
 \begin{definition}
-	\textit{The highest derivative found in the equation is the \textbf{order} of an ODE.}
+	\textit{The highest derivative found in the equation is the \textbf{order} of an ODE.} (see \cite{binegar2008})
 \end{definition}
 In our case, the order is $n$.
 If, however $F$ satisfies the regularity condition \textbf{of the implicit function theorem} then the equation can be written in a much more digestible form.
@@ -26,7 +25,7 @@ The \textbf{implicit function theorem} allows one to convert a relation (implici
 
 As an example: The relation for a cardioid cannot be expressed as a sole function, we'd instead need the union of the graph of two separate functions for expressing it.
 
-Here is a piece of Maple code (from \ref{appendix}) that draws that cardioid, for example.
+Here is a piece of Maple code (talked more about in the Appendix \ref{appendix}) that draws that cardioid, for example.
 
 \begin{minted}[
     linenos,
@@ -67,7 +66,7 @@ So restricting the domain $\Omega$ to one that allows the implicit form to be re
 would yield what's called the \textbf{explicit} form of the ODE.
 
 A \textbf{solution} is an expression of the unknown function $y(t)$ which satisfies the relation
-$y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$. A \textbf{general solution} includes all of these functions and usually has some constants of integration in the expression, while a \textbf{particular solution} doesn't have them.
+$y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$. A \textbf{general solution} (see \cite{maryland2022}) includes all of these functions and usually has some constants of integration in the expression, while a \textbf{particular solution} doesn't have them.
 
 A particular solution is usually found if we also have some initial conditions given for the unknown function, like $y(a)=b, y'(a)=c$ for some $a,b,c \in \mathbb{R}$.
 Or, more formally:
