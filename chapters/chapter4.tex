@@ -545,6 +545,10 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 	\]
 	Then by means of another Maple script, we can write the Hurwitz matrices of its corresponding characteristic polynomial. (They are pretty huge and will always overflow \LaTeX)
 
+	\hfill\break
+	//TODO : pune appendixu cu coadele de maple sau macar mentionandu-le
+	\hfill\break
+
 	But just by looking at $H_2(h,\lambda)$, we can deduce that $a_{ij}$ is a positive monomial, for all  its entries $\forall h , \lambda > 0$, in particular $\det H_2(h, \lambda) \neq 0$.
 
 	So, $\det H_1(k,x^*) > 0, \forall k, x^* > 0$, moreover the coefficient of the largest degree term in the characteristic polynomial $a_3(k, x^*) > 0$, so according to \ref{ruling_out_simple_hopf_bif} : For network (\ref{network1}), $\nexists k, x^* \geqq 0$ for which $J_1(k,x^*)$ has a pair of purely imaginary eigenvalues $\implies \nexists$ a simple Hopf bifurcation in our system for any rate constants or positive steady states
@@ -642,15 +646,15 @@ Now, let's get into the bread of it. We may re-define the cyclic and distributiv
 \end{figure}
 Defined by these reactions:
 \begin{align}\label{network2}
-	S_{00} + K \xrightleftharpoons[ \kappa_2 ]{\kappa_1} KS_{00} \xrightarrow{\kappa_3} S_{10} + K \xrightleftharpoons[ \kappa_5 ]{\kappa_4} KS_{10} \xrightarrow{\kappa_6} S_{11} + K \tag{$\mathcal{N}_2$}
+	S_{00} + K \xrightleftharpoons[ k_2 ]{k_1} KS_{00} \xrightarrow{k_3} S_{10} + K \xrightleftharpoons[ k_5 ]{k_4} KS_{10} \xrightarrow{k_6} S_{11} + K \tag{$\mathcal{N}_2$}
 	\\
-	S_{11} + F \xrightleftharpoons[ \kappa_8 ]{\kappa_7} FS_{11} \xrightarrow{\kappa_9} S_{01} + F \xrightleftharpoons[ \kappa_{11} ]{\kappa_{10}} FS_{01} \xrightarrow{\kappa_{12}} S_{00} + F \ \notag
+	S_{11} + F \xrightleftharpoons[ k_8 ]{k_7} FS_{11} \xrightarrow{k_9} S_{01} + F \xrightleftharpoons[ k_{11} ]{k_{10}} FS_{01} \xrightarrow{k_{12}} S_{00} + F \ \notag
 \end{align}
 We'll look into just the irreversible sub-network, though.
 \begin{align}\label{network2_irr}
-	S_{00} + K \xrightarrow{\kappa_1} KS_{00} \xrightarrow{\kappa_3} S_{10} + K \xrightarrow{\kappa_4} KS_{10} \xrightarrow{\kappa_6} S_{11} + K \tag{$\mathcal{N}_2 / IR$}
+	S_{00} + K \xrightarrow{k_1} KS_{00} \xrightarrow{k_3} S_{10} + K \xrightarrow{k_4} KS_{10} \xrightarrow{k_6} S_{11} + K \tag{$\mathcal{N}_2 / IR$}
 	\\
-	S_{11} + F \xrightarrow{\kappa_7} FS_{11} \xrightarrow{\kappa_9} S_{01} + F \xrightarrow{\kappa_{10}} FS_{01} \xrightarrow{\kappa_{12}} S_{00} + F \ \notag
+	S_{11} + F \xrightarrow{k_7} FS_{11} \xrightarrow{k_9} S_{01} + F \xrightarrow{k_{10}} FS_{01} \xrightarrow{k_{12}} S_{00} + F \ \notag
 \end{align}
 And using the following index-to-species mapping:
 \[
@@ -662,22 +666,22 @@ We may obtain their system of ODEs:
 $\mathcal{N}_2$:
 \[
 	\begin{aligned}
-		\dot{x}_1&=-\kappa_{1}x_{1}x_{3}-\kappa_{4}x_{1}x_{4}+(\kappa_{2}+\kappa_{3})x_{7}+(\kappa_{5}+\kappa_{6})x_{8}\\\dot{x}_2&=-\kappa_{10}x_{2}x_{5}-\kappa_{7}x_{2}x_{6}+(\kappa_{8}+\kappa_{9})x_{10}+(\kappa_{11}+\kappa_{12})x_{9}\\\dot{x}_3&=-\kappa_1x_1x_3+\kappa_2x_7+\kappa_{12}x_9\\\dot{x}_4&=-\kappa_4x_1x_4+\kappa_3x_7+\kappa_5x_8\\\dot{x}_5&=-\kappa_{10}x_2x_5+\kappa_9x_{10}+\kappa_{11}x_9\\\dot{x}_6&=-\kappa_7x_2x_6+\kappa_8x_{10}+\kappa_6x_8\\\dot{x}_7&=-(\kappa_2+\kappa_3)x_7+\kappa_1x_1x_3\\\dot{x}_8&=-(\kappa_5+\kappa_6)x_8+\kappa_4x_1x_4\\\dot{x}_9&=-(\kappa_{11}+\kappa_{12})x_9+\kappa_{10}x_2x_5\\\dot{x}_{10}&=-(\kappa_8+\kappa_9)x_{10}+\kappa_7x_2x_6
+		\dot{x}_1&=-k_{1}x_{1}x_{3}-k_{4}x_{1}x_{4}+(k_{2}+k_{3})x_{7}+(k_{5}+k_{6})x_{8}\\\dot{x}_2&=-k_{10}x_{2}x_{5}-k_{7}x_{2}x_{6}+(k_{8}+k_{9})x_{10}+(k_{11}+k_{12})x_{9}\\\dot{x}_3&=-k_1x_1x_3+k_2x_7+k_{12}x_9\\\dot{x}_4&=-k_4x_1x_4+k_3x_7+k_5x_8\\\dot{x}_5&=-k_{10}x_2x_5+k_9x_{10}+k_{11}x_9\\\dot{x}_6&=-k_7x_2x_6+k_8x_{10}+k_6x_8\\\dot{x}_7&=-(k_2+k_3)x_7+k_1x_1x_3\\\dot{x}_8&=-(k_5+k_6)x_8+k_4x_1x_4\\\dot{x}_9&=-(k_{11}+k_{12})x_9+k_{10}x_2x_5\\\dot{x}_{10}&=-(k_8+k_9)x_{10}+k_7x_2x_6
 	\end{aligned}
 \]
 $\mathcal{N}_2 / IR$:
 \[
 	\begin{aligned}
-		\dot{x}_{1} &= -\kappa_{1} x_{1} x_{3} - \kappa_{4} x_{1} x_{4} + \kappa_{3} x_{7} + \kappa_{6} x_{8},\\
-		\dot{x}_{2} &= \kappa_{9} x_{10} - \kappa_{10} x_{2} x_{5} - \kappa_{7} x_{2} x_{6} + \kappa_{12} x_{9},\\
-		\dot{x}_{3} &= -\kappa_{1} x_{1} x_{3} + \kappa_{12} x_{9},\\
-		\dot{x}_{4} &= -\kappa_{4} x_{1} x_{4} + \kappa_{3} x_{7},\\
-		\dot{x}_{5} &= \kappa_{9} x_{10} - \kappa_{10} x_{2} x_{5},\\
-		\dot{x}_{6} &= -\kappa_{7} x_{2} x_{6} + \kappa_{6} x_{8},\\
-		\dot{x}_{7} &= \kappa_{1} x_{1} x_{3} - \kappa_{3} x_{7},\\
-		\dot{x}_{8} &= \kappa_{4} x_{1} x_{4} - \kappa_{6} x_{8},\\
-		\dot{x}_{9} &= \kappa_{10} x_{2} x_{5} - \kappa_{12} x_{9},\\
-		\dot{x}_{10} &= -\kappa_{9} x_{10} + \kappa_{7} x_{2} x_{6}.
+		\dot{x}_{1} &= -k_{1} x_{1} x_{3} - k_{4} x_{1} x_{4} + k_{3} x_{7} + k_{6} x_{8},\\
+		\dot{x}_{2} &= k_{9} x_{10} - k_{10} x_{2} x_{5} - k_{7} x_{2} x_{6} + k_{12} x_{9},\\
+		\dot{x}_{3} &= -k_{1} x_{1} x_{3} + k_{12} x_{9},\\
+		\dot{x}_{4} &= -k_{4} x_{1} x_{4} + k_{3} x_{7},\\
+		\dot{x}_{5} &= k_{9} x_{10} - k_{10} x_{2} x_{5},\\
+		\dot{x}_{6} &= -k_{7} x_{2} x_{6} + k_{6} x_{8},\\
+		\dot{x}_{7} &= k_{1} x_{1} x_{3} - k_{3} x_{7},\\
+		\dot{x}_{8} &= k_{4} x_{1} x_{4} - k_{6} x_{8},\\
+		\dot{x}_{9} &= k_{10} x_{2} x_{5} - k_{12} x_{9},\\
+		\dot{x}_{10} &= -k_{9} x_{10} + k_{7} x_{2} x_{6}.
 	\end{aligned}
 \]
 Now there are 3 conservation laws for both networks, diminishing the rank of the Jacobian matrix to $7$. These are:
@@ -694,14 +698,14 @@ $E \in \mathbb{R}^8$ extreme ray matrix of $\mathcal{N}_3$ is:
 \end{equation}
 Hence, we can use \ref{jacobian_convex_single_extreme_ray}. So with $E$ of \ref{e_matix_net3} and \ref{convex_params_definition}, which can be written as:
 \begin{gather*}
-	\kappa_1x_1x_3=\kappa_3x_7=\kappa_4x_1x_4=\kappa_6x_8=\kappa_7x_2x_6=\kappa_9x_{10}=\kappa_{10}x_2x_5=\kappa_{12}x_9=\lambda. \\
+	k_1x_1x_3=k_3x_7=k_4x_1x_4=k_6x_8=k_7x_2x_6=k_9x_{10}=k_{10}x_2x_5=k_{12}x_9=\lambda. \\
 	\Downarrow \\
-	x_{3} = \frac{\lambda}{\kappa_{1} x_{1}}, \ x_{4} = \frac{\lambda}{\kappa_{4} x_{1}}, \ x_{5} = \frac{\lambda}{\kappa_{10} x_{2}}, \ x_{6} = \frac{\lambda}{\kappa_{7} x_{2}} \\
-	x_{7} = \frac{\lambda}{\kappa_{3}}, \ x_{8} = \frac{\lambda}{\kappa_{6}}, \ x_{9} = \frac{\lambda}{\kappa_{12}}, \ x_{10} = \frac{\lambda}{\kappa_{9}} \\
+	x_{3} = \frac{\lambda}{k_{1} x_{1}}, \ x_{4} = \frac{\lambda}{k_{4} x_{1}}, \ x_{5} = \frac{\lambda}{k_{10} x_{2}}, \ x_{6} = \frac{\lambda}{k_{7} x_{2}} \\
+	x_{7} = \frac{\lambda}{k_{3}}, \ x_{8} = \frac{\lambda}{k_{6}}, \ x_{9} = \frac{\lambda}{k_{12}}, \ x_{10} = \frac{\lambda}{k_{9}} \\
 	\forall x_1, x_2 > 0 \\
 	\Downarrow \\
-	\kappa_{1} = h_{1} h_{3} \lambda, \kappa_{3} = h_{7} \lambda, \kappa_{4} = h_{1} h_{4} \lambda, \kappa_{6} = h_{8} \lambda \\
-	\kappa_{7} = h_{2} h_{6} \lambda, \kappa_{9} = h_{10} \lambda, \kappa_{10} = h_{2} h_{5} \lambda, \kappa_{12} = h_{9} \lambda \\
+	k_{1} = h_{1} h_{3} \lambda, k_{3} = h_{7} \lambda, k_{4} = h_{1} h_{4} \lambda, k_{6} = h_{8} \lambda \\
+	k_{7} = h_{2} h_{6} \lambda, k_{9} = h_{10} \lambda, k_{10} = h_{2} h_{5} \lambda, k_{12} = h_{9} \lambda \\
 	\text{with } h_i = \frac{1}{x_i} , i = \overline{1,10}
 \end{gather*}
 Now using \cite{franz2016ConvexMaple} for $J_\lambda(h)$ of \ref{network2_irr} as defined in \ref{jacobian_convex_single_extreme_ray} is:
@@ -904,34 +908,30 @@ Now let us apply the same intuition for the following cyclic network (\ref{netwo
 	\centering
 \end{figure}
 
-\hfill\break
-//TODO: sa nu uiti ca am plotuit deja rezultatele de la networku providenind din asta, simplificat in \ref{ch:web-app}
-\hfill\break
-
 Its chemical reaction network is:
 \begin{align}\label{network3}
-	S_{0} + K \xrightleftharpoons[ \kappa_2 ]{\kappa_1} KS_{0} \xrightarrow{\kappa_3} K S_1 \xrightleftharpoons{\kappa_4} S_2 + K \tag{$\mathcal{N}_3$} \\
-	S_{2} + F \xrightleftharpoons[ \kappa_6 ]{\kappa_5} FS_{2} \xrightarrow{\kappa_7} S_1 + F \xrightleftharpoons[\kappa_9]{\kappa_8} FS_1 \xrightarrow{\kappa_{10}} S_0 + F \notag
+	S_{0} + K \xrightleftharpoons[ k_2 ]{k_1} KS_{0} \xrightarrow{k_3} K S_1 \xrightleftharpoons{k_4} S_2 + K \tag{$\mathcal{N}_3$} \\
+	S_{2} + F \xrightleftharpoons[ k_6 ]{k_5} FS_{2} \xrightarrow{k_7} S_1 + F \xrightleftharpoons[k_9]{k_8} FS_1 \xrightarrow{k_{10}} S_0 + F \notag
 \end{align}
 
-By the same results used in \ref{network2}, we go $1$ level up the simplification stack, removing the reversible reactions and re-naming the reaction constants $\kappa_i$ like so:
+By the same results used in \ref{network2}, we go $1$ level up the simplification stack, removing the reversible reactions and re-naming the reaction constants $k_i$ like so:
 \begin{align}\label{network3_irr}
-	S_{0} + K \xrightarrow{\kappa_1} KS_{0} \xrightarrow{\kappa_2} K S_1 \xrightarrow{\kappa_3} S_2 + K \tag{$\mathcal{N}_3 / IR $} \\
-	S_{2} + F \xrightarrow{\kappa_4} FS_{2} \xrightarrow{\kappa_5} S_1 + F \xrightarrow{\kappa_6} FS_1 \xrightarrow{\kappa_{7}} S_0 + F \notag
+	S_{0} + K \xrightarrow{k_1} KS_{0} \xrightarrow{k_2} K S_1 \xrightarrow{k_3} S_2 + K \tag{$\mathcal{N}_3 / IR $} \\
+	S_{2} + F \xrightarrow{k_4} FS_{2} \xrightarrow{k_5} S_1 + F \xrightarrow{k_6} FS_1 \xrightarrow{k_{7}} S_0 + F \notag
 \end{align}
 
 By the results used previously, we find that if this network is to have bifurcations, then adding the inverse reactions back would mean \ref{network3} also does. Going up $1$ more level, using \textbf{Theorem 3.2} from \cite{banaji2017} we see that performing a stoichiometry matrix rank preserving operation of removing species $S_1$ and $K$, then we get network:
 \begin{align}\label{network3_irr_s}
-	S_{0} \xrightarrow{\kappa_1} KS_{0} \xrightarrow{\kappa_2} K S_1 \xrightarrow{\kappa_3} S_2 \tag{$\mathcal{N}_3 / IR / S$} \\
-	S_{2} + F \xrightarrow{\kappa_4} FS_{2} \xrightarrow{\kappa_5} F \xrightarrow{\kappa_6} FS_1 \xrightarrow{\kappa_{7}} S_0 + F \notag
+	S_{0} \xrightarrow{k_1} KS_{0} \xrightarrow{k_2} K S_1 \xrightarrow{k_3} S_2 \tag{$\mathcal{N}_3 / IR / S$} \\
+	S_{2} + F \xrightarrow{k_4} FS_{2} \xrightarrow{k_5} F \xrightarrow{k_6} FS_1 \xrightarrow{k_{7}} S_0 + F \notag
 \end{align}
 
 which - as previously - if it's to admit bifurcations, then \ref{network3_irr} would have them as well.
 
 And finally, removing the $2$ complexes $FS_1$,$KS_0$ and their corresponding $2$ reactions through a simmilar opperation \cite{banaji2017}, this time dipping from rank $\Gamma_{\text{\ref{network3_irr_s}}}$ = 6 to rank $\Gamma_{\text{\ref{network3_irr_ss}}}$ = 4
 \begin{align}\label{network3_irr_ss}
-	S_{0} \xrightarrow{\kappa_1} KS_{1} \xrightarrow{\kappa_2} S_2 \tag{$\mathcal{N}_3 / IR / SS$} \\
-	S_{2} + F \xrightarrow{\kappa_3} FS_{2} \xrightarrow{\kappa_4} F \xrightarrow{\kappa_{5}} S_0 + F \notag
+	S_{0} \xrightarrow{k_1} KS_{1} \xrightarrow{k_2} S_2 \tag{$\mathcal{N}_3 / IR / SS$} \\
+	S_{2} + F \xrightarrow{k_3} FS_{2} \xrightarrow{k_4} F \xrightarrow{k_{5}} S_0 + F \notag
 \end{align}
 
 We get the system which we'll end up analysing, again, as before knowing that if we are to find a bifurcation in \ref{network3_irr_ss} - this extra-extra simplification - then that would also be the case for \ref{network3_irr_s} $\implies$ \ref{network3_irr} $\implies$ \ref{network3}.
@@ -964,14 +964,14 @@ We can flip these around like so
 	x_{1}=\frac{\lambda}{k_{1}},x_{2}=\frac{\lambda}{k_{2}},x_{3}=\frac{\lambda}{k_{3}x_{4}},x_{4}=\frac{\lambda}{k_{5}},x_{5}=\frac{\lambda}{k_{4}}.
 \end{equation}
 
-And only couting $x_4 = \frac{\lambda}{\kappa_5}$ as a principal, we get $\lambda = \kappa_5 x_4 \implies$
+And only couting $x_4 = \frac{\lambda}{k_5}$ as a principal, we get $\lambda = k_5 x_4 \implies$
 \begin{equation}\label{last_char_poly}
 	x =
 	\left(\frac{k_5x_4}{k_1},\frac{k_5x_4}{k_2},\frac{k_5}{k_3},x_4,\frac{k_5x_4}{k_4}\right).	
 \end{equation}
-We can get our $\kappa$'s from \ref{k_convert_back_from_convex}
+We can get our $k$'s from \ref{k_convert_back_from_convex}
 \begin{gather*}
-	\kappa =
+	k =
 	\left(h_1 \lambda, h_2 \lambda, h_3 h_4 \lambda, h_5 \lambda, h_4 \lambda\right), \\
 	\left(h_1, h_2, h_3, h_4, h_5\right)
 	= h = \frac{1}{x}
@@ -1013,5 +1013,5 @@ In the section \ref{last_system_init_cond}, I'm plotting this sytem using \href{
 Now we know system \ref{network3_irr_ss} undergoes bifurcations, which means \ref{network3_irr_s}, \ref{network3_irr} and \ref{network3} all do, respectively.
 
 \hfill\break
-//TODO sa nu uiti sa schimbi din $k$ basic sa faci $\kappa$ la toate
+//TODO sa nu uiti sa schimbi din $k$ basic sa faci $k$ la toate
 \hfill\break
