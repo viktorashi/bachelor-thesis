@@ -58,5 +58,5 @@ sau poti direct cu latexindent care il are cam toata lumea
 poti sa verifici daca o referinta din bibliografie chiar a fost referita sau nuu cu
 
 ```bash
-checkcites --unused --backend biber build/main.bcf
+make check-refferences
 ```
