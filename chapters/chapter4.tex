@@ -1,9 +1,11 @@
 \chapter{Existence and Absence of Hopf Bifurcation in Phosphorylation-Dephosphorylation CRN}
 
+In this chapter we'll discuss the mathematical phenomenon that gives rise to oscillatory behavior in our CRN's, or even, for that matter, in any dynamical system!
+
 \section{What even \textbf{is} a bifurcation?}
 To better generalize them, it'd be best to also define the notion of:
 \begin{definition}	
-	\textbf{Invariant sets}. \footcite{faye2011Bifurcation} \footcite{afrajmovich1999Bifurcation}
+	\textbf{Invariant sets}. (well explained by Gr{\'e}gory Faye and V. S. Afrajmovich et al. respectively \cite{faye2011Bifurcation,afrajmovich1999Bifurcation})
 
 	Taking the Auton. sys.
 	\begin{equation}\label{invar_set_auton_sys}
@@ -24,13 +26,13 @@ and
 	" \dotso \norm{y(t) - y_0} \dotso" \text{ with } "\dotso \text{ inf}\{ \norm{y(t) - s} : s \in S  \} \dotso \text{ }"
 \]
 The Jacobian (linearization), generally, would also not be as useful in this context anymore.
-\newpage
+
 Now consider we have a system as above, except it now depends on an extra parameter $\mu$, which remains constant \textbf{during} our "experiment".
 \begin{equation}\label{auton_parameter_sys_compact}
 	\dot{y} = f_\mu(y).
 \end{equation}
 
-This could be, for example, the length of the pendulum $L$, in \ref{damped_pendulum}, or its damping coefficient $c$. Honestly generalizing it even more, it could even be the gravitational constant $g$. Hence, this parameter can, of course be a \textbf{vector} of such parameters.
+This could be, for example, the length of the pendulum $L$, in \ref{eq:damped_pendulum}, or its damping coefficient $c$. Honestly generalizing it even more, it could even be the gravitational constant $g$. Hence, this parameter can, of course be a \textbf{vector} of such parameters.
 
 The way the parameter $\mu$ varies also induces variations in the topology and dynamics of the system. That's obvious since this is kind of the point of parameters in systems.
 
@@ -107,7 +109,7 @@ Then, for \ref{eq:1-d_bif_sys}, a saddle-node bifurcation occurs at $\mu = 0$, i
 \end{definition}
 
 Finding local bifurcations can be done by looking at eigenvalues.
-\newpage
+
 {\large The local bifurcation condition
 
 }For system:
@@ -144,7 +146,7 @@ Visually, just to hammer it in:
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/hopf-bif-eigenvalue-graph.png}
 	\centering
-	\caption{Visualizing the zeroes \footcite{vogel2020HopfEigenvalues}}
+	\caption{Visualizing the zeroes, by Hannes Vogel \cite{vogel2020HopfEigenvalues}}
 \end{figure}
 
 In $\mathbb{R}^2$, such Bifurcations cause special kinds of invariant sets, namely \textbf{limit cycles} to appear. These are periodic solutions, for which we'll need a few more concepts in order to be able to define them:
@@ -219,7 +221,7 @@ But the problem is this theorem only holds for $\mathbb{R}^2$. For higher dimens
 
 So having these in mind, Hopf is kind of like an $\mathbb{R}^n$ version of Pitchfork bif.: \ref{pitchfork_bif} when you think about it.
 
-You can even see the resemblance in the way they look \footcite{brainsci10080536}
+You can even see the resemblance in the way they look, picture from \cite{brainsci10080536} by Patil et al.
 
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/hopf-bif-pic.png}
@@ -229,12 +231,12 @@ You can even see the resemblance in the way they look \footcite{brainsci10080536
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/pitchfork-photo.png}
 	\centering
-	\caption{Pitchfork bifurcation \cite{Yang2020}}
+	\caption{Pitchfork bifurcation, by Yang, Yingjuan et al. \cite{Yang2020}}
 \end{figure}
 
 \subsection{Proving the existence of simple Hopf bifurcations}
 
-Finding necessary conditions for their existence makes use of a tool defined in the previous chapter (\ref{hurwitz_theorem}) the \textbf{Hurwitz matrix}. \footcite{LIU1994250}
+Finding necessary conditions for their existence makes use of a tool defined in the previous chapter (\ref{hurwitz_theorem}) the \textbf{Hurwitz matrix}. \cite{LIU1994250} by W.M. Liu shows a good way to apply these.
 
 Instead, now the characteristic polynomial depends on this new bifurcation parameter $\mu$.
 
@@ -261,7 +263,8 @@ Instead, now the characteristic polynomial depends on this new bifurcation param
 Now, more specifically, the necessary conditions for a simple Hopf bifurcation are:
 
 \begin{proposition}\label{yangs_criterion}
-	\cite{Yang2002}
+	Proposed by Yang, Xiaojing \cite{Yang2002}.
+
 	A simple Hopf bifurcation occurs at fixed point $x^*$ and at the parameter threshold $\mu_0$ $\iff$
 	\begin{gather*}
 		\rom{1} \quad \det  H_{ n-1 }(\mu_0) = 0 \text{  and  } a_s(\mu_0) > 0, \\
@@ -291,12 +294,12 @@ Directly from criterion \ref{symmetric_roots_pair_criterion} we have a criterion
 \end{theorem}
 
 \subsection{Convex parameters}\label{convex_paramteres}
-\footcite{ErramiEtAl2015a} \footcite{Rockafellar1973}
+
 With most dynamical systems, if we want to analyze their behavior we have to find, through all possible values if $\exists x^*(\mu)$ fixed points for which bifurcation occur, and hence we need to find any value $\exists \mu$ of the bifurcation parameter for which said bifurcation occurs, throughout our entire domain.
 
 But luck would have it, though that the kind of systems we care about in this thesis, namely chemical reaction systems, defined in more detail in \ref{mass-action_network}, are not like "most" dynamical systems.
 
-They all have a certain structure and their corresponding differential equations look in a way that can be represented more manageably.
+They all have a certain structure and their corresponding differential equations look in a way that can be represented more manageably, as shown in \cite{ErramiEtAl2015a, Rockafellar1973} by Errami et al. and R. Tyrell Rockafellar, respectively.
 
 Take now a system for a CRN, written as well in its matrix form, as in \ref{crn_system_matrix_form}
 \[
@@ -323,9 +326,9 @@ Now since $x^*$ is a fixed point, the flux vector satisfies:
 \begin{equation}\label{flux_vector_linear_problem}
 	\Gamma v(k,x^*) = 0, \quad v \geq 0.
 \end{equation}
-And so the solutions of (\ref{flux_vector_linear_problem}) (ker$\Gamma$) are vectors (rays) which describe a \textbf{convex polyhedral cone} \footcite{dattorro2018Convex} called the \textbf{flux cone}.
+And so the solutions of (\ref{flux_vector_linear_problem}) (ker$\Gamma$) are vectors (rays) which describe a \textbf{convex polyhedral cone} (defined in this convex optimization text by Stephen P. Dattorro \cite{dattorro2018Convex}) called the \textbf{flux cone}.
 
-It's been shown in (\cite{clarke1980stability}) that:
+It's been shown in (\cite{clarke1980stability} by Clarke, Bruce L) that:
 
 $(k,x^*)$ satisfies \ref{flux_vector_linear_problem} $\iff  v(k,x^*)\in \text{ker}(\Gamma) \bigcap \mathbb{R}^r_{\geq 0}$
 
@@ -376,7 +379,7 @@ Given:
 
 There is one particular case that is of interest to us, though.
 
-\section{What is a Phosphorylation-Dephosphorylation CRN?}\label{ch:phoshpho-dephospho-crn}
+\section{What is a Phosphorylation-Dephosphorylation CRN?}\label{ch:phospho-dephospho-crn}
 
 Phosphorylation of proteins occurs in cycles, which are fueled by $3$ proteins which are the ingredients: a substrate $S$ and $2$ enzymes: kinase ($K$) and phosphatase ($F$).
 
@@ -385,9 +388,9 @@ The one that starts this chain is the kinase ($K$), attaching phosphate groups o
 Then, phosphatase ($F$) comes in and undoes all the hard work kinase ($K$) put in and removes the phosphate groups, now dephosphorylating the substrate.
 
 \hfill\break
-These cycles are a particular case of a broader type of what are called \textbf{posttranslational modification (PTM) systems.} \footcite{conradi2024} Another example would be, for instance \textbf{methylation}, where in this case methyl groups are the ones attaching to specific sites. \footcite{ramazi2021Ptms, SCHOENHEIMER1939333}
+These cycles are a particular case of a broader type of what are called \textbf{posttranslational modification (PTM) systems.} (explained in \cite{conradi2024}) Another example would be, for instance \textbf{methylation}, where in this case methyl groups are the ones attaching to specific sites. Available in \cite{ramazi2021Ptms, SCHOENHEIMER1939333} by Samaneh Ramazi et al. and Rudolf Schoenheimer, respectively.
 
-The reason we care about them is their key implication in \textbf{ signal transduction}, which is the process our cells use to communicate with one-another. Any disturbance in this system is linked to its own class of health complications in our body. \footcite{CONRADI2018507, 10.1093/hmg/ddp186, cohen2001Phosphorylation}
+The reason we care about them is their key implication in \textbf{ signal transduction}, which is the process our cells use to communicate with one-another. Any disturbance in this system is linked to its own class of health complications in our body. (\cite{CONRADI2018507, 10.1093/hmg/ddp186, cohen2001Phosphorylation} all have shown that this is the case)
 
 Basically, do these biochemical systems induce periodic solutions as in (\ref{hopf_bif_def}), likening clocks, or do they have multiple steady-states (\textbf{capacity for bistability}), likening switches?
 
@@ -437,7 +440,7 @@ The order phosphorylation occurs matters too, so if:
 
 \rom{2} Whereas, if the \text{first} phosphorylated site is being \textbf{de}phosphorylated first then the system is \textbf{cyclic}.
 
-You can see here an example of this classification in two mechanisms that, while they differ in this category, they are still both distributive.\footcite{conradi2024}
+You can see here an example of this classification in two mechanisms that, while they differ in this category, they are still both distributive. (Photo from Carsten Conradi and Maya Mincheva \cite{conradi2024})
 \begin{figure}[H]	
 	\includegraphics[width=13cm]{math_pics/cyclic-vs-sequential.png}\label{cyclic_vs_sequential_figure}
 	\centering
@@ -452,7 +455,7 @@ Take, for example, the following basic cycle:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=38mm]{math_pics/ex1-no-bifurcations.png}	
-	\caption{Network $( \mathcal{N}_1 )$ \footcite{doi:10.1098/rsif.2014.1405}}
+	\caption{Network $( \mathcal{N}_1 )$ \cite{doi:10.1098/rsif.2014.1405}}
 \end{figure}
 
 Whose chemical reaction notation looks like:
@@ -523,7 +526,7 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 	$\det H_1(h,\lambda)$, $\det H_2(h,\lambda)$ and $a_3(h,\lambda)$ contain only positive monomials. Thus, $\det H_1(h,\lambda)$, $\det H_2(h,\lambda) \geq 0, \forall h, \lambda \geqq 0$, specifically $\det H_2(h,\lambda) \neq 0$, $\lightning$ (\ref{ruling_out_simple_hopf_bif}).
 \end{proposition}
 \begin{proof}
-	Now to solve these we're going to use some Maple scripts (\ref{appendix}) that rely on the \cite{franz2016ConvexMaple} package (too large to include inside this document).
+	Now to solve these we're going to use some Maple scripts (\ref{appendix}) that rely on the Convex Maple package  by Matthias Franz \cite{franz2016ConvexMaple} (too large to include inside this document).
 
 	Given the network structure defined above, as well as the $E\lambda$ matrix made of the extreme cone vectors (\textbf{ray}):
 	\[
@@ -552,7 +555,7 @@ Now, with the motivation of (\ref{ruling_out_simple_hopf_bif}) in mind, we compu
 \end{proof}
 
 \textbf{Example 2}:
-Here we'll show how to prove the \textbf{existence} of a Hopf bifurcation in a network, which requires quite a bit of a lot of work.\footcite{conradi2024, Suwanmajo2020, Conradi2020} Let us take the cyclic example, Network $(a)$ from \ref{cyclic_vs_sequential_figure}, from which we can actually infer a particular case of networks with some nice properties.
+Here we'll show how to prove the \textbf{existence} of a Hopf bifurcation in a network, which requires quite a bit of a lot of work, as we know from the works of \cite{conradi2024, Suwanmajo2020, Conradi2020} by Carsten Conradi et al. and Suwanmajo et al. Let us take the cyclic example, Network $(a)$ from \ref{cyclic_vs_sequential_figure}, from which we can actually infer a particular case of networks with some nice properties.
 
 We'll first need to define some continuations of convex parameters \ref{convex_params_definition}, aided by \ref{hurwitz_theorem} in regard to this particular case.
 
@@ -580,13 +583,13 @@ Now we'll use a Corollary (the consequence of a Lemma discussed in another more 
 	\begin{equation}\label{colorally_jacobians_1st_satisfaction}
 		a_i(\lambda,h)=\lambda^ib_i(h),i=1,\ldots,s.
 	\end{equation}
-	aaand
+	And
 	\begin{equation}\label{colorally_jacobians_2nd_satisfaction}
 		\begin{aligned}\det(\mu I_n-J_\lambda(h))&=\det(\mu I_n-\lambda J_1(h))\\&=\mu^{n-s}\lambda^s\left(\left(\frac{\mu}{\lambda}\right)^s+\sum_{i=1}^sb_i(h)\left(\frac{\mu}{\lambda}\right)^{s-i}\right)
 		\end{aligned}
 	\end{equation}
 \end{corollary}
-Sooo: \textbf{Remark: }
+So: \textbf{Remark: }
 
 \rom{1} From \ref{colorally_jacobians_2nd_satisfaction} $\implies$ for $\omega(h) \in \text{Eig}(J_1(h)) \implies \mu(\lambda, \omega) = \lambda \omega(h) \in \text{Eig}(J_\lambda)(h)$.
 
@@ -635,270 +638,8 @@ Constructing Hurwitz determinants:
 Hence, because $\det(H_{s-1}(h,\lambda))=\lambda^{\frac{s(s-1)}{2}}\det(G_{s-1}(h))$, $\lambda$ is not a well-suited bifurcation parameter, since $\frac{\partial\det(H_{s-1}(h,\lambda))}{\partial\lambda}|_{h=h^{*}}=0$ when $\det(G_{s-1}(h^{*}))=0$. It all basically comes down to $h$, not $\lambda$.
 \hfill\break
 
-Now, let's get into the bread of it. We may re-define the cyclic and distributive system we're going to discuss again.
-\begin{figure}[H]
-	\includegraphics[width=13cm]{math_pics/cyclic-distributive-n1.png}	
-	\centering
-	\caption{$\mathcal{N}_2$ \footcite{conradi2024}}
-\end{figure}
-Defined by these reactions:
-\begin{align}\label{network2}
-	S_{00} + K \xrightleftharpoons[ k_2 ]{k_1} KS_{00} \xrightarrow{k_3} S_{10} + K \xrightleftharpoons[ k_5 ]{k_4} KS_{10} \xrightarrow{k_6} S_{11} + K \tag{$\mathcal{N}_2$}
-	\\
-	S_{11} + F \xrightleftharpoons[ k_8 ]{k_7} FS_{11} \xrightarrow{k_9} S_{01} + F \xrightleftharpoons[ k_{11} ]{k_{10}} FS_{01} \xrightarrow{k_{12}} S_{00} + F \ \notag
-\end{align}
-We'll look into just the irreversible sub-network, though.
-\begin{align}\label{network2_irr}
-	S_{00} + K \xrightarrow{k_1} KS_{00} \xrightarrow{k_3} S_{10} + K \xrightarrow{k_4} KS_{10} \xrightarrow{k_6} S_{11} + K \tag{$\mathcal{N}_2 / IR$}
-	\\
-	S_{11} + F \xrightarrow{k_7} FS_{11} \xrightarrow{k_9} S_{01} + F \xrightarrow{k_{10}} FS_{01} \xrightarrow{k_{12}} S_{00} + F \ \notag
-\end{align}
-And using the following index-to-species mapping:
-\[
-	\begin{array}{ccccccccccc}x_{1}&x_{2}&x_{3}&x_{4}&x_{5}&x_{6}&x_{7}&x_{8}&x_{9}&x_{10}\\K&F&S_{00}&S_{10}&S_{01}&S_{11}&KS_{00}&KS_{10}&FS_{01}&FS_{11}
-	\end{array}
-\]
-We may obtain their system of ODEs:
-
-$\mathcal{N}_2$:
-\[
-	\begin{aligned}
-		\dot{x}_1&=-k_{1}x_{1}x_{3}-k_{4}x_{1}x_{4}+(k_{2}+k_{3})x_{7}+(k_{5}+k_{6})x_{8}\\\dot{x}_2&=-k_{10}x_{2}x_{5}-k_{7}x_{2}x_{6}+(k_{8}+k_{9})x_{10}+(k_{11}+k_{12})x_{9}\\\dot{x}_3&=-k_1x_1x_3+k_2x_7+k_{12}x_9\\\dot{x}_4&=-k_4x_1x_4+k_3x_7+k_5x_8\\\dot{x}_5&=-k_{10}x_2x_5+k_9x_{10}+k_{11}x_9\\\dot{x}_6&=-k_7x_2x_6+k_8x_{10}+k_6x_8\\\dot{x}_7&=-(k_2+k_3)x_7+k_1x_1x_3\\\dot{x}_8&=-(k_5+k_6)x_8+k_4x_1x_4\\\dot{x}_9&=-(k_{11}+k_{12})x_9+k_{10}x_2x_5\\\dot{x}_{10}&=-(k_8+k_9)x_{10}+k_7x_2x_6
-	\end{aligned}
-\]
-$\mathcal{N}_2 / IR$:
-\[
-	\begin{aligned}
-		\dot{x}_{1} &= -k_{1} x_{1} x_{3} - k_{4} x_{1} x_{4} + k_{3} x_{7} + k_{6} x_{8},\\
-		\dot{x}_{2} &= k_{9} x_{10} - k_{10} x_{2} x_{5} - k_{7} x_{2} x_{6} + k_{12} x_{9},\\
-		\dot{x}_{3} &= -k_{1} x_{1} x_{3} + k_{12} x_{9},\\
-		\dot{x}_{4} &= -k_{4} x_{1} x_{4} + k_{3} x_{7},\\
-		\dot{x}_{5} &= k_{9} x_{10} - k_{10} x_{2} x_{5},\\
-		\dot{x}_{6} &= -k_{7} x_{2} x_{6} + k_{6} x_{8},\\
-		\dot{x}_{7} &= k_{1} x_{1} x_{3} - k_{3} x_{7},\\
-		\dot{x}_{8} &= k_{4} x_{1} x_{4} - k_{6} x_{8},\\
-		\dot{x}_{9} &= k_{10} x_{2} x_{5} - k_{12} x_{9},\\
-		\dot{x}_{10} &= -k_{9} x_{10} + k_{7} x_{2} x_{6}.
-	\end{aligned}
-\]
-Now there are 3 conservation laws for both networks, diminishing the rank of the Jacobian matrix to $7$. These are:
-\[
-	\begin{aligned}
-		x_{8}+x_{7}+x_{1} &=c_{1}\\
-		x_{10}+x_{9}+x_{2}&=c_{2}\\
-		x_6 + x_3 + x_{ 10 } + x_5 + x_7 + x_4 + x_9 + x_8 &= c_3
-	\end{aligned}
-\]
-$E \in \mathbb{R}^8$ extreme ray matrix of $\mathcal{N}_3$ is:
-\begin{equation}\label{e_matix_net3}
-	E^T=(1,1,1,1,1,1,1,1)
-\end{equation}
-Hence, we can use \ref{jacobian_convex_single_extreme_ray}. So with $E$ of \ref{e_matix_net3} and \ref{convex_params_definition}, which can be written as:
-\begin{gather*}
-	k_1x_1x_3=k_3x_7=k_4x_1x_4=k_6x_8=k_7x_2x_6=k_9x_{10}=k_{10}x_2x_5=k_{12}x_9=\lambda. \\
-	\Downarrow \\
-	x_{3} = \frac{\lambda}{k_{1} x_{1}}, \ x_{4} = \frac{\lambda}{k_{4} x_{1}}, \ x_{5} = \frac{\lambda}{k_{10} x_{2}}, \ x_{6} = \frac{\lambda}{k_{7} x_{2}} \\
-	x_{7} = \frac{\lambda}{k_{3}}, \ x_{8} = \frac{\lambda}{k_{6}}, \ x_{9} = \frac{\lambda}{k_{12}}, \ x_{10} = \frac{\lambda}{k_{9}} \\
-	\forall x_1, x_2 > 0 \\
-	\Downarrow \\
-	k_{1} = h_{1} h_{3} \lambda, k_{3} = h_{7} \lambda, k_{4} = h_{1} h_{4} \lambda, k_{6} = h_{8} \lambda \\
-	k_{7} = h_{2} h_{6} \lambda, k_{9} = h_{10} \lambda, k_{10} = h_{2} h_{5} \lambda, k_{12} = h_{9} \lambda \\
-	\text{with } h_i = \frac{1}{x_i} , i = \overline{1,10}
-\end{gather*}
-Now using \cite{franz2016ConvexMaple} for $J_\lambda(h)$ of \ref{network2_irr} as defined in \ref{jacobian_convex_single_extreme_ray} is:
-\begin{align}
-	J_\lambda(h) = \lambda
-	\left.\left[
-		\begin{array}{rrrrrrrrrr}-2h_{1}&0&-h_{3}&-h_{4}&0&0&h_{7}&h_{3}&0&0\\0&-2h_{2}&0&0&-h_{5}&-h_{6}&0&0&h_{9}&h_{10}\\-h_{1}&0&-h_{3}&0&0&0&0&0&h_{3}&0\\-h_{1}&0&0&-h_{4}&0&0&h_{7}&0&0&0\\0&-h_{2}&0&0&-h_{5}&0&0&0&0&h_{10}\\0&-h_{2}&0&0&0&-h_{6}&0&h_{3}&0&0\\h_{1}&0&h_{3}&0&0&0&-h_{7}&0&0&0\\h_{1}&0&0&h_{4}&0&0&0&-h_{3}&0&0\\0&h_{2}&0&0&h_{5}&0&0&0&-h_{9}&0\\0&h_{2}&0&0&0&0&h_{6}&0&0&-h_{10}
-	\end{array}\right.\right]
-\end{align}
-with $rank(J_\lambda(h)) = 7$ and characteristic polynomial is of the form:
-\[
-	\det\left(\mu I-J_\lambda(h)\right)=\mu^3\left(\mu^7+\lambda b_1(h)\mu^6+\ldots+\lambda^6b_6(h)\mu+\lambda^7b_7(h)\right),
-\]
-With $b_i(h)$ from char. poly of $J_1(h)$.
-Now, constructing the Hurwitz matrices $G_i(h), i = \overline{1,6}$. Assume that at a fixed $h = h^*$ the following occur.
-\begin{equation}\label{bifurcation_main_condition}
-	\begin{aligned}
-		b_{7}(h^{*})&>0 \text{ and } \\
-		\det(G_1(h^*))&>0,\ldots,\det(G_5(h^*))>0 \text{ and }\\
-		\det(G_6(h^*))&=0.
-	\end{aligned}
-\end{equation}
-Then, if additionally:
-\begin{equation}\label{bifurcation_transversality_condition}
-	\exists l\in\{1,\ldots,10\} : \frac{\partial\det(G_6)}{\partial h_l}|_{h=h^*}\neq0\quad.
-\end{equation}
-
-\ref{network2_irr} has a simple Hopf bifurcation at $h = h^*, \forall \lambda > 0$.
-
-Both $\left\{ b_0(h), \ldots, b_5(h) \right\} \bigcup \left\{   b_7(h) \right\}$ and
-$\det(G_i(h)), i = \overline{2,5}$ are made up of only positive monomials, whereas $\det(G_6(h))$ has terms with both signs, so it may have roots.
-
-In the following section we'll talk about $\det(G_6(h))$'s potential to have roots.
-
-First (and I swear this is relevant), let's look at some shapes:
-
-These are all (k)-\textbf{polytopes}, shapes whose faces are flat (k-1)-\textbf{polytopes}.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=13cm]{math_pics/polytopes.png}
-	\caption{Polytopes \cite{Brandenburg2024}}
-\end{figure}
-Now, if their vertices are exactly at the integer Cartesian coordinates, then they are called \textbf{integer polytopes}, meaning the polytope itself is the \textbf{convex hull} of the integer points inside it.
-
-Now we can use this to asymptotically analyze multivariate polynomials, by looking at the \textbf{Newton polytope} of the polynomial, which is the convex hull of the integer points in $\mathbb{R}^n$ corresponding to the monomials of the polynomial.
-
-Taking a vector $y = (y_1, \ldots, y_n)$, and $(a_k)_k \subseteq \mathbb{N}^n$ pair-wise distinct, consider
-\[
- f(y) = \sum_{k} c_k y^{a_k}
-\]
-where $(x_1, \ldots, x_n)^{(y_1, \ldots, y_n)}$ is a representation of the monomial $x_1^{y_1} x_2^{y_2} \ldots x_n^{y_n}$.
-Now, the \textbf{Newton polytope} of that polynomial is.
-\[
-	\mathrm{Newt}(f)=\left\{\sum_k\alpha_k\mathbf{a}_k \middle|\sum_k\alpha_k=1\And\forall j\alpha_j\geq0\right\}, \forall c_k \neq 0_n
-\]
-This structure offers a lot in insight into where (or if) roots might be.
-Take now, the Newton Polytope of $\det G_6(h)$, which by using software like \href{https://polymake.org/doku.php/start}{Polymake}\footcite{Assarf2017, Gawrilow2000} we can obtain its hyper-plane intersection form
-% create matrix with no borders like no parantheses, just like a table
-\begin{align*}
-	\left.
-	\begin{array}{ccc}
-		-h_{1} \geq -6 &
-		-h_{1} - h_{2} \geq -11 &
-		-h_{1} - h_{2} - h_{3} \geq -15 \\
-		-h_{1} - h_{2} - h_{3} - h_{6} \geq -18 &
-		h_{6} \geq 0 &
-		-h_{2} \geq -6 \\
-		-h_{1} - h_{3} \geq -11 &
-		-h_{3} - h_{6} \geq -11 &
-		-h_{2} - h_{3} - h_{6} \geq -15 \\
-		-h_{1} - h_{3} - h_{6} \geq -15 &
-		h_{1} \geq 0 &
-		-h_{2} - h_{3} \geq -11 \\
-		-h_{2} - h_{6} \geq -11 &
-		-h_{1} - h_{2} - h_{6} \geq -15 &
-		-h_{3} \geq -6 \\
-		h_{2} \geq 0 &
-		-h_{1} - h_{6} \geq -11 &
-		-h_{6} \geq -6 \\
-		h_{3} \geq 0
-	\end{array} \right.
-\end{align*}
-By treating $G_6(h)$ like an $h_1, h_2, h_3 \text{ and }, h_6$ polynomial, we observe the factor
-\[
-	h_{10}h_7 - h_8 h_9
-\]
-pops out. Now we might want to make the monomials whose factors are that, dominant, by performing the restriction / transformation;
-\begin{equation}\label{h_substitution}
-	h_1\to t,h_2\to t,h_3\to t,h_6\to t.
-\end{equation}
-Now we represent $\det G_6(h)$ as a polynomial of variable $t$ with coefficients in all other h's:
-\begin{equation}\label{6th_hurwitz_det}
-	\begin{aligned}
-		\det G_6(t)
-		&=324t^{18}(h_{10}+h_7)(h_{10}h_7-h_8h_9)+\ldots\\&+h_{10}h_4h_5h_7h_8h_9\\&\cdot(h_{10}+h_4)(h_{10}+h_5)(h_{10}+h_7)(h_{10}+h_8)(h_{10}+h_9)\\&\cdot(h_4+h_5)(h_4+h_7)(h_4+h_8)(h_4+h_9)\\&\cdot(h_5+h_7)(h_5+h_8)(h_5+h_9)\\&\cdot(h_7+h_8)(h_7+h_9)\\&\cdot(h_8+h_9).
-	\end{aligned}	
-\end{equation}
-Since the only $minuses$ that might pollute its positivity are in the "$324 t^{18}$" term $\implies \det G_6(0) > 0$, so if
-\begin{gather}\label{bif_ineq_condition}
-	h_{10}h_{7} - h_{8}h_{9} < 0 \\
-	\Downarrow \notag \\
-	\exists t_1 > 0 : \det G_6(t_1) = 0, \det G_6(t) < 0, \forall t > t_1 \notag
-\end{gather}
-by the Intermediate Value Theorem, meaning it passes $0$.
-
-So it means we've shown a root exists for $\det G_6(h)$, and hence a Hopf bifurcation may occur in the system.
-
-Where though? This is where the second part of the problem comes in.
-
-\begin{itemize}
-	\item \rom{1} We may experimentally just pick and choose values that verify	\ref{bifurcation_main_condition} and \ref{bif_ineq_condition}, for example, \cite{conradi2024} did $ h_9 = 2, h_8 = h_7 = h_{ 10 } = 1$
-	\item \rom{2} $\forall h_4, h_5 > 0$, like $h_5 = h_4 = 1$
-	\item \rom{3} Now taking \ref{h_substitution} along with the previous values and using them in \ref{6th_hurwitz_det} we get
-		\begin{gather*}
-			497664+10946304t+103721056t^{2}+579850652t^{3}+2169242876t^{4} \\
-			+5787611019t^{5}+113986711182t^{6}+16865933820t^{7} \\
-			+18863357157t^{8}+15900121640t^{9}+9989687485t^{10} \\
-			+4589099030t^{11}+1497364081t^{12}+331280824t^{13} \\
-			+45135703t^{14}+2794428t^{15}-85122t^{16}-20304t^{17}-648t^{18}=0	
-		\end{gather*}
-	\item \rom{4} Now taking its root $\implies t^* \approx 14.8$
-	\item \rom{5} Using these to verify \ref{bifurcation_transversality_condition}:
-		\begin{align*}
-			h^* =
-			\begin{pmatrix}
-				14.8 \\
-				14.8 \\
-				14.8 \\
-				1 \\
-				1 \\
-				14.8 \\
-				1 \\
-				1 \\
-				2 \\
-				1
-			\end{pmatrix}
-		\end{align*}
-	\item \rom{6} Taking $t > t^*$, say $15$, and solving for \ref{k_convert_back_from_convex} and $x = \frac{1}{h}$:
-		\begin{align}
-			h &= \left(15,15,15, 1,1,15,1,1,2,1\right)^T \\
-			x &= \left( \frac{1}{15},\frac{1}{15},\frac{1}{15},1,1,\frac{1}{15},1,1,\frac{1}{2},1 \right)^T \\
-			k &= \left( 225 \lambda, \lambda, 15\lambda, 225\lambda, \lambda, 15\lambda, 2\lambda  \right) \\
-			&= (t^{2},1,t,1,t^{2},1,t,2)
-		\end{align}
-\end{itemize}
-Considering $\lambda = 1$ and putting these into \href{https://github.com/viktorashi/Open-CoNtRol}{the app} we get something that looks like:
-\begin{figure}[H]
-	\includegraphics[width=13cm]{math_pics/oscillations.png}
-	\centering
-	\label{fig:x3_x6_osccilations}
-	\caption{Oscillations of $S00, S11$}
-\end{figure}
-
-They're oscillating! We've found a bifurcation point!
-
-But wait, in the beginning we reduced our system from \ref{network2} to \ref{network2_irr}, taking the reversible reactions with us. But luck would have it that \cite{banaji2017} shows that adding a reaction who's reaction vector is a linear combination of the other reactions, and hence preserves rank$\Gamma$ does, in fact mean the resulting system preserves its capacity for bifurcations.
-
-So adding back
-\begin{gather*}
-	KS_{00} \xrightarrow{k_2} K \\
-	KS_{10} \xrightarrow{k_5} S_{10} + K \\
-	FS_{11} \xrightarrow{k_8} S_{11} + F \\
-	FS_{01} \xrightarrow{k_{11}} S_{01} + F
-\end{gather*}
-Into our system, we obtain bifurcation parameters and initial conditions for which oscillations occur, namely:
-\[
-	x =
-	\begin{bmatrix*}
-		0.0885267\\
-		0.0528367\\
-		0.0496013\\
-		0.74587\\
-		1.261\\
-		0.084892\\
-		0.97124\\
-		1.0069\\
-		0.49383\\
-		1.02
-	\end{bmatrix*}
-\]
-and $k$ as before, but with the extra reaction rates being simply a constant we can vary to see how the system looks $k_b = k_5 = k_2 = k_{11} = k_8$. Thus we get:
-
-\begin{figure}[H]
-	\includegraphics[width=13cm]{math_pics/oscillations-full-network.png}
-	\centering
-	\label{fig:full_net_oscillations}
-	\caption{Oscillations of the full \ref{network2} network}
-\end{figure}
-
-There we have, a "visual" proof, you could say.
-
-\hfill\break
-\hfill\break
-
-\textbf{Example 3}:
-Now let us apply the same intuition for the following cyclic network (\ref{network3}).
+\textbf{Example 2}:
+Now let us apply the same intuition for the following cyclic network (\ref{network2}).
 
 \begin{figure}[H]
 	\includegraphics[width=13cm]{math_pics/ex3-bifurcations.png}
@@ -906,41 +647,41 @@ Now let us apply the same intuition for the following cyclic network (\ref{netwo
 \end{figure}
 
 Its chemical reaction network is:
-\begin{align}\label{network3}
-	S_{0} + K \xrightleftharpoons[ k_2 ]{k_1} KS_{0} \xrightarrow{k_3} K S_1 \xrightleftharpoons{k_4} S_2 + K \tag{$\mathcal{N}_3$} \\
+\begin{align}\label{network2}
+	S_{0} + K \xrightleftharpoons[ k_2 ]{k_1} KS_{0} \xrightarrow{k_3} K S_1 \xrightleftharpoons{k_4} S_2 + K \tag{$\mathcal{N}_2$} \\
 	S_{2} + F \xrightleftharpoons[ k_6 ]{k_5} FS_{2} \xrightarrow{k_7} S_1 + F \xrightleftharpoons[k_9]{k_8} FS_1 \xrightarrow{k_{10}} S_0 + F \notag
 \end{align}
 
-By the same results used in \ref{network2}, we go $1$ level up the simplification stack, removing the reversible reactions and re-naming the reaction constants $k_i$ like so:
-\begin{align}\label{network3_irr}
-	S_{0} + K \xrightarrow{k_1} KS_{0} \xrightarrow{k_2} K S_1 \xrightarrow{k_3} S_2 + K \tag{$\mathcal{N}_3 / IR $} \\
+By the same results used in \ref{network3}, we go $1$ level up the simplification stack, removing the reversible reactions and re-naming the reaction constants $k_i$ like so:
+\begin{align}\label{network2_irr}
+	S_{0} + K \xrightarrow{k_1} KS_{0} \xrightarrow{k_2} K S_1 \xrightarrow{k_3} S_2 + K \tag{$\mathcal{N}_2 / IR $} \\
 	S_{2} + F \xrightarrow{k_4} FS_{2} \xrightarrow{k_5} S_1 + F \xrightarrow{k_6} FS_1 \xrightarrow{k_{7}} S_0 + F \notag
 \end{align}
 
-By the results used previously, we find that if this network is to have bifurcations, then adding the inverse reactions back would mean \ref{network3} also does. Going up $1$ more level, using \textbf{Theorem 3.2} from \cite{banaji2017} we see that performing a stoichiometry matrix rank preserving operation of removing species $S_1$ and $K$, then we get network:
-\begin{align}\label{network3_irr_s}
-	S_{0} \xrightarrow{k_1} KS_{0} \xrightarrow{k_2} K S_1 \xrightarrow{k_3} S_2 \tag{$\mathcal{N}_3 / IR / S$} \\
+By the results used there, we find that if this network is to have bifurcations, then adding the inverse reactions back would mean \ref{network2} also does. Going up $1$ more level, using \textbf{Theorem 3.2} from Banaji \cite{banaji2017} we see that performing a stoichiometry matrix rank preserving operation of removing species $S_1$ and $K$ we get network:
+\begin{align}\label{network2_irr_s}
+	S_{0} \xrightarrow{k_1} KS_{0} \xrightarrow{k_2} K S_1 \xrightarrow{k_3} S_2 \tag{$\mathcal{N}_2 / IR / S$} \\
 	S_{2} + F \xrightarrow{k_4} FS_{2} \xrightarrow{k_5} F \xrightarrow{k_6} FS_1 \xrightarrow{k_{7}} S_0 + F \notag
 \end{align}
 
-which - as previously - if it's to admit bifurcations, then \ref{network3_irr} would have them as well.
+Which - as in \ref{network3} - if it's to admit bifurcations, then \ref{network2_irr} would have them as well.
 
-And finally, removing the $2$ complexes $FS_1$,$KS_0$ and their corresponding $2$ reactions through a simmilar opperation \cite{banaji2017}, this time dipping from rank $\Gamma_{\text{\ref{network3_irr_s}}}$ = 6 to rank $\Gamma_{\text{\ref{network3_irr_ss}}}$ = 4
-\begin{align}\label{network3_irr_ss}
-	S_{0} \xrightarrow{k_1} KS_{1} \xrightarrow{k_2} S_2 \tag{$\mathcal{N}_3 / IR / SS$} \\
+And finally, removing the $2$ complexes $FS_1$,$KS_0$ and their corresponding $2$ reactions through a simmilar opperation \cite{banaji2017}, this time dipping from rank $\Gamma_{\text{\ref{network2_irr_s}}}$ = 6 to rank $\Gamma_{\text{\ref{network2_irr_ss}}}$ = 4
+\begin{align}\label{network2_irr_ss}
+	S_{0} \xrightarrow{k_1} KS_{1} \xrightarrow{k_2} S_2 \tag{$\mathcal{N}_2 / IR / SS$} \\
 	S_{2} + F \xrightarrow{k_3} FS_{2} \xrightarrow{k_4} F \xrightarrow{k_{5}} S_0 + F \notag
 \end{align}
 
-We get the system which we'll end up analysing, again, as before knowing that if we are to find a bifurcation in \ref{network3_irr_ss} - this extra-extra simplification - then that would also be the case for \ref{network3_irr_s} $\implies$ \ref{network3_irr} $\implies$ \ref{network3}.
+We get the system which we'll end up analysing, again, as before knowing that if we are to find a bifurcation in \ref{network2_irr_ss} - this extra-extra simplification - then that would also be the case for \ref{network2_irr_s} $\implies$ \ref{network2_irr} $\implies$ \ref{network2}.
 
-(\ref{network3_irr_ss})'s system of equations is:
+The system of equations for \ref{network2_irr_ss} is:
 \begin{equation}\label{last_dyn_sys}
 	\begin{aligned}&\dot{x}_1(t)=-k_1x_1(t)+k_5x_4(t)\\&\dot{x}_2(t)=k_1x_1(t)-k_2x_2(t)\\&\dot{x}_3(t)=k_2x_2(t)-k_3x_3(t)x_4(t)\\&\dot{x}_4(t)=-k_3x_3(t)x_4(t)+k_4x_5(t)\\&\dot{x}_5(t)=k_3x_3(t)x_4(t)-k_4x_5(t).
 	\end{aligned}
 \end{equation}
 Using \ref{jacobian_convex_params} to get the convex-parametered Jacobian:
 \[
-	J_{\text{\ref{network3_irr_ss}}}(h,\lambda)=
+	J_{\text{\ref{network2_irr_ss}}}(h,\lambda)=
 	\begin{bmatrix}-\lambda h_{1}&0&0&\lambda h_{4}&0\\\lambda h_{1}&-\lambda h_{2}&0&0&0\\0&\lambda h_{2}&-\lambda h_{3}&-\lambda h_{4}&0\\0&0&-\lambda h_{3}&-\lambda h_{4}&\lambda h_{5}\\0&0&\lambda h_{3}&\lambda h_{4}&-\lambda h_{5}
 	\end{bmatrix}.
 \]
@@ -1003,8 +744,270 @@ All that's left is $H_3$. Treating $\lambda, h_3, h_4 > 0$ as some constants and
 By the same logic as in \ref{bif_ineq_condition}, noticing $\frac{ d g(t) }{dt} > 0, \forall t > 0,  g(0) < 0, \lim_{t \rightarrow \infty}  g(t) = \infty \implies \exists t_1 > 0 \text{ s.t. }  g(t_1) = 0$.
 Also, $\frac{d  \det \text{H}_3(t) }{dt} = 2 t \lambda^6 g(t) + t^2 \lambda^6 g'(t) \implies \frac{d  \det \text{H}_3(t) }{dt} |_{t = t_1}  = t_1^2 \lambda^6 g'(t_1) > 0,$ since $t_1 > 0; \lambda > 0$ and $g'(t_1) > 0$
 
-Meaning \ref{network3_irr_ss} undergoes a simple Hopf bifurcation for that $t_1$ and $\forall \lambda > 0$ and some $h_3, h_4 > 0$ fixed.
+Meaning \ref{network2_irr_ss} undergoes a simple Hopf bifurcation for that $t_1$ and $\forall \lambda > 0$ and some $h_3, h_4 > 0$ fixed.
 
-In the section \ref{last_system_init_cond}, I'm plotting this sytem using \href{https://github.com/viktorashi/bachelor-thesis.git}{the app} for some initial conditions and rate constants, found simmilarly to \ref{network2}, as you can see, these also admit oscillations.
+In the section \ref{last_system_init_cond}, I'm plotting this system using \href{https://github.com/viktorashi/bachelor-thesis.git}{the app} for some initial conditions and rate constants, found similarly to \ref{network3}, as you can see, these also admit oscillations.
 
-Now we know system \ref{network3_irr_ss} undergoes bifurcations, which means \ref{network3_irr_s}, \ref{network3_irr} and \ref{network3} all do, respectively.
+Now we know system \ref{network2_irr_ss} undergoes bifurcations, which means \ref{network2_irr_s}, \ref{network2_irr} and \ref{network2} all do, respectively.
+
+\hfill\break
+\hfill\break
+
+\textbf{Example 3}: Now, let's get into the bread of it. We may re-define the cyclic and distributive system we're going to discuss again.
+\begin{figure}[H]
+	\includegraphics[width=13cm]{math_pics/cyclic-distributive-n1.png}	
+	\centering
+	\caption{$\mathcal{N}_3$ \cite{conradi2024}}
+\end{figure}
+Defined by these reactions:
+\begin{align}\label{network3}
+	S_{00} + K \xrightleftharpoons[ k_2 ]{k_1} KS_{00} \xrightarrow{k_3} S_{10} + K \xrightleftharpoons[ k_5 ]{k_4} KS_{10} \xrightarrow{k_6} S_{11} + K \tag{$\mathcal{N}_3$}
+	\\
+	S_{11} + F \xrightleftharpoons[ k_8 ]{k_7} FS_{11} \xrightarrow{k_9} S_{01} + F \xrightleftharpoons[ k_{11} ]{k_{10}} FS_{01} \xrightarrow{k_{12}} S_{00} + F \ \notag
+\end{align}
+We'll look into just the irreversible sub-network, though.
+\begin{align}\label{network3_irr}
+	S_{00} + K \xrightarrow{k_1} KS_{00} \xrightarrow{k_3} S_{10} + K \xrightarrow{k_4} KS_{10} \xrightarrow{k_6} S_{11} + K \tag{$\mathcal{N}_3 / IR$}
+	\\
+	S_{11} + F \xrightarrow{k_7} FS_{11} \xrightarrow{k_9} S_{01} + F \xrightarrow{k_{10}} FS_{01} \xrightarrow{k_{12}} S_{00} + F \ \notag
+\end{align}
+And using the following index-to-species mapping:
+\[
+	\begin{array}{ccccccccccc}x_{1}&x_{2}&x_{3}&x_{4}&x_{5}&x_{6}&x_{7}&x_{8}&x_{9}&x_{10}\\K&F&S_{00}&S_{10}&S_{01}&S_{11}&KS_{00}&KS_{10}&FS_{01}&FS_{11}
+	\end{array}
+\]
+We may obtain their system of ODEs:
+
+$\mathcal{N}_3$:
+\[
+	\begin{aligned}
+		\dot{x}_1&=-k_{1}x_{1}x_{3}-k_{4}x_{1}x_{4}+(k_{2}+k_{3})x_{7}+(k_{5}+k_{6})x_{8}\\\dot{x}_2&=-k_{10}x_{2}x_{5}-k_{7}x_{2}x_{6}+(k_{8}+k_{9})x_{10}+(k_{11}+k_{12})x_{9}\\\dot{x}_3&=-k_1x_1x_3+k_2x_7+k_{12}x_9\\\dot{x}_4&=-k_4x_1x_4+k_3x_7+k_5x_8\\\dot{x}_5&=-k_{10}x_2x_5+k_9x_{10}+k_{11}x_9\\\dot{x}_6&=-k_7x_2x_6+k_8x_{10}+k_6x_8\\\dot{x}_7&=-(k_2+k_3)x_7+k_1x_1x_3\\\dot{x}_8&=-(k_5+k_6)x_8+k_4x_1x_4\\\dot{x}_9&=-(k_{11}+k_{12})x_9+k_{10}x_2x_5\\\dot{x}_{10}&=-(k_8+k_9)x_{10}+k_7x_2x_6
+	\end{aligned}
+\]
+$\mathcal{N}_3 / IR$:
+\[
+	\begin{aligned}
+		\dot{x}_{1} &= -k_{1} x_{1} x_{3} - k_{4} x_{1} x_{4} + k_{3} x_{7} + k_{6} x_{8},\\
+		\dot{x}_{2} &= k_{9} x_{10} - k_{10} x_{2} x_{5} - k_{7} x_{2} x_{6} + k_{12} x_{9},\\
+		\dot{x}_{3} &= -k_{1} x_{1} x_{3} + k_{12} x_{9},\\
+		\dot{x}_{4} &= -k_{4} x_{1} x_{4} + k_{3} x_{7},\\
+		\dot{x}_{5} &= k_{9} x_{10} - k_{10} x_{2} x_{5},\\
+		\dot{x}_{6} &= -k_{7} x_{2} x_{6} + k_{6} x_{8},\\
+		\dot{x}_{7} &= k_{1} x_{1} x_{3} - k_{3} x_{7},\\
+		\dot{x}_{8} &= k_{4} x_{1} x_{4} - k_{6} x_{8},\\
+		\dot{x}_{9} &= k_{10} x_{2} x_{5} - k_{12} x_{9},\\
+		\dot{x}_{10} &= -k_{9} x_{10} + k_{7} x_{2} x_{6}.
+	\end{aligned}
+\]
+Now there are 3 conservation laws for both networks, dropping the rank of the Jacobian matrix to $7$. These are:
+\[
+	\begin{aligned}
+		x_{8}+x_{7}+x_{1} &=c_{1}\\
+		x_{10}+x_{9}+x_{2}&=c_{2}\\
+		x_6 + x_3 + x_{ 10 } + x_5 + x_7 + x_4 + x_9 + x_8 &= c_3
+	\end{aligned}
+\]
+$E \in \mathbb{R}^8$ extreme ray matrix of $\mathcal{N}_3$ is:
+\begin{equation}\label{e_matix_net3}
+	E^T=(1,1,1,1,1,1,1,1)
+\end{equation}
+Hence, we can use \ref{jacobian_convex_single_extreme_ray}. So with $E$ of \ref{e_matix_net3} and \ref{convex_params_definition}, which can be written as:
+\begin{gather*}
+	k_1x_1x_3=k_3x_7=k_4x_1x_4=k_6x_8=k_7x_2x_6=k_9x_{10}=k_{10}x_2x_5=k_{12}x_9=\lambda. \\
+	\Downarrow \\
+	x_{3} = \frac{\lambda}{k_{1} x_{1}}, \ x_{4} = \frac{\lambda}{k_{4} x_{1}}, \ x_{5} = \frac{\lambda}{k_{10} x_{2}}, \ x_{6} = \frac{\lambda}{k_{7} x_{2}} \\
+	x_{7} = \frac{\lambda}{k_{3}}, \ x_{8} = \frac{\lambda}{k_{6}}, \ x_{9} = \frac{\lambda}{k_{12}}, \ x_{10} = \frac{\lambda}{k_{9}} \\
+	\forall x_1, x_2 > 0 \\
+	\Downarrow \\
+	k_{1} = h_{1} h_{3} \lambda, k_{3} = h_{7} \lambda, k_{4} = h_{1} h_{4} \lambda, k_{6} = h_{8} \lambda \\
+	k_{7} = h_{2} h_{6} \lambda, k_{9} = h_{10} \lambda, k_{10} = h_{2} h_{5} \lambda, k_{12} = h_{9} \lambda \\
+	\text{with } h_i = \frac{1}{x_i} , i = \overline{1,10}
+\end{gather*}
+Now using the convex package \cite{franz2016ConvexMaple} for $J_\lambda(h)$ of \ref{network3_irr} as defined in \ref{jacobian_convex_single_extreme_ray} is:
+\begin{align}
+	J_\lambda(h) = \lambda
+	\left.\left[
+		\begin{array}{rrrrrrrrrr}-2h_{1}&0&-h_{3}&-h_{4}&0&0&h_{7}&h_{3}&0&0\\0&-2h_{2}&0&0&-h_{5}&-h_{6}&0&0&h_{9}&h_{10}\\-h_{1}&0&-h_{3}&0&0&0&0&0&h_{3}&0\\-h_{1}&0&0&-h_{4}&0&0&h_{7}&0&0&0\\0&-h_{2}&0&0&-h_{5}&0&0&0&0&h_{10}\\0&-h_{2}&0&0&0&-h_{6}&0&h_{3}&0&0\\h_{1}&0&h_{3}&0&0&0&-h_{7}&0&0&0\\h_{1}&0&0&h_{4}&0&0&0&-h_{3}&0&0\\0&h_{2}&0&0&h_{5}&0&0&0&-h_{9}&0\\0&h_{2}&0&0&0&0&h_{6}&0&0&-h_{10}
+	\end{array}\right.\right]
+\end{align}
+with $rank(J_\lambda(h)) = 7$ and characteristic polynomial is of the form:
+\[
+	\det\left(\mu I-J_\lambda(h)\right)=\mu^3\left(\mu^7+\lambda b_1(h)\mu^6+\ldots+\lambda^6b_6(h)\mu+\lambda^7b_7(h)\right),
+\]
+With $b_i(h)$ from char. poly of $J_1(h)$.
+Now, constructing the Hurwitz matrices $G_i(h), i = \overline{1,6}$. Assume that at a fixed $h = h^*$ the following occur.
+\begin{equation}\label{bifurcation_main_condition}
+	\begin{aligned}
+		b_{7}(h^{*})&>0 \text{ and } \\
+		\det(G_1(h^*))&>0,\ldots,\det(G_5(h^*))>0 \text{ and }\\
+		\det(G_6(h^*))&=0.
+	\end{aligned}
+\end{equation}
+Then, if additionally:
+\begin{equation}\label{bifurcation_transversality_condition}
+	\exists l\in\{1,\ldots,10\} : \frac{\partial\det(G_6)}{\partial h_l}|_{h=h^*}\neq0\quad.
+\end{equation}
+
+\ref{network3_irr} has a simple Hopf bifurcation at $h = h^*, \forall \lambda > 0$.
+
+Both $\left\{ b_0(h), \ldots, b_5(h) \right\} \bigcup \left\{   b_7(h) \right\}$ and
+$\det(G_i(h)), i = \overline{2,5}$ are made up of only positive monomials, whereas $\det(G_6(h))$ has terms with both signs, so it may have roots.
+
+In the following section we'll talk about $\det(G_6(h))$'s potential to have roots.
+
+First (and I swear this is relevant), let's look at some shapes:
+
+These are all (k)-\textbf{polytopes}, shapes whose faces are flat (k-1)-\textbf{polytopes}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=13cm]{math_pics/polytopes.png}
+	\caption{Polytopes from Brandenburg et al. \cite{Brandenburg2024}}
+\end{figure}
+Now, if their vertices are exactly at the integer Cartesian coordinates, then they are called \textbf{integer polytopes}, meaning the polytope itself is the \textbf{convex hull} of the integer points inside it.
+
+Now we can use this to asymptotically analyze multivariate polynomials, by looking at the \textbf{Newton polytope} of the polynomial, which is the convex hull of the integer points in $\mathbb{R}^n$ corresponding to the monomials of the polynomial.
+
+Taking a vector $y = (y_1, \ldots, y_n)$, and $(a_k)_k \subseteq \mathbb{N}^n$ pair-wise distinct, consider
+\[
+ f(y) = \sum_{k} c_k y^{a_k}
+\]
+where $(x_1, \ldots, x_n)^{(y_1, \ldots, y_n)}$ is a representation of the monomial $x_1^{y_1} x_2^{y_2} \ldots x_n^{y_n}$.
+Now, the \textbf{Newton polytope} of that polynomial is.
+\[
+	\mathrm{Newt}(f)=\left\{\sum_k\alpha_k\mathbf{a}_k \middle|\sum_k\alpha_k=1\And\forall j\alpha_j\geq0\right\}, \forall c_k \neq 0_n
+\]
+This structure offers a lot in insight into where (or if) roots might be.
+Take now, the Newton Polytope of $\det G_6(h)$, which by using software like \href{https://polymake.org/doku.php/start}{Polymake}\cite{Gawrilow2000} as used by Assarf et al. in \cite{Assarf2017} by Assarf et al., we can obtain its hyper-plane intersection form
+% create matrix with no borders like no parantheses, just like a table
+\begin{align*}
+	\left.
+	\begin{array}{ccc}
+		-h_{1} \geq -6 &
+		-h_{1} - h_{2} \geq -11 &
+		-h_{1} - h_{2} - h_{3} \geq -15 \\
+		-h_{1} - h_{2} - h_{3} - h_{6} \geq -18 &
+		h_{6} \geq 0 &
+		-h_{2} \geq -6 \\
+		-h_{1} - h_{3} \geq -11 &
+		-h_{3} - h_{6} \geq -11 &
+		-h_{2} - h_{3} - h_{6} \geq -15 \\
+		-h_{1} - h_{3} - h_{6} \geq -15 &
+		h_{1} \geq 0 &
+		-h_{2} - h_{3} \geq -11 \\
+		-h_{2} - h_{6} \geq -11 &
+		-h_{1} - h_{2} - h_{6} \geq -15 &
+		-h_{3} \geq -6 \\
+		h_{2} \geq 0 &
+		-h_{1} - h_{6} \geq -11 &
+		-h_{6} \geq -6 \\
+		h_{3} \geq 0
+	\end{array} \right.
+\end{align*}
+By treating $G_6(h)$ like an $h_1, h_2, h_3 \text{ and }, h_6$ polynomial, we observe the factor
+\[
+	h_{10}h_7 - h_8 h_9
+\]
+pops out. Now we might want to make the monomials whose factors are that, dominant, by performing the restriction / transformation;
+\begin{equation}\label{h_substitution}
+	h_1\to t,h_2\to t,h_3\to t,h_6\to t.
+\end{equation}
+Now we represent $\det G_6(h)$ as a polynomial of variable $t$ with coefficients in all other h's:
+\begin{equation}\label{6th_hurwitz_det}
+	\begin{aligned}
+		\det G_6(t)
+		&=324t^{18}(h_{10}+h_7)(h_{10}h_7-h_8h_9)+\ldots\\&+h_{10}h_4h_5h_7h_8h_9\\&\cdot(h_{10}+h_4)(h_{10}+h_5)(h_{10}+h_7)(h_{10}+h_8)(h_{10}+h_9)\\&\cdot(h_4+h_5)(h_4+h_7)(h_4+h_8)(h_4+h_9)\\&\cdot(h_5+h_7)(h_5+h_8)(h_5+h_9)\\&\cdot(h_7+h_8)(h_7+h_9)\\&\cdot(h_8+h_9).
+	\end{aligned}	
+\end{equation}
+Since the only $minuses$ that might pollute its positivity are in the "$324 t^{18}$" term $\implies \det G_6(0) > 0$, so if
+\begin{gather}\label{bif_ineq_condition}
+	h_{10}h_{7} - h_{8}h_{9} < 0 \\
+	\Downarrow \notag \\
+	\exists t_1 > 0 : \det G_6(t_1) = 0, \det G_6(t) < 0, \forall t > t_1 \notag
+\end{gather}
+by the Intermediate Value Theorem, meaning it passes $0$.
+
+So it means we've shown a root exists for $\det G_6(h)$, and hence a Hopf bifurcation may occur in the system.
+
+Where though? This is where the second part of the problem comes in.
+
+\begin{itemize}
+	\item \rom{1} We may experimentally just pick and choose values that verify	\ref{bifurcation_main_condition} and \ref{bif_ineq_condition}, for example, Conradi \cite{conradi2024} did $ h_9 = 2, h_8 = h_7 = h_{ 10 } = 1$
+	\item \rom{2} $\forall h_4, h_5 > 0$, like $h_5 = h_4 = 1$
+	\item \rom{3} Now taking \ref{h_substitution} along with the previous values and using them in \ref{6th_hurwitz_det} we get
+		\begin{gather*}
+			497664+10946304t+103721056t^{2}+579850652t^{3}+2169242876t^{4} \\
+			+5787611019t^{5}+113986711182t^{6}+16865933820t^{7} \\
+			+18863357157t^{8}+15900121640t^{9}+9989687485t^{10} \\
+			+4589099030t^{11}+1497364081t^{12}+331280824t^{13} \\
+			+45135703t^{14}+2794428t^{15}-85122t^{16}-20304t^{17}-648t^{18}=0	
+		\end{gather*}
+	\item \rom{4} Now taking its root $\implies t^* \approx 14.8$
+	\item \rom{5} Using these to verify \ref{bifurcation_transversality_condition}:
+		\begin{align*}
+			h^* =
+			\begin{pmatrix}
+				14.8 \\
+				14.8 \\
+				14.8 \\
+				1 \\
+				1 \\
+				14.8 \\
+				1 \\
+				1 \\
+				2 \\
+				1
+			\end{pmatrix}
+		\end{align*}
+	\item \rom{6} Taking $t > t^*$, say $15$, and solving for \ref{k_convert_back_from_convex} and $x = \frac{1}{h}$:
+		\begin{align}
+			h &= \left(15,15,15, 1,1,15,1,1,2,1\right)^T \\
+			x &= \left( \frac{1}{15},\frac{1}{15},\frac{1}{15},1,1,\frac{1}{15},1,1,\frac{1}{2},1 \right)^T \\
+			k &= \left( 225 \lambda, \lambda, 15\lambda, 225\lambda, \lambda, 15\lambda, 2\lambda  \right) \\
+			&= (t^{2},1,t,1,t^{2},1,t,2)
+		\end{align}
+\end{itemize}
+Considering $\lambda = 1$ and putting these into \href{https://github.com/viktorashi/Open-CoNtRol}{the app} we get something that looks like this:
+\begin{figure}[H]
+	\includegraphics[width=13cm]{math_pics/oscillations.png}
+	\centering
+	\label{fig:x3_x6_osccilations}
+	\caption{Oscillations of $S00, S11$}
+\end{figure}
+
+They're oscillating! We've found a bifurcation point!
+
+But if we remember, in the beginning we reduced our system from \ref{network3} to \ref{network3_irr}, taking the reversible reactions with us. But luck would have it that Murad Banaji \cite{banaji2017} shows that adding a reaction whose reaction vector is a linear combination of the other reactions, and hence preserves rank$\Gamma$ does, in fact mean the resulting system preserves its capacity for bifurcations.
+
+So adding back
+\begin{gather*}
+	KS_{00} \xrightarrow{k_2} K \\
+	KS_{10} \xrightarrow{k_5} S_{10} + K \\
+	FS_{11} \xrightarrow{k_8} S_{11} + F \\
+	FS_{01} \xrightarrow{k_{11}} S_{01} + F
+\end{gather*}
+Into our system, we obtain bifurcation parameters and initial conditions for which oscillations occur, namely:
+\[
+	x =
+	\begin{bmatrix*}
+		0.0885267\\
+		0.0528367\\
+		0.0496013\\
+		0.74587\\
+		1.261\\
+		0.084892\\
+		0.97124\\
+		1.0069\\
+		0.49383\\
+		1.02
+	\end{bmatrix*}
+\]
+and $k$ as before, but with the extra reaction rates being simply a constant we can vary to see how the system looks $k_b = k_5 = k_2 = k_{11} = k_8$. Thus we get:
+
+\begin{figure}[H]
+	\includegraphics[width=13cm]{math_pics/oscillations-full-network.png}
+	\centering
+	\label{fig:full_net_oscillations}
+	\caption{Oscillations of the full \ref{network3} network}
+\end{figure}
+
+There we have, a "visual" proof, you could say.

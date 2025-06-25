@@ -1,12 +1,13 @@
 \chapter{Dynamical Systems}
 \label{chap:ch3}
 
+In order for us to be able to analyze and make assumptions about chemical reaction networks, we need to model them somehow. So in this chapter this is exactly what we'll do. We'll go through the very basics that might be taught to an undergraduate student, all the way the more specific aspects and tools which we're going to put into practice towards the end.
+
 \section{Defining Ordinary Differential Equations}
-\cite{hunter2011introduction,binegar2008,maryland2022}
 \begin{definition}
 	\textit{An \textbf{ordinary differential equation} is an equation of an unknown function of \textbf{one} variable. This can be expressed as a function \textbf{of} this unknown function, its corresponding variable and its various derivatives}.
 \end{definition}
-Its general form looks something like:
+Its general form looks something like (see Hunter, John K \cite{hunter2011introduction}):
 \begin{equation}\label{ODE}
 	F(t,y(t),y'(t),....,y^{(n)}(t))=0,
 \end{equation}
@@ -15,7 +16,7 @@ Where $y(t)$ is the unknown function of independent variable $t$ and $F : \Omega
 This would be what's called the implicit form of the differential equation.
 
 \begin{definition}
-	\textit{The highest derivative found in the equation is the \textbf{order} of an ODE.}
+	\textit{The highest derivative found in the equation is the \textbf{order} of an ODE.} (see Birne Binegar \cite{binegar2008})
 \end{definition}
 In our case, the order is $n$.
 If, however $F$ satisfies the regularity condition \textbf{of the implicit function theorem} then the equation can be written in a much more digestible form.
@@ -24,7 +25,7 @@ The \textbf{implicit function theorem} allows one to convert a relation (implici
 
 As an example: The relation for a cardioid cannot be expressed as a sole function, we'd instead need the union of the graph of two separate functions for expressing it.
 
-Here is a piece of Maple code (from \ref{appendix}) that draws that cardioid, for example.
+Here is a piece of Maple code (talked more about in the Appendix \ref{appendix}) that draws that cardioid, for example.
 
 \begin{minted}[
     linenos,
@@ -58,14 +59,14 @@ Whose output is shown below, you can see how we can to generate two unique funct
 	\label{fig:cardioid}
 \end{figure}
 
-So restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
+By restricting the domain $\Omega$ to one that allows the implicit form to be represented as a function of the form
 \begin{equation}\label{implicit_func_theorem}
 	y^{(n)}(t)=f(t,y(t),y'(t),...,y^{(n-1)}(t))
 \end{equation}
 would yield what's called the \textbf{explicit} form of the ODE.
 
 A \textbf{solution} is an expression of the unknown function $y(t)$ which satisfies the relation
-$y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$. A \textbf{general solution} includes all of these functions and usually has some constants of integration in the expression, while a \textbf{particular solution} doesn't have them.
+$y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$. A \textbf{general solution} (see C. David Levermore et al. \cite{maryland2022}) includes all of these functions and usually has some constants of integration in the expression, while a \textbf{particular solution} doesn't have them.
 
 A particular solution is usually found if we also have some initial conditions given for the unknown function, like $y(a)=b, y'(a)=c$ for some $a,b,c \in \mathbb{R}$.
 Or, more formally:
@@ -81,8 +82,8 @@ Or, more formally:
 
 \end{definition}
 
-\section{Forming Ordinary Differential Equation systems}\footcite{Hiroki2015}
-We may take a sequence of such first order ordinary differential equations to form a system:
+\section{Forming Ordinary Differential Equation systems}
+We may take a sequence of such first order ordinary differential equations to form a system (well explained by Hiroki Sayama in \cite{Hiroki2015}):
 \begin{equation}\label{eq:ode-sys}
 	\begin{cases}
 		y'_1(t) = f_1(t,y_1(t),y_2(t),\dots,y_n(t)) \\
@@ -103,7 +104,7 @@ $y(t)= (y_1(t), \dots, y_n(t))$ and $f(t,y_1(t),\dots,y_n(t)) = (f_1,\dots,f_n)$
 \end{definition}
 
 \begin{definition}
-	An \textbf{autonomous equation} \cite{Hiroki2015} is a differential equation that does not explicitly depend on time, but is instead only defined by the relation between the function itself and its derivatives, so an equation of the form
+	An \textbf{autonomous equation} (also explained really well in \cite{Hiroki2015} ) is a differential equation that does not explicitly depend on time, but is instead only defined by the relation between the function itself and its derivatives, so an equation of the form
 	\begin{equation}\label{eq:3.2.3}
 		f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0
 	\end{equation}
@@ -141,7 +142,7 @@ Introducing the notion of \textbf{operators} would help in writing this next sec
 	\hspace{20pt} is the \textbf{linear differential operator of order n}. Meaning \ref{lin_hom_eq_const} $\iff Lx=0$.
 \end{definition}
 
-We now can; just by pure Ansatz; assume the solutions take the form $e^{rt}$ for some (yet unknown) $r$'s. Because the exponential is so easy to work with when it comes to taking derivatives - a.k.a. : $D^n(e^{rt})=r^ne^{rt}$, so its derivatives are proportional to itself, meaning no new $t$'s are introduced - substituting back into \ref{lin_hom_eq_const} yields
+We now can; just by pure Ansatz; assume the solutions take the form $e^{rt}$ for some (yet unknown) $r$'s. Because the exponential is so easy to work with when it comes to taking derivatives - meaning: $D^n(e^{rt})=r^ne^{rt}$, so its derivatives are proportional to itself, meaning no new $t$'s are introduced - substituting back into \ref{lin_hom_eq_const} yields
 \begin{gather*}
 	Le^{rt} = a_0 e^{rt} + a_1 De^{rt} + \dots +a_{n} D^ne^{rt} = 0      \\
 	\Updownarrow \\
@@ -171,7 +172,7 @@ By Euler's formula:
 So $e^{\lambda t}\text{cos}(\mu t)$ and $e^{\lambda t}\text{sin}(\mu t)$ are both fundamental solutions for $Lx=0$.
 
 \begin{proof}
-	Since $a_i \in \mathbb{R}, \forall i=\overline{1,n}$ in $p \implies p(\overline{r})=\overline{p(r)}, \forall r \in \mathbb{C}$, hence, just like 2AM coffee and the exam session, complex roots of $p$ always come in pairs. They both satisfy:
+	Since $a_i \in \mathbb{R}, \forall i=\overline{1,n}$ in $p \implies p(\overline{r})=\overline{p(r)}, \forall r \in \mathbb{C}$, hence, complex roots of $p$ always come in pairs. They both satisfy:
 	\begin{equation}\label{lin_op_solution}
 		Le^{(\lambda \pm i \mu)} = 0
 	\end{equation}
@@ -211,7 +212,7 @@ So $e^{\lambda t}\text{cos}(\mu t)$ and $e^{\lambda t}\text{sin}(\mu t)$ are bot
 	Moreover, the same can be said for $e^{\overline{c}t}$.
 \end{proof}
 
-Now something let's say... \textbf{fundamental} (hehe) about these solutions, is they have to be linearly independent to each other. Meaning the only solution for
+Now something let's say \textbf{fundamental} about these solutions, is they have to be linearly independent to each other. Meaning the only solution for
 \begin{equation}\label{liniar_independece}
 	c_1 x_1+c_2 x_2 + \dots + c^n x^n = 0
 \end{equation}
@@ -219,7 +220,7 @@ is the trivial solution $c_1=c_2=\dots=c_n=0$ where $x_i$ are the fundamental so
 
 So the reason I've emphasized "\textbf{unique}" in the first 2 cases was because if we're to apply those methods for \textbf{repeating} roots, meaning the ones with multiplicity $k>1$, the resulting solutions wouldn't hold \ref{liniar_independece} because they would in fact be the same!
 
-To counteract this issue, the clever people over at the 1748 Berlin Academy (just Euler) came up with yet another (easily provable) Ansatz: just multiplying by powers of $x$.
+To counteract this issue, the clever people over at the 1748 Berlin Academy (just Euler) came up with yet another (easily provable) Ansatz: multiplying by powers of $x$.
 
 A root with multiplicity $k$ would introduce yet another $k$ -for real- or $2k$ - for complex - fundamental solutions to this equation, so to finish what we've started:
 
@@ -242,7 +243,7 @@ So $2k$ new solutions.
 
 \textbf{The superposition principle}\cite{Hiroki2015}
 
-Bernoulli (to the disbelief of Euler and Lagrange) told us that the complex behavior of vibrating strings can be modeled by separating their motion into well-defined and easy to compute simple waves with known frequencies and amplitudes, which can later be \textbf{superposed} with one-another to form the complete system.
+Bernoulli (to the disbelief of Euler and Lagrange) told us that the complex behavior of vibrating strings can be modeled by separating their motion into well-defined and easy to compute simple waves with known frequencies and amplitudes, which can later be \textbf{superposed} on one another to form the complete system.
 
 This principle can be applied to \textit{our} easier to compute \textbf{fundamental solutions} ($x_1,\dots,x_n$) in relation to the system formed by our linear operator $Lx =0$.
 
@@ -259,9 +260,8 @@ Hence, the complete, final, \textbf{general} solution for \ref{lin_hom_eq_const}
 \]
 for some constants $c_i$.
 \newpage
-\section{Formally defining and characterizing dynamical systems}
-\footcite{Hiroki2015}
-The reason why autonomous equations are so useful to us is because of the ease with which we can visualize the \textbf{evolution} of a system of such equations.
+\section{Formally defining and characterizing dynamical systems}\label{ch:dynamical_systems}
+The reason why autonomous equations are so useful to us is because of the ease with which we can visualize the \textbf{evolution} of a system of such equations. Also well explained by Hiroki in \cite{Hiroki2015}
 Take, for example:
 \begin{definition}
 	A \textbf{system of first-order autonomous equations} is a system of equations of the form
@@ -299,7 +299,7 @@ So keeping this in mind, we may form a formal definition:
 	\end{itemize}
 	In order to give the necessary properties of $\Phi$ we will need to also define:
 	\begin{definition}\label{dyn_sys_orbit_flow_etc_def}
-		\textbf{A lot of notions about dynamical systems.} \cite{hale1996}
+		\textbf{A lot of notions about dynamical systems.} (see Jack K. Hale \cite{hale1996})
 
 		$I(s):= \{ t \in T | (t,s) \in U \}, \forall s \in S$
 
@@ -361,7 +361,7 @@ Starting from any autonomous differential equation
 \[
 	f(y^{(n)}(t), y^{(n-1)}(t), \dots, y(t))= 0
 \]
-via a technique which associates to each respective derivative a state unknown (variable). \cite{eigensteve}
+via a technique which associates to each respective derivative a state unknown (variable). (first got a friendly introduction to this by Steve Brunton on his lectures at the University of Washington \cite{eigensteve})
 This system's form depends on the solvability with respect to the highest derivative $y^{(n)}$.
 The first form may be obtained if the above equation \textbf{can} be solved in terms of $y^{(n)}$, meaning it can be re-written as
 \begin{gather*}
@@ -419,9 +419,9 @@ So the system would be:
 	\end{cases}
 \]
 
-This is a differential-algebraic system of equations (DAE), which is beyond the scope of this thesis but figured I'd cover all cases (this one's usually solved via numerical methods).
+This is a differential-algebraic system of equations (DAE), which is beyond the scope of this thesis but just to be complete, all cases are considered (this one's usually solved via numerical methods).
 
-Okay, but now since we know how to form systems from any autonomous equation \dots how does that make our lives easier in any way?
+Very well, but now since we know how to form systems from any autonomous equation, how does that make our lives easier in any way?
 
 Let's consider \ref{lin_hom_eq_const}, the equation we worked with previously. Now we can express it differently:
 
@@ -451,7 +451,7 @@ then:
 	\end{cases}
 \]
 
-Waitt, I saw this somewhere in year 1, semester 1 during Linear Algebra (which I definitely didn't have to re-take twice)
+I remember seeing this somewhere in year 1, semester 1 during Linear Algebra (which I definitely didn't have to re-take twice)
 That is the same as:
 \begin{align*}
 	\begin{bmatrix}
@@ -494,7 +494,7 @@ Is precisely the char. poly. \ref{lin_eq_char_poly}. So the $r$ solutions for
 \[
 	\det (A - r I_n) =0
 \]
-(a.k.a the eigenvalues of the A matrix) are also the roots of \ref{lin_eq_char_poly}. So solving for them would obtain the solutions
+(also the eigenvalues of the A matrix) are also the roots of \ref{lin_eq_char_poly}. So solving for them would obtain the solutions
 \[
 	x_i = e^{rt}x_i(0) \quad \text{for  } i = \overline{1,n}.
 \]
@@ -542,10 +542,10 @@ so
 	\end{bmatrix}
 	\underline{x}(0)
 \end{align*}
-Where I use $\underline{x}$ to denote the \textbf{vector form} of a the state-space vars.
+Where I use $\underline{x}$ to denote the \textbf{vector form} of the state-space vars.
 In conclusion, it'd be ideal for us to work with such \textbf{diagonal} matrices.
 
-There are, however situations when we don't have that luxury, so we could instead \textbf{transofrm} the way we write our $x$'s (and hence, our transformation as well) in order for us \textbf{diagonalize} our system. This would decouple the system and simplify the computations.
+There are, however situations when we don't have that luxury, so we could instead \textbf{transform} the way we write our $x$'s (and hence, our transformation as well) in order for us \textbf{diagonalize} our system. This would decouple the system and simplify the computations.
 
 This is pretty straight-forward:
 
@@ -561,7 +561,7 @@ s.t. our dynamics are decoupled (the new transformation matrix $D$ is diagonal)
 \[
 	\dot{z} = Dz
 \]
-Derivating \ref{diag_trans_rel} and substituting into \ref{diag_matrix_init_sys}:
+Differentiating \ref{diag_trans_rel} and substituting into \ref{diag_matrix_init_sys}:
 \begin{gather*}
 	\left. x = Tz \middle| \frac{d}{dt} \right. \iff
 	\dot{x} = T\dot{z} = Ax = ATz \Rightarrow \dot{z} = T^{-1} A T z = Dz \\
@@ -606,12 +606,12 @@ Where $T \in \mathcal{M}_n(\mathbb{R})$ and its columns are $A$'s (not necessari
 		\vdots & \vdots & \dots & \vdots \\
 	\end{bmatrix*}
 \end{equation*}
-Boom! You're golden.
+Now you're golden.
 
 Now the transformation only scales the basis vectors in our new coordinate system, and we can use this to our advantage to find solutions in that system, then turn them back into our original system to see which values they correspond to.
 \vskip\bigskipamount
 
-Okay but what if my system is not linear? \textbf{Then} how will forming its corresponding system help me?
+What if my system is not linear, though? \textbf{Then} how will forming its corresponding system help me?
 
 Taking, in particular, a more complex autonomous differential equation; the one for the damped pendulum:
 
@@ -654,7 +654,7 @@ And attach to each point the vector formed from the derivatives of each componen
 \end{bmatrix}
 \end{align}
 
-This would in turn form the phase portrait of the dynamical system, described by a system of first-order autonomous differential equations:
+This would in turn yield the phase portrait of the dynamical system, described by a system of first-order autonomous differential equations:
 \[
 \begin{cases}
 	\dot{\theta}  = \omega \\
@@ -662,7 +662,7 @@ This would in turn form the phase portrait of the dynamical system, described by
 \end{cases}
 \]
 
-Here is some Maple code (\ref{appendix}), courtesy of   \footcite{georgePendulumDemo}, plotting that phase-space for $\mu =0.2 \text{ and } \sqrt{\frac{g}{L}} = 2$:
+Here is some Maple code (more about that in the Appendix \ref{appendix}), courtesy of Glyn George \cite{georgePendulumDemo}, plotting that phase-space for $\mu =0.2 \text{ and } \sqrt{\frac{g}{L}} = 2$:
 \begin{minted}[
     frame=single,
     bgcolor=yellow!5!white,
@@ -677,16 +677,17 @@ Which plots:
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth-7cm]{math_pics/damped-pendulum.png}
-\caption{SVG generated by Maple, x-axis = angle, y=velocity \ref{appendix}}
+\caption{PNG generated by Maple, x-axis = angle, y=velocity \ref{appendix}}
 \label{fig:damped-pendulum}
 \end{figure}
 
-We can observe that the pendulum will not move an inch if it is just left in its "equilibrium" point hanging down ($\omega \equiv \theta \equiv 0$), but that like a coin left on its side, it will also stay still if started at the \textbf{polar} opposite angle in relation to the stability angle ($\omega =0 , \theta = 180 \degree)$, standing up.
+We can observe that the pendulum will not move an inch if it is just left in its "equilibrium" point hanging down ($\omega \equiv \theta \equiv 0$), but that like a coin left on its side, it will also stay still if started at the \textbf{polar} opposite angle in relation to the stability angle $(\omega =0 , \theta = 180^\degree)$, standing up.
 Although, like a coin left standing on its side, even the slightest deviation will get it tumbling down. This can be observed in the system's phase portrait.
 
 \newpage
 
-The study of how much such changes in initial conditions (or just the passing of time itself) influence later behavior  is what we call the \textbf{stability}\footcite{gustafson2013}\footcite{orioloStability} \footcite{maciejowskiHandout2} \footcite{wiensStability} \footcite{mattuck2010Chapter26}.
+The study of how much such changes in initial conditions (or just the passing of time itself) influence later behavior  is what we call the \textbf{stability}.
+Concept which I've been able to grasp way better thanks to the these materials: \cite{gustafson2013, orioloStability, maciejowskiHandout2, wiensStability, mattuck2010Chapter26}.
 
 In general, for a system: \ref{fo_system_auton_eq}, written in the compact form
 \begin{equation}\label{auton_sys_compact}
@@ -726,7 +727,7 @@ And as opposed to, say  a continuum of fixed points we have:
 
 A fixed point $y_0$ is said to be \textbf{isolated} if
 \[
-	\exists \delta > 0 : \forall y \text{ satifying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
+	\exists \delta > 0 : \forall y \text{ satisfying } \norm{y - y_0 } < \delta, \underline{f}(y) \neq 0.
 \]
 \end{definition}
 
@@ -758,7 +759,7 @@ For a 2x2 Linear system with transform matrix $A$, plotting different systems by
 \begin{figure}[H]
 \includegraphics[width=13cm]{math_pics/Stability_Diagram.png}
 \centering
-\caption{Poincaré Diagram (GIMP, free adaptation of \cite{wiensStability})}
+\caption{Poincaré Diagram (GIMP, free adaptation of \cite{wiensStability} from Elmer G. Wiens)}
 \end{figure}
 
 \newpage
@@ -776,7 +777,7 @@ If $f \in C^\infty(\mathbb{R}^n) $, the Taylor about $y_f$:
 \underline{f}(y) = \underline{f}(y_f) + \left. \frac{d \underline{f}}{dy} \right|_{y_f}(y - y_f) + \mathfrak{H}(y - y_f) = J_{\underline{f}}(y_f)(y - y_f) + \mathfrak{H}(y - y_f) \tag{Taylor}
 \end{equation}
 
-$\mathfrak{H}$ is the rest of Taylor's terms which, for values near the one we're analysing can be neglected since everything looks like a line when you're that zoomed-in eitherway.
+$\mathfrak{H}$ is the rest of Taylor's terms which, for values near the one we're analysing can be neglected since everything looks like a line when you're that zoomed-in either way.
 
 $J_{\underline{f}}(y_f)$ is the Jacobian matrix of $\underline{f}$ evaluated at point $y_f$.
 
@@ -851,7 +852,8 @@ But another way of analyzing the stability would be by using one of
 the most fundamental tools during our study, so we'll define and show
 how to obtain:
 
-\textbf{The Routh-Hurwitz matrix and its determinants.} \cite{hairer1993Nonstiff}
+\textbf{The Routh-Hurwitz matrix and its determinants.}
+(Complete demonstrations in \cite{hairer1993Nonstiff} by Ernst Hairer et al., which I've had a blast reading)
 
 English mathematician Edward John Routh was looking at the
 (\ref{eq:lin_approx}) of
@@ -871,7 +873,7 @@ a_0 \lambda^n + a_1 \lambda^{n-1} + \dots + a_{n-1}\lambda + a_n = 0
 To infer the system's stability, as in check
 $ Re(\lambda_0) < 0$,
 
-but can instead instead just simply look at the coefficients of
+but can instead just simply look at the coefficients of
 \ref{lin_apporx_char_equation}: $a_{i}$ to verify it.
 
 To do this he used:
@@ -970,7 +972,7 @@ R := \bigcup_{i \in \left\{ 1, \dots, m-1 \right\} } p_i^{-1}(0) \\
 Hence we have:
 \begin{lemma}\label{sturm_lemma}
 For a seq. of $  (p_k)_{k = \overline{0,m}} \subset \mathbb{R}[X]$
-that satifies:
+that satisfies:
 
 \rom{1}
 $ deg(p_0) > deg(p_1), $
@@ -1093,7 +1095,7 @@ Meaning the system is stable.
 
 $arg(p_0,p_1) = 360^\degree - arg(\text{Re}(p),
 \text{Im}(p)) \implies \frac{n}{2}$ positive rotations of $p(ix)$ are
-bascially $\frac{n}{2}$ neg. rot. of $(p_0(x), p_1(x))$. If
+basically $\frac{n}{2}$ neg. rot. of $(p_0(x), p_1(x))$. If
 $Re(\lambda) < 0, \forall \lambda \in p(\lambda)^{-1}(0) \implies$ (
 from  \ref{cauchy_arg_lemma}, \ref{sturm_lemma} ) $w(\infty) - w( -
 \infty) = -n$. Could only be for $w(\infty) = 0, w(- \infty) = n$,
@@ -1131,7 +1133,7 @@ with the exception that $a_k = 0$ if $k \notin \left\{0, \dots , n\right\}$
 
 He's shown that condition \rom{2} of \ref{routh_theorem} (hence $\text{ Re }(\lambda)< 0, \forall \lambda \in p^{-1}(0)$ with $a_0 > 0$ as well) $\iff \det (H_i) \forall i = \overline{1,n}$
 
-So this is what's used to show the stability of the linear system (or linearization of a non-linear one), computing matrices of coefficients of the charracteristic polynomial, instead of having to compute Eig($J$) directly.
+So this is what's used to show the stability of the linear system (or linearization of a non-linear one), computing matrices of coefficients of the characteristic polynomial, instead of having to compute Eig($J$) directly.
 \end{theorem}
 
 We'll use this later during the section about \textbf{bifurcations} as well.

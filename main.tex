@@ -8,7 +8,10 @@
 \usepackage{minted}
 \setminted{python3=true}
 
-\usepackage[backend=biber]{biblatex}
+\usepackage[
+	backend=biber,
+	backref=true
+]{biblatex}
 \addbibresource{references.bib}
 % sa apara in loc de numar, entry keyu
 \DeclareLabelalphaTemplate{
@@ -81,10 +84,10 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
-% sa facem teorma gotica lmao
+% sa facem teorma gotica gen
 \usepackage{yfonts}
 
-% pt cand vreau doar sa apara naibii figura fix acolo unde vreau
+% pt cand vreau doar sa apara figura fix acolo unde vreau
 \usepackage{float}
 
 \usepackage{epigraph}
@@ -130,7 +133,7 @@
 \newtheorem{proposition}{Proposition}
 
 \specialization{Math \& Computer Science, English}
-\title{Proving the existence and absence of Hopf bifurcation in some cyclic Phosphorylation-Dephosphorylation reaction networks	}
+\title{Proving the existence and absence of Hopf bifurcations in some cyclic Phosphorylation-Dephosphorylation reaction networks	}
 \author{Stan Ioan-Victor}
 \supervisor{Lect. Dr. Lorand Gabriel Parajdi}
 
