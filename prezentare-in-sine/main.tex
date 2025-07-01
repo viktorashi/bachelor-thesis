@@ -46,7 +46,7 @@ backref=true]{biblatex}
 \AtBeginSection[]
 {
 \begin{frame}
-	\frametitle{Outline}
+	\frametitle{Presentation Outline}
 	\tableofcontents[currentsection]
 \end{frame}
 }
@@ -57,15 +57,15 @@ backref=true]{biblatex}
 \titlepage
 \end{frame}
 
-\begin{frame}{Outline}
+\begin{frame}{Presentation Outline}
 \tableofcontents
 \end{frame}
 
 % --- Section 1: Why Study Chemical Networks? ---
-\section{Why Study Chemical Networks?}
+\section{Thesis summary}
 
 \begin{frame}{\insertsectionhead}
-\frametitle{The Importance of Biological Oscillations}
+\frametitle{Summary of the Thesis}
 \begin{itemize}
 	\item Many biological processes are not static; they \alert{oscillate} or cycle over time. Think of:
 		\begin{itemize}
@@ -74,13 +74,13 @@ backref=true]{biblatex}
 			\item \textbf{Cell Cycle:} The ordered series of events leading to cell division and duplication.
 			\item \textbf{Hormonal Cycles:} Regular fluctuations in hormone levels (e.g., menstrual cycle).
 		\end{itemize}
-	\item These rhythms are often driven by complex networks of interacting molecules - \alert{Chemical Reaction Networks (CRNs)}.
-	\item Understanding how these networks generate oscillations is crucial to understanding life's phenomena.
+	\item These cycles are often driven by networks of interacting molecules - \alert{Chemical Reaction Networks (CRNs)}.
+	\item We introduce all the theoretical background needed to understand our analysis.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{\insertsectionhead}
-\frametitle{Phosphorylation: A Key Regulator \& Its Rhythms}
+\frametitle{Phosphorylation: A Key Regulator}
 \begin{itemize}
 	\item \alert{Phosphorylation} (adding a phosphate group to a protein) and \alert{dephosphorylation} (removing it) are like molecular on/off switches.
 	\item They are fundamental to \alert{cellular communication (signal transduction)}, controlling a vast array of cellular processes:
@@ -156,9 +156,9 @@ backref=true]{biblatex}
 \begin{align*}
 	A + C \xrightarrow{k_{1}} 2A \\
 	B + C \xrightarrow{k_{2}} 2B  \\
-	A \xrightarrow{k_{3}} \emptyset \\
-	B \xrightarrow{k_{4}} \emptyset \\
-	\emptyset \xrightarrow{k_{5}} C
+	A \xrightarrow{k_{3}} 0 \\
+	B \xrightarrow{k_{4}} 0 \\
+	0 \xrightarrow{k_{5}} C
 \end{align*}
 \end{frame}
 
@@ -440,7 +440,7 @@ You can even see the resemblance in the way they look
 			a_0 & a_2 & a_4 & \dots \\
 			0 & a_1 & a_3 & \dots \\
 			\vdots & \vdots & \ddots & \vdots \\
-			0 & \dots & & a_n
+			0 & \dots & \dots & a_n
 		\end{pmatrix}
 		= (a_{2j - i})_{ij}$$
 		($a_k = 0$ if $k<0$ or $k>n$).
@@ -460,8 +460,8 @@ For a system of effective degree $s \ge 2$ (after factoring out zero eigenvalues
 These ensure one pair of purely imaginary eigenvalues crosses the axis, others stable.
 \end{frame}
 
-\begin{frame}{\insertsectionhead}
-\frametitle{(Thm.) Ruling Out Hopf Bifurcations}
+\begin{frame}{\insertsectionhead}\label{thm:rule-out-bifurcations}
+\frametitle{(Theorem) Ruling Out Hopf Bifurcations}
 No simple Hopf bifurcation along $x^*(\mu)$ if, for all relevant $\mu$:
 \begin{itemize}
 	\item $\det H_1(\mu) > 0, \dots, \det H_{s-2}(\mu) > 0$ (preliminary stability for other roots),
@@ -588,14 +588,16 @@ Where the "species to index mapping" is:
 		Whose Hurwitz is pretty huge (will always overflow \LaTeX).
 \end{itemize}
 But do trust me that:
-\begin{itemize}
-	\item Effective degree $s=3$. Critical Hurwitz determinant is $\det H_2(h,\lambda)$.
-	\item Analysis shows for $\mathcal{N}_1$:
-		$\det H_1(h, \lambda) > 0$, $\det H_2(h, \lambda) > 0$, $a_3(h, \lambda) > 0$, meaning
-	\item $a_3(k, x^*) > 0$ (highest degree polynomial coefficient)
-	\item Since $\det H_2(h, \lambda)$ is always positive (sum of positive monomials)
-	\item \alert{Conclusion}: Network $\mathcal{N}_1$ does not admit simple Hopf bifurcations.
-\end{itemize}
+\begin{theorem}
+	\begin{itemize}
+		\item Effective degree $s=3$. Critical Hurwitz determinant is $\det H_2(h,\lambda)$.
+		\item Analysis shows for $\mathcal{N}_1$:
+			$\det H_1(h, \lambda) > 0$, $\det H_2(h, \lambda) > 0$, $a_3(h, \lambda) > 0$, meaning
+		\item $a_3(k, x^*) > 0$ (highest degree polynomial coefficient)
+		\item Since $\det H_2(h, \lambda)$ is always positive (sum of positive monomials)
+	\end{itemize}
+	So since Network $\mathcal{N}_1$ goes against the theorem on page  \ref{thm:rule-out-bifurcations}, it does not admit simple Hopf bifurcations.
+\end{theorem}
 \end{frame}
 
 % --- Section 7: Case Study: Network N2 - Finding Oscillations ---
@@ -787,13 +789,19 @@ Getting, different $k$'s and initial values for bifurcations.
 	\label{fig:full_net_oscillations}
 	\caption{\tiny Oscillations of the full $\mathcal{N}_3$ network}
 \end{figure}
-
 \end{frame}
+
+\begin{frame}
+\begin{theorem}
+	Network $\mathcal{N}_2$ admits Hopf bifurcations for the aforementioned rate constants and initial conditions.
+\end{theorem}
+\end{frame}
+
 % --- Section 8: Conclusion ---
 \section{Conclusion}
 
 \begin{frame}{\insertsectionhead}
-\frametitle{Summary: Unveiling Chemical Rhythms}
+\frametitle{Summary: Unveiling Chemical Networks}
 \begin{itemize}
 	\item Hopf bifurcations are critical for understanding how \alert{oscillations} arise in CRNs.
 	\item This is vital for (de)phosphorylation networks, which underpin cellular signaling and control.
