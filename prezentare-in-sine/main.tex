@@ -39,7 +39,7 @@ backref=true]{biblatex}
 % \definecolor{ITMOred}{RGB}{200,0,0}
 
 \title[Hopf Bifurcations in CRNs]{Proving existence and ruling out of Hopf bifurcations in Phosphorylation–Dephosphorylation reaction networks}
-\author{Stan Ioan-Victor}
+\author{Stan Ioan-Victor \\[3mm] Lect. dr. Parajdi Lorand}
 \date{\today}
 \institute{UBB MIE3}
 
@@ -61,8 +61,8 @@ backref=true]{biblatex}
 \tableofcontents
 \end{frame}
 
-% --- Section 1: Why Study Chemical Rhythms? ---
-\section{Why Study Chemical Rhythms?}
+% --- Section 1: Why Study Chemical Networks? ---
+\section{Why Study Chemical Networks?}
 
 \begin{frame}{\insertsectionhead}
 \frametitle{The Importance of Biological Oscillations}
@@ -113,7 +113,7 @@ backref=true]{biblatex}
 
 \begin{frame}{\insertsectionhead}
 \frametitle{What is a Chemical Reaction Network (CRN)?}
-A CRN consists of:
+(thanks to my Proffesor's presentation \cite{Parajdi2024})A CRN consists of:
 \begin{itemize}
 	\item A set of $\left|S\right| = n$ chemical \alert{species} $S = \{X_1, \dots, X_n\}$.
 	\item A set of $r$ \alert{reactions}, each of the form:
@@ -530,12 +530,12 @@ For $K + S_0 \rightleftharpoons KS_0 \rightarrow K + S_1$, $F + S_1 \rightleftha
 \begin{align*}
 	\begin{cases*}
 		\begin{array}{ll}
-			\dot{x}_1(t) = -k_4 x_1(t) *x_6(t)+k_5 x_2(t)+k_6 x_2(t) \\
-			\dot{x}_2(t) = k_4 x_1(t) *x_6(t)-k_5 x_2(t)-k_6 x_2(t) \\
-			\dot{x}_3(t) = -k_1 x_3(t) *x_5(t)+k_2 x_4(t)+k_3 x_4(t) \\
-			\dot{x}_4(t) = k_1 x_3(t) *x_5(t)-k_2 x_4(t)-k_3 x_4(t) \\
-			\dot{x}_5(t) = -k_1 x_3(t) *x_5(t)+k_2 x_4(t)+k_6 x_2(t) \\
-			\dot{x}_6(t) = k_3 x_4(t)-k_4 x_1(t) *x_6(t)+k_5 x_2(t) \\
+			\dot{x}_1(t) = -k_4 x_1(t) x_6(t)+k_5 x_2(t)+k_6 x_2(t) \\
+			\dot{x}_2(t) = k_4 x_1(t) x_6(t)-k_5 x_2(t)-k_6 x_2(t) \\
+			\dot{x}_3(t) = -k_1 x_3(t) x_5(t)+k_2 x_4(t)+k_3 x_4(t) \\
+			\dot{x}_4(t) = k_1 x_3(t) x_5(t)-k_2 x_4(t)-k_3 x_4(t) \\
+			\dot{x}_5(t) = -k_1 x_3(t) x_5(t)+k_2 x_4(t)+k_6 x_2(t) \\
+			\dot{x}_6(t) = k_3 x_4(t)-k_4 x_1(t) x_6(t)+k_5 x_2(t) \\
 		\end{array}	
 	\end{cases*}		
 \end{align*}
@@ -815,7 +815,6 @@ Getting, different $k$'s and initial values for bifurcations.
 \Huge Thank You!
 \vfill
 Questions? \\
-{\small (please don't) }
 \vfill
 \end{frame}
 
