@@ -116,6 +116,7 @@ backref=true]{biblatex}
 \begin{frame}{\insertsectionhead}
 \frametitle{Phosphorylation: A Key Regulator}
 \begin{itemize}
+		\small
 	\item \alert{Phosphorylation} (adding a phosphate group to a protein) and \alert{dephosphorylation} (removing it) are like molecular on/off switches.
 	\item They are fundamental to \alert{cellular communication (signal transduction)}, controlling a vast array of cellular processes:
 		\begin{itemize}
@@ -132,9 +133,8 @@ backref=true]{biblatex}
 		\end{itemize}
 	\item Studying \alert{Hopf bifurcations} in these (de)phosphorylation CRNs helps us understand how these systems can switch from stable states to oscillatory behavior, providing insights into both normal function and disease mechanisms.
 \end{itemize}
-\end{frame}
+\textbf{The thesis was also presented at the Student Scientific Communication Session in Mathematics, on May 24th, 2025.}
 
-\begin{frame}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{pics/phosphorylation.png}
@@ -728,12 +728,20 @@ Now using our app:
 \[
 	\includegraphics[width=0.4\linewidth]{pics/creca-prima-data-cand-am-scris-asta.png}
 \]
+
 \end{frame}
 
 \begin{frame}[fragile]
 
-And with the initial conditions
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{pics/tsr-input.png}\\
+\end{figure}
 
+And with the initial conditions and reaction constants
+
+{
+	\small
 \begin{lstlisting}
     F = 0.874108
     FS2 = 7.620157734
@@ -747,6 +755,7 @@ And with the initial conditions
     k4 = 0.1329759342
     k5 = 1
 \end{lstlisting}
+}
 
 \end{frame}
 
@@ -937,8 +946,10 @@ Getting, different $k$'s and initial values for bifurcations.
 
 \begin{frame}
 \begin{theorem}
-	Network $\mathcal{N}_2$ admits Hopf bifurcations for the aforementioned rate constants and initial conditions.
+	Network $\mathcal{N}_3$ admits Hopf bifurcations for the aforementioned rate constants and initial conditions.
 \end{theorem}
+
+I've also had the
 \end{frame}
 
 % --- Section 8: Conclusion ---
