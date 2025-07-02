@@ -11,6 +11,40 @@
 backref=true]{biblatex}
 \addbibresource{references.bib}
 
+\usepackage{xcolor}
+\usepackage{listings}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}
+
+\usepackage{minted}
+\setminted{python3=true}
+
 \setcounter{biburlnumpenalty}{9000} % Allow breaks after numbers
 \setcounter{biburlucpenalty}{9000} % Allow breaks after uppercase letters
 \setcounter{biburllcpenalty}{9000} % Allow breaks after lowercase letters
@@ -600,8 +634,7 @@ But do trust me that:
 \end{theorem}
 \end{frame}
 
-% --- Section 7: Case Study: Network N2 - Finding Oscillations ---
-\section{$\mathcal{N}_3$}
+\section{$\mathcal{N}_2$}
 
 \begin{frame}{\insertsectionhead}
 \frametitle{Simplification: Single Extreme Ray Case}
@@ -619,7 +652,118 @@ If the steady-state flux cone is a single ray ($l=1$, $v^* = \lambda_1 E_1$):
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\begin{figure}[H]
+	\includegraphics[width=0.4\linewidth]{pics/ex3-bifurcations.png}
+	\centering
+\end{figure}
+\begin{align}\label{network2}
+	S_{0} + K \xrightleftharpoons[ k_2 ]{k_1} KS_{0} \xrightarrow{k_3} K S_1 \xrightleftharpoons{k_4} S_2 + K \tag{$\mathcal{N}_2$} \\
+	S_{2} + F \xrightleftharpoons[ k_6 ]{k_5} FS_{2} \xrightarrow{k_7} S_1 + F \xrightleftharpoons[k_9]{k_8} FS_1 \xrightarrow{k_{10}} S_0 + F \notag
+\end{align}
+
+Simplify by reversible reactions, thanks to the presesrving of bifurcations due to this opperation, studied in \cite{banaji2017}:
+\begin{align}\label{network2_irr}
+	S_{0} + K \xrightarrow{k_1} KS_{0} \xrightarrow{k_2} K S_1 \xrightarrow{k_3} S_2 + K \tag{$\mathcal{N}_2 / IR $} \\
+	S_{2} + F \xrightarrow{k_4} FS_{2} \xrightarrow{k_5} S_1 + F \xrightarrow{k_6} FS_1 \xrightarrow{k_{7}} S_0 + F \notag
+\end{align}
+\end{frame}
+
+\begin{frame}
+Simplifying even further, removing reactions whose reaction vectors are linearly dependent of the original ones:
+
+\begin{align}\label{network2_irr_s}
+	S_{0} \xrightarrow{k_1} KS_{0} \xrightarrow{k_2} K S_1 \xrightarrow{k_3} S_2 \tag{$\mathcal{N}_2 / IR / S$} \\
+	S_{2} + F \xrightarrow{k_4} FS_{2} \xrightarrow{k_5} F \xrightarrow{k_6} FS_1 \xrightarrow{k_{7}} S_0 + F \notag
+\end{align}
+
+And even further by removing $FS_1$,$KS_0$ and their corresponding $2$ reactions, dipping from rank $\Gamma_{\text{\ref{network2_irr_s}}}$ = 6 to rank $\Gamma_{\text{\ref{network2_irr_ss}}}$ = 4.
+\begin{align}\label{network2_irr_ss}
+	S_{0} \xrightarrow{k_1} KS_{1} \xrightarrow{k_2} S_2 \tag{$\mathcal{N}_2 / IR / SS$} \\
+	S_{2} + F \xrightarrow{k_3} FS_{2} \xrightarrow{k_4} F \xrightarrow{k_{5}} S_0 + F \notag
+\end{align}
+
+So if $\exists$ bifurcations in \ref{network2_irr_ss} $\implies$ \ref{network2_irr_s} $\implies$ \ref{network2_irr} $\implies$ \ref{network2}.
+\end{frame}
+
+\begin{frame}
+\[
+	J_{\text{\ref{network2_irr_ss}}}(h,\lambda)=
+	\begin{bmatrix}-\lambda h_{1}&0&0&\lambda h_{4}&0\\\lambda h_{1}&-\lambda h_{2}&0&0&0\\0&\lambda h_{2}&-\lambda h_{3}&-\lambda h_{4}&0\\0&0&-\lambda h_{3}&-\lambda h_{4}&\lambda h_{5}\\0&0&\lambda h_{3}&\lambda h_{4}&-\lambda h_{5}
+	\end{bmatrix}.
+\]
+\[
+	det(zI-J_A(h,\lambda))=z[a_0(h,\lambda)z^4+a_1(h,\lambda)z^3+a_2(h,\lambda)z^2+a_3(h,\lambda)z+a_4(h,\lambda)].
+\]
+
+And we can use the simplification above since:
+$E^T = \left(1,1,1,1,1\right)$
+Also, we can tell that
+\[
+	\forall h > 0 : a_{0}(h,\lambda)>0,\ldots,a_{4}(h,\lambda)>0\quad \text{ and } \quad\det H_{1}(h,\lambda)>0,\det H_{2}(h,\lambda)>0.
+\]
+
+Through good choices of $h$'s
+\begin{align*}
+	\det \text{H}_3 &=
+	t^2 \lambda^6
+	(
+		8t^4 + 24t^3h_3 + 16t^3h_4 + 24t^2h_3^2 + \\
+		23t^2h_3h_4+ 10t^2h_4^2 + 8th_3 \\
+		+ 10th_3^2h_4 + 4th_3h_4^2 +
+		2th_4^3 - h_3h_4 - 2h_3^2h_4^2 - h_3h_4^3
+	) \\
+	&= 	t^2 \lambda^6 \cdot g(t)
+\end{align*}
+
+\end{frame}
+
+\begin{frame}
+\begin{theorem}
+	Through the \alert{Intermediate Value Theorem} as well
+	$\implies t_1$ for which $\det \text{H}_3(t_1) = 0$, $\frac{d  \det \text{H}_3(t_1) }{dt} > 0 \implies$		
+	\ref{network2_irr_ss} has bifurcations $\implies$ \ref{network2} does as well.
+\end{theorem}
+Now using our app:
+\[
+	\includegraphics[width=0.4\linewidth]{pics/creca-prima-data-cand-am-scris-asta.png}
+\]
+\end{frame}
+
+\begin{frame}[fragile]
+
+And with the initial conditions
+
+\begin{lstlisting}
+    F = 0.874108
+    FS2 = 7.620157734
+    KS1 = 7.620157734
+    S0 = 7.270157734
+    S2 = 0.6
+
+    k1 = 0.1329759342
+    k2 = 0.1329759342
+    k3 = 2
+    k4 = 0.1329759342
+    k5 = 1
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}
+outcomes the graph:
+
+\[
+	\includegraphics[width=0.5\linewidth]{pics/a-graph-indeed.png}\\
+\].
+
+\end{frame}
+
+% --- Section 7: Case Study: Network N2 - Finding Oscillations ---
+\section{$\mathcal{N}_3$}
+
 \begin{frame}{\insertsectionhead}
+
 \frametitle{$\mathcal{N}_3$: A Cyclic Double Phosphorylation System}
 Consider the cyclic, distributive double (de)phosphorylation system
 \begin{figure}[H]
