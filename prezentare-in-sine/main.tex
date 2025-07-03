@@ -72,8 +72,8 @@ backref=true]{biblatex}
 % \definecolor{ITMOblue}{RGB}{0,70,132}
 % \definecolor{ITMOred}{RGB}{200,0,0}
 
-\title[Hopf Bifurcations in CRNs]{Proving existence and ruling out of Hopf bifurcations in Phosphorylation–Dephosphorylation reaction networks}
-\author{Stan Ioan-Victor \\[3mm] Lect. dr. Parajdi Lorand}
+\title[Hopf Bifurcations in CRNs]{Proving the existence and absence out of Hopf bifurcations in Phosphorylation–Dephosphorylation reaction networks}
+\author{Stan Ioan-Victor \\[3mm] Lect. dr. Parajdi Lorand Gabriel}
 \date{\today}
 \institute{UBB MIE3}
 
@@ -540,14 +540,15 @@ No simple Hopf bifurcation along $x^*(\mu)$ if, for all relevant $\mu$:
 For $K + S_0 \rightleftharpoons KS_0 \rightarrow K + S_1$, $F + S_1 \rightleftharpoons FS_1 \rightarrow F + S_0$ ($\mathcal{N}_1$):
 \begin{align*}
 	\Gamma &=
-	\begin{pmatrix}
-		K & -1 &  1 &  1 &  0 &  0 &  0 \\
-		S0& -1 &  1 &  0 &  0 &  0 &  1 \\
-		KS0 &  1& -1& -1 &  0 &  0 &  0 \\
-		S1 &  0 &  0 &  1& -1 &  1 &  0 \\
-		F &  0 &  0 &  0& -1 &  1 &  1 \\
-		FS1 &  0 &  0 &  0 &  1& -1& -1  \\		
-	\end{pmatrix}, \quad \text{rank}(\Gamma) = 3 \\[3ex]
+	\bordermatrix{  & \cr
+		K & -1 &  1 &  1 &  0 &  0 &  0 \cr
+		S0& -1 &  1 &  0 &  0 &  0 &  1 \cr
+		KS0 &  1& -1& -1 &  0 &  0 &  0 \cr
+		S1 &  0 &  0 &  1& -1 &  1 &  0 \cr
+		F &  0 &  0 &  0& -1 &  1 &  1 \cr
+		FS1 &  0 &  0 &  0 &  1& -1& -1  \cr
+	}
+	,\quad \text{rank}(\Gamma) = 3 \\[3ex]
 	\Gamma_L &=
 	\begin{bmatrix}
 		1&0&0&0&0&0\\
